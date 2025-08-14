@@ -1,346 +1,583 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
-  <head>
-    <title>Dhanam Finance — Policies</title>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	<head>
+		<title>Dhanam Finance — Policies</title>
+		<meta charset="utf-8" />
+		<meta
+			name="viewport"
+			content="width=device-width, initial-scale=1, shrink-to-fit=no"
+		/>
 
-    <!-- Fonts & Icon set used by the template -->
-    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,700" rel="stylesheet">
-    <link rel="stylesheet" href="fonts/icomoon/style.css">
+		<!-- Fonts & Icon set used by the template -->
+		<link
+			href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,700"
+			rel="stylesheet"
+		/>
+		<link rel="stylesheet" href="fonts/icomoon/style.css" />
 
-    <!-- Template CSS bundle -->
-    <link rel="stylesheet" href="css/bootstrap.min.css">
-    <link rel="stylesheet" href="css/jquery-ui.css">
-    <link rel="stylesheet" href="css/owl.carousel.min.css">
-    <link rel="stylesheet" href="css/owl.theme.default.min.css">
-    <link rel="stylesheet" href="css/jquery.fancybox.min.css">
-    <link rel="stylesheet" href="css/bootstrap-datepicker.css">
-    <link rel="stylesheet" href="fonts/flaticon/font/flaticon.css">
-    <link rel="stylesheet" href="css/aos.css">
-    <link rel="stylesheet" href="css/style.css">
+		<!-- Template CSS bundle -->
+		<link rel="stylesheet" href="css/bootstrap.min.css" />
+		<link rel="stylesheet" href="css/jquery-ui.css" />
+		<link rel="stylesheet" href="css/owl.carousel.min.css" />
+		<link rel="stylesheet" href="css/owl.theme.default.min.css" />
+		<link rel="stylesheet" href="css/jquery.fancybox.min.css" />
+		<link rel="stylesheet" href="css/bootstrap-datepicker.css" />
+		<link rel="stylesheet" href="fonts/flaticon/font/flaticon.css" />
+		<link rel="stylesheet" href="css/aos.css" />
+		<link rel="stylesheet" href="css/style.css" />
 
-    <!-- Page-specific polish -->
-    <style>
-      :root{
-        --brand:#2563ff;         /* matches the primary blue from index */
-        --ink:#0b1020;
-        --card-bg:#ffffff;
-        --muted:#6b7280;
-      }
-      /* Header logo appearance to match index */
-      .site-logo a{ color:#0b1020; }
-      .site-logo a .text-primary{ color:var(--brand)!important; }
+		<!-- Page-specific polish -->
+		<style>
+			:root {
+				--brand: #2563ff; /* matches the primary blue from index */
+				--ink: #0b1020;
+				--card-bg: #ffffff;
+				--muted: #6b7280;
+			}
+			/* Header logo appearance to match index */
+			.site-logo a {
+				color: #0b1020;
+			}
+			.site-logo a .text-primary {
+				color: var(--brand) !important;
+			}
 
-      /* Hero */
-      .policies-hero{
-        background-image:url("images/hero_2.jpg");
-        background-size:cover;background-position:center;
-        position:relative;
-      }
-      .policies-hero::after{
-        content:"";position:absolute;inset:0;background:rgba(15,23,42,.55);
-      }
-      .policies-hero .wrap{
-        position:relative;z-index:1;color:#fff;padding:100px 0 90px;
-      }
-      .breadcrumbs a{ color:#cbd5e1; }
-      .breadcrumbs .sep{ opacity:.6; margin:0 .35rem; }
+			/* Hero */
+			.policies-hero {
+				background-image: url("images/hero_2.jpg");
+				background-size: cover;
+				background-position: center;
+				position: relative;
+			}
+			.policies-hero::after {
+				content: "";
+				position: absolute;
+				inset: 0;
+				background: rgba(15, 23, 42, 0.55);
+			}
+			.policies-hero .wrap {
+				position: relative;
+				z-index: 1;
+				color: #fff;
+				padding: 100px 0 90px;
+			}
+			.breadcrumbs a {
+				color: #cbd5e1;
+			}
+			.breadcrumbs .sep {
+				opacity: 0.6;
+				margin: 0 0.35rem;
+			}
 
-      /* Grid */
-      .policy-grid{
-        display:grid;
-        grid-template-columns:repeat(12,1fr);
-        gap:28px;
-      }
-      @media (max-width: 1199.98px){ .policy-grid{ grid-template-columns:repeat(8,1fr);} }
-      @media (max-width: 767.98px){ .policy-grid{ grid-template-columns:repeat(4,1fr);} }
-      @media (max-width: 479.98px){ .policy-grid{ grid-template-columns:repeat(2,1fr);} }
+			/* Grid */
+			.policy-grid {
+				display: grid;
+				grid-template-columns: repeat(12, 1fr);
+				gap: 28px;
+			}
+			@media (max-width: 1199.98px) {
+				.policy-grid {
+					grid-template-columns: repeat(8, 1fr);
+				}
+			}
+			@media (max-width: 767.98px) {
+				.policy-grid {
+					grid-template-columns: repeat(4, 1fr);
+				}
+			}
+			@media (max-width: 479.98px) {
+				.policy-grid {
+					grid-template-columns: repeat(2, 1fr);
+				}
+			}
 
-      .policy-card{
-        grid-column:span 3;
-        background:var(--card-bg);
-        border-radius:16px;
-        padding:26px 24px;
-        box-shadow:0 10px 30px rgba(2,8,23,.06);
-        border:1px solid rgba(2,8,23,.06);
-        transition:transform .35s cubic-bezier(.2,.8,.2,1), box-shadow .35s, border-color .35s;
-        position:relative; overflow:hidden;
-      }
-      .policy-card:hover{
-        transform:translateY(-6px);
-        box-shadow:0 18px 40px rgba(2,8,23,.12);
-        border-color:rgba(37,99,255,.25);
-      }
-      .policy-title{
-        font-weight:800; letter-spacing:.2px; line-height:1.35;
-        color:var(--ink); margin:0;
-      }
-      .policy-meta{
-        margin-top:10px; font-size:.9rem; color:var(--muted);
-      }
-      .policy-action{
-        position:absolute; right:16px; bottom:14px;
-        font-size:.9rem; font-weight:700; color:var(--brand);
-        display:inline-flex; align-items:center; gap:.4rem;
-      }
-      .policy-action .icon-arrow-right{ transform:translateX(0); transition:transform .25s; }
-      .policy-card:hover .policy-action .icon-arrow-right{ transform:translateX(4px); }
+			.policy-card {
+				grid-column: span 3;
+				background: var(--card-bg);
+				border-radius: 16px;
+				padding: 26px 24px;
+				box-shadow: 0 10px 30px rgba(2, 8, 23, 0.06);
+				border: 1px solid rgba(2, 8, 23, 0.06);
+				transition: transform 0.35s cubic-bezier(0.2, 0.8, 0.2, 1),
+					box-shadow 0.35s, border-color 0.35s;
+				position: relative;
+				overflow: hidden;
+			}
+			.policy-card:hover {
+				transform: translateY(-6px);
+				box-shadow: 0 18px 40px rgba(2, 8, 23, 0.12);
+				border-color: rgba(37, 99, 255, 0.25);
+			}
+			.policy-title {
+				font-weight: 800;
+				letter-spacing: 0.2px;
+				line-height: 1.35;
+				color: var(--ink);
+				margin: 0;
+			}
+			.policy-meta {
+				margin-top: 10px;
+				font-size: 0.9rem;
+				color: var(--muted);
+			}
+			.policy-action {
+				position: absolute;
+				right: 16px;
+				bottom: 14px;
+				font-size: 0.9rem;
+				font-weight: 700;
+				color: var(--brand);
+				display: inline-flex;
+				align-items: center;
+				gap: 0.4rem;
+			}
+			.policy-action .icon-arrow-right {
+				transform: translateX(0);
+				transition: transform 0.25s;
+			}
+			.policy-card:hover .policy-action .icon-arrow-right {
+				transform: translateX(4px);
+			}
 
-      /* Subtle floating shimmer on hover */
-      .policy-card::before{
-        content:""; position:absolute; inset:-40% -60% auto auto;
-        width:180%; height:140%;
-        background:conic-gradient(from 200deg at 50% 50%, transparent 0 60%, rgba(37,99,255,.07) 60% 70%, transparent 70% 100%);
-        transform:rotate(3deg); opacity:0; transition:opacity .35s;
-      }
-      .policy-card:hover::before{ opacity:1; }
+			/* Subtle floating shimmer on hover */
+			.policy-card::before {
+				content: "";
+				position: absolute;
+				inset: -40% -60% auto auto;
+				width: 180%;
+				height: 140%;
+				background: conic-gradient(
+					from 200deg at 50% 50%,
+					transparent 0 60%,
+					rgba(37, 99, 255, 0.07) 60% 70%,
+					transparent 70% 100%
+				);
+				transform: rotate(3deg);
+				opacity: 0;
+				transition: opacity 0.35s;
+			}
+			.policy-card:hover::before {
+				opacity: 1;
+			}
 
-      /* Section spacing */
-      .section-pad{ padding:64px 0 90px; }
-    </style>
-  </head>
+			/* Section spacing */
+			.section-pad {
+				padding: 64px 0 90px;
+			}
+		</style>
+	</head>
 
-  <body data-spy="scroll" data-target=".site-navbar-target" data-offset="300">
+	<body data-spy="scroll" data-target=".site-navbar-target" data-offset="300">
+		<div id="overlayer"></div>
+		<div class="loader">
+			<div class="spinner-border text-primary" role="status">
+				<span class="sr-only">Loading...</span>
+			</div>
+		</div>
 
-    <div id="overlayer"></div>
-    <div class="loader">
-      <div class="spinner-border text-primary" role="status"><span class="sr-only">Loading...</span></div>
-    </div>
+		<div class="site-wrap">
+			<!-- Mobile menu kept by template -->
+			<div class="site-mobile-menu site-navbar-target">
+				<div class="site-mobile-menu-header">
+					<div class="site-mobile-menu-close mt-3">
+						<span class="icon-close2 js-menu-toggle"></span>
+					</div>
+				</div>
+				<div class="site-mobile-menu-body"></div>
+			</div>
 
-    <div class="site-wrap">
+			<!-- Header — mirrors index look/links -->
+			<header
+				class="site-navbar js-sticky-header site-navbar-target"
+				role="banner"
+			>
+				<div class="container">
+					<div class="row align-items-center">
+						<div class="col-6 col-xl-2">
+							<h1 class="mb-0 site-logo">
+								<a href="index.html" class="h2 mb-0"
+									>Dhanam Finance<span class="text-primary">.</span></a
+								>
+							</h1>
+						</div>
 
-      <!-- Mobile menu kept by template -->
-      <div class="site-mobile-menu site-navbar-target">
-        <div class="site-mobile-menu-header">
-          <div class="site-mobile-menu-close mt-3"><span class="icon-close2 js-menu-toggle"></span></div>
-        </div>
-        <div class="site-mobile-menu-body"></div>
-      </div>
+						<div class="col-12 col-md-10 d-none d-xl-block">
+							<nav
+								class="site-navigation position-relative text-right"
+								role="navigation"
+							>
+								<ul
+									class="site-menu main-menu js-clone-nav mr-auto d-none d-lg-block"
+								>
+									<li>
+										<a href="index.html#home-section" class="nav-link">Home</a>
+									</li>
+									<li class="has-children">
+										<a href="index.html#about-section" class="nav-link"
+											>About Us</a
+										>
+										<ul class="dropdown">
+											<li>
+												<a href="index.html#services-section" class="nav-link"
+													>Services</a
+												>
+											</li>
+											<li>
+												<a href="index.html#contact-section" class="nav-link"
+													>Contact</a
+												>
+											</li>
+										</ul>
+									</li>
+									<li class="active">
+										<a href="single.html" class="nav-link">Policies</a>
+									</li>
+									<li class="social">
+										<a href="#contact-section" class="nav-link"
+											><span class="icon-facebook"></span
+										></a>
+									</li>
+									<li class="social">
+										<a href="#contact-section" class="nav-link"
+											><span class="icon-instagram"></span
+										></a>
+									</li>
+									<li class="social">
+										<a href="#contact-section" class="nav-link"
+											><span class="icon-twitter"></span
+										></a>
+									</li>
+									<li class="social">
+										<a href="#contact-section" class="nav-link"
+											><span class="icon-linkedin"></span
+										></a>
+									</li>
+								</ul>
+							</nav>
+						</div>
 
-      <!-- Header — mirrors index look/links -->
-      <header class="site-navbar js-sticky-header site-navbar-target" role="banner">
-        <div class="container">
-          <div class="row align-items-center">
+						<div
+							class="col-6 d-inline-block d-xl-none ml-md-0 py-3"
+							style="position: relative; top: 3px"
+						>
+							<a href="#" class="site-menu-toggle js-menu-toggle float-right"
+								><span class="icon-menu h3"></span
+							></a>
+						</div>
+					</div>
+				</div>
+			</header>
 
-            <div class="col-6 col-xl-2">
-              <h1 class="mb-0 site-logo">
-                <a href="index.html" class="h2 mb-0">Dhanam Finance<span class="text-primary">.</span></a>
-              </h1>
-            </div>
+			<!-- Hero -->
+			<section class="site-blocks-cover policies-hero" data-aos="fade">
+				<div class="container wrap">
+					<div
+						class="row align-items-center justify-content-center text-center"
+					>
+						<div class="col-lg-8">
+							<h1 class="mb-2" data-aos="fade-up">Policies</h1>
+							<p class="breadcrumbs" data-aos="fade-up" data-aos-delay="80">
+								<a href="index.html">Home</a> <span class="sep">/</span>
+								<span>Policies</span>
+							</p>
+							<p class="lead mb-0" data-aos="fade-up" data-aos-delay="120">
+								Official documents and disclosures from Dhanam Investment &amp;
+								Finance Pvt. Ltd.
+							</p>
+						</div>
+					</div>
+				</div>
+			</section>
 
-            <div class="col-12 col-md-10 d-none d-xl-block">
-              <nav class="site-navigation position-relative text-right" role="navigation">
-                <ul class="site-menu main-menu js-clone-nav mr-auto d-none d-lg-block">
-                  <li><a href="index.html#home-section" class="nav-link">Home</a></li>
-                  <li class="has-children">
-                    <a href="index.html#about-section" class="nav-link">About Us</a>
-                    <ul class="dropdown">
-                      <li><a href="index.html#services-section" class="nav-link">Services</a></li>
-                      <li><a href="index.html#contact-section" class="nav-link">Contact</a></li>
-                    </ul>
-                  </li>
-                  <li class="active"><a href="single.html" class="nav-link">Policies</a></li>
-                  <li class="social"><a href="#contact-section" class="nav-link"><span class="icon-facebook"></span></a></li>
-                  <li class="social"><a href="#contact-section" class="nav-link"><span class="icon-instagram"></span></a></li>
-                  <li class="social"><a href="#contact-section" class="nav-link"><span class="icon-twitter"></span></a></li>
-                  <li class="social"><a href="#contact-section" class="nav-link"><span class="icon-linkedin"></span></a></li>
-                </ul>
-              </nav>
-            </div>
+			<!-- Policies Grid -->
+			<section class="section-pad">
+				<div class="container">
+					<div class="policy-grid">
+						<!-- 1 -->
+						<a
+							class="policy-card"
+							href="assets/policies/interest-rate.pdf"
+							target="_blank"
+							data-aos="fade-up"
+						>
+							<h3 class="policy-title">Interest Rate</h3>
+							<div class="policy-meta">
+								Schedule of interest rates applicable across products.
+							</div>
+							<span class="policy-action"
+								>View PDF <span class="icon-arrow-right"></span
+							></span>
+						</a>
 
-            <div class="col-6 d-inline-block d-xl-none ml-md-0 py-3" style="position: relative; top: 3px;">
-              <a href="#" class="site-menu-toggle js-menu-toggle float-right"><span class="icon-menu h3"></span></a>
-            </div>
+						<!-- 2 -->
+						<a
+							class="policy-card"
+							href="assets/policies/policy-on-code-of-conduct.pdf"
+							target="_blank"
+							data-aos="fade-up"
+							data-aos-delay="50"
+						>
+							<h3 class="policy-title">Policy on Code of Conduct</h3>
+							<div class="policy-meta">
+								Standards for fair practices and employee conduct.
+							</div>
+							<span class="policy-action"
+								>View PDF <span class="icon-arrow-right"></span
+							></span>
+						</a>
 
-          </div>
-        </div>
-      </header>
+						<!-- 3 -->
+						<a
+							class="policy-card"
+							href="assets/policies/grievance-redressal-mechanism.pdf"
+							target="_blank"
+							data-aos="fade-up"
+							data-aos-delay="100"
+						>
+							<h3 class="policy-title">Grievance Redressal Mechanism</h3>
+							<div class="policy-meta">
+								How to raise a complaint and our resolution timelines.
+							</div>
+							<span class="policy-action"
+								>View PDF <span class="icon-arrow-right"></span
+							></span>
+						</a>
 
-      <!-- Hero -->
-      <section class="site-blocks-cover policies-hero" data-aos="fade">
-        <div class="container wrap">
-          <div class="row align-items-center justify-content-center text-center">
-            <div class="col-lg-8">
-              <h1 class="mb-2" data-aos="fade-up">Policies</h1>
-              <p class="breadcrumbs" data-aos="fade-up" data-aos-delay="80">
-                <a href="index.html">Home</a> <span class="sep">/</span> <span>Policies</span>
-              </p>
-              <p class="lead mb-0" data-aos="fade-up" data-aos-delay="120">
-                Official documents and disclosures from Dhanam Investment &amp; Finance Pvt. Ltd.
-              </p>
-            </div>
-          </div>
-        </div>
-      </section>
+						<!-- 4 -->
+						<a
+							class="policy-card"
+							href="assets/policies/fpc-tamil.pdf"
+							target="_blank"
+							data-aos="fade-up"
+							data-aos-delay="150"
+						>
+							<h3 class="policy-title">Fair Practice Code — Tamil</h3>
+							<div class="policy-meta">Customer charter (தமிழ்).</div>
+							<span class="policy-action"
+								>View PDF <span class="icon-arrow-right"></span
+							></span>
+						</a>
 
-      <!-- Policies Grid -->
-      <section class="section-pad">
-        <div class="container">
-          <div class="policy-grid">
+						<!-- 5 -->
+						<a
+							class="policy-card"
+							href="assets/policies/fpc-malayalam.pdf"
+							target="_blank"
+							data-aos="fade-up"
+							data-aos-delay="200"
+						>
+							<h3 class="policy-title">Fair Practice Code — Malayalam</h3>
+							<div class="policy-meta">Customer charter (മലയാളം).</div>
+							<span class="policy-action"
+								>View PDF <span class="icon-arrow-right"></span
+							></span>
+						</a>
 
-            <!-- 1 -->
-            <a class="policy-card" href="assets/policies/interest-rate.pdf" target="_blank" data-aos="fade-up">
-              <h3 class="policy-title">Interest Rate</h3>
-              <div class="policy-meta">Schedule of interest rates applicable across products.</div>
-              <span class="policy-action">View PDF <span class="icon-arrow-right"></span></span>
-            </a>
+						<!-- 6 -->
+						<a
+							class="policy-card"
+							href="assets/policies/fpc-odiya.pdf"
+							target="_blank"
+							data-aos="fade-up"
+							data-aos-delay="250"
+						>
+							<h3 class="policy-title">Fair Practice Code — Odiya</h3>
+							<div class="policy-meta">Customer charter (ଓଡ଼ିଆ).</div>
+							<span class="policy-action"
+								>View PDF <span class="icon-arrow-right"></span
+							></span>
+						</a>
 
-            <!-- 2 -->
-            <a class="policy-card" href="assets/policies/policy-on-code-of-conduct.pdf" target="_blank" data-aos="fade-up" data-aos-delay="50">
-              <h3 class="policy-title">Policy on Code of Conduct</h3>
-              <div class="policy-meta">Standards for fair practices and employee conduct.</div>
-              <span class="policy-action">View PDF <span class="icon-arrow-right"></span></span>
-            </a>
+						<!-- 7 -->
+						<a
+							class="policy-card"
+							href="assets/policies/customer-education-literature.pdf"
+							target="_blank"
+							data-aos="fade-up"
+							data-aos-delay="300"
+						>
+							<h3 class="policy-title">Customer Education Literature</h3>
+							<div class="policy-meta">Helpful guidance for borrowers.</div>
+							<span class="policy-action"
+								>View PDF <span class="icon-arrow-right"></span
+							></span>
+						</a>
 
-            <!-- 3 -->
-            <a class="policy-card" href="assets/policies/grievance-redressal-mechanism.pdf" target="_blank" data-aos="fade-up" data-aos-delay="100">
-              <h3 class="policy-title">Grievance Redressal Mechanism</h3>
-              <div class="policy-meta">How to raise a complaint and our resolution timelines.</div>
-              <span class="policy-action">View PDF <span class="icon-arrow-right"></span></span>
-            </a>
+						<!-- 8 -->
+						<a
+							class="policy-card"
+							href="assets/policies/loan-pricing-policy.pdf"
+							target="_blank"
+							data-aos="fade-up"
+							data-aos-delay="350"
+						>
+							<h3 class="policy-title">Loan Pricing Policy</h3>
+							<div class="policy-meta">
+								Methodology and factors considered for pricing.
+							</div>
+							<span class="policy-action"
+								>View PDF <span class="icon-arrow-right"></span
+							></span>
+						</a>
+					</div>
+				</div>
+			</section>
 
-            <!-- 4 -->
-            <a class="policy-card" href="assets/policies/fpc-tamil.pdf" target="_blank" data-aos="fade-up" data-aos-delay="150">
-              <h3 class="policy-title">Fair Practice Code — Tamil</h3>
-              <div class="policy-meta">Customer charter (தமிழ்).</div>
-              <span class="policy-action">View PDF <span class="icon-arrow-right"></span></span>
-            </a>
+			<footer class="site-footer">
+				<div class="container">
+					<div class="row">
+						<div class="col-md-9">
+							<div class="row">
+								<div class="col-md-5">
+									<h2 class="footer-heading mb-4">About Us</h2>
+									<p>
+										Dhanam Finance is an RBI-registered NBFC focused on
+										accessible, responsible credit. We serve small businesses,
+										micro-entrepreneurs and individuals often overlooked by
+										traditional lenders across Tamil Nadu, Kerala and Odisha.
+									</p>
+								</div>
+								<div class="col-md-3 ml-auto">
+									<h2 class="footer-heading mb-4">Quick Links</h2>
+									<ul class="list-unstyled">
+										<li>
+											<a
+												href="assets/policies/consentwithdrawalprocess.pdf"
+												target="_blank"
+												rel="noopener"
+											>
+												Consent Withdrawal Process
+											</a>
+										</li>
+										<li>
+											<a href="single.html" class="smoothscroll">Policy</a>
+										</li>
+										<li>
+											<a href="#about-section" class="smoothscroll">About Us</a>
+										</li>
+										<li>
+											<a href="#services-section" class="smoothscroll"
+												>Services</a
+											>
+										</li>
+										<li>
+											<a href="#contact-section" class="smoothscroll"
+												>Contact Us</a
+											>
+										</li>
+									</ul>
+								</div>
+								<div class="col-md-3 ml-auto">
+									<h2 class="footer-heading mb-4">Quick Links</h2>
+									<ul class="list-unstyled">
+										<li>
+											<a
+												href="assets/policies/termsandconditions.pdf"
+												target="_blank"
+												rel="noopener"
+											>
+												Terms and Conditions
+											</a>
+										</li>
+										<li>
+											<a
+												href="assets/policies/privacypolicy.pdf"
+												target="_blank"
+												rel="noopener"
+											>
+												Privacy Policy
+											</a>
+										</li>
+										<li>
+											<a
+												href="assets/policies/refundpolicy.pdf"
+												target="_blank"
+												rel="noopener"
+											>
+												Refund Policy
+											</a>
+										</li>
+									</ul>
+								</div>
+								<div class="col-md-3 footer-social">
+									<h2 class="footer-heading mb-4">Follow Us</h2>
+									<a href="#" class="pl-0 pr-3"
+										><span class="icon-facebook"></span
+									></a>
+									<a href="#" class="pl-3 pr-3"
+										><span class="icon-twitter"></span
+									></a>
+									<a href="#" class="pl-3 pr-3"
+										><span class="icon-instagram"></span
+									></a>
+									<a href="#" class="pl-3 pr-3"
+										><span class="icon-linkedin"></span
+									></a>
+								</div>
+							</div>
+						</div>
+						<div class="col-md-3">
+							<h2 class="footer-heading mb-4">Subscribe Newsletter</h2>
+							<form action="#" method="post" class="footer-subscribe">
+								<div class="input-group mb-3">
+									<input
+										type="text"
+										class="form-control border-secondary text-white bg-transparent"
+										placeholder="Enter Email"
+										aria-label="Enter Email"
+										aria-describedby="button-addon2"
+									/>
+									<div class="input-group-append">
+										<button
+											class="btn btn-primary text-black"
+											type="button"
+											id="button-addon2"
+										>
+											Send
+										</button>
+									</div>
+								</div>
+							</form>
+						</div>
+					</div>
+					<div class="row pt-5 mt-5 text-center">
+						<div class="col-md-12">
+							<div class="border-top pt-5">
+								<!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+								<p>
+									Copyright &copy;
+									<script>
+										document.write(new Date().getFullYear());
+									</script>
+									All rights reserved | This website is made with
+									<a href="https://colorlib.com" target="_blank">Colorlib</a>
+								</p>
+								<!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+							</div>
+						</div>
+					</div>
+				</div>
+			</footer>
+		</div>
+		<!-- /.site-wrap -->
 
-            <!-- 5 -->
-            <a class="policy-card" href="assets/policies/fpc-malayalam.pdf" target="_blank" data-aos="fade-up" data-aos-delay="200">
-              <h3 class="policy-title">Fair Practice Code — Malayalam</h3>
-              <div class="policy-meta">Customer charter (മലയാളം).</div>
-              <span class="policy-action">View PDF <span class="icon-arrow-right"></span></span>
-            </a>
+		<!-- JS bundle from template -->
+		<script src="js/jquery-3.3.1.min.js"></script>
+		<script src="js/jquery-ui.js"></script>
+		<script src="js/popper.min.js"></script>
+		<script src="js/bootstrap.min.js"></script>
+		<script src="js/owl.carousel.min.js"></script>
+		<script src="js/jquery.countdown.min.js"></script>
+		<script src="js/jquery.easing.1.3.js"></script>
+		<script src="js/aos.js"></script>
+		<script src="js/jquery.fancybox.min.js"></script>
+		<script src="js/jquery.sticky.js"></script>
+		<script src="js/isotope.pkgd.min.js"></script>
+		<script src="js/main.js"></script>
 
-            <!-- 6 -->
-            <a class="policy-card" href="assets/policies/fpc-odiya.pdf" target="_blank" data-aos="fade-up" data-aos-delay="250">
-              <h3 class="policy-title">Fair Practice Code — Odiya</h3>
-              <div class="policy-meta">Customer charter (ଓଡ଼ିଆ).</div>
-              <span class="policy-action">View PDF <span class="icon-arrow-right"></span></span>
-            </a>
-
-            <!-- 7 -->
-            <a class="policy-card" href="assets/policies/customer-education-literature.pdf" target="_blank" data-aos="fade-up" data-aos-delay="300">
-              <h3 class="policy-title">Customer Education Literature</h3>
-              <div class="policy-meta">Helpful guidance for borrowers.</div>
-              <span class="policy-action">View PDF <span class="icon-arrow-right"></span></span>
-            </a>
-
-            <!-- 8 -->
-            <a class="policy-card" href="assets/policies/loan-pricing-policy.pdf" target="_blank" data-aos="fade-up" data-aos-delay="350">
-              <h3 class="policy-title">Loan Pricing Policy</h3>
-              <div class="policy-meta">Methodology and factors considered for pricing.</div>
-              <span class="policy-action">View PDF <span class="icon-arrow-right"></span></span>
-            </a>
-
-          </div>
-        </div>
-      </section>
-
-      <footer class="site-footer">
-      <div class="container">
-        <div class="row">
-          <div class="col-md-9">
-            <div class="row">
-              <div class="col-md-5">
-                <h2 class="footer-heading mb-4">About Us</h2>
-                <p>Dhanam Finance is an RBI-registered NBFC focused on accessible, responsible credit.
-We serve small businesses, micro-entrepreneurs and individuals often overlooked by
-traditional lenders across Tamil Nadu, Kerala and Odisha.</p>
-              </div>
-              <div class="col-md-3 ml-auto">
-                <h2 class="footer-heading mb-4">Quick Links</h2>
-                <ul class="list-unstyled">
-                  <li>
-                <a href="assets/policies/consentwithdrawalprocess.pdf" target="_blank" rel="noopener">
-                  Consent Withdrawal Process
-                </a>
-              </li>
-                  <li><a href="single.html" class="smoothscroll">Policy</a></li>
-                  <li><a href="#about-section" class="smoothscroll">About Us</a></li>
-                  <li><a href="#services-section" class="smoothscroll">Services</a></li>
-                  <li><a href="#contact-section" class="smoothscroll">Contact Us</a></li>
-                </ul>
-              </div>
-			  <div class="col-md-3 ml-auto">
-                <h2 class="footer-heading mb-4">Quick Links</h2>
-                <ul class="list-unstyled">
-                  <li>
-                <a href="assets/policies/termsandconditions.pdf" target="_blank" rel="noopener">
-                  Terms and Conditions
-                </a>
-				  </li>
-                  <li>
-                <a href="assets/policies/privacypolicy.pdf" target="_blank" rel="noopener">
-                  Privacy Policy
-                </a>
-              </li>
-                  <li>
-                <a href="assets/policies/refundpolicy.pdf" target="_blank" rel="noopener">
-                  Refund Policy
-                </a>
-              </li>
-                </ul>
-              </div>
-              <div class="col-md-3 footer-social">
-                <h2 class="footer-heading mb-4">Follow Us</h2>
-                <a href="#" class="pl-0 pr-3"><span class="icon-facebook"></span></a>
-                <a href="#" class="pl-3 pr-3"><span class="icon-twitter"></span></a>
-                <a href="#" class="pl-3 pr-3"><span class="icon-instagram"></span></a>
-                <a href="#" class="pl-3 pr-3"><span class="icon-linkedin"></span></a>
-              </div>
-            </div>
-          </div>
-          <div class="col-md-3">
-            <h2 class="footer-heading mb-4">Subscribe Newsletter</h2>
-            <form action="#" method="post" class="footer-subscribe">
-              <div class="input-group mb-3">
-                <input type="text" class="form-control border-secondary text-white bg-transparent" placeholder="Enter Email" aria-label="Enter Email" aria-describedby="button-addon2">
-                <div class="input-group-append">
-                  <button class="btn btn-primary text-black" type="button" id="button-addon2">Send</button>
-                </div>
-              </div>
-            </form>
-          </div>
-        </div>
-        <div class="row pt-5 mt-5 text-center">
-          <div class="col-md-12">
-            <div class="border-top pt-5">
-              <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-              <p>Copyright &copy;
-                <script>document.write(new Date().getFullYear());</script> All rights reserved | This website is made
-                with <a href="https://colorlib.com" target="_blank">Colorlib</a>
-              </p>
-              <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-        
-            </div>
-          </div>
-          
-        </div>
-      </div>
-    </footer>
-
-    </div><!-- /.site-wrap -->
-
-    <!-- JS bundle from template -->
-    <script src="js/jquery-3.3.1.min.js"></script>
-    <script src="js/jquery-ui.js"></script>
-    <script src="js/popper.min.js"></script>
-    <script src="js/bootstrap.min.js"></script>
-    <script src="js/owl.carousel.min.js"></script>
-    <script src="js/jquery.countdown.min.js"></script>
-    <script src="js/jquery.easing.1.3.js"></script>
-    <script src="js/aos.js"></script>
-    <script src="js/jquery.fancybox.min.js"></script>
-    <script src="js/jquery.sticky.js"></script>
-    <script src="js/isotope.pkgd.min.js"></script>
-    <script src="js/main.js"></script>
-
-    <script>
-      // Kick off AOS
-      AOS.init({ duration: 700, once: true });
-    </script>
-  </body>
+		<script>
+			// Kick off AOS
+			AOS.init({ duration: 700, once: true });
+		</script>
+	</body>
 </html>
