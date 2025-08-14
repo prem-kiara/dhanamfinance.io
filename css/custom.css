@@ -2797,3 +2797,260 @@ input, select, textarea {
 }
 
 
+
+/* Dhanam brand touches */
+:root{
+  --brand:#9C8741;            /* your gold */
+}
+.text-primary{ color:var(--brand)!important; }
+.btn-primary{
+  background:var(--brand); border-color:var(--brand);
+}
+.btn-primary:hover{ filter:brightness(.95); }
+.site-logo a{ letter-spacing:.2px; }
+
+#achievements { padding: 64px 0; }
+#achievements .ach-card{
+  background:#fff; border-radius:14px; padding:28px 26px; text-align:center;
+  box-shadow:0 14px 28px rgba(0,0,0,.08);
+  height:100%;
+  transition: transform .25s ease, box-shadow .25s ease;
+}
+#achievements .ach-card:hover{
+  transform: translateY(-4px);
+  box-shadow:0 18px 36px rgba(0,0,0,.12);
+}
+#achievements .stat-number{
+  display:inline-block;
+  font-weight:800;
+  font-size: clamp(32px, 5.2vw, 52px);
+  line-height:1.1;
+  color:#1a73e8; /* Dhanam blue */
+  letter-spacing:.5px;
+}
+#achievements .ach-label{
+  margin-top:8px;
+  font-size: 15px;
+  color:#6b6b6b;
+}
+
+
+/* Square, no-crop frames for the How It Works carousel */
+.slide-one-item-alt .square-img {
+  width: 100%;
+  aspect-ratio: 1 / 1;         /* perfect square */
+  background: #fff;            /* "added material" color; change if needed */
+  border-radius: 12px;         /* optional */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;            /* keeps rounded corners clean */
+}
+
+/* Fit the image inside the square without cropping */
+.slide-one-item-alt .square-img img {
+  width: 100% !important;      /* override .img-fluid if present */
+  height: 100% !important;
+  object-fit: contain;         /* NO CROPPING */
+  object-position: center;     /* center the image */
+  display: block;
+}
+
+/* Backdrop with slight blur */
+.modal-backdrop.show {
+  opacity: .35;
+  backdrop-filter: blur(2px);
+}
+
+/* Card styling + entrance anim */
+.modal-elevated {
+  border: 0;
+  border-radius: 16px;
+  box-shadow: 0 24px 80px rgba(0,0,0,.20);
+  overflow: hidden;
+  transform: translateY(8px);
+  opacity: 0;
+  transition: transform .25s ease, opacity .25s ease;
+}
+.modal.show .modal-elevated {
+  transform: translateY(0);
+  opacity: 1;
+}
+
+/* Header */
+.btn-close-plain {
+  -webkit-appearance: none;
+  appearance: none;
+  background: transparent;
+  border: 0;
+  font-size: 28px;
+  line-height: 1;
+  color: #7a8599;
+  padding: 0 6px;
+  cursor: pointer;
+}
+.btn-close-plain:hover { color: #2d3a64; }
+
+/* Section labels */
+.disc-block { margin-bottom: 16px; }
+.disc-label {
+  font-size: 12px;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: .08em;
+  color: #7A869A;
+  margin-bottom: 6px;
+}
+.modal-body p {
+  font-size: 14px;
+  color: #3b4256;
+  line-height: 1.6;
+}
+
+/* Limit body height and allow scroll if text grows */
+.modal-body {
+  max-height: 65vh;
+  overflow: auto;
+  padding: 16px 24px 8px;
+}
+
+/* Footer buttons */
+.btn-pill {
+  border-radius: 999px;
+  padding: 10px 18px;
+  font-weight: 600;
+}
+.btn-outline-primary {
+  border-width: 2px;
+}
+
+/* Responsive: stack buttons on small screens */
+@media (max-width: 576px) {
+  .modal-dialog { margin: .5rem; }
+  .modal-footer {
+    flex-direction: column;
+    gap: 8px;
+  }
+  .modal-footer .btn { width: 100%; }
+}
+
+/* Title row: align icon + title, lighter close */
+.modal-header { padding: 16px 20px 0; }
+.modal-header .modal-title { font-weight: 700; color: #2b3350; }
+.modal-header svg { margin-right: 8px; color: #64739b; }
+.btn-close-plain { color: #9aa3b2; }
+.btn-close-plain:hover { color: #2b3350; }
+
+/* Body: tighter rhythm, slightly darker labels, better reading width */
+.modal-body { padding: 16px 20px 8px; max-width: 760px; margin: 0 auto; }
+.disc-label { color: #5b6a8a; letter-spacing: .09em; }
+.modal-body p { color: #3a4258; line-height: 1.7; }
+
+/* Footer: stronger primary, subtle outline */
+.modal-footer { padding: 8px 20px 20px; gap: 10px; }
+.btn-pill { border-radius: 999px; padding: 10px 18px; font-weight: 600; }
+.btn-outline-primary { border-width: 2px; }
+.btn-primary { box-shadow: 0 10px 24px rgba(30,102,255,.25); }
+
+/* Card + backdrop */
+.modal-elevated {
+  border-radius: 14px;
+  box-shadow: 0 28px 80px rgba(17, 24, 39, .28);
+}
+.modal-backdrop.show { opacity: .38; backdrop-filter: blur(2px); }
+
+/* Mobile niceties */
+@media (max-width: 576px) {
+  .modal-body { max-height: 60vh; }
+  .modal-footer { flex-direction: column; }
+  .modal-footer .btn { width: 100%; }
+}
+
+/* top contact stats spacing */
+.contact-stats .icon-room,
+.contact-stats .icon-phone,
+.contact-stats .icon-mail_outline { color:#1e66ff; }
+
+/* map card */
+.map-card {
+  background:#fff;
+  border-radius:16px;
+  box-shadow:0 12px 36px rgba(0,0,0,.08);
+  overflow:hidden;
+  height:100%;
+  display:flex;
+  flex-direction:column;
+}
+.map-embed {
+  position:relative;
+  padding-top:60%;            /* responsive height */
+  background:#eef2ff;
+}
+.map-embed iframe {
+  position:absolute;
+  inset:0;
+  width:100%;
+  height:100%;
+  border:0;
+  filter:saturate(0.95) contrast(1.05); /* subtle polish */
+  border-radius:0;
+}
+.map-actions {
+  padding:12px 14px;
+  display:flex;
+  justify-content:flex-end;
+  gap:8px;
+  border-top:1px solid rgba(0,0,0,.06);
+}
+
+/* form card look to match map */
+#contact-section form {
+  border-radius:16px;
+  box-shadow:0 12px 36px rgba(0,0,0,.08);
+}
+
+/* small improvements */
+#contact-section .section-title { color:#1e66ff; }
+#contact-section a { color:#1e66ff; }
+#contact-section a:hover { text-decoration:underline; }
+
+@media (max-width: 991.98px){
+  .map-embed { padding-top:56%; }
+}
+
+/* Section spacing: tighter, no giant white gap */
+#contact-section.site-section { padding: 36px 0 !important; }
+#contact-section .section-title { color:#1e66ff; margin-bottom: 8px; }
+
+#contact-section a { color:#1e66ff; }
+#contact-section a:hover { text-decoration: underline; }
+
+.contact-stats .icon-room,
+.contact-stats .icon-phone,
+.contact-stats .icon-mail_outline { color:#1e66ff; }
+
+/* Cards */
+.map-card, .contact-card {
+  border-radius: 16px;
+  box-shadow: 0 12px 36px rgba(0,0,0,.08);
+}
+.contact-card { overflow: hidden; }
+
+/* Map: fixed, predictable height; no ratio hack */
+.map-embed { position: relative; height: 420px; background:#eef2ff; border-radius:16px; overflow:hidden; }
+@media (max-width: 991.98px){ .map-embed{ height: 340px; } }
+@media (max-width: 575.98px){ .map-embed{ height: 300px; } }
+
+.map-embed iframe { position:absolute; inset:0; width:100%; height:100%; border:0; filter:saturate(.95) contrast(1.05); }
+
+/* Overlay button inside the map (so it doesn't add height) */
+.map-actions-ovl { position:absolute; right:12px; bottom:12px; display:flex; gap:8px; }
+
+/* Form inputs rounded to match */
+#contact-section .form-control {
+  border-radius: 12px;
+  border: 1px solid rgba(0,0,0,.12);
+}
+#contact-section .btn.btn-primary { background:#1e66ff; border-color:#1e66ff; border-radius: 10px; box-shadow:0 10px 24px rgba(30,102,255,.25); }
+#contact-section .btn.btn-outline-primary { color:#1e66ff; border-color:#1e66ff; }
+

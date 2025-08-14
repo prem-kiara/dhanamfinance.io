@@ -334,3 +334,94 @@ jQuery(document).ready(function($) {
 	});
 
 });
+
+/* ===== Achievements Counters (always works, blue + bold style is via CSS below) ===== */
+(function initAchievementsCounters() {
+  const section = document.querySelector('#achievements');
+  if (!section) return;
+
+  const nums = Array.from(section.querySelectorAll('.stat-number'));
+  if (!nums.length) return;
+
+  const easeOutQuad = t => t * (2 - t);
+  const fmt = new Intl.NumberFormat('en-IN');
+
+  function animate(el) {
+    const target = Number(el.getAttribute('data-target')) || 0;
+    const suffix = el.getAttribute('data-suffix') || '';
+    const duration = 1800;
+    const startTime = performance.now();
+
+    function tick(now) {
+      const p = Math.min((now - startTime) / duration, 1);
+      const v = Math.round(target * easeOutQuad(p));
+      el.textContent = fmt.format(v) + suffix;
+      if (p < 1) requestAnimationFrame(tick);
+    }
+    requestAnimationFrame(tick);
+  }
+
+  let ran = false;
+  function runIfNeeded() {
+    if (ran) return;
+    const r = section.getBoundingClientRect();
+    const inView = r.top < window.innerHeight * 0.85 && r.bottom > 0;
+    if (inView) {
+      ran = true;
+      nums.forEach(animate);
+      window.removeEventListener('scroll', runIfNeeded);
+      window.removeEventListener('resize', runIfNeeded);
+    }
+  }
+
+  // run immediately if already visible, otherwise on scroll/resize
+  runIfNeeded();
+  window.addEventListener('scroll', runIfNeeded, { passive: true });
+  window.addEventListener('resize', runIfNeeded);
+})();
+
+
+/* ===== Disclaimer Modal (every page load on index.html) ===== */
+$(function () {
+  const onHome = /(^|\/)index\.html?$/i.test(location.pathname) || location.pathname === '/' || location.pathname === '';
+  if (!onHome) return;
+
+  // Use the modal that already exists in your HTML:
+  const $m = $('#disclaimerModal');
+  if ($m.length) {
+    $m.modal({ backdrop: 'static', keyboard: false, show: true });
+  }
+});
+
+// ===== Smooth scroll when clicking the bottom scroll icon =====
+document.addEventListener('DOMContentLoaded', function () {
+  const scrollIcon = document.querySelector('.mouse');
+  if (!scrollIcon) return;
+
+  scrollIcon.addEventListener('click', function (e) {
+    e.preventDefault();
+    window.scrollTo({
+      top: window.scrollY + window.innerHeight,
+      behavior: 'smooth'
+    });
+  });
+});
+
+// Keep the map the same height as the form card (desktop), with fallbacks on mobile.
+(function syncMapHeight(){
+  const map = document.querySelector('#mapEmbed');
+  const form = document.querySelector('#contact-section .contact-card');
+  if (!map || !form) return;
+
+  function fit(){
+    if (window.innerWidth >= 992) {
+      map.style.height = form.offsetHeight + 'px';
+    } else {
+      map.style.height = ''; // use CSS heights on smaller screens
+    }
+  }
+  window.addEventListener('load', fit, { once:true });
+  window.addEventListener('resize', fit);
+  // If fonts/images change height later:
+  setTimeout(fit, 200);
+})();
