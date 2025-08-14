@@ -425,3 +425,13 @@ document.addEventListener('DOMContentLoaded', function () {
   // If fonts/images change height later:
   setTimeout(fit, 200);
 })();
+
+// Accordion behavior inside Products: close siblings when one opens
+(function(){
+  var services = document.getElementById('services-section');
+  if(!services) return;
+
+  $(services).on('show.bs.collapse', '.collapse', function(){
+    $(services).find('.collapse.show').not(this).collapse('hide');
+  });
+})();
