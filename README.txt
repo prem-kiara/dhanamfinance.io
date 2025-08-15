@@ -1,4 +1,4 @@
-# Dhanam Finance Website
+# Dhanam Investment & Finance Pvt. Ltd. Website
 
 [![Website](https://img.shields.io/website-up-down-green-red/http/dhanamfinance.com.svg)](http://dhanamfinance.com)
 ![GitHub last commit](https://img.shields.io/github/last-commit/prem-kiara/dhanamfinance.io)
@@ -8,7 +8,7 @@
 ---
 
 ## Overview
-This is the official website for **Dhanam Finance**, an RBI-registered NBFC focused on providing accessible, responsible credit.  
+This is the official website for **Dhanam Investment & Finance Pvt. Ltd.**, an RBI-registered NBFC focused on providing accessible, responsible credit.  
 We serve small businesses, micro-entrepreneurs, and individuals often overlooked by traditional lenders across **Tamil Nadu, Kerala, and Odisha**.
 
 The website is based on the **Finance** template from [Colorlib](https://colorlib.com/wp/template/finance/), with images from **Sora** and certain content/design refinements assisted by ChatGPT.

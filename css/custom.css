@@ -3271,3 +3271,125 @@ input, select, textarea {
   max-width:760px;
   margin:0 auto 8px auto;
 }
+
+/* ===== Clean brand layout ===== */
+.brand-col { min-width: 320px; }
+
+.brand-link{
+  display:flex;
+  flex-wrap:wrap;                /* allow natural wrapping */
+  align-items:baseline;
+  gap: 6px 10px;                 /* row gap, col gap */
+  text-decoration:none;
+  color:#0f172a;                 /* near black for readability */
+  line-height:1.15;
+}
+
+.brand-title{
+  display:flex;
+  flex-wrap:wrap;
+  gap:.35ch;
+  font-size: clamp(1rem, 1.1vw + .7rem, 1.25rem);
+  font-weight:700;
+  white-space:normal;            /* ← NO ellipsis, NO nowrap */
+  overflow:visible;
+  text-overflow:clip;
+}
+
+.brand-strong{
+  font-weight:800;
+  color:#1e66ff;                 /* your primary blue */
+}
+
+.brand-rest{
+  color:#0f172a;
+}
+
+.brand-pill{
+  font-size: .82rem;
+  font-weight:600;
+  color:#1e66ff;
+  border:1px solid rgba(30,102,255,.35);
+  background:#eef4ff;
+  padding:2px 10px;
+  border-radius:999px;
+  letter-spacing:.2px;
+  line-height:1.2;
+}
+
+/* Keep header tidy across sizes */
+@media (max-width: 991.98px){
+  .brand-col{ margin-bottom:.35rem; }      /* small breathing room above nav */
+}
+
+@media (min-width: 992px){
+  /* brand and nav sit on one line neatly */
+  .brand-link{ align-items:center; }
+}
+
+/* Remove big top/bottom padding from header */
+.site-navbar,
+.site-navbar .container {
+  padding-top: 8px !important;
+  padding-bottom: 8px !important;
+}
+.site-navbar { margin-bottom: 0 !important; }
+
+/* Remove underline from brand link (template default) */
+.brand-link {
+  text-decoration: none;
+  border: none !important;
+}
+.brand-link::after { display: none !important; }
+
+/* Keep brand compact and inline */
+.brand-col { white-space: nowrap; }
+.brand-title { font-weight: 700; margin-right: 8px; }
+.brand-strong { color: #1e66ff; font-weight: 800; }
+.brand-rest { color: #0f172a; }
+.brand-pill {
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: #1e66ff;
+  border: 1px solid rgba(30,102,255,0.35);
+  background: #eef4ff;
+  padding: 2px 10px;
+  border-radius: 999px;
+}
+
+/* Ensure hero touches header */
+.site-blocks-cover {
+  margin-top: 0 !important;
+}
+
+/* Tight header: kill extra vertical padding */
+.site-navbar,
+.site-navbar .container {
+  padding-top: 8px !important;
+  padding-bottom: 8px !important;
+}
+.site-navbar { margin-bottom: 0 !important; }
+
+/* Brand styling */
+.brand-link {
+  text-decoration: none;
+  border: none !important;
+}
+.brand-link::after { display: none !important; }
+
+.brand-col { white-space: nowrap; }
+.brand-title { font-weight: 700; margin-right: 8px; display: inline-flex; gap: 6px; }
+.brand-strong { color: #1e66ff; font-weight: 800; }
+.brand-rest   { color: #0f172a; font-weight: 700; }
+.brand-pill {
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: #1e66ff;
+  border: 1px solid rgba(30,102,255,0.35);
+  background: #eef4ff;
+  padding: 2px 10px;
+  border-radius: 999px;
+}
+
+/* Ensure first hero/cover sits flush under header on this page too */
+.site-blocks-cover { margin-top: 0 !important; }
