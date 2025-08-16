@@ -436,3 +436,77 @@ document.addEventListener('DOMContentLoaded', function () {
   });
 })();
 
+// CONTACT FORM (static site friendly)
+(function () {
+  const form = document.getElementById('contactForm');
+  if (!form) return;
+
+  const statusBox = document.getElementById('contactStatus');
+  const submitBtn = document.getElementById('contactSubmit');
+
+  const setStatus = (msg, ok = true) => {
+    statusBox.className = ok ? 'form-success' : 'form-error';
+    statusBox.textContent = msg;
+  };
+
+  form.addEventListener('submit', function (e) {
+    e.preventDefault();
+
+    // Simple honeypot
+    const hp = form.querySelector('input[name="company"]');
+    if (hp && hp.value.trim() !== '') {
+      setStatus('Sorry, something went wrong. Please try again later.', false);
+      return;
+    }
+
+    // Native validity + styling
+    let valid = true;
+    form.querySelectorAll('.form-control').forEach(el => {
+      if (!el.checkValidity()) {
+        el.classList.add('is-invalid');
+        valid = false;
+      } else {
+        el.classList.remove('is-invalid');
+      }
+    });
+
+    if (!valid) {
+      setStatus('Please correct the highlighted fields.', false);
+      return;
+    }
+
+    // Disable while "sending"
+    submitBtn.disabled = true;
+
+    // Build a mailto to your address
+    const to = 'contact@dhanamfin.com'; // <-- change if needed
+    const data = Object.fromEntries(new FormData(form).entries());
+
+    const subject = encodeURIComponent(`[Website] ${data.subject} — ${data.firstName} ${data.lastName}`);
+    const body = encodeURIComponent(
+`Name: ${data.firstName} ${data.lastName}
+Email: ${data.email}
+
+Message:
+${data.message}
+
+— Sent from dhanamfinance.io`
+    );
+
+    // Open user mail client
+    window.location.href = `mailto:${to}?subject=${subject}&body=${body}`;
+
+    setStatus('Thanks! Your email app will open with the message pre-filled.', true);
+    submitBtn.disabled = false;
+
+    // Optional: clear the form
+    // form.reset();
+  });
+
+  // Live validity styling on input
+  form.querySelectorAll('.form-control').forEach(el => {
+    el.addEventListener('input', () => {
+      if (el.checkValidity()) el.classList.remove('is-invalid');
+    });
+  });
+})();

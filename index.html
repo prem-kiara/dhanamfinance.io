@@ -883,42 +883,122 @@
 						</div>
 
 						<!-- FORM -->
+						<!-- FORM -->
 						<div class="col-lg-6">
-							<form action="#" class="contact-card p-4 p-md-5 bg-white">
+							<form
+								id="contactForm"
+								class="contact-card p-4 p-md-5 bg-white"
+								novalidate
+							>
 								<h2 class="h4 text-black mb-4">Contact Form</h2>
+
+								<!-- status message -->
+								<div
+									id="contactStatus"
+									class="visually-hidden"
+									aria-live="polite"
+								></div>
 
 								<div class="row">
 									<div class="col-md-6 mb-3">
-										<label class="text-black" for="fname">First Name</label>
-										<input type="text" id="fname" class="form-control" />
+										<label class="text-black form-label" for="fname"
+											>First Name</label
+										>
+										<input
+											type="text"
+											id="fname"
+											name="firstName"
+											class="form-control"
+											autocomplete="given-name"
+											required
+										/>
+										<div class="invalid-feedback">
+											Please enter your first name.
+										</div>
 									</div>
 									<div class="col-md-6 mb-3">
-										<label class="text-black" for="lname">Last Name</label>
-										<input type="text" id="lname" class="form-control" />
+										<label class="text-black form-label" for="lname"
+											>Last Name</label
+										>
+										<input
+											type="text"
+											id="lname"
+											name="lastName"
+											class="form-control"
+											autocomplete="family-name"
+											required
+										/>
+										<div class="invalid-feedback">
+											Please enter your last name.
+										</div>
 									</div>
 								</div>
 
 								<div class="mb-3">
-									<label class="text-black" for="email">Email</label>
-									<input type="email" id="email" class="form-control" />
+									<label class="text-black form-label" for="email">Email</label>
+									<input
+										type="email"
+										id="email"
+										name="email"
+										class="form-control"
+										autocomplete="email"
+										required
+									/>
+									<div class="invalid-feedback">
+										Please enter a valid email address.
+									</div>
 								</div>
 
 								<div class="mb-3">
-									<label class="text-black" for="subject">Subject</label>
-									<input type="text" id="subject" class="form-control" />
+									<label class="text-black form-label" for="subject"
+										>Subject</label
+									>
+									<input
+										type="text"
+										id="subject"
+										name="subject"
+										class="form-control"
+										required
+									/>
+									<div class="invalid-feedback">
+										Please add a short subject.
+									</div>
 								</div>
 
 								<div class="mb-4">
-									<label class="text-black" for="message">Message</label>
+									<label class="text-black form-label" for="message"
+										>Message</label
+									>
 									<textarea
 										id="message"
+										name="message"
 										rows="6"
 										class="form-control"
 										placeholder="Write your notes or questions here..."
+										required
 									></textarea>
+									<div class="invalid-feedback">
+										Please write a brief message.
+									</div>
 								</div>
 
-								<button class="btn btn-primary btn-md text-white" type="submit">
+								<!-- Honeypot (anti-bot) -->
+								<div class="hp-field">
+									<label for="company">Company</label>
+									<input
+										type="text"
+										id="company"
+										name="company"
+										tabindex="-1"
+										autocomplete="off"
+									/>
+								</div>
+
+								<button
+									id="contactSubmit"
+									class="btn btn-primary btn-md text-white"
+									type="submit"
+								>
 									Send Message
 								</button>
 							</form>

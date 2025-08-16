@@ -1100,3 +1100,63 @@ a:hover{ color:var(--brand-deep); }
 .site-menu .has-children .dropdown li a:hover {
   color: #059669 !important; /* emerald green */
 }
+
+/* ---------- Contact form (Emerald Trust theme) ---------- */
+.contact-card {
+  border: 1px solid rgba(16,20,24,0.06);
+  border-radius: 16px;
+  box-shadow: 0 10px 30px rgba(16,20,24,0.06);
+}
+
+/* Labels & feedback */
+.form-label { font-weight: 600; }
+.invalid-feedback { font-size: 0.875rem; margin-top: 6px; }
+
+/* Inputs */
+.form-control {
+  border-radius: 12px;
+  border: 1px solid #E5E7EB; /* neutral border */
+  transition: border-color .2s ease, box-shadow .2s ease;
+}
+
+.form-control:focus {
+  border-color: #008C6E; /* emerald */
+  box-shadow: 0 0 0 4px rgba(0,140,110,0.20); /* emerald ring */
+  outline: none;
+}
+
+/* Invalid */
+.form-control.is-invalid,
+.form-control:invalid:focus {
+  border-color: #dc2626;
+  box-shadow: 0 0 0 4px rgba(220,38,38,0.15);
+}
+
+/* Submit button themed */
+.btn.btn-primary {
+  background: linear-gradient(135deg, #008C6E 0%, #005B4E 100%);
+  border: none;
+  border-radius: 999px;
+  padding: 10px 20px;
+  box-shadow: 0 8px 20px rgba(0,140,110,0.25);
+}
+.btn.btn-primary:hover { filter: brightness(1.05); }
+.btn.btn-primary:disabled { opacity: .7; cursor: not-allowed; }
+
+/* Status message */
+.form-success,
+.form-error {
+  border-radius: 12px;
+  padding: 12px 14px;
+  margin-bottom: 14px;
+  font-weight: 600;
+}
+.form-success { background: #ECFDF5; color: #065F46; border: 1px solid #A7F3D0; }
+.form-error   { background: #FEF2F2; color: #991B1B; border: 1px solid #FECACA; }
+
+/* Honeypot – keep it off-screen but accessible to bots only */
+.hp-field {
+  position: absolute !important;
+  left: -9999px !important;
+  width: 1px; height: 1px; overflow: hidden;
+}
