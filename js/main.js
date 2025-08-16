@@ -510,3 +510,105 @@ ${data.message}
     });
   });
 })();
+
+/* ===========================
+   Scroll bar + WhatsApp widget
+   =========================== */
+(function () {
+  // --- Progress bar (inject + update)
+  const barHost = document.createElement('div');
+  barHost.id = 'scrollbar';
+  barHost.innerHTML = '<div class="scrollbar__progress"></div>';
+  document.body.appendChild(barHost);
+
+  const prog = barHost.firstElementChild;
+  function setProgress() {
+    const h = document.documentElement;
+    const pct = (h.scrollTop / (h.scrollHeight - h.clientHeight)) * 100;
+    prog.style.width = pct + '%';
+  }
+  window.addEventListener('scroll', setProgress, { passive: true });
+  window.addEventListener('resize', setProgress);
+  setProgress();
+
+})();
+
+// ===== Official WhatsApp FAB =====
+(function() {
+  // create wrapper
+  const fab = document.createElement('div');
+  fab.id = 'waFab';
+  fab.innerHTML = `
+    <style>
+      #waFab {
+        position: fixed;
+        bottom: 20px;
+        right: 20px;
+        z-index: 9999;
+        font-family: system-ui, sans-serif;
+      }
+      #waFabBtn {
+        width: 50px;
+        height: 50px;
+        border-radius: 50%;
+        border: none;
+        background: #25D366;
+        color: #fff;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        box-shadow: 0 4px 10px rgba(0,0,0,.2);
+        cursor: pointer;
+      }
+      #waFabBtn svg {
+        width: 24px;
+        height: 24px;
+      }
+      #waFabPanel {
+        position: absolute;
+        bottom: 60px;
+        right: 0;
+        min-width: 220px;
+        background: #fff;
+        border-radius: 10px;
+        box-shadow: 0 4px 20px rgba(0,0,0,.15);
+        padding: 10px;
+        display: none;
+      }
+      #waFabPanel a {
+        display: block;
+        padding: 8px 10px;
+        border-radius: 6px;
+        color: #111;
+        text-decoration: none;
+        font-size: 14px;
+      }
+      #waFabPanel a:hover {
+        background: #f3f3f3;
+      }
+    </style>
+    <button id="waFabBtn" aria-label="WhatsApp">
+      <!-- Official WhatsApp SVG icon -->
+      <svg viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg">
+        <path fill="currentColor" d="M19.11 17.35c-.29-.14-1.69-.83-1.95-.92-.26-.1-.45-.14-.64.14-.19.29-.73.92-.9 1.11-.17.19-.33.22-.62.07-.29-.14-1.22-.45-2.33-1.43-.86-.76-1.44-1.7-1.61-1.99-.17-.29-.02-.45.13-.59.14-.14.29-.33.43-.5.14-.17.19-.29.29-.48.1-.19.05-.36-.02-.5-.07-.14-.64-1.55-.88-2.13-.23-.56-.47-.48-.64-.49-.17-.01-.36-.01-.55-.01-.19 0-.5.07-.76.36s-1 .98-1 2.39 1.03 2.77 1.18 2.96c.14.19 2.02 3.08 4.89 4.32 2.87 1.23 2.87.82 3.39.78.52-.04 1.69-.69 1.93-1.37.24-.69.24-1.28.17-1.41-.07-.12-.26-.2-.55-.33zM16 3.2c-6.99 0-12.8 5.69-12.8 12.68 0 2.25.59 4.34 1.63 6.14L3.2 28.8l6.96-1.82c1.74.95 3.73 1.49 5.84 1.49 6.99 0 12.8-5.69 12.8-12.68C28.8 8.89 22.99 3.2 16 3.2zm0 22.96c-1.98 0-3.82-.58-5.36-1.58l-.38-.24-4.12 1.08 1.1-4.02-.25-.41A10.22 10.22 0 0 1 5.78 15.9C5.78 10.34 10.43 5.7 16 5.7s10.22 4.64 10.22 10.2S21.57 26.16 16 26.16z"/>
+      </svg>
+    </button>
+    <div id="waFabPanel">
+      <a href="https://wa.me/917305074658?text=Hi%20Sanjay%2C%20I%27m%20interested%20in%20a%20Gold%20Loan" target="_blank">💰 Gold Loan — Sanjay</a>
+      <a href="https://wa.me/918925963943?text=Hi%20Sabarishini%2C%20I%27m%20interested%20in%20a%20Loan%20Against%20Property" target="_blank">🏠 Loan Against Property — Sabarishini</a>
+    </div>
+  `;
+
+  document.body.appendChild(fab);
+
+  const btn = document.getElementById('waFabBtn');
+  const panel = document.getElementById('waFabPanel');
+
+  btn.addEventListener('click', () => {
+    panel.style.display = panel.style.display === 'block' ? 'none' : 'block';
+  });
+
+  document.addEventListener('click', (e) => {
+    if (!fab.contains(e.target)) panel.style.display = 'none';
+  });
+})();

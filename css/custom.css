@@ -1160,3 +1160,20 @@ a:hover{ color:var(--brand-deep); }
   left: -9999px !important;
   width: 1px; height: 1px; overflow: hidden;
 }
+
+/* ===== Scroll progress bar (top) ===== */
+#scrollbar {
+  position: fixed;
+  top: 0; left: 0;
+  width: 100%; height: 3px;
+  background: transparent;
+  z-index: 4000; /* higher than sticky header */
+}
+#scrollbar .scrollbar__progress {
+  height: 100%;
+  width: 0%;
+  background: linear-gradient(135deg, #008C6E 0%, #005B4E 100%);
+  box-shadow: 0 0 8px rgba(0,140,110,.35);
+  transition: width .08s linear;
+}
+
