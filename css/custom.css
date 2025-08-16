@@ -1014,3 +1014,89 @@ a:hover{ color:var(--brand-deep); }
   color: #CC9A06;   /* Sun Gold */
   font-weight: 500; /* keeps it balanced with the green Dhanam */
 }
+
+/* Default (at top) */
+.js-sticky-header {
+  background: transparent;
+  transition: background-color .28s ease, box-shadow .28s ease;
+}
+
+/* After scroll (when shrink is applied) */
+.js-sticky-header.shrink {
+  background: rgba(0, 92, 78, 0.95);  /* emerald-ish dark green */
+  box-shadow: 0 6px 22px rgba(0,0,0,.15);
+}
+
+/* Make nav text readable when bg is dark */
+.js-sticky-header.shrink .nav-link,
+.js-sticky-header.shrink .brand-text,
+.js-sticky-header.shrink .social span {
+  color: #fff !important;
+}
+
+/* ---------- Header: transparent at top ---------- */
+.site-navbar { 
+  background: transparent !important;  /* stay see-through over the hero */
+  transition: background .25s ease, box-shadow .25s ease, border-color .25s ease;
+}
+
+/* ---------- Header: on scroll (JS adds .shrink) ---------- */
+.sticky-wrapper.is-sticky .js-sticky-header.shrink {
+  /* deep, readable “ink” glass */
+  background: rgba(16, 20, 24, 0.92) !important; /* Ink Black @ 92% */
+  border-bottom: 1px solid rgba(255,255,255,0.06);
+  backdrop-filter: saturate(115%) blur(8px);
+  -webkit-backdrop-filter: saturate(115%) blur(8px);
+  box-shadow: 0 8px 16px -12px rgba(0,0,0,.45);
+}
+
+/* Make nav & brand readable on the dark bg */
+.sticky-wrapper.is-sticky .js-sticky-header.shrink .site-menu > li > a,
+.sticky-wrapper.is-sticky .js-sticky-header.shrink .brand-text .brand-strong,
+.sticky-wrapper.is-sticky .js-sticky-header.shrink .brand-text .brand-rest,
+.sticky-wrapper.is-sticky .js-sticky-header.shrink .site-menu-toggle {
+  color: rgba(255,255,255,0.92) !important;
+}
+
+/* Hover / active states on the dark header */
+.sticky-wrapper.is-sticky .js-sticky-header.shrink .site-menu > li > a:hover,
+.sticky-wrapper.is-sticky .js-sticky-header.shrink .site-menu > li > a.active {
+  color: #008C6E !important;  /* Emerald */
+}
+
+/* Social icons in the header when shrunk */
+.sticky-wrapper.is-sticky .js-sticky-header.shrink .site-menu > li.social > a {
+  color: rgba(255,255,255,0.92) !important;
+}
+.sticky-wrapper.is-sticky .js-sticky-header.shrink .site-menu > li.social > a:hover {
+  color: #008C6E !important;
+}
+
+.policy-toolbar { gap: 12px; }
+.policy-search { min-width: 320px; max-width: 520px; }
+.policy-search .form-control { border-left: 0; }
+.policy-search .input-group-text { background: #fff; border-right: 0; }
+.policy-tags .btn { border-radius: 999px; }
+.policy-tags .btn.is-checked,
+.policy-tags .btn:hover { background: var(--brand); color: #fff; border-color: var(--brand); }
+
+/* dropdown link text color */
+.site-menu .dropdown a {
+  color: #000 !important;   /* black */
+}
+
+/* dropdown background */
+.site-menu .dropdown {
+  background: #fff;  /* white background */
+}
+
+/* Force dropdown text to black */
+.site-menu .has-children .dropdown li a {
+  color: #000 !important;
+  opacity: 1 !important;  /* in case theme sets opacity */
+}
+
+/* Optional: hover effect (emerald green) */
+.site-menu .has-children .dropdown li a:hover {
+  color: #059669 !important; /* emerald green */
+}

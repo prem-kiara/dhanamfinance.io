@@ -168,6 +168,74 @@
 			.section-pad {
 				padding: 64px 0 90px;
 			}
+
+			.policy-card:hover {
+				border-color: rgba(0, 140, 110, 0.25);
+				box-shadow: 0 18px 44px rgba(0, 91, 78, 0.16);
+			}
+			.policy-action {
+				color: #008c6e;
+			}
+
+			/* --- Policies grid spacing/columns --- */
+			.policy-grid {
+				/* lets us use margin gutters on children */
+				margin: -14px; /* cancels child margins at the container edge */
+			}
+
+			.policy-card {
+				margin: 14px; /* <-- spacing between cards (both axes) */
+				width: 100%;
+			}
+
+			/*  ≥768px: two columns  */
+			@media (min-width: 768px) {
+				.policy-card {
+					width: calc(50% - 28px);
+				} /* 2 cols, accounting for margins */
+			}
+
+			/*  ≥1200px: three columns  */
+			@media (min-width: 1200px) {
+				.policy-card {
+					width: calc(33.333% - 28px);
+				} /* 3 cols, accounting for margins */
+			}
+
+			/* little visual lift so the added spacing reads nicely */
+			.policy-card {
+				transition: transform 0.18s ease, box-shadow 0.18s ease,
+					border-color 0.18s ease;
+			}
+			.policy-card:hover {
+				transform: translateY(-2px);
+			}
+
+			.policy-toolbar {
+				gap: 12px;
+			}
+			.policy-tags .btn {
+				border-radius: 999px;
+			}
+			.policy-tags .btn.is-checked,
+			.policy-tags .btn:hover {
+				background: var(--brand);
+				color: #fff;
+				border-color: var(--brand);
+			}
+
+			/* hide filtered-out cards */
+			.policy-card.is-hidden {
+				display: none !important;
+			}
+
+			/* optional: show which filter chip is active */
+			.filter-btn.active,
+			.filter-btn[aria-pressed="true"] {
+				background: #008c6e; /* Emerald */
+				color: #fff;
+				border-color: transparent;
+			}
 		</style>
 	</head>
 
@@ -306,6 +374,28 @@
 				</div>
 			</section>
 
+			<!-- Filter Toolbar -->
+			<section class="section-pad pt-4 pb-0">
+				<div class="container">
+					<div
+						class="d-flex flex-wrap gap-3 align-items-center justify-content-between policy-toolbar"
+					>
+						<div class="input-group policy-search">
+							<span class="input-group-text" id="pol-search-icn">
+								<span class="icon-search"></span>
+							</span>
+							<input
+								id="policySearch"
+								type="search"
+								class="form-control"
+								placeholder="Search policies (e.g., grievance, pricing, tamil)"
+								aria-label="Search policies"
+							/>
+						</div>
+					</div>
+				</div>
+			</section>
+
 			<!-- Policies Grid -->
 			<section class="section-pad">
 				<div class="container">
@@ -314,8 +404,10 @@
 						<a
 							class="policy-card"
 							href="assets/policies/interest-rate.pdf"
-							target="_blank"
-							data-aos="fade-up"
+							data-fancybox
+							data-type="iframe"
+							data-title="Interest Rate"
+							data-tags="pricing, rate, loan"
 						>
 							<h3 class="policy-title">Interest Rate</h3>
 
@@ -328,9 +420,10 @@
 						<a
 							class="policy-card"
 							href="assets/policies/policy-on-code-of-conduct.pdf"
-							target="_blank"
-							data-aos="fade-up"
-							data-aos-delay="50"
+							data-fancybox
+							data-type="iframe"
+							data-title="Policy on Code of Conduct"
+							data-tags="code, conduct, compliance"
 						>
 							<h3 class="policy-title">Policy on Code of Conduct</h3>
 
@@ -343,9 +436,10 @@
 						<a
 							class="policy-card"
 							href="assets/policies/grievance-redressal-mechanism.pdf"
-							target="_blank"
-							data-aos="fade-up"
-							data-aos-delay="100"
+							data-fancybox
+							data-type="iframe"
+							data-title="Grievance Redressal Mechanism"
+							data-tags="customer, grievance, support"
 						>
 							<h3 class="policy-title">Grievance Redressal Mechanism</h3>
 
@@ -358,9 +452,10 @@
 						<a
 							class="policy-card"
 							href="assets/policies/fpc-tamil.pdf"
-							target="_blank"
-							data-aos="fade-up"
-							data-aos-delay="150"
+							data-fancybox
+							data-type="iframe"
+							data-title="Fair Practice Code — Tamil"
+							data-tags="code, regional, tamil"
 						>
 							<h3 class="policy-title">Fair Practice Code — Tamil</h3>
 							<span class="policy-action"
@@ -372,9 +467,10 @@
 						<a
 							class="policy-card"
 							href="assets/policies/fpc-malayalam.pdf"
-							target="_blank"
-							data-aos="fade-up"
-							data-aos-delay="200"
+							data-fancybox
+							data-type="iframe"
+							data-title="Fair Practice Code — Malayalam"
+							data-tags="code, regional, malayalam"
 						>
 							<h3 class="policy-title">Fair Practice Code — Malayalam</h3>
 							<span class="policy-action"
@@ -386,9 +482,10 @@
 						<a
 							class="policy-card"
 							href="assets/policies/fpc-odiya.pdf"
-							target="_blank"
-							data-aos="fade-up"
-							data-aos-delay="250"
+							data-fancybox
+							data-type="iframe"
+							data-title="Fair Practice Code — Odiya"
+							data-tags="code, regional, odiya"
 						>
 							<h3 class="policy-title">Fair Practice Code — Odiya</h3>
 							<span class="policy-action"
@@ -400,9 +497,10 @@
 						<a
 							class="policy-card"
 							href="assets/policies/customer-education-literature.pdf"
-							target="_blank"
-							data-aos="fade-up"
-							data-aos-delay="300"
+							data-fancybox
+							data-type="iframe"
+							data-title="Customer Education Literature"
+							data-tags="code, english, pricing"
 						>
 							<h3 class="policy-title">Customer Education Literature</h3>
 							<span class="policy-action"
@@ -414,9 +512,10 @@
 						<a
 							class="policy-card"
 							href="assets/policies/loan-pricing-policy.pdf"
-							target="_blank"
-							data-aos="fade-up"
-							data-aos-delay="350"
+							data-fancybox
+							data-type="iframe"
+							data-title="Loan Pricing Policy"
+							data-tags="code, policy, pricing, english"
 						>
 							<h3 class="policy-title">Loan Pricing Policy</h3>
 							<span class="policy-action"
@@ -585,8 +684,64 @@
 		<script src="js/main.js"></script>
 
 		<script>
-			// Kick off AOS
-			AOS.init({ duration: 700, once: true });
+			(function () {
+				// Guard: only run if the grid exists and Isotope is loaded
+				var $grid = $(".policy-grid");
+				if (!$grid.length || typeof $.fn.isotope !== "function") {
+					console.warn("Policies: grid or Isotope missing.");
+					return;
+				}
+
+				// 1) Init Isotope
+				$grid.isotope({
+					itemSelector: ".policy-card",
+					layoutMode: "fitRows",
+					getSortData: { title: "[data-title]" },
+				});
+
+				// 2) Tag buttons (All / Pricing / Code / Customer / Regional)
+				$(".policy-tags").on("click", "button", function (e) {
+					e.preventDefault();
+					var $btn = $(this);
+					$(".policy-tags .btn").removeClass("is-checked");
+					$btn.addClass("is-checked");
+					var filterValue = $btn.attr("data-filter") || "*";
+					$("#policySearch").val(""); // clear search when using tags
+					$grid.isotope({ filter: filterValue });
+				});
+
+				// 3) Live search (matches data-title OR data-tags)
+				var qsRegex;
+				$("#policySearch").on(
+					"input",
+					debounce(function () {
+						var val = this.value.trim().toLowerCase();
+						qsRegex = val ? new RegExp(val, "i") : null;
+						$(".policy-tags .btn").removeClass("is-checked"); // clear tag highlight
+						$grid.isotope({
+							filter: function () {
+								if (!qsRegex) return true;
+								var t = ($(this).attr("data-title") || "").toLowerCase();
+								var tags = ($(this).attr("data-tags") || "").toLowerCase();
+								return qsRegex.test(t) || qsRegex.test(tags);
+							},
+						});
+					}, 120)
+				);
+
+				// util: debounce so we don't reflow too often while typing
+				function debounce(fn, t) {
+					var to;
+					return function () {
+						clearTimeout(to);
+						var a = this,
+							r = arguments;
+						to = setTimeout(function () {
+							fn.apply(a, r);
+						}, t);
+					};
+				}
+			})();
 		</script>
 	</body>
 </html>
