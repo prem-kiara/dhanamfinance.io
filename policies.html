@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 	<head>
-		<title>Dhanam Investment & Finance Pvt. Ltd. — Policies</title>
+		<title>Dhanam Investment & Finance — Policies</title>
 		<meta charset="utf-8" />
 		<meta
 			name="viewport"
@@ -25,15 +25,17 @@
 		<link rel="stylesheet" href="fonts/flaticon/font/flaticon.css" />
 		<link rel="stylesheet" href="css/aos.css" />
 		<link rel="stylesheet" href="css/style.css" />
+		<link rel="stylesheet" href="css/custom.css" />
 
 		<!-- Page-specific polish -->
 		<style>
 			:root {
-				--brand: #2563ff; /* matches the primary blue from index */
-				--ink: #0b1020;
+				--brand: #008c6e; /* emerald */
+				--ink: #101418;
 				--card-bg: #ffffff;
 				--muted: #6b7280;
 			}
+
 			/* Header logo appearance to match index */
 			.site-logo a {
 				color: #0b1020;
@@ -44,7 +46,7 @@
 
 			/* Hero */
 			.policies-hero {
-				background-image: url("images/hero_2.jpg");
+				background-image: url("images/hero_1.jpg");
 				background-size: cover;
 				background-position: center;
 				position: relative;
@@ -146,12 +148,14 @@
 				inset: -40% -60% auto auto;
 				width: 180%;
 				height: 140%;
+				/* replace rgba(37, 99, 255, 0.07) with emerald tint */
 				background: conic-gradient(
 					from 200deg at 50% 50%,
 					transparent 0 60%,
-					rgba(37, 99, 255, 0.07) 60% 70%,
+					rgba(0, 140, 110, 0.18) 60% 70%,
 					transparent 70% 100%
 				);
+
 				transform: rotate(3deg);
 				opacity: 0;
 				transition: opacity 0.35s;
@@ -197,18 +201,22 @@
 						<div class="col-auto brand-col">
 							<a
 								href="index.html"
-								class="brand-link"
-								aria-label="Dhanam Investment and Finance Pvt Ltd"
+								class="brand-link d-flex align-items-center"
+								aria-label="Dhanam Investment and Finance"
 							>
-								<span class="brand-title">
-									<span class="brand-strong">Dhanam</span>
-									<span class="brand-rest">Investment &amp; Finance</span>
-								</span>
-								<span class="brand-pill">Pvt&nbsp;Ltd</span>
+								<img
+									src="images/logo1.png"
+									alt="Dhanam Logo"
+									class="brand-logo"
+								/>
+								<div class="brand-text ms-2">
+									<div class="brand-strong">Dhanam</div>
+									<div class="brand-rest">Investment &amp; Finance</div>
+								</div>
 							</a>
 						</div>
 
-						<!-- Desktop nav -->
+						<!-- Nav -->
 						<div class="col d-none d-xl-block">
 							<nav
 								class="site-navigation position-relative text-right"
@@ -220,7 +228,6 @@
 									<li>
 										<a href="index.html#home-section" class="nav-link">Home</a>
 									</li>
-
 									<li class="has-children">
 										<a href="index.html#about-section" class="nav-link"
 											>About</a
@@ -238,32 +245,26 @@
 											</li>
 										</ul>
 									</li>
-
-									<li class="active">
-										<a href="policies.html" class="nav-link">Policies</a>
-									</li>
-
+									<li><a href="policies.html" class="nav-link">Policies</a></li>
 									<li class="social">
 										<a
 											href="https://www.facebook.com/profile.php?id=61579725620728"
-											class="nav-link"
 											><span class="icon-facebook"></span
 										></a>
 									</li>
 									<li class="social">
-										<a
-											href="https://www.instagram.com/dhanamfin/"
-											class="nav-link"
+										<a href="https://www.instagram.com/dhanamfin/"
 											><span class="icon-instagram"></span
 										></a>
 									</li>
 									<li class="social">
-										<a href="https://x.com/DhanamFin" class="nav-link"
+										<a href="https://x.com/DhanamFin"
 											><span class="icon-twitter"></span
 										></a>
 									</li>
 									<li class="social">
-										<a href="#contact-section" class="nav-link"
+										<a
+											href="https://www.linkedin.com/company/dhanam-investment-finance-pvt-ltd/"
 											><span class="icon-linkedin"></span
 										></a>
 									</li>
@@ -317,9 +318,7 @@
 							data-aos="fade-up"
 						>
 							<h3 class="policy-title">Interest Rate</h3>
-							<div class="policy-meta">
-								Schedule of interest rates applicable across products.
-							</div>
+
 							<span class="policy-action"
 								>View PDF <span class="icon-arrow-right"></span
 							></span>
@@ -334,9 +333,7 @@
 							data-aos-delay="50"
 						>
 							<h3 class="policy-title">Policy on Code of Conduct</h3>
-							<div class="policy-meta">
-								Standards for fair practices and employee conduct.
-							</div>
+
 							<span class="policy-action"
 								>View PDF <span class="icon-arrow-right"></span
 							></span>
@@ -351,9 +348,7 @@
 							data-aos-delay="100"
 						>
 							<h3 class="policy-title">Grievance Redressal Mechanism</h3>
-							<div class="policy-meta">
-								How to raise a complaint and our resolution timelines.
-							</div>
+
 							<span class="policy-action"
 								>View PDF <span class="icon-arrow-right"></span
 							></span>
@@ -368,7 +363,6 @@
 							data-aos-delay="150"
 						>
 							<h3 class="policy-title">Fair Practice Code — Tamil</h3>
-							<div class="policy-meta">Customer charter (தமிழ்).</div>
 							<span class="policy-action"
 								>View PDF <span class="icon-arrow-right"></span
 							></span>
@@ -383,7 +377,6 @@
 							data-aos-delay="200"
 						>
 							<h3 class="policy-title">Fair Practice Code — Malayalam</h3>
-							<div class="policy-meta">Customer charter (മലയാളം).</div>
 							<span class="policy-action"
 								>View PDF <span class="icon-arrow-right"></span
 							></span>
@@ -398,7 +391,6 @@
 							data-aos-delay="250"
 						>
 							<h3 class="policy-title">Fair Practice Code — Odiya</h3>
-							<div class="policy-meta">Customer charter (ଓଡ଼ିଆ).</div>
 							<span class="policy-action"
 								>View PDF <span class="icon-arrow-right"></span
 							></span>
@@ -413,7 +405,6 @@
 							data-aos-delay="300"
 						>
 							<h3 class="policy-title">Customer Education Literature</h3>
-							<div class="policy-meta">Helpful guidance for borrowers.</div>
 							<span class="policy-action"
 								>View PDF <span class="icon-arrow-right"></span
 							></span>
@@ -428,9 +419,6 @@
 							data-aos-delay="350"
 						>
 							<h3 class="policy-title">Loan Pricing Policy</h3>
-							<div class="policy-meta">
-								Methodology and factors considered for pricing.
-							</div>
 							<span class="policy-action"
 								>View PDF <span class="icon-arrow-right"></span
 							></span>
