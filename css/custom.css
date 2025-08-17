@@ -1206,3 +1206,19 @@ a:hover{ color:var(--brand-deep); }
     font-size: .875rem;        /* ~14px */
   }
 }
+
+.emi-card {
+  background: #ffffff;
+  border-radius: 16px;
+  transition: all 0.3s ease;
+}
+.emi-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 24px rgba(0,0,0,0.1);
+}
+.result-box {
+  background: #f8f9fa;
+  padding: 20px;
+  border-radius: 12px;
+  border: 1px solid #e0e0e0;
+}

@@ -532,6 +532,60 @@
 					</div>
 				</div>
 			</section>
+			<section class="py-5 bg-light">
+				<div class="container">
+					<div class="row justify-content-center">
+						<div class="col-lg-8">
+							<div class="card shadow-lg border-0 rounded-4 p-4 emi-card">
+								<h2 class="h4 text-center mb-4 text-primary">EMI Calculator</h2>
+
+								<form id="emiForm">
+									<div class="row">
+										<div class="col-md-4 mb-3">
+											<label for="loanAmount" class="form-label fw-bold"
+												>Loan Amount (₹)</label
+											>
+											<input
+												type="number"
+												id="loanAmount"
+												class="form-control"
+												value="50000"
+											/>
+										</div>
+										<div class="col-md-4 mb-3">
+											<label for="interestRate" class="form-label fw-bold"
+												>Interest Rate (%)</label
+											>
+											<input
+												type="number"
+												id="interestRate"
+												class="form-control"
+												value="18"
+											/>
+										</div>
+										<div class="col-md-4 mb-3">
+											<label for="loanTenure" class="form-label fw-bold"
+												>Tenure (Months)</label
+											>
+											<input
+												type="number"
+												id="loanTenure"
+												class="form-control"
+												value="60"
+											/>
+										</div>
+									</div>
+								</form>
+
+								<div class="result-box text-center mt-4">
+									<h4 class="text-dark">Your Monthly EMI:</h4>
+									<h2 class="text-success fw-bold" id="emiResult">₹ 0</h2>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</section>
 
 			<section
 				class="site-section border-bottom bg-light"

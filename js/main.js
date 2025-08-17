@@ -617,3 +617,24 @@ ${data.message}
     if (!fab.contains(e.target)) panel.style.display = 'none';
   });
 })();
+
+function calculateEMI() {
+  let P = parseFloat(document.getElementById("loanAmount").value) || 0;
+  let R = parseFloat(document.getElementById("interestRate").value) / 12 / 100 || 0;
+  let N = parseFloat(document.getElementById("loanTenure").value) || 0;
+
+  if (P > 0 && R > 0 && N > 0) {
+    let emi = (P * R * Math.pow(1 + R, N)) / (Math.pow(1 + R, N) - 1);
+    document.getElementById("emiResult").textContent = "₹ " + emi.toFixed(2);
+  } else {
+    document.getElementById("emiResult").textContent = "₹ 0";
+  }
+}
+
+// Auto-update on input change
+["loanAmount", "interestRate", "loanTenure"].forEach(id => {
+  document.getElementById(id).addEventListener("input", calculateEMI);
+});
+
+// Run once on load
+calculateEMI();
