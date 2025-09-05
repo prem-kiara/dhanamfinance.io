@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width,initial-scale=1" />
+		<title>Dhanam – Under Construction</title>
+		<meta
+			name="description"
+			content="Dhanam Investment & Finance — website under scheduled maintenance."
+		/>
+		<link rel="preconnect" href="https://fonts.googleapis.com" />
+		<link
+			href="https://fonts.googleapis.com/css2?family=Palatino+Linotype:wght@400;700&family=Inter:wght@300;400;600&display=swap"
+			rel="stylesheet"
+		/>
+		<style>
+			:root {
+				--brand-1: #eb781b; /* light orange */
+				--brand-2: #d85622; /* mid orange */
+				--brand-3: #c43428; /* deep orange */
+				--ink: #0f172a; /* slate-900 */
+				--muted: #475569; /* slate-600 */
+				--card-bg: #ffffffcc;
+			}
+			* {
+				box-sizing: border-box;
+			}
+			html,
+			body {
+				height: 100%;
+			}
+			body {
+				margin: 0;
+				color: var(--ink);
+				font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto,
+					"Helvetica Neue", Arial, "Noto Sans", "Liberation Sans", sans-serif;
+				background: radial-gradient(
+						1200px 1200px at 80% -10%,
+						#ffffff22 0%,
+						#00000000 60%
+					),
+					linear-gradient(
+						135deg,
+						var(--brand-1),
+						var(--brand-2) 50%,
+						var(--brand-3)
+					);
+				display: grid;
+				place-items: center;
+				padding: 24px;
+			}
+			.card {
+				width: min(880px, 96vw);
+				background: var(--card-bg);
+				backdrop-filter: blur(8px);
+				border: 1px solid #ffffff40;
+				border-radius: 24px;
+				box-shadow: 0 20px 60px #00000028, inset 0 1px 0 #ffffffa6;
+				padding: 32px 28px;
+				text-align: center;
+			}
+			.brand {
+				display: flex;
+				align-items: center;
+				justify-content: center;
+				gap: 16px;
+				flex-wrap: wrap;
+			}
+			.brand img {
+				height: 84px;
+				width: auto;
+				display: block;
+			}
+			.brand .name {
+				font-family: "Palatino Linotype", Palatino, "Book Antiqua", serif;
+				line-height: 1.05;
+				letter-spacing: 0.5px;
+			}
+			.brand .name .top {
+				font-size: 44px;
+				font-weight: 700;
+			}
+			.brand .name .sub {
+				font-size: 18px;
+				font-weight: 600;
+				color: var(--muted);
+			}
+			h1 {
+				margin: 18px 0 8px;
+				font-size: 28px;
+			}
+			p.lead {
+				margin: 0 auto 18px;
+				max-width: 50ch;
+				color: var(--muted);
+			}
+			.progress {
+				position: relative;
+				height: 10px;
+				width: 100%;
+				background: #ffffffb3;
+				border-radius: 999px;
+				overflow: hidden;
+				margin: 18px 0 8px;
+			}
+			.bar {
+				position: absolute;
+				inset: 0 auto 0 0;
+				width: 38%;
+				background: linear-gradient(90deg, #fff, #fff0);
+				animation: load 2.8s ease-in-out infinite;
+			}
+			@keyframes load {
+				0% {
+					width: 8%;
+				}
+				50% {
+					width: 72%;
+				}
+				100% {
+					width: 38%;
+				}
+			}
+			.cta {
+				display: flex;
+				flex-wrap: wrap;
+				gap: 10px;
+				justify-content: center;
+				margin: 18px 0 8px;
+			}
+			.btn {
+				padding: 10px 16px;
+				border-radius: 12px;
+				border: 1px solid #ffffff70;
+				background: #fff;
+				color: var(--ink);
+				font-weight: 600;
+				text-decoration: none;
+				display: inline-flex;
+				align-items: center;
+				gap: 8px;
+				transition: transform 0.08s ease, box-shadow 0.2s ease;
+			}
+			.btn:hover {
+				transform: translateY(-1px);
+				box-shadow: 0 8px 20px #0000001c;
+			}
+			.btn.whatsapp {
+				background: #25d366;
+				color: #073b17;
+				border-color: #25d366;
+			}
+			.meta {
+				margin-top: 8px;
+				font-size: 13px;
+				color: #334155;
+			}
+			footer {
+				margin-top: 20px;
+				font-size: 12px;
+				color: #0b1220;
+				opacity: 0.8;
+			}
+			.border {
+				--border: #ffffff80;
+				position: relative;
+				border-radius: 24px;
+			}
+			.border::before {
+				content: "";
+				position: absolute;
+				inset: -1.5px;
+				border-radius: inherit;
+				background: conic-gradient(
+					from 180deg at 50% 50%,
+					#ffffff80,
+					#ffffff10,
+					#ffffff80
+				);
+				-webkit-mask: linear-gradient(#000 0 0) content-box,
+					linear-gradient(#000 0 0);
+				-webkit-mask-composite: xor;
+				mask-composite: exclude;
+				padding: 1.5px;
+				border-radius: inherit;
+			}
+			@media (max-width: 520px) {
+				.brand img {
+					height: 70px;
+				}
+				.brand .name .top {
+					font-size: 36px;
+				}
+				.brand .name .sub {
+					font-size: 16px;
+				}
+			}
+		</style>
+	</head>
+	<body>
+		<main class="card border" role="main" aria-label="Under construction">
+			<div class="brand">
+				<img
+					src="images/logo.png"
+					alt="Dhanam Logo"
+					style="height: 140px; width: auto"
+				/>
+			</div>
+
+			<h1>We’re crafting something better.</h1>
+			<p class="lead">
+				Our website is currently under construction as we enhance your
+				experience. Meanwhile, reach us anytime for assistance.
+			</p>
+
+			<div class="progress" aria-hidden="true"><div class="bar"></div></div>
+			<div class="meta">Status: Scheduled maintenance</div>
+
+			<div class="cta">
+				<a class="btn" href="mailto:contact@dhanam.finance"
+					>✉️ contact@dhanam.finance</a
+				>
+				<a class="btn" href="tel:+917305022272">📞 +91 73050 22272</a>
+				<a
+					class="btn whatsapp"
+					target="_blank"
+					rel="noopener"
+					href="https://wa.me/917305022272"
+					>WhatsApp</a
+				>
+			</div>
+
+			<footer>
+				© <span id="y"></span> Dhanam Investment and Finance Pvt. Ltd. All
+				rights reserved.
+			</footer>
+		</main>
+
+		<script>
+			document.getElementById("y").textContent = new Date().getFullYear();
+		</script>
+	</body>
+</html>
