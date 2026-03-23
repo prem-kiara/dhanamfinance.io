@@ -1407,41 +1407,61 @@ select:focus {
 /* ============================================
    FOOTER
    ============================================ */
-.footer {
-  background-color: var(--navy);
-  color: var(--off-white);
-  padding: var(--space-4xl) 0 var(--space-xl);
+/* ============================================
+   FOOTER - Tata Capital Inspired Design
+   ============================================ */
+
+.footer__cta-bar {
+  background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+  padding: var(--space-2xl) 0;
+  color: white;
 }
 
-.footer__grid {
-  display: grid;
-  grid-template-columns: 1.5fr 1fr 1fr 1fr;
-  gap: var(--space-3xl);
-  padding-bottom: var(--space-3xl);
-  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-  margin-bottom: var(--space-3xl);
-}
-
-.footer__col {
+.footer__cta-bar-inner {
   display: flex;
-  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
   gap: var(--space-lg);
 }
 
-.footer__col h4 {
-  color: var(--white);
+.footer__cta-text {
   font-size: 1rem;
-  margin-bottom: var(--space-md);
-  font-family: var(--font-body);
   font-weight: 600;
+}
+
+.footer__cta-links {
+  display: flex;
+  gap: var(--space-lg);
+  align-items: center;
+}
+
+.footer__cta-links a {
+  color: white;
+  text-decoration: none;
+  transition: opacity var(--transition-fast);
+  font-weight: 500;
+}
+
+.footer__cta-links a:hover {
+  opacity: 0.8;
+}
+
+.footer {
+  background-color: #2D2926;
+  color: var(--off-white);
+  padding: var(--space-4xl) 0 0;
+}
+
+.footer__main {
+  padding: var(--space-4xl) 0 var(--space-3xl);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
 }
 
 .footer__top {
   display: grid;
-  grid-template-columns: 1.5fr 1fr 1fr 1fr;
+  grid-template-columns: 1.5fr 1fr 1fr 1fr 1.2fr;
   gap: var(--space-3xl);
-  padding-bottom: var(--space-3xl);
-  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
   margin-bottom: var(--space-3xl);
 }
 
@@ -1452,45 +1472,38 @@ select:focus {
 }
 
 .footer__brand-logo {
-  height: 40px;
+  height: 48px;
   width: auto;
   margin-bottom: var(--space-md);
 }
 
 .footer__brand-desc {
-  font-size: 0.95rem;
+  font-size: 0.9rem;
   line-height: 1.8;
-  color: var(--off-white);
+  color: rgba(255, 255, 255, 0.8);
 }
 
-.footer__social {
+.footer__col {
   display: flex;
-  gap: var(--space-md);
-  margin-top: var(--space-md);
+  flex-direction: column;
+  gap: var(--space-sm);
 }
 
-.footer__social-link {
-  width: 40px;
-  height: 40px;
-  border-radius: 50%;
-  background-color: rgba(201, 150, 26, 0.15);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: var(--gold-light);
-  transition: all var(--transition-fast);
-}
-
-.footer__social-link:hover {
-  background-color: var(--gold);
-  color: var(--navy);
-  transform: translateY(-3px);
+.footer__col h4 {
+  color: var(--white);
+  font-size: 0.95rem;
+  margin-bottom: var(--space-lg);
+  font-family: var(--font-body);
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
 }
 
 .footer__col h3 {
   color: var(--white);
-  font-size: 1rem;
+  font-size: 0.95rem;
   margin-bottom: var(--space-lg);
+  font-weight: 700;
 }
 
 .footer__links {
@@ -1500,40 +1513,134 @@ select:focus {
   gap: var(--space-md);
 }
 
+.footer__links li {
+  margin: 0;
+}
+
 .footer__links a {
-  color: var(--off-white);
+  color: rgba(255, 255, 255, 0.75);
   transition: color var(--transition-fast);
-  font-size: 0.95rem;
+  font-size: 0.9rem;
+  text-decoration: none;
 }
 
 .footer__links a:hover {
-  color: var(--gold-light);
+  color: var(--primary);
 }
 
+.footer__contact-item {
+  font-size: 0.9rem;
+  color: rgba(255, 255, 255, 0.75);
+  margin-bottom: var(--space-md);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-xs);
+}
+
+.footer__contact-item strong {
+  color: var(--white);
+  display: block;
+  font-weight: 600;
+}
+
+/* Social Media Row */
+.footer__social-row {
+  padding: var(--space-2xl) 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: var(--space-lg);
+}
+
+.footer__social {
+  display: flex;
+  gap: var(--space-md);
+  align-items: center;
+}
+
+.footer__social-link {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background-color: rgba(184, 134, 11, 0.15);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--primary);
+  transition: all var(--transition-fast);
+  cursor: pointer;
+  text-decoration: none;
+}
+
+.footer__social-link:hover {
+  background-color: var(--primary);
+  color: var(--navy);
+  transform: translateY(-3px);
+}
+
+.footer__social-link svg {
+  width: 20px;
+  height: 20px;
+  fill: currentColor;
+}
+
+.footer__rbi-info {
+  font-size: 0.85rem;
+  color: rgba(255, 255, 255, 0.7);
+  font-style: italic;
+}
+
+/* Footer Bottom Bar */
 .footer__bottom {
   display: flex;
   justify-content: space-between;
   align-items: center;
   flex-wrap: wrap;
   gap: var(--space-lg);
-  padding-top: var(--space-xl);
-  border-top: 1px solid rgba(255, 255, 255, 0.1);
-  font-size: 0.85rem;
+  padding: var(--space-2xl) 0;
+  font-size: 0.8rem;
   color: var(--gray-400);
+}
+
+.footer__bottom-left {
+  display: flex;
+  align-items: center;
+  gap: var(--space-lg);
+  flex-wrap: wrap;
+}
+
+.footer__bottom-left p {
+  margin: 0;
+  color: rgba(255, 255, 255, 0.6);
 }
 
 .footer__bottom-links {
   display: flex;
   gap: var(--space-lg);
   list-style: none;
+  margin: 0;
+  padding: 0;
+  flex-wrap: wrap;
+}
+
+.footer__bottom-links li {
+  margin: 0;
 }
 
 .footer__bottom-links a {
-  color: var(--gray-400);
+  color: rgba(255, 255, 255, 0.6);
+  text-decoration: none;
+  transition: color var(--transition-fast);
 }
 
 .footer__bottom-links a:hover {
-  color: var(--gold-light);
+  color: var(--primary);
+}
+
+.footer__bottom-right {
+  color: rgba(255, 255, 255, 0.6);
 }
 
 /* ============================================
@@ -2219,6 +2326,11 @@ select:focus {
     grid-template-columns: repeat(2, 1fr);
   }
 
+  .footer__cta-bar-inner {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
   .nav__links {
     gap: var(--space-lg);
   }
@@ -2285,6 +2397,35 @@ select:focus {
   .footer__grid {
     grid-template-columns: 1fr;
     gap: var(--space-2xl);
+  }
+
+  .footer__top {
+    grid-template-columns: 1fr;
+  }
+
+  .footer__social-row {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .footer__bottom {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .footer__bottom-left {
+    width: 100%;
+  }
+
+  .footer__cta-bar-inner {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: var(--space-md);
+  }
+
+  .footer__cta-links {
+    flex-direction: column;
+    align-items: flex-start;
   }
 
   .calc-result__breakdown {

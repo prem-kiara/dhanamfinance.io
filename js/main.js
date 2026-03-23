@@ -230,16 +230,29 @@
       e.preventDefault();
 
       // Get form data
-      const formData = new FormData(form);
+      const name = document.getElementById('contact-name')?.value || '';
+      const email = document.getElementById('contact-email')?.value || '';
+      const subject = document.getElementById('contact-subject')?.value || '';
+      const message = document.getElementById('contact-message')?.value || '';
 
       // Validate form
-      const email = formData.get('email');
-      const message = formData.get('message');
-
       if (!email || !message) {
         alert('Please fill in all required fields');
         return;
       }
+
+      // Build mailto link with form data
+      const mailtoSubject = encodeURIComponent(subject || 'Contact Inquiry from ' + name);
+      const mailtoBody = encodeURIComponent(
+        'Name: ' + name + '\n' +
+        'Email: ' + email + '\n' +
+        'Subject: ' + subject + '\n' +
+        'Message: ' + message
+      );
+      const mailtoLink = 'mailto:contact@dhanam.finance?subject=' + mailtoSubject + '&body=' + mailtoBody;
+
+      // Open mailto link
+      window.location.href = mailtoLink;
 
       // Show thank you message
       const thankYouMsg = document.createElement('div');
@@ -256,12 +269,6 @@
 
       // Reset form
       form.reset();
-
-      // Optional: Send form data to server (uncomment and update endpoint)
-      // fetch('/api/contact', {
-      //   method: 'POST',
-      //   body: formData
-      // }).catch(err => console.log('Form submitted locally'));
     });
   }
 
@@ -275,17 +282,36 @@
     form.addEventListener('submit', function (e) {
       e.preventDefault();
 
-      // Get form data
-      const formData = new FormData(form);
+      // Get form data from input elements
+      const name = document.getElementById('apply-name')?.value || '';
+      const phone = document.getElementById('apply-phone')?.value || '';
+      const email = document.getElementById('apply-email')?.value || '';
+      const loanType = document.getElementById('apply-loan-type')?.value || '';
+      const amount = document.getElementById('apply-amount')?.value || '';
+      const city = document.getElementById('apply-city')?.value || '';
+      const message = document.getElementById('apply-message')?.value || '';
 
       // Validate form
-      const name = formData.get('name');
-      const email = formData.get('email');
-
-      if (!name || !email) {
+      if (!name || !phone || !loanType || !city) {
         alert('Please fill in all required fields');
         return;
       }
+
+      // Build mailto link with form data
+      const mailtoSubject = encodeURIComponent('Loan Application from ' + name);
+      const mailtoBody = encodeURIComponent(
+        'Name: ' + name + '\n' +
+        'Phone: ' + phone + '\n' +
+        'Email: ' + email + '\n' +
+        'Loan Type: ' + loanType + '\n' +
+        'Approximate Amount: ' + amount + '\n' +
+        'City / District: ' + city + '\n' +
+        'Additional Details: ' + message
+      );
+      const mailtoLink = 'mailto:contact@dhanam.finance?subject=' + mailtoSubject + '&body=' + mailtoBody;
+
+      // Open mailto link
+      window.location.href = mailtoLink;
 
       // Show success message
       const successMsg = document.createElement('div');
@@ -302,12 +328,6 @@
 
       // Reset form
       form.reset();
-
-      // Optional: Send form data to server (uncomment and update endpoint)
-      // fetch('/api/apply', {
-      //   method: 'POST',
-      //   body: formData
-      // }).catch(err => console.log('Form submitted locally'));
     });
   }
 
