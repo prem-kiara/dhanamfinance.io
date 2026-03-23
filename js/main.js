@@ -229,46 +229,35 @@
     form.addEventListener('submit', function (e) {
       e.preventDefault();
 
-      // Get form data
-      const name = document.getElementById('contact-name')?.value || '';
-      const email = document.getElementById('contact-email')?.value || '';
-      const subject = document.getElementById('contact-subject')?.value || '';
-      const message = document.getElementById('contact-message')?.value || '';
+      const formData = new FormData(form);
+      const btn = form.querySelector('button[type="submit"]');
+      const btnText = btn.textContent;
+      btn.textContent = 'Sending...';
+      btn.disabled = true;
 
-      // Validate form
-      if (!email || !message) {
-        alert('Please fill in all required fields');
-        return;
-      }
-
-      // Build mailto link with form data
-      const mailtoSubject = encodeURIComponent(subject || 'Contact Inquiry from ' + name);
-      const mailtoBody = encodeURIComponent(
-        'Name: ' + name + '\n' +
-        'Email: ' + email + '\n' +
-        'Subject: ' + subject + '\n' +
-        'Message: ' + message
-      );
-      const mailtoLink = 'mailto:contact@dhanam.finance?subject=' + mailtoSubject + '&body=' + mailtoBody;
-
-      // Open mailto link
-      window.location.href = mailtoLink;
-
-      // Show thank you message
-      const thankYouMsg = document.createElement('div');
-      thankYouMsg.className = 'form-success-message';
-      thankYouMsg.innerHTML = `
-        <div style="padding: 2rem; background: linear-gradient(135deg, #B8860B 0%, #D4A528 100%); color: white; border-radius: 12px; text-align: center;">
-          <h3 style="margin: 0 0 1rem 0; font-family: 'DM Serif Display', Georgia, serif;">Thank You!</h3>
-          <p style="margin: 0; font-size: 0.95rem;">We have received your message and will get back to you soon.</p>
-        </div>
-      `;
-
-      form.style.display = 'none';
-      form.parentNode.insertBefore(thankYouMsg, form);
-
-      // Reset form
-      form.reset();
+      fetch('https://api.web3forms.com/submit', {
+        method: 'POST',
+        body: formData
+      })
+      .then(res => res.json())
+      .then(data => {
+        if (data.success) {
+          const thankYouMsg = document.createElement('div');
+          thankYouMsg.innerHTML = '<div style="padding:2rem;background:linear-gradient(135deg,#B8860B 0%,#D4A528 100%);color:white;border-radius:12px;text-align:center;"><h3 style="margin:0 0 1rem 0;font-family:DM Serif Display,Georgia,serif;">Thank You!</h3><p style="margin:0;font-size:0.95rem;">We have received your message and will get back to you soon.</p></div>';
+          form.style.display = 'none';
+          form.parentNode.insertBefore(thankYouMsg, form);
+          form.reset();
+        } else {
+          alert('Something went wrong. Please try again or call us at 1800 2025 180.');
+          btn.textContent = btnText;
+          btn.disabled = false;
+        }
+      })
+      .catch(() => {
+        alert('Something went wrong. Please try again or call us at 1800 2025 180.');
+        btn.textContent = btnText;
+        btn.disabled = false;
+      });
     });
   }
 
@@ -282,52 +271,35 @@
     form.addEventListener('submit', function (e) {
       e.preventDefault();
 
-      // Get form data from input elements
-      const name = document.getElementById('apply-name')?.value || '';
-      const phone = document.getElementById('apply-phone')?.value || '';
-      const email = document.getElementById('apply-email')?.value || '';
-      const loanType = document.getElementById('apply-loan-type')?.value || '';
-      const amount = document.getElementById('apply-amount')?.value || '';
-      const city = document.getElementById('apply-city')?.value || '';
-      const message = document.getElementById('apply-message')?.value || '';
+      const formData = new FormData(form);
+      const btn = form.querySelector('button[type="submit"]');
+      const btnText = btn.innerHTML;
+      btn.textContent = 'Submitting...';
+      btn.disabled = true;
 
-      // Validate form
-      if (!name || !phone || !loanType || !city) {
-        alert('Please fill in all required fields');
-        return;
-      }
-
-      // Build mailto link with form data
-      const mailtoSubject = encodeURIComponent('Loan Application from ' + name);
-      const mailtoBody = encodeURIComponent(
-        'Name: ' + name + '\n' +
-        'Phone: ' + phone + '\n' +
-        'Email: ' + email + '\n' +
-        'Loan Type: ' + loanType + '\n' +
-        'Approximate Amount: ' + amount + '\n' +
-        'City / District: ' + city + '\n' +
-        'Additional Details: ' + message
-      );
-      const mailtoLink = 'mailto:contact@dhanam.finance?subject=' + mailtoSubject + '&body=' + mailtoBody;
-
-      // Open mailto link
-      window.location.href = mailtoLink;
-
-      // Show success message
-      const successMsg = document.createElement('div');
-      successMsg.className = 'form-success-message';
-      successMsg.innerHTML = `
-        <div style="padding: 2rem; background: linear-gradient(135deg, #B8860B 0%, #D4A528 100%); color: white; border-radius: 12px; text-align: center;">
-          <h3 style="margin: 0 0 1rem 0; font-family: 'DM Serif Display', Georgia, serif;">Application Submitted!</h3>
-          <p style="margin: 0; font-size: 0.95rem;">Your application has been received. Our team will contact you shortly.</p>
-        </div>
-      `;
-
-      form.style.display = 'none';
-      form.parentNode.insertBefore(successMsg, form);
-
-      // Reset form
-      form.reset();
+      fetch('https://api.web3forms.com/submit', {
+        method: 'POST',
+        body: formData
+      })
+      .then(res => res.json())
+      .then(data => {
+        if (data.success) {
+          const successMsg = document.createElement('div');
+          successMsg.innerHTML = '<div style="padding:2rem;background:linear-gradient(135deg,#B8860B 0%,#D4A528 100%);color:white;border-radius:12px;text-align:center;"><h3 style="margin:0 0 1rem 0;font-family:DM Serif Display,Georgia,serif;">Application Submitted!</h3><p style="margin:0;font-size:0.95rem;">Your application has been received. Our team will contact you shortly.</p></div>';
+          form.style.display = 'none';
+          form.parentNode.insertBefore(successMsg, form);
+          form.reset();
+        } else {
+          alert('Something went wrong. Please try again or call us at 1800 2025 180.');
+          btn.innerHTML = btnText;
+          btn.disabled = false;
+        }
+      })
+      .catch(() => {
+        alert('Something went wrong. Please try again or call us at 1800 2025 180.');
+        btn.innerHTML = btnText;
+        btn.disabled = false;
+      });
     });
   }
 

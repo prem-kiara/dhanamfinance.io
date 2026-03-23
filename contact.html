@@ -214,22 +214,22 @@
 
               <div class="form-group" style="margin-bottom:0;">
                 <label for="apply-name" style="font-size:0.85rem;font-weight:600;color:var(--navy);margin-bottom:var(--space-xs);display:block;">Full Name *</label>
-                <input type="text" id="apply-name" placeholder="Your full name" required style="width:100%;padding:12px 16px;border:1px solid var(--gray-200);border-radius:var(--radius-md);font-size:0.95rem;">
+                <input type="text" id="apply-name" name="name" placeholder="Your full name" required style="width:100%;padding:12px 16px;border:1px solid var(--gray-200);border-radius:var(--radius-md);font-size:0.95rem;">
               </div>
               <div class="form-group" style="margin-bottom:0;">
                 <label for="apply-phone" style="font-size:0.85rem;font-weight:600;color:var(--navy);margin-bottom:var(--space-xs);display:block;">Phone Number *</label>
-                <input type="tel" id="apply-phone" placeholder="+91 XXXXX XXXXX" required style="width:100%;padding:12px 16px;border:1px solid var(--gray-200);border-radius:var(--radius-md);font-size:0.95rem;">
+                <input type="tel" id="apply-phone" name="phone" placeholder="+91 XXXXX XXXXX" required style="width:100%;padding:12px 16px;border:1px solid var(--gray-200);border-radius:var(--radius-md);font-size:0.95rem;">
               </div>
               <div class="form-group" style="margin-bottom:0;">
                 <label for="apply-email" style="font-size:0.85rem;font-weight:600;color:var(--navy);margin-bottom:var(--space-xs);display:block;">Email Address</label>
-                <input type="email" id="apply-email" placeholder="your@email.com" style="width:100%;padding:12px 16px;border:1px solid var(--gray-200);border-radius:var(--radius-md);font-size:0.95rem;">
+                <input type="email" id="apply-email" name="email" placeholder="your@email.com" style="width:100%;padding:12px 16px;border:1px solid var(--gray-200);border-radius:var(--radius-md);font-size:0.95rem;">
               </div>
             </div>
             <!-- Row 2: 3 columns -->
             <div id="apply-row2" style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:var(--space-lg) var(--space-2xl);margin-bottom:var(--space-xl);">
               <div class="form-group" style="margin-bottom:0;">
                 <label for="apply-loan-type" style="font-size:0.85rem;font-weight:600;color:var(--navy);margin-bottom:var(--space-xs);display:block;">Loan Type *</label>
-                <select id="apply-loan-type" required style="width:100%;padding:12px 16px;border:1px solid var(--gray-200);border-radius:var(--radius-md);font-size:0.95rem;background:white;">
+                <select id="apply-loan-type" name="loan_type" required style="width:100%;padding:12px 16px;border:1px solid var(--gray-200);border-radius:var(--radius-md);font-size:0.95rem;background:white;">
                   <option value="">Select loan type</option>
                   <option value="gold-loan">Gold Loan</option>
                   <option value="mortgage-loan">Mortgage Loan (LAP)</option>
@@ -240,17 +240,17 @@
               </div>
               <div class="form-group" style="margin-bottom:0;">
                 <label for="apply-amount" style="font-size:0.85rem;font-weight:600;color:var(--navy);margin-bottom:var(--space-xs);display:block;">Approximate Amount</label>
-                <input type="text" id="apply-amount" placeholder="e.g. ₹5,00,000" style="width:100%;padding:12px 16px;border:1px solid var(--gray-200);border-radius:var(--radius-md);font-size:0.95rem;">
+                <input type="text" id="apply-amount" name="amount" placeholder="e.g. ₹5,00,000" style="width:100%;padding:12px 16px;border:1px solid var(--gray-200);border-radius:var(--radius-md);font-size:0.95rem;">
               </div>
               <div class="form-group" style="margin-bottom:0;">
                 <label for="apply-city" style="font-size:0.85rem;font-weight:600;color:var(--navy);margin-bottom:var(--space-xs);display:block;">City / District *</label>
-                <input type="text" id="apply-city" placeholder="e.g. Coimbatore, Salem" required style="width:100%;padding:12px 16px;border:1px solid var(--gray-200);border-radius:var(--radius-md);font-size:0.95rem;">
+                <input type="text" id="apply-city" name="city" placeholder="e.g. Coimbatore, Salem" required style="width:100%;padding:12px 16px;border:1px solid var(--gray-200);border-radius:var(--radius-md);font-size:0.95rem;">
               </div>
             </div>
             <!-- Row 3: full-width message + submit -->
             <div style="margin-bottom:var(--space-lg);">
               <label for="apply-message" style="font-size:0.85rem;font-weight:600;color:var(--navy);margin-bottom:var(--space-xs);display:block;">Additional Details</label>
-              <textarea id="apply-message" rows="3" placeholder="Tell us about your requirements, preferred branch, or any questions..." style="width:100%;padding:12px 16px;border:1px solid var(--gray-200);border-radius:var(--radius-md);font-size:0.95rem;resize:vertical;font-family:var(--font-body);"></textarea>
+              <textarea id="apply-message" name="message" rows="3" placeholder="Tell us about your requirements, preferred branch, or any questions..." style="width:100%;padding:12px 16px;border:1px solid var(--gray-200);border-radius:var(--radius-md);font-size:0.95rem;resize:vertical;font-family:var(--font-body);"></textarea>
             </div>
             <div id="apply-submit-row" style="display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:var(--space-md);">
               <p style="font-size:0.8rem;color:var(--gray-400);margin:0;">By submitting, you agree to our <a href="policies.html#privacy" style="color:var(--primary);">Privacy Policy</a> and consent to being contacted by Dhanam Finance.</p>
@@ -307,11 +307,11 @@
             <input type="hidden" name="subject" value="New General Enquiry from Dhanam Website">
             <input type="hidden" name="redirect" value="https://web3forms.com/success">
             <div class="form-row">
-              <div class="form-group"><label for="contact-name">Name *</label><input type="text" id="contact-name" placeholder="Your name" required></div>
-              <div class="form-group"><label for="contact-email">Email *</label><input type="email" id="contact-email" placeholder="your@email.com" required></div>
+              <div class="form-group"><label for="contact-name">Name *</label><input type="text" id="contact-name" name="name" placeholder="Your name" required></div>
+              <div class="form-group"><label for="contact-email">Email *</label><input type="email" id="contact-email" name="email" placeholder="your@email.com" required></div>
             </div>
-            <div class="form-group"><label for="contact-subject">Subject</label><input type="text" id="contact-subject" placeholder="What's this about?"></div>
-            <div class="form-group"><label for="contact-message">Message *</label><textarea id="contact-message" placeholder="Your message..." rows="4" required></textarea></div>
+            <div class="form-group"><label for="contact-subject">Subject</label><input type="text" id="contact-subject" name="subject_line" placeholder="What's this about?"></div>
+            <div class="form-group"><label for="contact-message">Message *</label><textarea id="contact-message" name="message" placeholder="Your message..." rows="4" required></textarea></div>
             <button type="submit" class="btn btn--navy" style="width:100%;justify-content:center;">Send Message</button>
           </form>
         </div>
