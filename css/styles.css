@@ -454,7 +454,6 @@ section:not(.hero):not(.trust-bar) {
   top: 88px;
   left: 24px;
   right: 24px;
-  bottom: 24px;
   background-color: var(--white);
   flex-direction: column;
   gap: var(--space-md);
@@ -463,6 +462,7 @@ section:not(.hero):not(.trust-bar) {
   box-shadow: 0 4px 24px rgba(0, 0, 0, 0.1);
   border: 1px solid rgba(0, 0, 0, 0.06);
   max-width: calc(100% - 48px);
+  max-height: calc(100vh - 110px);
   z-index: 999;
   overflow-y: auto;
   -webkit-overflow-scrolling: touch;
