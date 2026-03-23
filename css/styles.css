@@ -2708,6 +2708,41 @@ section.hero--dark {
   gap: var(--space-xl);
 }
 
+/* Advisory table responsive */
+@media (max-width: 768px) {
+  table {
+    font-size: 0.85rem;
+  }
+  table th,
+  table td {
+    padding: var(--space-sm) var(--space-md) !important;
+  }
+}
+
+@media (max-width: 480px) {
+  table thead {
+    display: none;
+  }
+  table, table tbody, table tr, table td {
+    display: block;
+    width: 100%;
+  }
+  table tr {
+    padding: var(--space-md);
+    border-bottom: 1px solid var(--gray-200);
+  }
+  table td {
+    padding: var(--space-xs) var(--space-md) !important;
+    text-align: left !important;
+  }
+  table td:first-child {
+    padding-top: var(--space-sm) !important;
+  }
+  table td:last-child {
+    padding-bottom: var(--space-sm) !important;
+  }
+}
+
 /* Print Styles */
 @media print {
   .nav,

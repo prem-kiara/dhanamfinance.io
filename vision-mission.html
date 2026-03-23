@@ -10,329 +10,9 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/styles.css">
-  <style>
-    .vision-statement {
-      border-left: 6px solid var(--gold);
-      padding: 3rem;
-      background: #FAFAF8;
-      border-radius: 8px;
-      font-size: 1.5rem;
-      line-height: 1.8;
-      font-family: "DM Serif Display", serif;
-      color: var(--dark);
-      margin-bottom: 2rem;
-    }
-
-    .mission-pillars {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 2rem;
-      margin-top: 2rem;
-    }
-
-    .pillar-card {
-      background: white;
-      padding: 2rem;
-      border-radius: 12px;
-      text-align: center;
-      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
-    }
-
-    .pillar-card:hover {
-      transform: translateY(-8px);
-      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
-    }
-
-    .pillar-icon {
-      width: 60px;
-      height: 60px;
-      background: linear-gradient(135deg, #D4AF37, #E8D4A8);
-      border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      margin: 0 auto 1.5rem;
-      font-size: 1.8rem;
-      color: white;
-      font-weight: bold;
-    }
-
-    .pillar-card h3 {
-      font-size: 1.25rem;
-      margin-bottom: 0.75rem;
-      color: var(--dark);
-      font-weight: 600;
-    }
-
-    .pillar-card p {
-      color: var(--gray-600);
-      font-size: 0.95rem;
-      line-height: 1.6;
-    }
-
-    .beliefs-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-      gap: 2.5rem;
-      margin-top: 3rem;
-    }
-
-    .belief-card {
-      padding: 2.5rem;
-      background: #FAFAF8;
-      border-radius: 12px;
-      position: relative;
-      border: 1px solid #E8E6E0;
-      transition: all 0.3s ease;
-    }
-
-    .belief-card:hover {
-      background: white;
-      box-shadow: 0 8px 24px rgba(212, 175, 55, 0.1);
-    }
-
-    .belief-number {
-      width: 50px;
-      height: 50px;
-      background: linear-gradient(135deg, #D4AF37, #E8D4A8);
-      color: white;
-      border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-weight: 700;
-      font-size: 1.5rem;
-      margin-bottom: 1rem;
-    }
-
-    .belief-card h3 {
-      font-size: 1.1rem;
-      margin-bottom: 0.75rem;
-      color: var(--dark);
-      font-weight: 600;
-    }
-
-    .belief-card p {
-      color: var(--gray-600);
-      font-size: 0.95rem;
-      line-height: 1.6;
-    }
-
-    .gold-divider {
-      width: 60px;
-      height: 4px;
-      background: linear-gradient(90deg, #D4AF37, #E8D4A8);
-      margin-bottom: 1.5rem;
-    }
-
-    .section-label {
-      display: inline-block;
-      font-size: 0.85rem;
-      letter-spacing: 1px;
-      text-transform: uppercase;
-      color: var(--gold);
-      font-weight: 600;
-      margin-bottom: 0.75rem;
-    }
-
-    .section-title {
-      font-size: 2.5rem;
-      margin-bottom: 2rem;
-      color: var(--dark);
-      font-family: "DM Serif Display", serif;
-    }
-
-    .hero--dark {
-      background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%);
-      color: white;
-      padding: 8rem 2rem;
-      text-align: center;
-      position: relative;
-      overflow: hidden;
-    }
-
-    .hero--dark::before {
-      content: '';
-      position: absolute;
-      top: -50%;
-      right: -10%;
-      width: 600px;
-      height: 600px;
-      background: radial-gradient(circle, rgba(212, 175, 55, 0.1) 0%, transparent 70%);
-      border-radius: 50%;
-      pointer-events: none;
-    }
-
-    .hero--dark::after {
-      content: '';
-      position: absolute;
-      bottom: -30%;
-      left: -5%;
-      width: 400px;
-      height: 400px;
-      background: radial-gradient(circle, rgba(212, 175, 55, 0.08) 0%, transparent 70%);
-      border-radius: 50%;
-      pointer-events: none;
-    }
-
-    .hero--dark > * {
-      position: relative;
-      z-index: 1;
-    }
-
-    .hero__badge {
-      display: inline-block;
-      background: rgba(212, 175, 55, 0.2);
-      border: 1px solid rgba(212, 175, 55, 0.5);
-      color: #E8D4A8;
-      padding: 0.75rem 1.5rem;
-      border-radius: 50px;
-      font-size: 0.85rem;
-      letter-spacing: 0.5px;
-      margin-bottom: 2rem;
-      font-weight: 500;
-    }
-
-    .hero__title {
-      font-size: 3.5rem;
-      font-family: "DM Serif Display", serif;
-      margin-bottom: 1rem;
-      font-weight: 700;
-      line-height: 1.2;
-    }
-
-    .hero__subtitle {
-      font-size: 1.25rem;
-      color: #D4D4D4;
-      max-width: 600px;
-      margin: 0 auto;
-      line-height: 1.6;
-      font-weight: 400;
-    }
-
-    .section--cream {
-      background: #FAF9F6;
-    }
-
-    .cta-section {
-      background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%);
-      color: white;
-      padding: 6rem 2rem;
-      text-align: center;
-      position: relative;
-      overflow: hidden;
-    }
-
-    .cta-section::before {
-      content: '';
-      position: absolute;
-      top: -50%;
-      right: -10%;
-      width: 600px;
-      height: 600px;
-      background: radial-gradient(circle, rgba(212, 175, 55, 0.1) 0%, transparent 70%);
-      border-radius: 50%;
-      pointer-events: none;
-    }
-
-    .cta-section > * {
-      position: relative;
-      z-index: 1;
-    }
-
-    .cta-section h2 {
-      font-size: 2.5rem;
-      font-family: "DM Serif Display", serif;
-      margin-bottom: 2rem;
-    }
-
-    .cta-buttons {
-      display: flex;
-      gap: 1.5rem;
-      justify-content: center;
-      flex-wrap: wrap;
-      margin-top: 2rem;
-    }
-
-    .btn {
-      padding: 1rem 2.5rem;
-      font-size: 1rem;
-      border-radius: 8px;
-      border: none;
-      cursor: pointer;
-      font-weight: 600;
-      transition: all 0.3s ease;
-      text-decoration: none;
-      display: inline-block;
-    }
-
-    .btn--gold {
-      background: linear-gradient(135deg, #D4AF37, #E8D4A8);
-      color: #1a1a1a;
-    }
-
-    .btn--gold:hover {
-      transform: translateY(-3px);
-      box-shadow: 0 8px 20px rgba(212, 175, 55, 0.3);
-    }
-
-    .btn--outline {
-      background: transparent;
-      border: 2px solid #D4AF37;
-      color: #D4AF37;
-    }
-
-    .btn--outline:hover {
-      background: rgba(212, 175, 55, 0.1);
-    }
-
-    .container {
-      max-width: 1200px;
-      margin: 0 auto;
-      padding: 0 2rem;
-    }
-
-    section {
-      padding: 5rem 2rem;
-    }
-
-    @media (max-width: 768px) {
-      .hero__title {
-        font-size: 2.5rem;
-      }
-
-      .section-title {
-        font-size: 2rem;
-      }
-
-      .vision-statement {
-        padding: 2rem;
-        font-size: 1.25rem;
-      }
-
-      .beliefs-grid {
-        grid-template-columns: 1fr;
-      }
-
-      .hero--dark {
-        padding: 5rem 2rem;
-      }
-
-      .cta-buttons {
-        flex-direction: column;
-        align-items: center;
-      }
-
-      .btn {
-        width: 100%;
-        max-width: 300px;
-      }
-    }
-  </style>
 </head>
 <body>
-    <!-- NAV -->
+  <!-- NAV -->
   <nav class="nav">
     <div class="nav__inner">
       <a href="index.html" class="nav__logo"><img src="images/logo.png" alt="Dhanam Finance"></a>
@@ -385,134 +65,149 @@
     </div>
   </nav>
 
-  <!-- Hero Section -->
-  <section class="hero hero--dark">
-    <div class="hero__badge">RBI Licensed NBFC · Est. 2010</div>
-    <h1 class="hero__title">Vision &amp; Mission</h1>
-    <p class="hero__subtitle">The principles and aspirations that guide everything we do at Dhanam</p>
+  <!-- PAGE HEADER (matches all other inner pages) -->
+  <section class="page-header">
+    <div class="container">
+      <div class="breadcrumb"><a href="index.html">Home</a><span>/</span><span>Corporate</span><span>/</span><span>Vision &amp; Mission</span></div>
+      <span class="section-label">RBI Licensed NBFC &middot; Est. 2010</span>
+      <div class="gold-divider"></div>
+      <h1>Vision &amp; Mission</h1>
+      <p>The principles and aspirations that guide everything we do at Dhanam.</p>
+    </div>
   </section>
 
-  <!-- Vision Section -->
-  <section style="background: white;">
+  <!-- VISION SECTION -->
+  <section class="section" style="background:white;">
     <div class="container">
       <span class="section-label">Our Vision</span>
       <div class="gold-divider"></div>
 
-      <div class="vision-statement">
+      <div style="border-left:6px solid var(--primary);padding:var(--space-2xl) var(--space-2xl);background:var(--gray-50);border-radius:var(--radius-md);font-size:1.4rem;line-height:1.8;font-family:var(--font-display);color:var(--navy);margin-bottom:var(--space-2xl);max-width:900px;">
         "To be the most trusted and accessible financial institution in South India — empowering every individual and business to achieve their aspirations through transparent, inclusive lending."
       </div>
 
-      <div style="max-width: 900px; margin: 0 auto;">
-        <p style="color: var(--gray-600); font-size: 1.05rem; line-height: 1.8; margin-bottom: 1.5rem;">
+      <div style="max-width:900px;">
+        <p style="color:var(--gray-600);font-size:1.05rem;line-height:1.8;margin-bottom:var(--space-lg);">
           At Dhanam, we envision a South India where financial opportunity is not a privilege reserved for the few, but a right available to all. We see a future where a farmer can access gold loans within hours, where a small business owner can secure working capital without bureaucratic barriers, and where homeowners can achieve property ownership through fair, transparent mortgage solutions.
         </p>
-        <p style="color: var(--gray-600); font-size: 1.05rem; line-height: 1.8;">
+        <p style="color:var(--gray-600);font-size:1.05rem;line-height:1.8;">
           We believe that financial exclusion is not inevitable. Over the past decade, we've witnessed thousands of lives transformed through access to timely, trustworthy credit. Our vision is to expand this transformation across South India — reaching the last mile, serving those overlooked by traditional banking, and proving that inclusive finance is not just compassionate, it's good business.
         </p>
       </div>
     </div>
   </section>
 
-  <!-- Mission Section -->
-  <section class="section--cream">
+  <!-- MISSION SECTION -->
+  <section class="section section--cream">
     <div class="container">
       <span class="section-label">Our Mission</span>
       <div class="gold-divider"></div>
-      <h2 class="section-title">To Deliver Financial Services That Are Simple, Fair, and Accessible</h2>
+      <h2 class="section-title fade-up">To Deliver Financial Services That Are Simple, Fair, and Accessible</h2>
 
-      <p style="color: var(--gray-600); font-size: 1.05rem; line-height: 1.8; max-width: 900px; margin: 0 auto 3rem;">
+      <p style="color:var(--gray-600);font-size:1.05rem;line-height:1.8;max-width:900px;margin-bottom:var(--space-3xl);">
         Our mission is to bring formal credit within reach of every household and enterprise, while maintaining the highest standards of ethics and governance. We're committed to demystifying finance and putting power back in the hands of our customers.
       </p>
 
-      <div class="mission-pillars">
-        <div class="pillar-card">
-          <div class="pillar-icon"></div>
-          <h3>Accessibility</h3>
-          <p>Bringing branches and financial services closer to rural and semi-urban communities. We meet customers where they are.</p>
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:var(--space-xl);">
+        <div class="card fade-up" style="background:white;padding:var(--space-xl);border-radius:var(--radius-lg);text-align:center;border:1px solid var(--gray-200);">
+          <div style="width:56px;height:56px;border-radius:50%;background:linear-gradient(135deg,var(--primary),var(--primary-light));display:flex;align-items:center;justify-content:center;margin:0 auto var(--space-lg);">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+          </div>
+          <h3 style="font-size:1.15rem;margin-bottom:var(--space-sm);">Accessibility</h3>
+          <p style="color:var(--gray-500);font-size:0.95rem;line-height:1.6;">Bringing branches and financial services closer to rural and semi-urban communities. We meet customers where they are.</p>
         </div>
 
-        <div class="pillar-card">
-          <div class="pillar-icon"></div>
-          <h3>Transparency</h3>
-          <p>Clear terms, no hidden charges, honest communication at every stage. You'll always know exactly what you're getting into.</p>
+        <div class="card fade-up" style="background:white;padding:var(--space-xl);border-radius:var(--radius-lg);text-align:center;border:1px solid var(--gray-200);">
+          <div style="width:56px;height:56px;border-radius:50%;background:linear-gradient(135deg,var(--accent),var(--accent-light));display:flex;align-items:center;justify-content:center;margin:0 auto var(--space-lg);">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+          </div>
+          <h3 style="font-size:1.15rem;margin-bottom:var(--space-sm);">Transparency</h3>
+          <p style="color:var(--gray-500);font-size:0.95rem;line-height:1.6;">Clear terms, no hidden charges, honest communication at every stage. You'll always know exactly what you're getting into.</p>
         </div>
 
-        <div class="pillar-card">
-          <div class="pillar-icon"><svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg></div>
-          <h3>Speed</h3>
-          <p>Fast approvals and disbursals — because financial needs don't wait. Same-day processing for eligible applications.</p>
+        <div class="card fade-up" style="background:white;padding:var(--space-xl);border-radius:var(--radius-lg);text-align:center;border:1px solid var(--gray-200);">
+          <div style="width:56px;height:56px;border-radius:50%;background:linear-gradient(135deg,var(--primary),var(--primary-light));display:flex;align-items:center;justify-content:center;margin:0 auto var(--space-lg);">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+          </div>
+          <h3 style="font-size:1.15rem;margin-bottom:var(--space-sm);">Speed</h3>
+          <p style="color:var(--gray-500);font-size:0.95rem;line-height:1.6;">Fast approvals and disbursals — because financial needs don't wait. Same-day processing for eligible applications.</p>
         </div>
 
-        <div class="pillar-card">
-          <div class="pillar-icon"><svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2"><circle cx="12" cy="12" r="10"/></svg></div>
-          <h3>Ethics</h3>
-          <p>Full regulatory compliance, responsible lending, and customer protection. We do business the right way, always.</p>
+        <div class="card fade-up" style="background:white;padding:var(--space-xl);border-radius:var(--radius-lg);text-align:center;border:1px solid var(--gray-200);">
+          <div style="width:56px;height:56px;border-radius:50%;background:linear-gradient(135deg,var(--primary-dark),var(--primary));display:flex;align-items:center;justify-content:center;margin:0 auto var(--space-lg);">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2"><path d="M22 11.08V12a10 10 0 11-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+          </div>
+          <h3 style="font-size:1.15rem;margin-bottom:var(--space-sm);">Ethics</h3>
+          <p style="color:var(--gray-500);font-size:0.95rem;line-height:1.6;">Full regulatory compliance, responsible lending, and customer protection. We do business the right way, always.</p>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- Core Beliefs Section -->
-  <section style="background: white;">
+  <!-- CORE BELIEFS -->
+  <section class="section" style="background:white;">
     <div class="container">
-      <span class="section-label">What We Believe</span>
-      <div class="gold-divider"></div>
-      <h2 class="section-title">Our Guiding Principles</h2>
+      <div style="text-align:center;margin-bottom:var(--space-3xl);">
+        <span class="section-label">What We Believe</span>
+        <div class="gold-divider" style="margin:0 auto var(--space-sm);"></div>
+        <h2 class="section-title fade-up">Our Guiding Principles</h2>
+      </div>
 
-      <div class="beliefs-grid">
-        <div class="belief-card">
-          <div class="belief-number">1</div>
-          <h3>People Over Profit</h3>
-          <p>Every decision starts with "How does this help our customer?" Profitability follows when you solve real problems for real people.</p>
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:var(--space-xl);">
+        <div class="card fade-up" style="background:var(--cream);padding:var(--space-xl);border-radius:var(--radius-lg);border-left:4px solid var(--primary);">
+          <div style="width:44px;height:44px;border-radius:50%;background:linear-gradient(135deg,var(--primary),var(--primary-light));color:white;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:1.2rem;margin-bottom:var(--space-md);">1</div>
+          <h3 style="font-size:1.1rem;margin-bottom:var(--space-sm);">People Over Profit</h3>
+          <p style="color:var(--gray-600);font-size:0.95rem;line-height:1.6;">Every decision starts with "How does this help our customer?" Profitability follows when you solve real problems for real people.</p>
         </div>
 
-        <div class="belief-card">
-          <div class="belief-number">2</div>
-          <h3>Trust Is Earned Daily</h3>
-          <p>Trust doesn't come from promises — it comes from consistent action. We earn it through transparency, reliability, and respect.</p>
+        <div class="card fade-up" style="background:var(--cream);padding:var(--space-xl);border-radius:var(--radius-lg);border-left:4px solid #2563EB;">
+          <div style="width:44px;height:44px;border-radius:50%;background:linear-gradient(135deg,#2563EB,#60A5FA);color:white;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:1.2rem;margin-bottom:var(--space-md);">2</div>
+          <h3 style="font-size:1.1rem;margin-bottom:var(--space-sm);">Trust Is Earned Daily</h3>
+          <p style="color:var(--gray-600);font-size:0.95rem;line-height:1.6;">Trust doesn't come from promises — it comes from consistent action. We earn it through transparency, reliability, and respect.</p>
         </div>
 
-        <div class="belief-card">
-          <div class="belief-number">3</div>
-          <h3>Inclusion Is Non-Negotiable</h3>
-          <p>Financial services must reach the last mile. We're here for those overlooked by traditional banking — and proud of it.</p>
+        <div class="card fade-up" style="background:var(--cream);padding:var(--space-xl);border-radius:var(--radius-lg);border-left:4px solid #16A34A;">
+          <div style="width:44px;height:44px;border-radius:50%;background:linear-gradient(135deg,#16A34A,#4ADE80);color:white;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:1.2rem;margin-bottom:var(--space-md);">3</div>
+          <h3 style="font-size:1.1rem;margin-bottom:var(--space-sm);">Inclusion Is Non-Negotiable</h3>
+          <p style="color:var(--gray-600);font-size:0.95rem;line-height:1.6;">Financial services must reach the last mile. We're here for those overlooked by traditional banking — and proud of it.</p>
         </div>
 
-        <div class="belief-card">
-          <div class="belief-number">4</div>
-          <h3>Simplicity Wins</h3>
-          <p>Finance is complex. Our job is to make it simple. Clear processes, straightforward terms, no jargon gatekeeping.</p>
+        <div class="card fade-up" style="background:var(--cream);padding:var(--space-xl);border-radius:var(--radius-lg);border-left:4px solid #EA580C;">
+          <div style="width:44px;height:44px;border-radius:50%;background:linear-gradient(135deg,#EA580C,#FB923C);color:white;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:1.2rem;margin-bottom:var(--space-md);">4</div>
+          <h3 style="font-size:1.1rem;margin-bottom:var(--space-sm);">Simplicity Wins</h3>
+          <p style="color:var(--gray-600);font-size:0.95rem;line-height:1.6;">Finance is complex. Our job is to make it simple. Clear processes, straightforward terms, no jargon gatekeeping.</p>
         </div>
 
-        <div class="belief-card">
-          <div class="belief-number">5</div>
-          <h3>Grow Together</h3>
-          <p>When our customers prosper, we prosper. Success is shared. We invest in customer success as much as our own.</p>
+        <div class="card fade-up" style="background:var(--cream);padding:var(--space-xl);border-radius:var(--radius-lg);border-left:4px solid var(--primary);">
+          <div style="width:44px;height:44px;border-radius:50%;background:linear-gradient(135deg,var(--primary),var(--primary-light));color:white;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:1.2rem;margin-bottom:var(--space-md);">5</div>
+          <h3 style="font-size:1.1rem;margin-bottom:var(--space-sm);">Grow Together</h3>
+          <p style="color:var(--gray-600);font-size:0.95rem;line-height:1.6;">When our customers prosper, we prosper. Success is shared. We invest in customer success as much as our own.</p>
         </div>
 
-        <div class="belief-card">
-          <div class="belief-number">6</div>
-          <h3>Heritage With Progress</h3>
-          <p>Rooted in tradition and community values, driven by innovation and technology. The best of yesterday, the promise of tomorrow.</p>
+        <div class="card fade-up" style="background:var(--cream);padding:var(--space-xl);border-radius:var(--radius-lg);border-left:4px solid #7C3AED;">
+          <div style="width:44px;height:44px;border-radius:50%;background:linear-gradient(135deg,#7C3AED,#A78BFA);color:white;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:1.2rem;margin-bottom:var(--space-md);">6</div>
+          <h3 style="font-size:1.1rem;margin-bottom:var(--space-sm);">Heritage With Progress</h3>
+          <p style="color:var(--gray-600);font-size:0.95rem;line-height:1.6;">Rooted in tradition and community values, driven by innovation and technology. The best of yesterday, the promise of tomorrow.</p>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- CTA Section -->
-  <section class="cta-section">
-    <div class="container">
-      <h2>Ready to Get Started?</h2>
-      <p style="font-size: 1.1rem; margin-bottom: 2rem; color: #D4D4D4;">Join thousands of customers who've trusted Dhanam to achieve their financial goals.</p>
-      <div class="cta-buttons">
-        <a href="contact.html#apply" class="btn btn--gold">Apply Now</a>
-        <a href="tel:+917305022272" class="btn btn--outline">Call Us</a>
+  <!-- CTA SECTION (matches about.html pattern) -->
+  <section class="cta-section" style="background:linear-gradient(135deg, #2D2D2D 0%, #1A1A1A 100%);">
+    <div class="container" style="position:relative;z-index:1;">
+      <div style="text-align:center;max-width:600px;margin:0 auto;">
+        <h2 style="color:white;font-size:2.2rem;margin:0 0 var(--space-md) 0;">Ready to get started?</h2>
+        <p style="color:rgba(255,255,255,0.8);margin:0 0 var(--space-2xl) 0;font-size:1.1rem;">Join over 5 lakh satisfied customers who've found financial solutions with Dhanam.</p>
+        <div style="display:flex;gap:var(--space-md);flex-wrap:wrap;justify-content:center;">
+          <a href="contact.html#apply" class="btn btn--gold">Apply Now</a>
+          <a href="tel:+917305022272" class="btn btn--outline" style="border-color:rgba(255,255,255,0.3);color:white;">Call Us</a>
+        </div>
       </div>
     </div>
   </section>
 
-  <!-- Footer -->
-    <!-- FOOTER -->
+  <!-- FOOTER -->
   <footer class="footer">
     <div class="container">
       <div class="footer__top">
