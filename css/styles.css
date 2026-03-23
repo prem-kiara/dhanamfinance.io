@@ -1995,8 +1995,6 @@ select:focus {
   border-radius: var(--radius-2xl);
   padding: var(--space-2xl);
   box-shadow: var(--shadow-lg);
-  max-width: 500px;
-  margin: 0 auto;
 }
 
 .lead-form__title {
