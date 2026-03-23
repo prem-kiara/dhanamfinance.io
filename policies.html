@@ -35,6 +35,27 @@
       .policy-grid-3 { grid-template-columns: 1fr !important; }
       #policy-modal { width: 100vw !important; }
     }
+    #policy-modal-body h3 {
+      color: var(--navy);
+      font-size: 1.1rem;
+      margin: 28px 0 10px;
+      padding-bottom: 6px;
+      border-bottom: 1px solid var(--gray-200);
+    }
+    #policy-modal-body h3:first-child { margin-top: 0; }
+    #policy-modal-body p { margin: 0 0 12px; }
+    #policy-modal-body ul {
+      margin: 0 0 16px;
+      padding-left: 20px;
+    }
+    #policy-modal-body li {
+      margin-bottom: 8px;
+      line-height: 1.7;
+      color: #555;
+    }
+    #policy-modal-body strong { color: var(--navy); }
+    #policy-modal-body a { color: var(--primary); text-decoration: none; }
+    #policy-modal-body a:hover { text-decoration: underline; }
   </style>
 </head>
 <body>
@@ -356,7 +377,7 @@
 
   <!-- Policy Modal -->
   <div id="policy-modal-overlay" style="display:none;position:fixed;inset:0;background:rgba(0,0,0,0.5);z-index:9999;backdrop-filter:blur(4px);-webkit-backdrop-filter:blur(4px);opacity:0;transition:opacity 0.3s ease;" onclick="closePolicyModal(event)">
-    <div id="policy-modal" style="position:absolute;right:0;top:0;bottom:0;width:min(700px,90vw);background:white;overflow-y:auto;transform:translateX(100%);transition:transform 0.3s ease;box-shadow:-4px 0 30px rgba(0,0,0,0.15);" onclick="event.stopPropagation()">
+    <div id="policy-modal" style="position:absolute;right:0;top:0;bottom:0;width:min(860px,92vw);background:white;overflow-y:auto;transform:translateX(100%);transition:transform 0.3s ease;box-shadow:-4px 0 30px rgba(0,0,0,0.15);" onclick="event.stopPropagation()">
       <div style="position:sticky;top:0;background:white;padding:24px 32px 16px;border-bottom:1px solid #eee;display:flex;justify-content:space-between;align-items:center;z-index:1;">
         <h2 id="policy-modal-title" style="margin:0;font-size:1.4rem;color:#2D2926;"></h2>
         <button onclick="closePolicyModal()" style="background:none;border:none;cursor:pointer;padding:8px;border-radius:50%;transition:background 0.2s;" onmouseover="this.style.background='#f5f5f5'" onmouseout="this.style.background='none'">
@@ -374,256 +395,612 @@
         title: 'Code of Conduct',
         content: `
           <h3>Introduction</h3>
-          <p>Dhanam Investment and Finance Pvt. Ltd. aims to promote financial inclusion by extending credit services. The organization operates as an NBFC registered with the Reserve Bank of India.</p>
+          <p>Dhanam Investment and Finance Pvt. Ltd. (hereinafter referred to as "the Company") aims to promote financial inclusion and empowerment by extending credit services to clients. The organization operates as an NBFC registered with the Reserve Bank of India and complies with the Master Direction RBI (Regulatory Framework for Microfinance Loans) Directions, 2022 and Sa-dhan directives.</p>
 
           <h3>Objectives</h3>
-          <p>This document establishes Code of Conduct elements promoting responsible lending practices, building upon RBI Master Directions, the Fair Practice Code, and industry standards.</p>
+          <p>This document establishes Code of Conduct elements promoting responsible lending practices. It builds upon:</p>
+          <ul>
+            <li>RBI Master Directions for NBFC-MFIs</li>
+            <li>The Fair Practice Code for Regulated Entities</li>
+            <li>MFIN's Industry Code of Conduct</li>
+            <li>The RBI Charter of Customer's Rights for the micro-credit sector</li>
+          </ul>
+
+          <h3>Applicability</h3>
+          <p>The code applies to all credit services extended by the company, including:</p>
+          <ul>
+            <li>Providing credit services to clients, individually or in groups</li>
+            <li>Recovery of credit provided to clients</li>
+            <li>Providing insurance and pension services, remittance services, or related products</li>
+            <li>Formation of community collectives, including self-help groups and joint liability groups</li>
+            <li>Business development services for eligible clients' welfare and benefit</li>
+          </ul>
 
           <h3>The Code Elements</h3>
-          <p>Fair Interaction, Suitability, Education & Transparency, Information & Privacy, Grievance Redressal, Employee Engagement</p>
+          <p>The Code comprises seven key elements: Fair Interaction, Suitability, Education & Transparency, Information & Privacy, Grievance Redressal, and Employee Engagement.</p>
 
-          <h3>Fair Interaction</h3>
-          <p>Dhanam ensures borrowers are not unfairly discriminated against on grounds such as religion, caste, gender, marital status, etc. All employees must undergo training on appropriate behaviour, use respectful language, maintain decorum. No coercion for loan recovery. Do not intimidate or humiliate verbally or physically. Do not contact borrowers at odd hours or during bereavements, illness, or social occasions. Do not harass the borrower's relatives, friends, or co-workers.</p>
+          <h3>1. Fair Interaction</h3>
+          <p>Dhanam will ensure that the borrower is not unfairly discriminated against on grounds such as religion, caste, gender, marital status, sexual orientation, etc. All employees and representatives must:</p>
+          <ul>
+            <li>Undergo training on how to exhibit appropriate behaviour towards the borrowers</li>
+            <li>Use respectful language, maintain decorum, and show respect to social and cultural sensitivities</li>
+            <li>Not use coercion for loan recovery; recovery occurs only at centrally designated, mutually agreed locations</li>
+            <li>Contact borrowers at their residence or workplace only after two or more failures to appear at designated recovery locations</li>
+            <li>Not intimidate or humiliate verbally or physically</li>
+            <li>Not contact borrowers at odd hours or inappropriate times such as bereavements, illness, or social occasions such as marriages and births</li>
+            <li>Not harass the borrower's relatives, friends, neighbours, or co-workers</li>
+          </ul>
+          <p>A board-approved Fair Practices Code is displayed in vernacular languages in all offices and on the website. Recovery agent engagement follows RBI's Harmonized Regulations guidelines.</p>
 
-          <h3>Suitability</h3>
-          <p>Loans disbursed commensurate with borrower repayment capacity; maximum 50% of monthly household income for repayment. Interest rates and charges are non-usurious with no prepayment penalties. Valid Credit Information Report obtained before sanctioning loans. No loan sanction to borrowers with non-performing accounts.</p>
+          <h3>2. Suitability</h3>
+          <p>Key provisions include:</p>
+          <ul>
+            <li>Loans disbursed commensurate with borrower repayment capacity; maximum 50% of monthly household income allocated to loan repayment obligations</li>
+            <li>The computation of loan repayment obligations shall consider all outstanding household loans</li>
+            <li>Interest rates and charges are non-usurious with no prepayment penalties</li>
+            <li>Household income computed correctly considering borrower, spouse, and unmarried adult children income</li>
+            <li>Valid Comprehensive Credit Information Report (CCIR) obtained for borrower and all household members before sanctioning loans, including top-up and subsequent cycle loans</li>
+            <li>Timely, accurate information submitted to Credit Information Companies, preferably daily</li>
+            <li>No loan sanction/disbursement to borrowers with non-performing accounts (delinquency > 90 DPD) elsewhere</li>
+          </ul>
 
-          <h3>Education & Transparency</h3>
-          <p>Borrowers receive key information in loan documents. Communication in vernacular/understood language. Receipt/acknowledgement provided for every payment. Customer education on timely repayment, digital transactions, and grievance mechanisms.</p>
+          <h3>3. Education & Transparency</h3>
+          <p>Borrowers receive key information in loan documents including identity and address of the regulated entity, identity and address of the borrower, product details with simplified pricing factsheet per RBI regulations, and details of customer grievance redressal system.</p>
+          <p>Additional commitments:</p>
+          <ul>
+            <li>Third-party product issuance requires full borrower consent; fees explicitly communicated</li>
+            <li>Communication in vernacular/understood language covering loan terms, conditions, fair practices code, loan card entries, pricing factsheet, and related information</li>
+            <li>Dhanam will take measures (such as training, assessment, and periodic interactions with borrowers) to ensure that borrowers fully understand the contract's products, process, and terms</li>
+            <li>Receipt/acknowledgement provided for every payment, including digital payments</li>
+            <li>Customer education on timely repayment importance, digital transaction benefits/risks, and grievance mechanisms</li>
+            <li>Dhanam will disclose the reason to the customer if their loan is rejected</li>
+          </ul>
 
-          <h3>Information & Privacy</h3>
-          <p>KYC documents collected as per RBI norms. Borrower consent obtained to check credit reports. Personal information remains strictly confidential. Third-party disclosure only when required by law or with written permission.</p>
+          <h3>4. Information & Privacy</h3>
+          <ul>
+            <li>The Company must obtain copies of KYC documents from customers as per RBI norms</li>
+            <li>The Company must upload accurate and comprehensive customer data with all RBI-approved Credit Information Companies (CICs) as per the Uniform Credit Data Format on a daily basis</li>
+            <li>Borrower consent obtained to check CCIR and accept loan terms and conditions</li>
+            <li>Systems safeguard borrower and household member data per data protection principles: collection limitation, purpose specification, use limitation, access controls</li>
+          </ul>
+          <p>Personal information remains strictly confidential. Third-party disclosure is permitted only when information is required by law or mandated business purpose (e.g., credit information companies), borrowers are informed and written permission is obtained, or the party is authorized by the borrower with Dhanam intimation.</p>
 
-          <h3>Grievance Redressal</h3>
-          <p>Board-approved customer grievance redressal policy. Easy access through dedicated phone number or branch procedures. Principal Nodal Officer oversees the grievance function.</p>
+          <h3>5. Grievance Redressal</h3>
+          <ul>
+            <li>Board-approved customer grievance redressal policy covers registration, resolution, escalation processes, mechanisms, complaint categories, turnaround times, review/audit, and board reporting</li>
+            <li>Dhanam will provide a robust customer grievance redressal system to address complaints effectively and promptly</li>
+            <li>Easy access through dedicated phone number or staff-assisted branch procedures</li>
+            <li>Details clearly communicated in branches, loan documents, and materials</li>
+            <li>Principal Nodal Officer oversees the grievance redressal function</li>
+            <li>Dhanam will record and analyse individual and aggregate level data for grievance redressal systems, capturing the nature of complaints, action taken, and turnaround time</li>
+            <li>Board reports on grievances received, resolved, pending, and complaint nature</li>
+          </ul>
 
-          <h3>Employee Engagement</h3>
-          <p>Comprehensive induction training on policies, processes, and regulations. Regular assessment and refresher training. Professional conduct and integrity orientation.</p>
+          <h3>6. Employee Engagement</h3>
+          <ul>
+            <li>Recruitment from other entities based on satisfactory reference checks; confirmation requires relieving letter</li>
+            <li>Dhanam will give comprehensive induction training to the employees on policies, processes, and regulations</li>
+            <li>Emphasis on Code of Conduct aspects, borrower-interface practices, fair treatment, household assessment, data privacy, service quality, grievance systems, POSH, and relationship management</li>
+            <li>Regular employee understanding assessment and refresher training</li>
+            <li>New employee engagement in branch operations only after induction training completion</li>
+            <li>Branch targets based on reasonable objective criteria</li>
+            <li>The staff's compensation matrix will be designed to align their behaviour with fair interaction practices</li>
+            <li>Notice period honored during recruitment per mutual agreement</li>
+          </ul>
+
+          <h3>Governance & Enforcement</h3>
+          <p>Compliance uses a three-pronged approach:</p>
+          <ul>
+            <li>Quarterly adherence reports based on independent credit information company data using standard templates</li>
+            <li>Peer complaint system enabling Dhanam and other providers to report non-compliance</li>
+            <li>Monitoring and assessment facilitated by Sa-dhan</li>
+          </ul>
 
           <h3>Our Commitment</h3>
-          <p>Dhanam is committed to upholding the highest standards of ethical conduct and responsible lending practices.</p>
+          <p>Dhanam is committed to upholding the highest standards of ethical conduct and responsible lending practices. This Code of Conduct serves as our foundation for building trust, ensuring transparency, and promoting financial inclusion while protecting the interests of all our stakeholders.</p>
         `
       },
       'fair-practice': {
         title: 'Fair Practice Code',
         content: `
-          <h3>Introduction</h3>
-          <p>The Reserve Bank of India has prescribed guidelines on fair practices for all NBFCs. Dhanam is a Non-Deposit Taking NBFC registered with RBI.</p>
+          <h3>1. Introduction and Applicability</h3>
+          <p>The Reserve Bank of India has prescribed broad guidelines on fair practices to be framed by all Non-Banking Financial Companies (NBFCs). Dhanam Investment and Finance Pvt. Ltd. (Dhanam) is a private limited company and a Non-Deposit Taking Non-Banking Financial Company (NBFC-ND) registered as an NBFC-MFI as per RBI guidelines.</p>
+          <p>This code is published on the Company's website for public information and applies to all lending activities.</p>
 
-          <h3>Member Enrollment</h3>
-          <p>All communications to the borrower shall be in the vernacular language or a language the borrower understands. Three accepted identity proofs required. OTP verification mandatory. Pre-loan and post-disbursement verification calls conducted.</p>
+          <h3>2. Member Enrollment & Processing</h3>
+          <ul>
+            <li>All communications to the borrower shall be in the vernacular language or a language the borrower understands</li>
+            <li>Enrollment forms will include all necessary information for the borrower to make an informed decision and compare terms with other NBFCs</li>
+            <li>Member Enrollment in the software must be done correctly with necessary details and clear images</li>
+            <li>Three accepted identity proofs (Aadhaar, Ration Card, PAN Card, Voter ID) must be uploaded for each member</li>
+            <li>Two contact numbers are required, and OTP verification is mandatory</li>
+            <li>The head office will conduct pre-loan and post-disbursement verification calls</li>
+            <li>Members must be married, with an age limit of 18 to 58</li>
+            <li>Proof of own house is required; otherwise, it will be treated as a rented house</li>
+            <li>Details of the nominee, guarantor, and family members' income/expenditure must be duly filled</li>
+            <li>The active bank account number and IFSC must be verified with the passbook</li>
+          </ul>
 
-          <h3>Loan Appraisal</h3>
-          <p>The sanction letter/loan card will contain the loan amount, terms and conditions, and annualised rate of interest. Pricing disclosed in standardised factsheet. No pre-payment penalty on microfinance loans. Copy of standard loan agreement provided to all clients.</p>
+          <h3>3. Loan Appraisal and Pre-Disbursal Process</h3>
+          <ul>
+            <li>The sanction letter/loan card will contain the loan amount, terms and conditions, and the annualised rate of interest in a language the borrower understands</li>
+            <li>Pricing-related information will be disclosed in a standardised, simplified factsheet. No amount not mentioned in the factsheet will be charged</li>
+            <li>The borrower's acceptance of terms and conditions will be kept on record</li>
+            <li>Any penal charges for late repayment will be mentioned in bold on the loan card. There is no pre-payment penalty on microfinance loans</li>
+            <li>The company will not introduce any additional components to the interest rate and will comply with RBI guidelines</li>
+            <li>A copy of the standard loan agreement will be provided to all clients at the time of sanction/disbursement</li>
+          </ul>
 
-          <h3>Disbursement</h3>
-          <p>Borrowers notified of any changes in terms and conditions. Changes in interest rates applied prospectively.</p>
+          <h3>4. Disbursement of Loans</h3>
+          <p>Borrowers will be notified of any changes in terms and conditions (disbursement schedule, interest rates, etc.) in a language they understand. Changes in interest rates and charges will be effected prospectively.</p>
 
-          <h3>General</h3>
-          <p>Dhanam will not interfere in borrower's affairs except as provided in loan agreement. Transfer requests responded within 21 days. Only legally available remedies used for recovery. Fair Practice Code displayed in vernacular language at all offices and website.</p>
+          <h3>5. General Provisions</h3>
+          <ul>
+            <li>Dhanam will not interfere in the borrower's affairs except for purposes provided in the loan agreement</li>
+            <li>In case of a request to transfer a borrower's account, consent or objection will be conveyed within 21 days</li>
+            <li>For loan recovery, Dhanam will only resort to legally available remedies and will not use undue harassment</li>
+            <li>Staff will be adequately trained to deal with customers appropriately</li>
+            <li>The Fair Practice Code (FPC) will be displayed in the vernacular language at all offices and on the website</li>
+            <li>Minimum, maximum, and average interest rates will be displayed at all offices and on the website</li>
+            <li>Dhanam is accountable for inappropriate behaviour by its staff or outsourced agencies</li>
+          </ul>
 
-          <h3>Grievance Redressal</h3>
-          <p>Suggestion and complaint register available at all branches. Clients can call helpline at +91 73050 22272. Grievances addressed within 48 hours to a week.</p>
+          <h3>6. Grievance Redressal</h3>
+          <p>A grievance redressal mechanism is established to resolve disputes:</p>
+          <ul>
+            <li>A suggestion and complaint register is available at all branches</li>
+            <li>Clients have access to higher-level staff (Branch Manager, Area Manager, etc.) to discuss grievances</li>
+            <li>Clients can call the service helpline at +91 73050 22272</li>
+            <li>Grievances will be addressed within 48 hours to a week</li>
+            <li>If not satisfied, clients can approach the Nodal Officer: Mr. A Gopinath, Phone: +91 73050 22272, Email: contact@dhanam.finance</li>
+            <li>If the complaint is not resolved within a month, the client may appeal to the Officer-in-charge of the Regional Office of DNBS of RBI in Chennai</li>
+          </ul>
 
-          <h3>Collection Process</h3>
-          <p>Centre meetings conducted at scheduled date and time. Collections posted in software immediately. Overdues communicated to Branch and Area Managers.</p>
+          <h3>7. Disclosures in Loan Agreement/Loan Card</h3>
+          <ul>
+            <li>Loan documents will be in a standard format, preferably in the vernacular language</li>
+            <li>The document will disclose all terms, pricing (interest, processing charge, insurance premium), and a no-penalty clause for delayed payment</li>
+            <li>It will confirm that no Security Deposit/Margin is collected</li>
+            <li>The loan card will clearly identify the borrower, provide a simplified factsheet on pricing, and detail the grievance redressal system</li>
+          </ul>
 
-          <h3>Non-Coercive Recovery</h3>
-          <p>No harsh methods including threatening language, calling before 9 AM or after 6 PM, harassing relatives, or using violence.</p>
+          <h3>8. Collection Process and Procedures</h3>
+          <ul>
+            <li>Centre meetings will be conducted at the scheduled date and time</li>
+            <li>All collections and member attendance will be recorded</li>
+            <li>Collections are to be posted in the software immediately at the centre</li>
+            <li>Physical receipts should be pasted in the centre meeting note</li>
+            <li>Overdues and collection delays must be communicated to Branch and Area Managers</li>
+          </ul>
 
-          <h3>Periodic Review</h3>
-          <p>Board of Directors periodically reviews compliance with Fair Practices Code.</p>
+          <h3>9. Non-Coercive Methods of Recovery</h3>
+          <p>Recovery will be made at a designated central place. Recovery at the borrower's residence/work is only permitted if the borrower fails to appear at the central place on two or more successive occasions. Harsh methods are forbidden, including:</p>
+          <ul>
+            <li>Threatening language</li>
+            <li>Calling before 9:00 AM and after 6:00 PM</li>
+            <li>Harassing relatives, friends, neighbours, or co-workers</li>
+            <li>Using violence or intimidation of any kind</li>
+          </ul>
+
+          <h3>10. Periodic Review</h3>
+          <p>The Board of Directors will periodically review compliance with the Fair Practices Code and the functioning of the Grievances Redressal Committee.</p>
         `
       },
       'gold-loan-policy': {
         title: 'Gold Loan Policy',
         content: `
           <h3>Overview</h3>
-          <p>The company provides demand loans against 22-carat gold jewellery for up to 12 months. Loans can be taken for business, personal, or domestic needs — not for illegal or speculative purposes.</p>
+          <p>The company provides demand loans against 22-carat gold jewellery for up to 12 months. Loans can be taken for business, personal, or domestic needs — not for illegal or speculative purposes. Only individuals legally owning jewelry and meeting RBI KYC requirements qualify.</p>
 
           <h3>Gold Eligibility & Loan Amount</h3>
-          <p>Loan amounts depend on net gold weight, purity, and RBI LTV limits. Minimum: 1 gram and ₹1,500 loan. Stones (diamond, pearl, coral, etc.) are deducted from weight. Ownership verification required; above 20g, customers must explain acquisition. Third-party pledging allowed only with notarized Power of Attorney.</p>
+          <ul>
+            <li>Loan amounts depend on net gold weight, purity, and RBI LTV limits</li>
+            <li>Minimum: 1 gram and ₹1,500 loan</li>
+            <li>Stones (diamond, pearl, coral, etc.) are deducted from the weight</li>
+            <li>Ownership verification required; above 20g, customers must explain acquisition</li>
+            <li>Third-party pledging allowed only with notarized Power of Attorney</li>
+          </ul>
 
           <h3>Interest, Charges & Repayment</h3>
-          <p>Interest rates and charges follow board-approved policies. Minimum interest period: 7 or 15 days depending on scheme. Minimum interest: ₹100. Penal interest applies if dues remain unpaid after due date. Additional charges may include processing, security, appraisal, notice, SMS, stamp duty, and auction-related charges.</p>
+          <ul>
+            <li>Interest rates and charges follow the company's board-approved policies</li>
+            <li>Minimum interest period: 7 or 15 days depending on scheme</li>
+            <li>Minimum interest: ₹100</li>
+            <li>Penal interest applies if dues remain unpaid after due date</li>
+            <li>Additional charges may include processing, security, appraisal, notice, SMS, stamp duty, and auction-related charges</li>
+            <li>Loans renewable only after fully closing the old loan, with new eligibility based on current LTV</li>
+          </ul>
 
-          <h3>Jewellery Handling</h3>
-          <p>Jewellery is appraised for purity, packed securely, and stored in the strong room. Released only after full repayment and document verification. Lost pawn ticket requires indemnity. For deceased borrowers, jewelry releases to legal heirs.</p>
+          <h3>Jewellery Handling, Release & Risk Controls</h3>
+          <ul>
+            <li>Jewellery is appraised for purity, packed securely, and stored in the strong room</li>
+            <li>Released only after full repayment and document/ticket verification</li>
+            <li>Lost pawn ticket requires indemnity</li>
+            <li>For deceased borrowers, jewelry releases to legal heirs</li>
+            <li>Fraud, spurious gold, or stolen gold must be reported immediately to management and police</li>
+            <li>Regular internal audits ensure correct handling and compliance</li>
+          </ul>
 
-          <h3>Default & Auction</h3>
-          <p>If borrower does not close loan after reminders, gold is auctioned. Minimum 14-day notice before auction. Public announcement in one local and one national newspaper. Auction proceeds settle outstanding dues; excess refunded, shortfall recoverable.</p>
+          <h3>Default, Auction & Recovery</h3>
+          <ul>
+            <li>If the borrower does not close the loan even after reminders, the gold is auctioned</li>
+            <li>Minimum 14-day notice before auction</li>
+            <li>Public announcement in one local and one national newspaper</li>
+            <li>Company cannot bid in auctions; borrowers may participate</li>
+            <li>Auction proceeds are used to settle outstanding dues; excess is refunded, shortfall is recoverable</li>
+            <li>Asset classification and income recognition follow RBI norms</li>
+          </ul>
         `
       },
       'interest-rate': {
         title: 'Interest Rate Policy',
         content: `
-          <h3>Purpose</h3>
-          <p>This policy aligns with RBI's Scale-Based Regulation Master Directions (2023), mandating NBFCs to adopt a transparent interest rate model considering cost of funds, margins, and risk premium.</p>
+          <h3>Purpose & Regulatory Background</h3>
+          <p>This policy aligns with RBI's Scale-Based Regulation Master Directions (2023), which mandate NBFCs to adopt a transparent interest rate model considering cost of funds, margins, and risk premium. It ensures regulatory compliance, transparency, fairness, and proper disclosure to borrowers. The policy is updated based on RBI circulars, directions, or regulatory changes.</p>
 
-          <h3>Interest Rate Model</h3>
-          <p>Computation includes Weighted Average Cost of Funds, opportunity cost of cash reserves, operating cost net of processing fees, and net credit risk premium.</p>
+          <h3>Objectives & Interest Rate Model</h3>
+          <p>The policy aims to ensure market-aligned, transparent, fair, and sustainable pricing of all loan products. Interest rate computation includes:</p>
+          <ul>
+            <li><strong>Weighted Average Cost of Funds (WACF)</strong> — cost of equity + cost of debt</li>
+            <li><strong>Opportunity cost</strong> of cash reserves</li>
+            <li><strong>Operating cost</strong> net of processing fees</li>
+            <li><strong>Net credit risk premium</strong> based on borrower segment risk, default history, and recoveries</li>
+          </ul>
+          <p>All components are annualized to derive final applicable loan interest rates.</p>
 
           <h3>Interest Rates</h3>
-          <p>Maximum normal loan interest up to 32% p.a. Product-wise ranges: Gold Loans 8%–28%, Unsecured Loans 18%–32%, Secured Loans 18%–28%. Rates reviewed monthly/quarterly.</p>
+          <ul>
+            <li>Maximum normal loan interest: up to 32% p.a. (excluding compounding)</li>
+            <li>Rates vary by customer based on risk, credit profile, location, loan type, tenure, and market factors</li>
+            <li><strong>Gold Loans:</strong> 8% – 28% p.a.</li>
+            <li><strong>Unsecured Loans:</strong> 18% – 32% p.a.</li>
+            <li><strong>Secured Loans:</strong> 18% – 28% p.a.</li>
+            <li>Rates reviewed monthly/quarterly based on market and regulatory changes</li>
+          </ul>
 
           <h3>Processing Fees</h3>
-          <p>2% (excluding GST). Can vary by location, segment, loan size, or risk.</p>
+          <ul>
+            <li>Processing fee: 2% (excluding GST)</li>
+            <li>Can vary by location, segment, loan size, risk, or operational cost</li>
+            <li>Fully disclosed in loan documents</li>
+          </ul>
 
           <h3>Penal Charges</h3>
-          <p>Apply only after normal loan tenure. Capped at maximum 3% p.m. on overdue amount. Not compounded. Applied after 15 days' notice to borrower.</p>
+          <ul>
+            <li>Apply only after normal loan tenure</li>
+            <li>Capped at maximum 3% p.m. on overdue amount</li>
+            <li>Not compounded</li>
+            <li>Cheque bounce / NACH / ECS charges also applicable</li>
+            <li>Applied after 15 days' notice to borrower</li>
+          </ul>
+
+          <h3>Other Charges & Notices</h3>
+          <p>Other charges include bounce charges, prepayment/foreclosure fees, and additional charges with prior notice. Interest rate or charge changes are communicated to borrowers in their language and applied prospectively only.</p>
 
           <h3>Risk-Based Pricing</h3>
-          <p>Loans priced based on borrower profile, repayment capacity, credit bureau score, collateral quality, and market benchmarks.</p>
+          <p>Loans are priced based on borrower profile, repayment capacity, financial data, credit bureau score, collateral quality, payment mode, and market benchmarks. Detailed risk checks include:</p>
+          <ul>
+            <li>KYC verification</li>
+            <li>Past repayment behaviour</li>
+            <li>Income stability</li>
+            <li>GST/EPFO database checks</li>
+            <li>Location-level delinquency patterns</li>
+          </ul>
 
-          <h3>Disclosure</h3>
-          <p>Borrowers receive complete details of loan terms, charges, and agreements in English and local language. Policy available on company website, subject to annual Board review.</p>
+          <h3>Disclosure & Review</h3>
+          <p>Borrowers receive complete details of loan terms, charges, agreements, and sanction letters in English and local language. The policy is available on the company website and subject to annual Board review (or earlier if regulations change). In case of conflict with law, regulatory provisions override the policy.</p>
         `
       },
       'loan-pricing': {
         title: 'Loan Pricing Policy',
         content: `
           <h3>Introduction</h3>
-          <p>Dhanam is an NBFC MFI incorporated in 2016 and registered with RBI in 2017. The interest rate framework follows RBI's revised regulatory guidelines.</p>
+          <p>Dhanam Investment and Finance Pvt. Ltd. (Dhanam) is an NBFC MFI incorporated in the year 2016 by its promoters under the Companies Act 2013 and was registered with RBI in the year 2017.</p>
+          <p>The interest rate of the loans charged by the NBFC-MFIs had been determined and regulated by the RBI based on a cap formula. This was de-regulated through the revised regulatory guidelines issued by RBI (Circular no RBI/DOR/2021-22/89 dated 14th March 2022). Under the new guidelines, Dhanam shall put in place a board-approved well-documented interest rate model for arriving at the all-inclusive interest rate.</p>
+
+          <h3>Policy Coverage</h3>
+          <p>The Policy covers the following:</p>
+          <ul>
+            <li>Components of pricing applicable for all loans (Microfinance and Non-Microfinance)</li>
+            <li>Spread applicable for microfinance loans</li>
+            <li>Ceiling on the interest rate and all other charges applicable to microfinance loans</li>
+            <li>Delegation of authority for pricing approval</li>
+          </ul>
 
           <h3>Pricing Formula</h3>
-          <p>Finance Cost/Cost of Funds + Operational Cost + Risk Premium + Expected Profit Margin</p>
+          <p>The all-inclusive interest rate is computed as:</p>
+          <p><strong>Finance Cost/Cost of Funds + Operational Cost + Risk Premium + Expected Profit Margin</strong></p>
 
-          <h3>Finance Cost</h3>
-          <p>Borrowing cost calculated through XIRR method including all costs & expenses related to debt arrangement.</p>
+          <h3>1. Finance Cost / Cost of Fund</h3>
+          <p>Borrowing cost calculated through XIRR method including all costs and expenses related to debt arrangement. This includes interest on borrowings, bank charges, processing fees paid to lenders, and any other cost associated with raising funds.</p>
 
-          <h3>Operational Expenses</h3>
-          <p>Costs related to end-to-end loan cycle including manpower, collections, operations, technology, and administration.</p>
+          <h3>2. Operational Expenses</h3>
+          <p>Costs related to the end-to-end loan cycle including:</p>
+          <ul>
+            <li>Manpower costs (salaries, benefits, training)</li>
+            <li>Collections and recovery expenses</li>
+            <li>Branch operations and rent</li>
+            <li>Technology and IT infrastructure</li>
+            <li>Administration, audit, and compliance costs</li>
+          </ul>
 
-          <h3>Risk Premium</h3>
-          <p>Covers credit risks, operational risks, market risks, and systemic risks based on client profile and external factors.</p>
+          <h3>3. Risk Premium</h3>
+          <p>Covers the following risk categories:</p>
+          <ul>
+            <li><strong>Credit Risk:</strong> Risk of borrower default based on historical data and credit bureau information</li>
+            <li><strong>Operational Risk:</strong> Risk arising from internal process failures, fraud, or system breakdowns</li>
+            <li><strong>Market Risk:</strong> Risk from external economic conditions, interest rate fluctuations</li>
+            <li><strong>Systemic Risk:</strong> Risks from natural disasters, pandemics, regulatory changes, or other macro events</li>
+          </ul>
+          <p>The risk premium varies based on client profile, geography, loan product, and external factors.</p>
 
-          <h3>Expected Profit Margin</h3>
-          <p>Reasonable profit margin for steady growth and sustainable ROI while not burdening customers excessively.</p>
+          <h3>4. Expected Profit Margin</h3>
+          <p>A reasonable profit margin is maintained for steady growth and sustainable return on investment, while ensuring that customers are not burdened excessively. The margin is calibrated to support long-term institutional sustainability.</p>
         `
       },
       'privacy': {
         title: 'Privacy Policy',
         content: `
-          <h3>Information Collection</h3>
-          <p>We collect information when you register on our site, put in a query, subscribe to our newsletter, respond to a survey, or fill out a form. This may include your name, email address, mailing address, and phone number.</p>
+          <h3>What Information Do We Collect?</h3>
+          <p>We collect information from you when you register on our site, put in a query, subscribe to our newsletter, respond to a survey, or fill out a form. When ordering or registering on our site, as appropriate, you may be asked to provide the following details:</p>
+          <ul>
+            <li>Your name</li>
+            <li>E-mail address</li>
+            <li>Mailing address</li>
+            <li>Phone number</li>
+            <li>Financial information and KYC documents (for loan applications)</li>
+          </ul>
 
-          <h3>How Information Is Used</h3>
-          <p>Your information is used to process loan applications, verify identity, manage accounts, communicate updates, comply with regulatory requirements, and improve our services.</p>
+          <h3>How Is Your Personal Information Used?</h3>
+          <p>Your information is used for the following purposes:</p>
+          <ul>
+            <li>To process loan applications and verify identity</li>
+            <li>To manage your accounts and communicate updates</li>
+            <li>To comply with regulatory requirements (RBI, Credit Information Companies, etc.)</li>
+            <li>To improve our services and customer experience</li>
+            <li>To send periodic communications regarding your account or services</li>
+          </ul>
 
-          <h3>Third-Party Sharing</h3>
-          <p>We may share information with service providers, credit bureaus, auditors, and regulators as required by law. We do not sell personal information to third parties for marketing purposes.</p>
+          <h3>Do We Share Your Information with Third Parties?</h3>
+          <p>We may share information with the following parties as required by law or business necessity:</p>
+          <ul>
+            <li>Service providers who assist in our operations</li>
+            <li>Credit bureaus and Credit Information Companies</li>
+            <li>Auditors and regulatory bodies</li>
+            <li>Law enforcement agencies when required by law</li>
+          </ul>
+          <p>We do not sell personal information to third parties for marketing purposes.</p>
 
-          <h3>Data Protection</h3>
-          <p>We implement reasonable technical and organizational security measures to protect your information.</p>
+          <h3>How Do We Protect Your Personal Information?</h3>
+          <p>We implement reasonable technical and organizational security measures to protect your information. This includes access controls, encryption of sensitive data, secure storage systems, and regular security audits. However, no system is completely secure, and we cannot guarantee absolute security.</p>
 
-          <h3>Access & Updates</h3>
-          <p>You can request access to your personal information and request corrections by contacting our Data Protection Officer.</p>
+          <h3>Can You Access or Update Your Personal Information?</h3>
+          <p>Yes, you can request access to your personal information and request corrections. Contact our Data Protection Officer through the details available on our website. We will respond to your request within a reasonable timeframe.</p>
 
-          <h3>Online Policy Scope</h3>
-          <p>This online privacy policy applies only to information collected through our website and not to information collected offline.</p>
+          <h3>Online Privacy Policy Only</h3>
+          <p>This online privacy policy applies only to information collected through our website and not to information collected through offline channels such as branch visits or phone calls.</p>
 
-          <h3>Consent</h3>
-          <p>By using our site, you consent to our website's privacy policy.</p>
+          <h3>Your Consent</h3>
+          <p>By using our site, you consent to our website's privacy policy. If we decide to change our privacy policy, we will post those changes on this page so that you are always aware of what information we collect and how we use it.</p>
         `
       },
       'vigil': {
         title: 'Vigil Mechanism / Whistle Blower Policy',
         content: `
           <h3>Preface</h3>
-          <p>Dhanam believes in conducting affairs in a fair and transparent manner by adopting highest standards of professionalism, honesty, integrity and ethical behaviour. Any actual or potential violation of the Code would be a matter of serious concern for the Company.</p>
-
-          <h3>Purpose</h3>
-          <p>This policy provides a mechanism for employees to report unethical behavior, fraud, or code violations and approach the Audit Committee.</p>
+          <p>Dhanam Ltd. believes in the conduct of the affairs of its constituents in a fair and transparent manner by adopting highest standards of professionalism, honesty, integrity and ethical behaviour.</p>
+          <p>The organization has formulated a Code of Conduct establishing principles governing employee and organizational actions. Any actual or potential violation of the Code, howsoever insignificant or perceived as such, would be a matter of serious concern for the Company.</p>
+          <p>This policy provides a mechanism for employees to approach the Audit Committee to report unethical behavior, fraud, or code violations, in line with Clause 49 of the Listing Agreement.</p>
 
           <h3>Eligibility</h3>
-          <p>All employees of the Company are eligible to make Protected Disclosures under the Policy relating to matters concerning the Company.</p>
+          <p>All Employees of the Company are eligible to make Protected Disclosures under the Policy. The Protected Disclosures may be in relation to matters concerning the Company.</p>
 
-          <h3>Procedure</h3>
-          <p>Protected Disclosures should be written in English, Hindi, or regional languages. The Audit Committee Chairman discusses disclosures with committee members before potential investigator referral. Information must be factual and specific. The Whistle Blower need not disclose their identity while making Protected Disclosure.</p>
+          <h3>What Can Be Reported</h3>
+          <ul>
+            <li>Unethical behavior or suspected fraud</li>
+            <li>Violations of the Company's Code of Conduct</li>
+            <li>Breaches of ethics policies</li>
+            <li>Financial irregularities or misrepresentation</li>
+            <li>Any other serious matters affecting the integrity of the Company</li>
+          </ul>
 
-          <h3>Confidentiality</h3>
-          <p>Anonymous reports are accepted and encouraged.</p>
+          <h3>Procedure for Making a Disclosure</h3>
+          <p>Protected Disclosures should be addressed to designated offices with the following requirements:</p>
+          <ul>
+            <li>Reports should be written in English, Hindi, or regional languages in legible handwriting or typed format</li>
+            <li>Submissions require covering letters; the Audit Committee Chairman detaches these and discusses disclosures with committee members before potential investigator referral</li>
+            <li>Information must be factual, specific, and avoid speculation to enable proper assessment</li>
+            <li>Written disclosures addressed to the Audit Committee Chairman or Executive Secretary to MD are preferred</li>
+          </ul>
 
-          <h3>Investigation</h3>
-          <p>The Audit Committee discusses eligible disclosures and forwards them to company investigators for action.</p>
+          <h3>Anonymity & Confidentiality</h3>
+          <p>The Whistle Blower need not disclose his/her identity while making a Protected Disclosure. Anonymous reports are accepted and encouraged. The identity of the whistle blower, if known, will be kept strictly confidential and will not be disclosed without consent except where required by law.</p>
+
+          <h3>Investigation Process</h3>
+          <p>The Audit Committee discusses eligible disclosures and forwards them to company investigators for action. The investigation will be conducted in a fair and impartial manner. The whistle blower will be protected from any adverse action or retaliation as a result of making the disclosure.</p>
+
+          <h3>Protection Against Retaliation</h3>
+          <p>Dhanam is committed to protecting employees who report concerns in good faith. No employee shall be subjected to any form of retaliation, discrimination, or adverse employment action for making a Protected Disclosure. Any such retaliation will be treated as a violation of this policy and will be subject to disciplinary action.</p>
         `
       },
       'terms': {
         title: 'Terms & Conditions',
         content: `
-          <h3>Acceptance</h3>
-          <p>By accessing or using dhanamfinance.com, users agree to be bound by these Terms, Privacy Policy, and Legal Disclaimers. These Terms apply to all pages, services, and linked platforms.</p>
+          <h3>Introduction & Acceptance</h3>
+          <p>The website www.dhanamfinance.com is owned and operated by Dhanam Investment and Finance Pvt. Ltd. By accessing or using the website, users agree to be bound by these Terms & Conditions, Privacy Policy, and Legal Disclaimers.</p>
+          <p>Acceptance is considered valid through clicking "I Agree" or continued use of the website. These Terms apply to all pages, services, and linked platforms under Dhanam. Users must ensure they have legal capacity or authority to bind another person if acting on their behalf. The Terms may be updated anytime, and continued usage implies acceptance.</p>
 
-          <h3>User Responsibilities</h3>
-          <p>Users must provide true, complete, and updated information while applying for loans. Dhanam may verify details via calls/SMS and collect information from credit bureaus, banks, and regulators.</p>
+          <h3>Loan-Related Terms & User Responsibilities</h3>
+          <ul>
+            <li>Users must provide true, complete, and updated information while applying for loans</li>
+            <li>Dhanam may verify details via calls/SMS, collect information from credit bureaus, banks, telecoms, group companies, and regulators</li>
+            <li>Dhanam may share user information with third parties for verification, credit assessment, marketing, and service delivery</li>
+            <li>Loan applications may be approved or rejected at Dhanam's discretion</li>
+            <li>Users must update Dhanam with any changes in personal information</li>
+          </ul>
 
-          <h3>Registration</h3>
-          <p>Registration allows viewing and managing all products via one login. Users are fully responsible for safeguarding their username/password.</p>
+          <h3>Registration & Account Security</h3>
+          <p>Registration allows viewing and managing all products via one login. Users are fully responsible for safeguarding their username/password. Website facilities are not financial advice; users must consult professionals for investment, tax, or legal decisions.</p>
 
-          <h3>Data Usage</h3>
-          <p>Dhanam collects, stores, processes, and shares personal data as per Indian laws for customer verification, service delivery, analytics, and marketing.</p>
+          <h3>Data Usage & Privacy</h3>
+          <p>Dhanam collects, stores, processes, and shares personal data as per Indian laws and its Privacy Policy for:</p>
+          <ul>
+            <li>Customer verification and KYC compliance</li>
+            <li>Service delivery and account management</li>
+            <li>Analytics and service improvement</li>
+            <li>Marketing and promotional communications</li>
+            <li>Transaction execution and processing</li>
+          </ul>
+          <p>User consent is taken electronically and may be withdrawn through notified procedures.</p>
 
-          <h3>Communication</h3>
-          <p>Users agree to receive emails, SMS, WhatsApp messages, and calls, even overriding DND settings.</p>
+          <h3>Communication Consent</h3>
+          <p>Users agree to receive emails, SMS, WhatsApp messages, and calls from Dhanam, even overriding DND (Do Not Disturb) settings. Communications may relate to account updates, promotional offers, payment reminders, and service notifications.</p>
 
           <h3>Intellectual Property</h3>
-          <p>All content (text, graphics, images, logos, videos, software) is owned by Dhanam or licensed to it. Users cannot copy, modify, distribute, or reproduce any website material.</p>
+          <p>All content (text, graphics, images, logos, videos, software) is owned by Dhanam or licensed to it. Users cannot copy, modify, distribute, display, or reproduce any website material without express written permission.</p>
 
           <h3>Prohibited Activities</h3>
-          <p>Users cannot reverse engineer software, use robots/scrapers, upload viruses, post unlawful content, or use the platform for commercial resale.</p>
+          <p>Users are expressly prohibited from:</p>
+          <ul>
+            <li>Reverse engineering any software on the website</li>
+            <li>Using robots, scrapers, or spiders to collect data</li>
+            <li>Uploading viruses or malicious code</li>
+            <li>Posting unlawful, abusive, defamatory, or rights-infringing content</li>
+            <li>Using the platform for commercial resale</li>
+            <li>Claiming any endorsement from Dhanam</li>
+            <li>Misusing or relying solely on website information for financial decisions</li>
+          </ul>
 
-          <h3>Liability</h3>
-          <p>Website provides 'as-is' and 'no warranty' usage. Dhanam is not liable for direct, indirect, incidental, or consequential damages.</p>
+          <h3>Limitation of Liability</h3>
+          <p>The website is provided on an "as-is" and "no warranty" basis. Dhanam is not liable for direct, indirect, incidental, or consequential damages, third-party website content, unauthorised use of accounts, mis-delivery, deletion, failure to store data, or system failures. Users must indemnify Dhanam against all third-party claims arising from misuse.</p>
 
           <h3>Termination</h3>
-          <p>Dhanam may terminate access anytime without notice for violations.</p>
+          <p>Dhanam may terminate access anytime without notice for violations or unlawful activity. Users may discontinue use anytime; access stops immediately post-termination.</p>
 
-          <h3>Governing Law</h3>
-          <p>Indian law applies. Coimbatore courts have exclusive jurisdiction. Arbitration with single arbitrator, seat in Coimbatore, English language.</p>
+          <h3>Governing Law & Dispute Resolution</h3>
+          <ul>
+            <li><strong>Governing Law:</strong> Indian law applies; Coimbatore courts have exclusive jurisdiction</li>
+            <li><strong>Arbitration:</strong> Single arbitrator mutually appointed (or under Arbitration Act if not agreed). Seat: Coimbatore. Language: English. Award is final and binding</li>
+          </ul>
 
           <h3>Force Majeure</h3>
-          <p>Dhanam is not liable for disruptions caused by natural disasters, technical failures, strikes, etc.</p>
+          <p>Dhanam is not liable for disruptions caused by Force Majeure events including natural disasters, technical failures, strikes, pandemics, government actions, or any event beyond the Company's reasonable control.</p>
+
+          <h3>Miscellaneous</h3>
+          <p>Users must not engage in illegal activities and cannot assign rights under these Terms. Dhanam may modify or discontinue website facilities anytime without liability. If any provision of these Terms is found unenforceable, the remaining provisions shall continue in full force.</p>
         `
       },
       'kyc': {
         title: 'KYC Policy',
         content: `
-          <h3>Purpose</h3>
-          <p>As per RBI norms, Dhanam collects Know Your Customer (KYC) documents from all customers to verify identity and address before extending any financial services.</p>
+          <h3>Purpose & Regulatory Framework</h3>
+          <p>As per RBI norms and the Prevention of Money Laundering Act (PMLA), Dhanam collects Know Your Customer (KYC) documents from all customers to verify identity and address before extending any financial services. This policy ensures compliance with RBI Master Direction on KYC norms and anti-money laundering guidelines.</p>
 
-          <h3>Documents Required</h3>
-          <p>Three accepted identity proofs from: Aadhaar Card, PAN Card, Voter ID, Ration Card. Address proof and photograph required. Active bank account details with IFSC verified against passbook.</p>
+          <h3>Documents Required for KYC</h3>
+          <p><strong>Identity Proof (any three of the following):</strong></p>
+          <ul>
+            <li>Aadhaar Card</li>
+            <li>PAN Card</li>
+            <li>Voter ID</li>
+            <li>Ration Card</li>
+          </ul>
+          <p><strong>Additional Requirements:</strong></p>
+          <ul>
+            <li>Address proof and recent passport-size photograph</li>
+            <li>Active bank account details with IFSC code, verified against the passbook</li>
+            <li>Clear photo of the passbook and recent bank statement must be uploaded</li>
+            <li>Proof of own house is required; otherwise, it will be treated as a rented house</li>
+            <li>Details of nominee, guarantor, and family members' income/expenditure must be duly filled</li>
+          </ul>
 
           <h3>Verification Process</h3>
-          <p>OTP verification mandatory for all customers. Pre-loan and post-disbursement verification calls conducted by head office. Customer data uploaded accurately to all RBI-approved Credit Information Companies on a daily basis.</p>
+          <ul>
+            <li>OTP verification is mandatory for all customers</li>
+            <li>Two contact numbers are required for each customer</li>
+            <li>Pre-loan and post-disbursement verification calls are conducted by the head office</li>
+            <li>Member enrollment in the software must be done correctly with necessary details and clear images</li>
+            <li>Customer data is uploaded accurately to all RBI-approved Credit Information Companies on a daily basis</li>
+          </ul>
 
-          <h3>Data Protection</h3>
-          <p>Customer data safeguarded per data protection principles including collection limitation, purpose specification, use limitation, and access controls. Dhanam will promptly address any dispute raised by borrower about their data with Credit Information Companies.</p>
+          <h3>Customer Due Diligence</h3>
+          <p>Dhanam performs customer due diligence at the following stages:</p>
+          <ul>
+            <li>At the time of establishing a business relationship (loan application)</li>
+            <li>When carrying out transactions above prescribed thresholds</li>
+            <li>When there is suspicion of money laundering or terrorist financing</li>
+            <li>When there is doubt about the adequacy or accuracy of previously obtained identification data</li>
+          </ul>
 
-          <h3>Compliance</h3>
-          <p>KYC policy complies with RBI Master Direction on KYC norms and is reviewed periodically by the Board of Directors.</p>
+          <h3>Data Protection & Privacy</h3>
+          <p>Customer data is safeguarded per data protection principles including:</p>
+          <ul>
+            <li><strong>Collection Limitation:</strong> Only data necessary for the stated purpose is collected</li>
+            <li><strong>Purpose Specification:</strong> Data is used only for the purpose it was collected</li>
+            <li><strong>Use Limitation:</strong> Data is not used for purposes beyond what was communicated</li>
+            <li><strong>Access Controls:</strong> Only authorized personnel can access customer data</li>
+          </ul>
+          <p>Dhanam will promptly address any dispute raised by a borrower about their data with Credit Information Companies.</p>
+
+          <h3>Periodic Review & Compliance</h3>
+          <p>The KYC policy complies with RBI Master Direction on KYC norms and is reviewed periodically by the Board of Directors. Customer records are updated periodically based on the risk category of the customer. Any changes in regulatory guidelines are incorporated promptly.</p>
         `
       },
       'grievance-policy': {
         title: 'Grievance Redressal Policy',
         content: `
           <h3>Overview</h3>
-          <p>Dhanam has a board-approved customer grievance redressal policy covering registration, resolution, escalation processes, complaint categories, turnaround times, and board reporting.</p>
+          <p>Dhanam has a board-approved customer grievance redressal policy covering registration, resolution, escalation processes, complaint categories, turnaround times, review/audit, and board reporting. Dhanam will provide a robust customer grievance redressal system to address complaints effectively and promptly.</p>
 
           <h3>Level 1 — Branch Level</h3>
-          <p>Contact your branch manager for immediate resolution. Resolution time: 7 working days. Phone: +91 73050 22272. Email: contact@dhanam.finance</p>
+          <p>Contact your branch manager for immediate resolution of your complaint.</p>
+          <ul>
+            <li><strong>Resolution Time:</strong> 7 working days</li>
+            <li><strong>Phone:</strong> <a href="tel:+917305022272" style="color:var(--primary);">+91 73050 22272</a></li>
+            <li><strong>Email:</strong> <a href="mailto:contact@dhanam.finance" style="color:var(--primary);">contact@dhanam.finance</a></li>
+          </ul>
+          <p>A suggestion and complaint register is available at all branches. Clients have access to higher-level staff (Branch Manager, Area Manager, etc.) to discuss grievances. Grievances will be addressed within 48 hours to a week.</p>
 
           <h3>Level 2 — Grievance Redressal Officer</h3>
-          <p>If not resolved at branch level, escalate to the Grievance Redressal Officer. Resolution time: 15 working days from Level 1. Officer: Ms. Vijila, Grievance Redressal Officer. Email: contact@dhanam.finance. Address: Door No. 22/3, Nehru Nagar, 2nd St, Behind CMS School, Ganapathy, Coimbatore 641006.</p>
+          <p>If not resolved at branch level, escalate to our designated Grievance Redressal Officer.</p>
+          <ul>
+            <li><strong>Resolution Time:</strong> 15 working days from Level 1</li>
+            <li><strong>Officer:</strong> Ms. Vijila, Grievance Redressal Officer</li>
+            <li><strong>Email:</strong> <a href="mailto:contact@dhanam.finance" style="color:var(--primary);">contact@dhanam.finance</a></li>
+            <li><strong>Address:</strong> Door No. 22/3, Nehru Nagar, 2nd St, Behind CMS School, Ganapathy, Coimbatore 641006</li>
+          </ul>
+          <p>If not satisfied at this level, clients can approach the Nodal Officer: Mr. A Gopinath, Phone: +91 73050 22272, Email: contact@dhanam.finance.</p>
 
           <h3>Level 3 — RBI Ombudsman</h3>
-          <p>If still unresolved after 30 days, approach the RBI Ombudsman at <a href="https://cms.rbi.org.in" target="_blank" style="color:var(--primary);">https://cms.rbi.org.in</a>. The RBI Ombudsman provides a free, independent platform to resolve customer complaints against NBFCs.</p>
+          <p>If the complaint is still unresolved after 30 days, you may approach the RBI Integrated Ombudsman.</p>
+          <ul>
+            <li><strong>Portal:</strong> <a href="https://cms.rbi.org.in" target="_blank" style="color:var(--primary);">https://cms.rbi.org.in</a></li>
+            <li>The RBI Ombudsman provides a free, independent platform to resolve customer complaints against NBFCs</li>
+            <li>If the complaint is not resolved within a month at Level 2, the client may also appeal to the Officer-in-charge of the Regional Office of DNBS of RBI in Chennai</li>
+          </ul>
 
           <h3>Recording & Reporting</h3>
-          <p>Dhanam records and analyses individual and aggregate level data for grievance redressal, capturing complaint nature, action taken, and turnaround time. Board receives reports on grievances received, resolved, pending, and complaint nature.</p>
+          <p>Dhanam records and analyses individual and aggregate level data for grievance redressal systems, capturing:</p>
+          <ul>
+            <li>Nature of complaints received</li>
+            <li>Action taken on each complaint</li>
+            <li>Turnaround time for resolution</li>
+            <li>Pending complaints and their status</li>
+          </ul>
+          <p>The Board receives periodic reports on grievances received, resolved, pending, and the nature of complaints.</p>
+
+          <h3>Recovery-Related Grievances</h3>
+          <p>A dedicated mechanism exists for recovery-related grievance redressal. Details of this mechanism are provided at the time of loan disbursal. Recovery agents (if any) are governed by RBI's guidelines on engagement of recovery agents.</p>
 
           <h3>Accessibility</h3>
-          <p>Grievance mechanism details clearly communicated in branches, loan documents, and materials. Easy access through dedicated phone number or staff-assisted branch procedures.</p>
+          <p>Grievance mechanism details are clearly communicated through:</p>
+          <ul>
+            <li>All branch offices (displayed prominently)</li>
+            <li>Loan documents and sanction letters</li>
+            <li>Marketing materials and customer communications</li>
+            <li>Company website</li>
+            <li>Dedicated helpline number</li>
+          </ul>
+          <p>The Principal Nodal Officer oversees the entire grievance redressal function to ensure timely and fair resolution of all complaints.</p>
         `
       }
     };
