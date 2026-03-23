@@ -33,17 +33,18 @@
     @media (max-width: 768px) {
       .policy-grid-2 { grid-template-columns: 1fr !important; }
       .policy-grid-3 { grid-template-columns: 1fr !important; }
-      #policy-modal { width: 100vw !important; }
+      #policy-modal { width: 95vw !important; max-height: 90vh !important; margin: 5vh auto !important; }
     }
     #policy-modal-body h3 {
       color: var(--navy);
-      font-size: 1.1rem;
+      font-family: 'DM Serif Display', serif;
+      font-size: 1.15rem;
       margin: 28px 0 10px;
-      padding-bottom: 6px;
+      padding-bottom: 8px;
       border-bottom: 1px solid var(--gray-200);
     }
     #policy-modal-body h3:first-child { margin-top: 0; }
-    #policy-modal-body p { margin: 0 0 12px; }
+    #policy-modal-body p { margin: 0 0 14px; color: var(--gray-600, #555); }
     #policy-modal-body ul {
       margin: 0 0 16px;
       padding-left: 20px;
@@ -51,7 +52,7 @@
     #policy-modal-body li {
       margin-bottom: 8px;
       line-height: 1.7;
-      color: #555;
+      color: var(--gray-500, #555);
     }
     #policy-modal-body strong { color: var(--navy); }
     #policy-modal-body a { color: var(--primary); text-decoration: none; }
@@ -66,7 +67,7 @@
       <ul class="nav__links">
         <li><a href="index.html" class="nav__link">Home</a></li>
         <li class="nav__dropdown">
-          <a class="nav__link nav__dropdown-trigger">Services <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg></a>
+          <a class="nav__link nav__dropdown-trigger" href="index.html#services">Services <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg></a>
           <ul class="nav__dropdown-menu">
             <li><a href="gold-loan.html"><div class="dd-icon" style="background:#FFF3D6;color:#B8860B;"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2m0 16v2M4.93 4.93l1.41 1.41m11.32 11.32l1.41 1.41M2 12h2m16 0h2M4.93 19.07l1.41-1.41m11.32-11.32l1.41-1.41"/></svg></div><div><strong>Gold Loan</strong><br><small style="color:var(--gray-400)">Quick disbursal</small></div></a></li>
             <li><a href="mortgage-loan.html"><div class="dd-icon" style="background:#E0EDFF;color:#2563EB;"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M3 21h18M5 21V7l7-4 7 4v14M9 21v-6h6v6"/></svg></div><div><strong>Mortgage Loan</strong><br><small style="color:var(--gray-400)">Loan against property</small></div></a></li>
@@ -378,15 +379,18 @@
   <a href="https://wa.me/917305022272" target="_blank" class="whatsapp-float" aria-label="Chat on WhatsApp"><svg viewBox="0 0 24 24" width="28" height="28" fill="white"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.625.846 5.059 2.284 7.034L.789 23.49a.75.75 0 00.914.914l4.456-1.495A11.952 11.952 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22c-2.287 0-4.4-.763-6.097-2.05a.75.75 0 00-.653-.129l-3.032 1.017 1.017-3.032a.75.75 0 00-.129-.653A9.96 9.96 0 012 12C2 6.477 6.477 2 12 2s10 4.477 10 10-4.477 10-10 10z"/></svg></a>
 
   <!-- Policy Modal -->
-  <div id="policy-modal-overlay" style="display:none;position:fixed;inset:0;background:rgba(0,0,0,0.5);z-index:9999;backdrop-filter:blur(4px);-webkit-backdrop-filter:blur(4px);opacity:0;transition:opacity 0.3s ease;" onclick="closePolicyModal(event)">
-    <div id="policy-modal" style="position:absolute;right:0;top:0;bottom:0;width:min(860px,92vw);background:white;overflow-y:auto;transform:translateX(100%);transition:transform 0.3s ease;box-shadow:-4px 0 30px rgba(0,0,0,0.15);" onclick="event.stopPropagation()">
-      <div style="position:sticky;top:0;background:white;padding:24px 32px 16px;border-bottom:1px solid #eee;display:flex;justify-content:space-between;align-items:center;z-index:1;">
-        <h2 id="policy-modal-title" style="margin:0;font-size:1.4rem;color:#2D2926;"></h2>
-        <button onclick="closePolicyModal()" style="background:none;border:none;cursor:pointer;padding:8px;border-radius:50%;transition:background 0.2s;" onmouseover="this.style.background='#f5f5f5'" onmouseout="this.style.background='none'">
-          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#666" stroke-width="2"><path d="M18 6L6 18M6 6l12 12"/></svg>
+  <div id="policy-modal-overlay" style="display:none;position:fixed;inset:0;background:rgba(45,41,38,0.45);z-index:9999;backdrop-filter:blur(3px);-webkit-backdrop-filter:blur(3px);opacity:0;transition:opacity 0.25s ease;justify-content:center;align-items:center;" onclick="closePolicyModal(event)">
+    <div id="policy-modal" style="position:relative;width:min(780px,90vw);max-height:80vh;background:var(--cream, #FFF9F0);border-radius:var(--radius-lg, 16px);overflow:hidden;transform:scale(0.95);opacity:0;transition:all 0.25s ease;box-shadow:0 20px 60px rgba(0,0,0,0.2);" onclick="event.stopPropagation()">
+      <div style="position:sticky;top:0;background:var(--cream, #FFF9F0);padding:24px 32px 16px;border-bottom:1px solid var(--gray-200, #e5e5e5);display:flex;justify-content:space-between;align-items:center;z-index:1;">
+        <div>
+          <div style="width:40px;height:3px;background:var(--primary, #B8860B);border-radius:2px;margin-bottom:10px;"></div>
+          <h2 id="policy-modal-title" style="margin:0;font-family:'DM Serif Display',serif;font-size:1.5rem;color:var(--navy, #2D2926);"></h2>
+        </div>
+        <button onclick="closePolicyModal()" style="background:none;border:1px solid var(--gray-200, #e5e5e5);cursor:pointer;padding:8px;border-radius:50%;transition:all 0.2s;display:flex;align-items:center;justify-content:center;" onmouseover="this.style.background='var(--gray-100, #f5f5f5)';this.style.borderColor='var(--gray-300, #ccc)'" onmouseout="this.style.background='none';this.style.borderColor='var(--gray-200, #e5e5e5)'">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--navy, #2D2926)" stroke-width="2"><path d="M18 6L6 18M6 6l12 12"/></svg>
         </button>
       </div>
-      <div id="policy-modal-body" style="padding:24px 32px 48px;color:#444;font-size:0.95rem;line-height:1.8;"></div>
+      <div id="policy-modal-body" style="padding:24px 32px 40px;color:var(--gray-500, #555);font-family:'Inter',sans-serif;font-size:0.93rem;line-height:1.8;overflow-y:auto;max-height:calc(80vh - 90px);"></div>
     </div>
   </div>
 
@@ -1019,12 +1023,13 @@
       title.textContent = policy.title;
       body.innerHTML = policy.content;
 
-      overlay.style.display = 'block';
+      overlay.style.display = 'flex';
       document.body.style.overflow = 'hidden';
 
       setTimeout(() => {
         overlay.style.opacity = '1';
-        modal.style.transform = 'translateX(0)';
+        modal.style.transform = 'scale(1)';
+        modal.style.opacity = '1';
       }, 10);
     }
 
@@ -1035,12 +1040,13 @@
       const modal = document.getElementById('policy-modal');
 
       overlay.style.opacity = '0';
-      modal.style.transform = 'translateX(100%)';
+      modal.style.transform = 'scale(0.95)';
+      modal.style.opacity = '0';
 
       setTimeout(() => {
         overlay.style.display = 'none';
         document.body.style.overflow = '';
-      }, 300);
+      }, 250);
     }
 
     document.addEventListener('keydown', (e) => {
