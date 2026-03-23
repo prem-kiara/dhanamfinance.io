@@ -454,6 +454,7 @@ section:not(.hero):not(.trust-bar) {
   top: 88px;
   left: 24px;
   right: 24px;
+  bottom: 24px;
   background-color: var(--white);
   flex-direction: column;
   gap: var(--space-md);
@@ -463,6 +464,8 @@ section:not(.hero):not(.trust-bar) {
   border: 1px solid rgba(0, 0, 0, 0.06);
   max-width: calc(100% - 48px);
   z-index: 999;
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
 }
 
 .nav__mobile.active {
