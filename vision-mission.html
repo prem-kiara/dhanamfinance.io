@@ -1,0 +1,537 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Vision &amp; Mission — Dhanam Finance</title>
+  <meta name="description" content="Dhanam Finance's vision is to be the most trusted financial partner in South India. Our mission is empowering communities through accessible, transparent lending.">
+  <link rel="icon" type="image/png" href="images/logo.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/styles.css">
+  <style>
+    .vision-statement {
+      border-left: 6px solid var(--gold);
+      padding: 3rem;
+      background: #FAFAF8;
+      border-radius: 8px;
+      font-size: 1.5rem;
+      line-height: 1.8;
+      font-family: "DM Serif Display", serif;
+      color: var(--dark);
+      margin-bottom: 2rem;
+    }
+
+    .mission-pillars {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 2rem;
+      margin-top: 2rem;
+    }
+
+    .pillar-card {
+      background: white;
+      padding: 2rem;
+      border-radius: 12px;
+      text-align: center;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .pillar-card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+    }
+
+    .pillar-icon {
+      width: 60px;
+      height: 60px;
+      background: linear-gradient(135deg, #D4AF37, #E8D4A8);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 1.5rem;
+      font-size: 1.8rem;
+      color: white;
+      font-weight: bold;
+    }
+
+    .pillar-card h3 {
+      font-size: 1.25rem;
+      margin-bottom: 0.75rem;
+      color: var(--dark);
+      font-weight: 600;
+    }
+
+    .pillar-card p {
+      color: var(--gray-600);
+      font-size: 0.95rem;
+      line-height: 1.6;
+    }
+
+    .beliefs-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 2.5rem;
+      margin-top: 3rem;
+    }
+
+    .belief-card {
+      padding: 2.5rem;
+      background: #FAFAF8;
+      border-radius: 12px;
+      position: relative;
+      border: 1px solid #E8E6E0;
+      transition: all 0.3s ease;
+    }
+
+    .belief-card:hover {
+      background: white;
+      box-shadow: 0 8px 24px rgba(212, 175, 55, 0.1);
+    }
+
+    .belief-number {
+      width: 50px;
+      height: 50px;
+      background: linear-gradient(135deg, #D4AF37, #E8D4A8);
+      color: white;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 700;
+      font-size: 1.5rem;
+      margin-bottom: 1rem;
+    }
+
+    .belief-card h3 {
+      font-size: 1.1rem;
+      margin-bottom: 0.75rem;
+      color: var(--dark);
+      font-weight: 600;
+    }
+
+    .belief-card p {
+      color: var(--gray-600);
+      font-size: 0.95rem;
+      line-height: 1.6;
+    }
+
+    .gold-divider {
+      width: 60px;
+      height: 4px;
+      background: linear-gradient(90deg, #D4AF37, #E8D4A8);
+      margin-bottom: 1.5rem;
+    }
+
+    .section-label {
+      display: inline-block;
+      font-size: 0.85rem;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      color: var(--gold);
+      font-weight: 600;
+      margin-bottom: 0.75rem;
+    }
+
+    .section-title {
+      font-size: 2.5rem;
+      margin-bottom: 2rem;
+      color: var(--dark);
+      font-family: "DM Serif Display", serif;
+    }
+
+    .hero--dark {
+      background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%);
+      color: white;
+      padding: 8rem 2rem;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero--dark::before {
+      content: '';
+      position: absolute;
+      top: -50%;
+      right: -10%;
+      width: 600px;
+      height: 600px;
+      background: radial-gradient(circle, rgba(212, 175, 55, 0.1) 0%, transparent 70%);
+      border-radius: 50%;
+      pointer-events: none;
+    }
+
+    .hero--dark::after {
+      content: '';
+      position: absolute;
+      bottom: -30%;
+      left: -5%;
+      width: 400px;
+      height: 400px;
+      background: radial-gradient(circle, rgba(212, 175, 55, 0.08) 0%, transparent 70%);
+      border-radius: 50%;
+      pointer-events: none;
+    }
+
+    .hero--dark > * {
+      position: relative;
+      z-index: 1;
+    }
+
+    .hero__badge {
+      display: inline-block;
+      background: rgba(212, 175, 55, 0.2);
+      border: 1px solid rgba(212, 175, 55, 0.5);
+      color: #E8D4A8;
+      padding: 0.75rem 1.5rem;
+      border-radius: 50px;
+      font-size: 0.85rem;
+      letter-spacing: 0.5px;
+      margin-bottom: 2rem;
+      font-weight: 500;
+    }
+
+    .hero__title {
+      font-size: 3.5rem;
+      font-family: "DM Serif Display", serif;
+      margin-bottom: 1rem;
+      font-weight: 700;
+      line-height: 1.2;
+    }
+
+    .hero__subtitle {
+      font-size: 1.25rem;
+      color: #D4D4D4;
+      max-width: 600px;
+      margin: 0 auto;
+      line-height: 1.6;
+      font-weight: 400;
+    }
+
+    .section--cream {
+      background: #FAF9F6;
+    }
+
+    .cta-section {
+      background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%);
+      color: white;
+      padding: 6rem 2rem;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .cta-section::before {
+      content: '';
+      position: absolute;
+      top: -50%;
+      right: -10%;
+      width: 600px;
+      height: 600px;
+      background: radial-gradient(circle, rgba(212, 175, 55, 0.1) 0%, transparent 70%);
+      border-radius: 50%;
+      pointer-events: none;
+    }
+
+    .cta-section > * {
+      position: relative;
+      z-index: 1;
+    }
+
+    .cta-section h2 {
+      font-size: 2.5rem;
+      font-family: "DM Serif Display", serif;
+      margin-bottom: 2rem;
+    }
+
+    .cta-buttons {
+      display: flex;
+      gap: 1.5rem;
+      justify-content: center;
+      flex-wrap: wrap;
+      margin-top: 2rem;
+    }
+
+    .btn {
+      padding: 1rem 2.5rem;
+      font-size: 1rem;
+      border-radius: 8px;
+      border: none;
+      cursor: pointer;
+      font-weight: 600;
+      transition: all 0.3s ease;
+      text-decoration: none;
+      display: inline-block;
+    }
+
+    .btn--gold {
+      background: linear-gradient(135deg, #D4AF37, #E8D4A8);
+      color: #1a1a1a;
+    }
+
+    .btn--gold:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 8px 20px rgba(212, 175, 55, 0.3);
+    }
+
+    .btn--outline {
+      background: transparent;
+      border: 2px solid #D4AF37;
+      color: #D4AF37;
+    }
+
+    .btn--outline:hover {
+      background: rgba(212, 175, 55, 0.1);
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 2rem;
+    }
+
+    section {
+      padding: 5rem 2rem;
+    }
+
+    @media (max-width: 768px) {
+      .hero__title {
+        font-size: 2.5rem;
+      }
+
+      .section-title {
+        font-size: 2rem;
+      }
+
+      .vision-statement {
+        padding: 2rem;
+        font-size: 1.25rem;
+      }
+
+      .beliefs-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .hero--dark {
+        padding: 5rem 2rem;
+      }
+
+      .cta-buttons {
+        flex-direction: column;
+        align-items: center;
+      }
+
+      .btn {
+        width: 100%;
+        max-width: 300px;
+      }
+    }
+  </style>
+</head>
+<body>
+    <!-- NAV -->
+  <nav class="nav">
+    <div class="nav__inner">
+      <a href="index.html" class="nav__logo"><img src="images/logo.png" alt="Dhanam Finance"></a>
+      <ul class="nav__links">
+        <li><a href="index.html" class="nav__link">Home</a></li>
+        <li class="nav__dropdown">
+          <a class="nav__link nav__dropdown-trigger">Services <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg></a>
+          <ul class="nav__dropdown-menu">
+            <li><a href="gold-loan.html"><div class="dd-icon" style="background:#FFF3D6;color:#B8860B;">G</div><div><strong>Gold Loan</strong><br><small style="color:var(--gray-400)">Quick disbursal against gold</small></div></a></li>
+            <li><a href="mortgage-loan.html"><div class="dd-icon" style="background:#E0EDFF;color:#2563EB;">M</div><div><strong>Mortgage Loan</strong><br><small style="color:var(--gray-400)">Loan against property</small></div></a></li>
+            <li><a href="sme-loan.html"><div class="dd-icon" style="background:#D9F5E5;color:#16A34A;">S</div><div><strong>SME Loan</strong><br><small style="color:var(--gray-400)">Supply chain finance</small></div></a></li>
+          </ul>
+        </li>
+        <li class="nav__dropdown">
+          <a class="nav__link nav__dropdown-trigger nav__link--active">Corporate <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg></a>
+          <ul class="nav__dropdown-menu">
+            <li><a href="about.html"><div class="dd-icon" style="background:#F5F3EE;color:#8B6914;">A</div><div><strong>About Us</strong><br><small style="color:var(--gray-400)">Our story &amp; heritage</small></div></a></li>
+            <li><a href="vision-mission.html"><div class="dd-icon" style="background:#F5F3EE;color:#8B6914;">V</div><div><strong>Vision &amp; Mission</strong><br><small style="color:var(--gray-400)">What drives us</small></div></a></li>
+            <li><a href="directors.html"><div class="dd-icon" style="background:#F5F3EE;color:#8B6914;">D</div><div><strong>Our Directors</strong><br><small style="color:var(--gray-400)">Board of Directors</small></div></a></li>
+            <li><a href="leadership.html"><div class="dd-icon" style="background:#F5F3EE;color:#8B6914;">L</div><div><strong>Senior Leadership</strong><br><small style="color:var(--gray-400)">Executive team</small></div></a></li>
+            <li><a href="advisory.html"><div class="dd-icon" style="background:#F5F3EE;color:#8B6914;">C</div><div><strong>Advisory Committee</strong><br><small style="color:var(--gray-400)">Expert advisors</small></div></a></li>
+          </ul>
+        </li>
+        <li><a href="investors.html" class="nav__link">Investors</a></li>
+        <li><a href="policies.html" class="nav__link">Policies</a></li>
+        <li><a href="contact.html" class="nav__link">Contact</a></li>
+      </ul>
+      <a href="contact.html#apply" class="btn btn--gold btn--sm nav__cta nav__cta--desktop">Apply Now</a>
+      <button class="nav__hamburger" aria-label="Menu"><span></span><span></span><span></span></button>
+    </div>
+    <div class="nav__mobile">
+      <ul class="nav__mobile-links">
+        <li><a href="index.html">Home</a></li>
+        <li class="nav__mobile-group-title">Services</li>
+        <li><a href="gold-loan.html">Gold Loan</a></li>
+        <li><a href="mortgage-loan.html">Mortgage Loan</a></li>
+        <li><a href="sme-loan.html">SME Loan</a></li>
+        <li class="nav__mobile-group-title">Corporate</li>
+        <li><a href="about.html">About Us</a></li>
+        <li><a href="vision-mission.html">Vision &amp; Mission</a></li>
+        <li><a href="directors.html">Our Directors</a></li>
+        <li><a href="leadership.html">Senior Leadership</a></li>
+        <li><a href="advisory.html">Advisory Committee</a></li>
+        <li class="nav__mobile-group-title">More</li>
+        <li><a href="investors.html">Investors</a></li>
+        <li><a href="policies.html">Policies</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+      <div style="margin-top:var(--space-xl);"><a href="contact.html#apply" class="btn btn--gold" style="width:100%;justify-content:center;">Apply Now</a></div>
+    </div>
+  </nav>
+
+  <!-- Hero Section -->
+  <section class="hero hero--dark">
+    <div class="hero__badge">RBI Licensed NBFC · Est. 2010</div>
+    <h1 class="hero__title">Vision &amp; Mission</h1>
+    <p class="hero__subtitle">The principles and aspirations that guide everything we do at Dhanam</p>
+  </section>
+
+  <!-- Vision Section -->
+  <section style="background: white;">
+    <div class="container">
+      <span class="section-label">Our Vision</span>
+      <div class="gold-divider"></div>
+
+      <div class="vision-statement">
+        "To be the most trusted and accessible financial institution in South India — empowering every individual and business to achieve their aspirations through transparent, inclusive lending."
+      </div>
+
+      <div style="max-width: 900px; margin: 0 auto;">
+        <p style="color: var(--gray-600); font-size: 1.05rem; line-height: 1.8; margin-bottom: 1.5rem;">
+          At Dhanam, we envision a South India where financial opportunity is not a privilege reserved for the few, but a right available to all. We see a future where a farmer can access gold loans within hours, where a small business owner can secure working capital without bureaucratic barriers, and where homeowners can achieve property ownership through fair, transparent mortgage solutions.
+        </p>
+        <p style="color: var(--gray-600); font-size: 1.05rem; line-height: 1.8;">
+          We believe that financial exclusion is not inevitable. Over the past decade, we've witnessed thousands of lives transformed through access to timely, trustworthy credit. Our vision is to expand this transformation across South India — reaching the last mile, serving those overlooked by traditional banking, and proving that inclusive finance is not just compassionate, it's good business.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Mission Section -->
+  <section class="section--cream">
+    <div class="container">
+      <span class="section-label">Our Mission</span>
+      <div class="gold-divider"></div>
+      <h2 class="section-title">To Deliver Financial Services That Are Simple, Fair, and Accessible</h2>
+
+      <p style="color: var(--gray-600); font-size: 1.05rem; line-height: 1.8; max-width: 900px; margin: 0 auto 3rem;">
+        Our mission is to bring formal credit within reach of every household and enterprise, while maintaining the highest standards of ethics and governance. We're committed to demystifying finance and putting power back in the hands of our customers.
+      </p>
+
+      <div class="mission-pillars">
+        <div class="pillar-card">
+          <div class="pillar-icon"></div>
+          <h3>Accessibility</h3>
+          <p>Bringing branches and financial services closer to rural and semi-urban communities. We meet customers where they are.</p>
+        </div>
+
+        <div class="pillar-card">
+          <div class="pillar-icon"></div>
+          <h3>Transparency</h3>
+          <p>Clear terms, no hidden charges, honest communication at every stage. You'll always know exactly what you're getting into.</p>
+        </div>
+
+        <div class="pillar-card">
+          <div class="pillar-icon"><svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg></div>
+          <h3>Speed</h3>
+          <p>Fast approvals and disbursals — because financial needs don't wait. Same-day processing for eligible applications.</p>
+        </div>
+
+        <div class="pillar-card">
+          <div class="pillar-icon"><svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2"><circle cx="12" cy="12" r="10"/></svg></div>
+          <h3>Ethics</h3>
+          <p>Full regulatory compliance, responsible lending, and customer protection. We do business the right way, always.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Core Beliefs Section -->
+  <section style="background: white;">
+    <div class="container">
+      <span class="section-label">What We Believe</span>
+      <div class="gold-divider"></div>
+      <h2 class="section-title">Our Guiding Principles</h2>
+
+      <div class="beliefs-grid">
+        <div class="belief-card">
+          <div class="belief-number">1</div>
+          <h3>People Over Profit</h3>
+          <p>Every decision starts with "How does this help our customer?" Profitability follows when you solve real problems for real people.</p>
+        </div>
+
+        <div class="belief-card">
+          <div class="belief-number">2</div>
+          <h3>Trust Is Earned Daily</h3>
+          <p>Trust doesn't come from promises — it comes from consistent action. We earn it through transparency, reliability, and respect.</p>
+        </div>
+
+        <div class="belief-card">
+          <div class="belief-number">3</div>
+          <h3>Inclusion Is Non-Negotiable</h3>
+          <p>Financial services must reach the last mile. We're here for those overlooked by traditional banking — and proud of it.</p>
+        </div>
+
+        <div class="belief-card">
+          <div class="belief-number">4</div>
+          <h3>Simplicity Wins</h3>
+          <p>Finance is complex. Our job is to make it simple. Clear processes, straightforward terms, no jargon gatekeeping.</p>
+        </div>
+
+        <div class="belief-card">
+          <div class="belief-number">5</div>
+          <h3>Grow Together</h3>
+          <p>When our customers prosper, we prosper. Success is shared. We invest in customer success as much as our own.</p>
+        </div>
+
+        <div class="belief-card">
+          <div class="belief-number">6</div>
+          <h3>Heritage With Progress</h3>
+          <p>Rooted in tradition and community values, driven by innovation and technology. The best of yesterday, the promise of tomorrow.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA Section -->
+  <section class="cta-section">
+    <div class="container">
+      <h2>Ready to Get Started?</h2>
+      <p style="font-size: 1.1rem; margin-bottom: 2rem; color: #D4D4D4;">Join thousands of customers who've trusted Dhanam to achieve their financial goals.</p>
+      <div class="cta-buttons">
+        <a href="contact.html#apply" class="btn btn--gold">Apply Now</a>
+        <a href="tel:+917305022272" class="btn btn--outline">Call Us</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+    <!-- FOOTER -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer__top">
+        <div class="footer__brand">
+          <a href="index.html" class="nav__logo" style="color:white;margin-bottom:var(--space-md);display:inline-flex;"><img src="images/logo.png" alt="Dhanam Finance" style="height:56px;filter:brightness(1.2);"></a>
+          <p>Dhanam Investment and Finance Pvt. Ltd. is an RBI Licensed NBFC providing gold loans, mortgage loans, and SME financing across Tamil Nadu. Empowering people. Enabling progress. Delivering trust.</p>
+          <div class="footer__social"><a href="#">f</a><a href="#">in</a><a href="#">X</a><a href="#">@</a></div>
+        </div>
+        <div class="footer__col"><h4>Products</h4><ul class="footer__links"><li><a href="gold-loan.html">Gold Loan</a></li><li><a href="mortgage-loan.html">Mortgage Loan</a></li><li><a href="sme-loan.html">SME Loan</a></li><li><a href="investors.html">Investment (NCDs)</a></li></ul></div>
+        <div class="footer__col"><h4>Company</h4><ul class="footer__links"><li><a href="about.html">About Us</a></li><li><a href="vision-mission.html">Vision &amp; Mission</a></li><li><a href="directors.html">Our Directors</a></li><li><a href="leadership.html">Senior Leadership</a></li><li><a href="advisory.html">Advisory Committee</a></li><li><a href="contact.html">Contact</a></li></ul></div>
+        <div class="footer__col"><h4>Policies</h4><ul class="footer__links"><li><a href="policies.html">All Policies</a></li><li><a href="policies.html#fair-practice">Fair Practice Code</a></li><li><a href="policies.html#grievance">Grievance Redressal</a></li><li><a href="policies.html#interest-rate">Interest Rate Policy</a></li></ul></div>
+      </div>
+      <div class="footer__bottom">
+        <p>&copy; 2026 Dhanam Investment and Finance Pvt. Ltd. All rights reserved. RBI Licensed NBFC | CERSAI Registered</p>
+        <ul class="footer__bottom-links"><li><a href="policies.html#privacy">Privacy Policy</a></li><li><a href="policies.html#terms">Terms &amp; Conditions</a></li></ul>
+      </div>
+    </div>
+  </footer>
+  <a href="https://wa.me/917305022272" target="_blank" class="whatsapp-float" aria-label="Chat on WhatsApp"><svg viewBox="0 0 24 24" width="28" height="28" fill="white"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.625.846 5.059 2.284 7.034L.789 23.49a.75.75 0 00.914.914l4.456-1.495A11.952 11.952 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22c-2.287 0-4.4-.763-6.097-2.05a.75.75 0 00-.653-.129l-3.032 1.017 1.017-3.032a.75.75 0 00-.129-.653A9.96 9.96 0 012 12C2 6.477 6.477 2 12 2s10 4.477 10 10-4.477 10-10 10z"/></svg></a>
+  <script src="js/main.js"></script>
+</body>
+</html>
