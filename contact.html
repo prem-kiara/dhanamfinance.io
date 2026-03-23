@@ -112,43 +112,65 @@
     </div>
   </section>
 
-  <!-- LOAN APPLICATION — Compact Horizontal -->
+  <!-- LOAN APPLICATION — Horizontal Layout -->
   <section class="section--cream" id="apply" style="padding:var(--space-3xl) 0;">
     <div class="container">
-      <div style="margin-bottom:var(--space-xl);">
-        <span class="section-label">Apply Now</span>
-        <div class="gold-divider"></div>
-        <h2 class="section-title">Start your application</h2>
-        <p style="color:var(--gray-500);max-width:600px;">Fill in the form and our team will reach out within 24 hours. No obligations, no pressure.</p>
-      </div>
-      <div class="lead-form" style="padding:var(--space-2xl);">
-        <form id="apply-form" action="mailto:contact@dhanam.finance" method="POST" enctype="text/plain">
-          <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:var(--space-md);">
-            <div class="form-group"><label for="apply-name">Full Name *</label><input type="text" id="apply-name" placeholder="Your full name" required></div>
-            <div class="form-group"><label for="apply-phone">Phone Number *</label><input type="tel" id="apply-phone" placeholder="+91 XXXXX XXXXX" required></div>
-            <div class="form-group"><label for="apply-email">Email Address</label><input type="email" id="apply-email" placeholder="your@email.com"></div>
-          </div>
-          <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:var(--space-md);">
-            <div class="form-group">
-              <label for="apply-loan-type">Loan Type *</label>
-              <select id="apply-loan-type" required>
-                <option value="">Select loan type</option>
-                <option value="gold-loan">Gold Loan</option>
-                <option value="mortgage-loan">Mortgage Loan (LAP)</option>
-                <option value="sme-loan">SME / Business Loan</option>
-                <option value="ncd">NCD Investment Enquiry</option>
-                <option value="other">Other</option>
-              </select>
+      <div style="display:grid;grid-template-columns:320px 1fr;gap:var(--space-3xl);align-items:start;">
+        <!-- Left: Info -->
+        <div>
+          <span class="section-label">Apply Now</span>
+          <div class="gold-divider"></div>
+          <h2 class="section-title" style="font-size:2rem;">Start your application</h2>
+          <p style="color:var(--gray-500);line-height:1.7;">Fill in the form and our team will reach out within 24 hours. No obligations, no pressure.</p>
+          <div style="margin-top:var(--space-xl);padding:var(--space-lg);background:white;border-radius:12px;border:1px solid var(--gray-200);">
+            <div style="display:flex;align-items:center;gap:var(--space-sm);margin-bottom:var(--space-md);">
+              <div style="width:36px;height:36px;border-radius:50%;background:linear-gradient(135deg,var(--primary),var(--primary-light));display:flex;align-items:center;justify-content:center;">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
+              </div>
+              <div>
+                <div style="font-size:0.75rem;color:var(--gray-400);text-transform:uppercase;letter-spacing:0.5px;">Toll-free</div>
+                <a href="tel:18002025180" style="font-weight:600;color:var(--navy);">1800 2025 180</a>
+              </div>
             </div>
-            <div class="form-group"><label for="apply-amount">Approximate Amount</label><input type="text" id="apply-amount" placeholder="e.g. ₹5,00,000"></div>
-            <div class="form-group"><label for="apply-city">City / District *</label><input type="text" id="apply-city" placeholder="e.g. Coimbatore, Salem" required></div>
+            <div style="display:flex;align-items:center;gap:var(--space-sm);">
+              <div style="width:36px;height:36px;border-radius:50%;background:linear-gradient(135deg,#25D366,#128C7E);display:flex;align-items:center;justify-content:center;">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="white"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.625.846 5.059 2.284 7.034L.789 23.492a.5.5 0 00.612.638l4.72-1.322A11.94 11.94 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22c-2.4 0-4.608-.85-6.332-2.266l-.442-.37-3.17.887.94-3.036-.393-.468A9.96 9.96 0 012 12C2 6.477 6.477 2 12 2s10 4.477 10 10-4.477 10-10 10z"/></svg>
+              </div>
+              <div>
+                <div style="font-size:0.75rem;color:var(--gray-400);text-transform:uppercase;letter-spacing:0.5px;">WhatsApp</div>
+                <a href="https://wa.me/917305022272" style="font-weight:600;color:var(--navy);">+91 73050 22272</a>
+              </div>
+            </div>
           </div>
-          <div style="display:grid;grid-template-columns:1fr auto;gap:var(--space-md);align-items:end;">
-            <div class="form-group" style="margin-bottom:0;"><label for="apply-message">Additional Details</label><input type="text" id="apply-message" placeholder="Any additional information..."></div>
-            <button type="submit" class="btn btn--gold" style="height:48px;white-space:nowrap;">Submit Application <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></button>
-          </div>
-          <p style="font-size:0.75rem;color:var(--gray-400);margin-top:var(--space-sm);">By submitting, you agree to our <a href="policies.html#privacy" style="color:var(--primary);">Privacy Policy</a> and consent to being contacted by Dhanam Finance.</p>
-        </form>
+        </div>
+        <!-- Right: Form -->
+        <div class="lead-form" style="padding:var(--space-2xl);">
+          <form id="apply-form" action="mailto:contact@dhanam.finance" method="POST" enctype="text/plain">
+            <div style="display:grid;grid-template-columns:1fr 1fr;gap:var(--space-md) var(--space-lg);">
+              <div class="form-group"><label for="apply-name">Full Name *</label><input type="text" id="apply-name" placeholder="Your full name" required></div>
+              <div class="form-group"><label for="apply-phone">Phone Number *</label><input type="tel" id="apply-phone" placeholder="+91 XXXXX XXXXX" required></div>
+              <div class="form-group"><label for="apply-email">Email Address</label><input type="email" id="apply-email" placeholder="your@email.com"></div>
+              <div class="form-group">
+                <label for="apply-loan-type">Loan Type *</label>
+                <select id="apply-loan-type" required>
+                  <option value="">Select loan type</option>
+                  <option value="gold-loan">Gold Loan</option>
+                  <option value="mortgage-loan">Mortgage Loan (LAP)</option>
+                  <option value="sme-loan">SME / Business Loan</option>
+                  <option value="ncd">NCD Investment Enquiry</option>
+                  <option value="other">Other</option>
+                </select>
+              </div>
+              <div class="form-group"><label for="apply-amount">Approximate Amount</label><input type="text" id="apply-amount" placeholder="e.g. ₹5,00,000"></div>
+              <div class="form-group"><label for="apply-city">City / District *</label><input type="text" id="apply-city" placeholder="e.g. Coimbatore, Salem" required></div>
+            </div>
+            <div style="display:grid;grid-template-columns:1fr auto;gap:var(--space-lg);align-items:end;margin-top:var(--space-md);">
+              <div class="form-group" style="margin-bottom:0;"><label for="apply-message">Additional Details</label><input type="text" id="apply-message" placeholder="Any additional information..."></div>
+              <button type="submit" class="btn btn--gold" style="height:48px;white-space:nowrap;">Submit Application <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></button>
+            </div>
+            <p style="font-size:0.75rem;color:var(--gray-400);margin-top:var(--space-sm);">By submitting, you agree to our <a href="policies.html#privacy" style="color:var(--primary);">Privacy Policy</a> and consent to being contacted by Dhanam Finance.</p>
+          </form>
+        </div>
       </div>
     </div>
   </section>

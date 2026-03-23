@@ -201,7 +201,7 @@
 
       // LTV based on loan amount (simplified: use 75% default)
       var ltv = 0.75;
-      if (goldValue <= 250000) ltv = 0.85;
+      if (goldValue <= 250000) ltv = 0.75;
       else if (goldValue <= 500000) ltv = 0.80;
       else ltv = 0.75;
 

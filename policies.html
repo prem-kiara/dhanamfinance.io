@@ -65,84 +65,109 @@
     </div>
   </nav>
 
-  <!-- PAGE HEADER (matches all other inner pages) -->
-  <section class="page-header">
-    <div class="container">
-      <div class="breadcrumb"><a href="index.html">Home</a><span>/</span><span>Policies</span></div>
-      <span class="section-label">Governance &amp; Compliance</span>
+  <!-- PAGE HEADER — with hero image -->
+  <section class="page-header" style="background:linear-gradient(135deg, rgba(45,41,38,0.72) 0%, rgba(45,41,38,0.58) 100%), url('images/policies-hero.png') center/cover no-repeat;padding:var(--space-5xl) 0 var(--space-3xl);position:relative;overflow:hidden;">
+    <div class="container" style="position:relative;z-index:1;">
+      <div class="breadcrumb" style="color:rgba(255,255,255,0.7);"><a href="index.html" style="color:rgba(255,255,255,0.7);">Home</a><span>/</span><span>Policies</span></div>
+      <span class="section-label" style="color:var(--primary-light);">Governance &amp; Compliance</span>
       <div class="gold-divider"></div>
-      <h1>Our Policies</h1>
-      <p>Transparency and regulatory compliance are at the heart of everything we do. Every policy is available for your review.</p>
+      <h1 style="color:#fff;">Our Policies</h1>
+      <p style="color:rgba(255,255,255,0.8);max-width:600px;">Transparency and regulatory compliance are at the heart of everything we do. Every policy is available for your review.</p>
     </div>
   </section>
 
-  <!-- Policies Grid Section -->
+  <!-- Policies Section — Clean table-style list -->
   <section class="section">
     <div class="container">
-      <div style="max-width:700px;margin-bottom:var(--space-4xl);">
-        <span style="display:block;font-size:0.875rem;font-weight:600;color:var(--primary);text-transform:uppercase;letter-spacing:0.05em;margin-bottom:var(--space-sm);">Regulatory Policies</span>
-        <h2 style="margin-bottom:var(--space-lg);">Committed to Transparency</h2>
-        <p style="font-size:1.0625rem;color:var(--gray-500);line-height:1.6;">As an RBI-licensed NBFC, Dhanam maintains comprehensive policies that govern our operations, protect our customers, and ensure regulatory compliance. We believe in complete transparency — every policy is available for your review.</p>
+      <div style="text-align:center;max-width:640px;margin:0 auto var(--space-3xl);">
+        <span class="section-label">Regulatory Policies</span>
+        <div class="gold-divider" style="margin-left:auto;margin-right:auto;"></div>
+        <h2 style="margin-bottom:var(--space-md);">Committed to Transparency</h2>
+        <p style="color:var(--gray-500);line-height:1.7;">As an RBI-licensed NBFC, Dhanam maintains comprehensive policies that govern our operations, protect our customers, and ensure regulatory compliance.</p>
       </div>
 
-      <!-- Policy Cards Grid -->
-      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(380px,1fr));gap:var(--space-2xl);">
+      <!-- Policy list — 2-column clean cards -->
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:var(--space-lg);">
 
-        <!-- Card 1: Code of Conduct -->
-        <div id="code-of-conduct" class="card fade-up" style="padding:var(--space-2xl);border:1px solid var(--gray-200);border-radius:var(--radius-lg);background:white;transition:all 0.3s ease;">
-          <div style="width:48px;height:48px;border-radius:var(--radius-md);background:var(--cream);display:flex;align-items:center;justify-content:center;font-size:1.5rem;margin-bottom:var(--space-md);color:var(--primary);">&#9997;</div>
-          <h3 style="margin-bottom:var(--space-sm);font-size:1.125rem;">Code of Conduct</h3>
-          <p style="color:var(--gray-500);line-height:1.6;font-size:0.9375rem;">Dhanam's Code of Conduct establishes the ethical standards and professional behaviour expected of all employees, directors, and stakeholders. It covers integrity in dealings, confidentiality of customer information, prevention of conflicts of interest, and commitment to fair business practices.</p>
-        </div>
+        <a href="#code-of-conduct" id="code-of-conduct" class="fade-up" style="display:flex;align-items:flex-start;gap:var(--space-lg);padding:var(--space-xl) var(--space-2xl);background:white;border:1px solid var(--gray-200);border-radius:var(--radius-lg);text-decoration:none;transition:all 0.3s ease;border-left:3px solid var(--primary);">
+          <div style="flex-shrink:0;width:44px;height:44px;border-radius:50%;background:linear-gradient(135deg,var(--primary),var(--primary-light));display:flex;align-items:center;justify-content:center;">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>
+          </div>
+          <div>
+            <h3 style="margin:0 0 6px;font-size:1.05rem;color:var(--navy);">Code of Conduct</h3>
+            <p style="margin:0;color:var(--gray-500);font-size:0.9rem;line-height:1.6;">Ethical standards and professional behaviour expected of all employees, directors, and stakeholders.</p>
+          </div>
+        </a>
 
-        <!-- Card 2: Fair Practice Code -->
-        <div id="fair-practice" class="card fade-up" style="padding:var(--space-2xl);border:1px solid var(--gray-200);border-radius:var(--radius-lg);background:white;transition:all 0.3s ease;">
-          <div style="width:48px;height:48px;border-radius:var(--radius-md);background:var(--cream);display:flex;align-items:center;justify-content:center;font-size:1.5rem;margin-bottom:var(--space-md);color:var(--primary);">&#9878;</div>
-          <h3 style="margin-bottom:var(--space-sm);font-size:1.125rem;">Fair Practice Code</h3>
-          <p style="color:var(--gray-500);line-height:1.6;font-size:0.9375rem;">In compliance with RBI guidelines, our Fair Practice Code outlines the principles of fair lending, transparent communication, and customer rights. It covers loan application processes, terms disclosure, non-discriminatory practices, recovery procedures, and the right to privacy. All lending decisions are made on objective criteria.</p>
-        </div>
+        <a href="#fair-practice" id="fair-practice" class="fade-up" style="display:flex;align-items:flex-start;gap:var(--space-lg);padding:var(--space-xl) var(--space-2xl);background:white;border:1px solid var(--gray-200);border-radius:var(--radius-lg);text-decoration:none;transition:all 0.3s ease;border-left:3px solid var(--primary);">
+          <div style="flex-shrink:0;width:44px;height:44px;border-radius:50%;background:linear-gradient(135deg,var(--primary),var(--primary-light));display:flex;align-items:center;justify-content:center;">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+          </div>
+          <div>
+            <h3 style="margin:0 0 6px;font-size:1.05rem;color:var(--navy);">Fair Practice Code</h3>
+            <p style="margin:0;color:var(--gray-500);font-size:0.9rem;line-height:1.6;">Principles of fair lending, transparent communication, customer rights, and non-discriminatory practices.</p>
+          </div>
+        </a>
 
-        <!-- Card 3: Gold Loan Policy -->
-        <div id="gold-loan-policy" class="card fade-up" style="padding:var(--space-2xl);border:1px solid var(--gray-200);border-radius:var(--radius-lg);background:white;transition:all 0.3s ease;">
-          <div style="width:48px;height:48px;border-radius:var(--radius-md);background:var(--cream);display:flex;align-items:center;justify-content:center;font-size:1.5rem;margin-bottom:var(--space-md);color:var(--primary);">&#9670;</div>
-          <h3 style="margin-bottom:var(--space-sm);font-size:1.125rem;">Gold Loan Policy</h3>
-          <p style="color:var(--gray-500);line-height:1.6;font-size:0.9375rem;">Our Gold Loan Policy details the terms and conditions for gold-backed lending including eligible gold purity standards, loan-to-value ratios, interest rate structure, auction procedures, safe custody of pledged ornaments, and insurance coverage. All gold valuations are conducted transparently in the customer's presence.</p>
-        </div>
+        <a href="#gold-loan-policy" id="gold-loan-policy" class="fade-up" style="display:flex;align-items:flex-start;gap:var(--space-lg);padding:var(--space-xl) var(--space-2xl);background:white;border:1px solid var(--gray-200);border-radius:var(--radius-lg);text-decoration:none;transition:all 0.3s ease;border-left:3px solid var(--primary);">
+          <div style="flex-shrink:0;width:44px;height:44px;border-radius:50%;background:linear-gradient(135deg,var(--primary),var(--primary-light));display:flex;align-items:center;justify-content:center;">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
+          </div>
+          <div>
+            <h3 style="margin:0 0 6px;font-size:1.05rem;color:var(--navy);">Gold Loan Policy</h3>
+            <p style="margin:0;color:var(--gray-500);font-size:0.9rem;line-height:1.6;">Terms for gold-backed lending — purity standards, LTV ratios, auction procedures, and safe custody.</p>
+          </div>
+        </a>
 
-        <!-- Card 4: Interest Rate Policy -->
-        <div id="interest-rate" class="card fade-up" style="padding:var(--space-2xl);border:1px solid var(--gray-200);border-radius:var(--radius-lg);background:white;transition:all 0.3s ease;">
-          <div style="width:48px;height:48px;border-radius:var(--radius-md);background:var(--cream);display:flex;align-items:center;justify-content:center;font-size:1.5rem;margin-bottom:var(--space-md);color:var(--primary);">%</div>
-          <h3 style="margin-bottom:var(--space-sm);font-size:1.125rem;">Interest Rate Policy</h3>
-          <p style="color:var(--gray-500);line-height:1.6;font-size:0.9375rem;">Dhanam's Interest Rate Policy outlines how lending rates are determined based on cost of funds, risk assessment, regulatory guidelines, and market conditions. The policy ensures rates are fair, transparent, and non-discriminatory. Interest is calculated on a reducing balance basis, and all applicable charges are disclosed upfront.</p>
-        </div>
+        <a href="#interest-rate" id="interest-rate" class="fade-up" style="display:flex;align-items:flex-start;gap:var(--space-lg);padding:var(--space-xl) var(--space-2xl);background:white;border:1px solid var(--gray-200);border-radius:var(--radius-lg);text-decoration:none;transition:all 0.3s ease;border-left:3px solid var(--primary);">
+          <div style="flex-shrink:0;width:44px;height:44px;border-radius:50%;background:linear-gradient(135deg,var(--primary),var(--primary-light));display:flex;align-items:center;justify-content:center;">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2"><line x1="19" y1="5" x2="5" y2="19"/><circle cx="6.5" cy="6.5" r="2.5"/><circle cx="17.5" cy="17.5" r="2.5"/></svg>
+          </div>
+          <div>
+            <h3 style="margin:0 0 6px;font-size:1.05rem;color:var(--navy);">Interest Rate Policy</h3>
+            <p style="margin:0;color:var(--gray-500);font-size:0.9rem;line-height:1.6;">How lending rates are determined — cost of funds, risk assessment, reducing balance calculation.</p>
+          </div>
+        </a>
 
-        <!-- Card 5: Loan Pricing Policy -->
-        <div id="loan-pricing" class="card fade-up" style="padding:var(--space-2xl);border:1px solid var(--gray-200);border-radius:var(--radius-lg);background:white;transition:all 0.3s ease;">
-          <div style="width:48px;height:48px;border-radius:var(--radius-md);background:var(--cream);display:flex;align-items:center;justify-content:center;font-size:1.5rem;margin-bottom:var(--space-md);color:var(--primary);font-weight:700;">LP</div>
-          <h3 style="margin-bottom:var(--space-sm);font-size:1.125rem;">Loan Pricing Policy</h3>
-          <p style="color:var(--gray-500);line-height:1.6;font-size:0.9375rem;">Our Loan Pricing Policy establishes the framework for determining processing fees, prepayment charges, late payment penalties, and other service charges across all loan products. All pricing is benchmarked against market standards and disclosed to customers before loan sanction.</p>
-        </div>
+        <a href="#loan-pricing" id="loan-pricing" class="fade-up" style="display:flex;align-items:flex-start;gap:var(--space-lg);padding:var(--space-xl) var(--space-2xl);background:white;border:1px solid var(--gray-200);border-radius:var(--radius-lg);text-decoration:none;transition:all 0.3s ease;border-left:3px solid var(--primary);">
+          <div style="flex-shrink:0;width:44px;height:44px;border-radius:50%;background:linear-gradient(135deg,var(--primary),var(--primary-light));display:flex;align-items:center;justify-content:center;">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"/><path d="M16 21V5a2 2 0 00-2-2h-4a2 2 0 00-2 2v16"/></svg>
+          </div>
+          <div>
+            <h3 style="margin:0 0 6px;font-size:1.05rem;color:var(--navy);">Loan Pricing Policy</h3>
+            <p style="margin:0;color:var(--gray-500);font-size:0.9rem;line-height:1.6;">Framework for processing fees, prepayment charges, late payment penalties, and service charges.</p>
+          </div>
+        </a>
 
-        <!-- Card 6: Privacy Policy -->
-        <div id="privacy" class="card fade-up" style="padding:var(--space-2xl);border:1px solid var(--gray-200);border-radius:var(--radius-lg);background:white;transition:all 0.3s ease;">
-          <div style="width:48px;height:48px;border-radius:var(--radius-md);background:var(--cream);display:flex;align-items:center;justify-content:center;font-size:1.5rem;margin-bottom:var(--space-md);color:var(--primary);font-weight:700;">PP</div>
-          <h3 style="margin-bottom:var(--space-sm);font-size:1.125rem;">Privacy Policy</h3>
-          <p style="color:var(--gray-500);line-height:1.6;font-size:0.9375rem;">Dhanam is committed to protecting customer data. Our Privacy Policy details how personal and financial information is collected, used, stored, and protected. We employ industry-standard security measures and never share customer information with third parties without consent, except as required by law.</p>
-        </div>
+        <a href="#privacy" id="privacy" class="fade-up" style="display:flex;align-items:flex-start;gap:var(--space-lg);padding:var(--space-xl) var(--space-2xl);background:white;border:1px solid var(--gray-200);border-radius:var(--radius-lg);text-decoration:none;transition:all 0.3s ease;border-left:3px solid var(--primary);">
+          <div style="flex-shrink:0;width:44px;height:44px;border-radius:50%;background:linear-gradient(135deg,var(--primary),var(--primary-light));display:flex;align-items:center;justify-content:center;">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0110 0v4"/></svg>
+          </div>
+          <div>
+            <h3 style="margin:0 0 6px;font-size:1.05rem;color:var(--navy);">Privacy Policy</h3>
+            <p style="margin:0;color:var(--gray-500);font-size:0.9rem;line-height:1.6;">How personal and financial information is collected, used, stored, and protected with industry-standard security.</p>
+          </div>
+        </a>
 
-        <!-- Card 7: Vigil Mechanism / Whistle Blower Policy -->
-        <div id="vigil" class="card fade-up" style="padding:var(--space-2xl);border:1px solid var(--gray-200);border-radius:var(--radius-lg);background:white;transition:all 0.3s ease;">
-          <div style="width:48px;height:48px;border-radius:var(--radius-md);background:var(--cream);display:flex;align-items:center;justify-content:center;font-size:1.5rem;margin-bottom:var(--space-md);color:var(--primary);font-weight:700;">VM</div>
-          <h3 style="margin-bottom:var(--space-sm);font-size:1.125rem;">Vigil Mechanism / Whistle Blower Policy</h3>
-          <p style="color:var(--gray-500);line-height:1.6;font-size:0.9375rem;">In line with corporate governance best practices, Dhanam maintains a Vigil Mechanism that enables employees and stakeholders to report concerns about unethical behaviour, fraud, or violations of company policy. The mechanism ensures confidentiality and protection against retaliation for whistle blowers.</p>
-        </div>
+        <a href="#vigil" id="vigil" class="fade-up" style="display:flex;align-items:flex-start;gap:var(--space-lg);padding:var(--space-xl) var(--space-2xl);background:white;border:1px solid var(--gray-200);border-radius:var(--radius-lg);text-decoration:none;transition:all 0.3s ease;border-left:3px solid var(--primary);">
+          <div style="flex-shrink:0;width:44px;height:44px;border-radius:50%;background:linear-gradient(135deg,var(--primary),var(--primary-light));display:flex;align-items:center;justify-content:center;">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>
+          </div>
+          <div>
+            <h3 style="margin:0 0 6px;font-size:1.05rem;color:var(--navy);">Vigil Mechanism / Whistle Blower</h3>
+            <p style="margin:0;color:var(--gray-500);font-size:0.9rem;line-height:1.6;">Report concerns about unethical behaviour or fraud — with full confidentiality and protection.</p>
+          </div>
+        </a>
 
-        <!-- Card 8: Terms & Conditions -->
-        <div id="terms" class="card fade-up" style="padding:var(--space-2xl);border:1px solid var(--gray-200);border-radius:var(--radius-lg);background:white;transition:all 0.3s ease;">
-          <div style="width:48px;height:48px;border-radius:var(--radius-md);background:var(--cream);display:flex;align-items:center;justify-content:center;font-size:1.5rem;margin-bottom:var(--space-md);color:var(--primary);font-weight:700;">TC</div>
-          <h3 style="margin-bottom:var(--space-sm);font-size:1.125rem;">Terms &amp; Conditions</h3>
-          <p style="color:var(--gray-500);line-height:1.6;font-size:0.9375rem;">General terms and conditions governing the use of Dhanam's services, including loan agreements, repayment obligations, default consequences, and dispute resolution mechanisms. All terms are explained clearly at the time of loan sanction.</p>
-        </div>
+        <a href="#terms" id="terms" class="fade-up" style="display:flex;align-items:flex-start;gap:var(--space-lg);padding:var(--space-xl) var(--space-2xl);background:white;border:1px solid var(--gray-200);border-radius:var(--radius-lg);text-decoration:none;transition:all 0.3s ease;border-left:3px solid var(--primary);">
+          <div style="flex-shrink:0;width:44px;height:44px;border-radius:50%;background:linear-gradient(135deg,var(--primary),var(--primary-light));display:flex;align-items:center;justify-content:center;">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2"><polyline points="9 11 12 14 22 4"/><path d="M21 12v7a2 2 0 01-2 2H5a2 2 0 01-2-2V5a2 2 0 012-2h11"/></svg>
+          </div>
+          <div>
+            <h3 style="margin:0 0 6px;font-size:1.05rem;color:var(--navy);">Terms &amp; Conditions</h3>
+            <p style="margin:0;color:var(--gray-500);font-size:0.9rem;line-height:1.6;">Loan agreements, repayment obligations, default consequences, and dispute resolution mechanisms.</p>
+          </div>
+        </a>
 
       </div>
     </div>
@@ -151,73 +176,68 @@
   <!-- Grievance Redressal Section -->
   <section class="section section--cream" id="grievance">
     <div class="container">
-      <div style="max-width:700px;margin-bottom:var(--space-4xl);">
-        <span style="display:block;font-size:0.875rem;font-weight:600;color:var(--primary);text-transform:uppercase;letter-spacing:0.05em;margin-bottom:var(--space-sm);">Customer Support</span>
-        <h2 style="margin-bottom:var(--space-lg);">Grievance Redressal Mechanism</h2>
-        <p style="font-size:1.0625rem;color:var(--gray-600);line-height:1.6;">Dhanam is committed to resolving customer complaints promptly and fairly. Our three-level grievance redressal mechanism ensures every concern is heard and addressed.</p>
+      <div style="text-align:center;max-width:640px;margin:0 auto var(--space-3xl);">
+        <span class="section-label">Customer Support</span>
+        <div class="gold-divider" style="margin-left:auto;margin-right:auto;"></div>
+        <h2 style="margin-bottom:var(--space-md);">Grievance Redressal Mechanism</h2>
+        <p style="color:var(--gray-500);line-height:1.7;">Dhanam is committed to resolving customer complaints promptly and fairly. Our three-level mechanism ensures every concern is heard.</p>
       </div>
 
-      <!-- Three-Level Escalation -->
-      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:var(--space-2xl);">
+      <!-- Three-Level Escalation — horizontal steps -->
+      <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:var(--space-xl);">
 
         <!-- Level 1 -->
-        <div style="padding:var(--space-2xl);background:white;border-radius:var(--radius-lg);border-left:4px solid var(--primary);">
-          <div style="display:flex;align-items:center;margin-bottom:var(--space-lg);">
-            <div style="width:48px;height:48px;border-radius:50%;background:var(--primary);display:flex;align-items:center;justify-content:center;color:white;font-weight:700;font-size:1.25rem;margin-right:var(--space-md);">1</div>
-            <h3 style="margin:0;">Branch Level</h3>
+        <div class="fade-up" style="padding:var(--space-2xl);background:white;border-radius:var(--radius-lg);border-top:3px solid var(--primary);box-shadow:0 2px 12px rgba(0,0,0,0.04);">
+          <div style="display:flex;align-items:center;gap:var(--space-sm);margin-bottom:var(--space-lg);">
+            <span style="display:inline-flex;align-items:center;justify-content:center;width:32px;height:32px;border-radius:50%;background:var(--primary);color:white;font-weight:700;font-size:0.85rem;flex-shrink:0;">1</span>
+            <h3 style="margin:0;font-size:1.1rem;">Branch Level</h3>
           </div>
-          <p style="color:var(--gray-600);margin-bottom:var(--space-md);line-height:1.6;">Contact your branch manager for immediate resolution</p>
-          <div style="background:var(--gray-50);padding:var(--space-md);border-radius:var(--radius-md);margin-bottom:var(--space-md);">
-            <p style="margin:0 0 var(--space-sm) 0;font-size:0.875rem;color:var(--gray-500);font-weight:600;text-transform:uppercase;">Expected Resolution Time</p>
-            <p style="margin:0;font-size:1.0625rem;color:var(--gray-700);font-weight:600;">7 working days</p>
+          <p style="color:var(--gray-500);margin-bottom:var(--space-lg);line-height:1.6;font-size:0.9375rem;">Contact your branch manager for immediate resolution.</p>
+          <div style="background:var(--cream);padding:var(--space-md);border-radius:var(--radius-md);margin-bottom:var(--space-lg);">
+            <p style="margin:0;font-size:0.75rem;color:var(--gray-400);text-transform:uppercase;letter-spacing:0.5px;font-weight:600;">Resolution Time</p>
+            <p style="margin:4px 0 0;font-weight:600;color:var(--navy);">7 working days</p>
           </div>
-          <div style="margin-bottom:var(--space-sm);">
-            <p style="font-size:0.875rem;color:var(--gray-500);margin:0 0 4px 0;">Phone</p>
-            <p style="margin:0;color:var(--gray-700);font-weight:500;"><a href="tel:+917305022272" style="color:var(--gray-700);text-decoration:none;">+91 73050 22272</a></p>
-          </div>
-          <div>
-            <p style="font-size:0.875rem;color:var(--gray-500);margin:0 0 4px 0;">Email</p>
-            <p style="margin:0;color:var(--gray-700);font-weight:500;"><a href="mailto:grievance@dhanamfinance.com" style="color:var(--gray-700);text-decoration:none;">grievance@dhanamfinance.com</a></p>
+          <div style="font-size:0.9rem;">
+            <p style="color:var(--gray-400);font-size:0.75rem;margin:0 0 2px;text-transform:uppercase;letter-spacing:0.5px;">Phone</p>
+            <p style="margin:0 0 var(--space-md);"><a href="tel:+917305022272" style="color:var(--navy);font-weight:500;text-decoration:none;">+91 73050 22272</a></p>
+            <p style="color:var(--gray-400);font-size:0.75rem;margin:0 0 2px;text-transform:uppercase;letter-spacing:0.5px;">Email</p>
+            <p style="margin:0;"><a href="mailto:contact@dhanam.finance" style="color:var(--navy);font-weight:500;text-decoration:none;">contact@dhanam.finance</a></p>
           </div>
         </div>
 
         <!-- Level 2 -->
-        <div style="padding:var(--space-2xl);background:white;border-radius:var(--radius-lg);border-left:4px solid var(--primary);">
-          <div style="display:flex;align-items:center;margin-bottom:var(--space-lg);">
-            <div style="width:48px;height:48px;border-radius:50%;background:var(--primary);display:flex;align-items:center;justify-content:center;color:white;font-weight:700;font-size:1.25rem;margin-right:var(--space-md);">2</div>
-            <h3 style="margin:0;">Grievance Redressal Officer</h3>
+        <div class="fade-up" style="padding:var(--space-2xl);background:white;border-radius:var(--radius-lg);border-top:3px solid var(--primary);box-shadow:0 2px 12px rgba(0,0,0,0.04);">
+          <div style="display:flex;align-items:center;gap:var(--space-sm);margin-bottom:var(--space-lg);">
+            <span style="display:inline-flex;align-items:center;justify-content:center;width:32px;height:32px;border-radius:50%;background:var(--primary);color:white;font-weight:700;font-size:0.85rem;flex-shrink:0;">2</span>
+            <h3 style="margin:0;font-size:1.1rem;">Grievance Redressal Officer</h3>
           </div>
-          <p style="color:var(--gray-600);margin-bottom:var(--space-md);line-height:1.6;">If not resolved at branch level, escalate to our Grievance Redressal Officer</p>
-          <div style="background:var(--gray-50);padding:var(--space-md);border-radius:var(--radius-md);margin-bottom:var(--space-md);">
-            <p style="margin:0 0 var(--space-sm) 0;font-size:0.875rem;color:var(--gray-500);font-weight:600;text-transform:uppercase;">Expected Resolution Time</p>
-            <p style="margin:0;font-size:1.0625rem;color:var(--gray-700);font-weight:600;">15 working days from Level 1 response</p>
+          <p style="color:var(--gray-500);margin-bottom:var(--space-lg);line-height:1.6;font-size:0.9375rem;">If not resolved at branch level, escalate to our Grievance Redressal Officer.</p>
+          <div style="background:var(--cream);padding:var(--space-md);border-radius:var(--radius-md);margin-bottom:var(--space-lg);">
+            <p style="margin:0;font-size:0.75rem;color:var(--gray-400);text-transform:uppercase;letter-spacing:0.5px;font-weight:600;">Resolution Time</p>
+            <p style="margin:4px 0 0;font-weight:600;color:var(--navy);">15 working days from Level 1</p>
           </div>
-          <div style="margin-bottom:var(--space-sm);">
-            <p style="font-size:0.875rem;color:var(--gray-500);margin:0 0 4px 0;">Officer</p>
-            <p style="margin:0;color:var(--gray-700);font-weight:500;">Mr. Somasundaram<br><small style="color:var(--gray-500);font-weight:400;">Chief Compliance Officer</small></p>
-          </div>
-          <div style="margin-bottom:var(--space-sm);">
-            <p style="font-size:0.875rem;color:var(--gray-500);margin:0 0 4px 0;">Email</p>
-            <p style="margin:0;color:var(--gray-700);font-weight:500;"><a href="mailto:compliance@dhanamfinance.com" style="color:var(--gray-700);text-decoration:none;">compliance@dhanamfinance.com</a></p>
-          </div>
-          <div>
-            <p style="font-size:0.875rem;color:var(--gray-500);margin:0 0 4px 0;">Address</p>
-            <p style="margin:0;color:var(--gray-700);font-weight:500;font-size:0.9375rem;">Dhanam Finance, Door No. 22/3, Nehru Nagar, 2nd St, Behind CMS School, Ganapathy, Coimbatore 641006</p>
+          <div style="font-size:0.9rem;">
+            <p style="color:var(--gray-400);font-size:0.75rem;margin:0 0 2px;text-transform:uppercase;letter-spacing:0.5px;">Officer</p>
+            <p style="margin:0 0 var(--space-md);font-weight:500;color:var(--navy);">Ms. Vijila<br><span style="color:var(--gray-400);font-weight:400;font-size:0.85rem;">Grievance Redressal Officer</span></p>
+            <p style="color:var(--gray-400);font-size:0.75rem;margin:0 0 2px;text-transform:uppercase;letter-spacing:0.5px;">Email</p>
+            <p style="margin:0 0 var(--space-md);"><a href="mailto:contact@dhanam.finance" style="color:var(--navy);font-weight:500;text-decoration:none;">contact@dhanam.finance</a></p>
+            <p style="color:var(--gray-400);font-size:0.75rem;margin:0 0 2px;text-transform:uppercase;letter-spacing:0.5px;">Address</p>
+            <p style="margin:0;color:var(--navy);font-weight:500;font-size:0.875rem;line-height:1.5;">Door No. 22/3, Nehru Nagar, 2nd St, Behind CMS School, Ganapathy, Coimbatore 641006</p>
           </div>
         </div>
 
         <!-- Level 3 -->
-        <div style="padding:var(--space-2xl);background:white;border-radius:var(--radius-lg);border-left:4px solid var(--primary);">
-          <div style="display:flex;align-items:center;margin-bottom:var(--space-lg);">
-            <div style="width:48px;height:48px;border-radius:50%;background:var(--primary);display:flex;align-items:center;justify-content:center;color:white;font-weight:700;font-size:1.25rem;margin-right:var(--space-md);">3</div>
-            <h3 style="margin:0;">RBI Ombudsman</h3>
+        <div class="fade-up" style="padding:var(--space-2xl);background:white;border-radius:var(--radius-lg);border-top:3px solid var(--primary);box-shadow:0 2px 12px rgba(0,0,0,0.04);">
+          <div style="display:flex;align-items:center;gap:var(--space-sm);margin-bottom:var(--space-lg);">
+            <span style="display:inline-flex;align-items:center;justify-content:center;width:32px;height:32px;border-radius:50%;background:var(--primary);color:white;font-weight:700;font-size:0.85rem;flex-shrink:0;">3</span>
+            <h3 style="margin:0;font-size:1.1rem;">RBI Ombudsman</h3>
           </div>
-          <p style="color:var(--gray-600);margin-bottom:var(--space-md);line-height:1.6;">If still unresolved after 30 days, customers may approach the RBI Ombudsman</p>
-          <div style="background:var(--gray-50);padding:var(--space-md);border-radius:var(--radius-md);margin-bottom:var(--space-md);">
-            <p style="margin:0 0 var(--space-sm) 0;font-size:0.875rem;color:var(--gray-500);font-weight:600;text-transform:uppercase;">RBI Integrated Ombudsman Portal</p>
-            <p style="margin:0;"><a href="https://cms.rbi.org.in" target="_blank" style="color:var(--primary);font-weight:600;text-decoration:none;">https://cms.rbi.org.in</a></p>
+          <p style="color:var(--gray-500);margin-bottom:var(--space-lg);line-height:1.6;font-size:0.9375rem;">If still unresolved after 30 days, approach the RBI Ombudsman.</p>
+          <div style="background:var(--cream);padding:var(--space-md);border-radius:var(--radius-md);margin-bottom:var(--space-lg);">
+            <p style="margin:0;font-size:0.75rem;color:var(--gray-400);text-transform:uppercase;letter-spacing:0.5px;font-weight:600;">RBI Integrated Ombudsman Portal</p>
+            <p style="margin:4px 0 0;"><a href="https://cms.rbi.org.in" target="_blank" style="color:var(--primary);font-weight:600;text-decoration:none;">https://cms.rbi.org.in</a></p>
           </div>
-          <p style="color:var(--gray-600);font-size:0.9375rem;margin:0;line-height:1.6;">The RBI Ombudsman provides a free, independent platform to resolve customer complaints against NBFCs.</p>
+          <p style="color:var(--gray-500);font-size:0.9rem;margin:0;line-height:1.6;">The RBI Ombudsman provides a free, independent platform to resolve customer complaints against NBFCs.</p>
         </div>
 
       </div>
