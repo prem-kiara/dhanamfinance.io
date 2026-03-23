@@ -306,8 +306,15 @@ section:not(.hero):not(.trust-bar) {
 }
 
 .nav--scrolled {
-  background: rgba(255, 255, 255, 0.95);
-  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+  top: 0;
+  width: 100%;
+  max-width: 100%;
+  border-radius: 0;
+  border: none;
+  background: rgba(255, 255, 255, 0.97);
+  box-shadow: 0 2px 20px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
 }
 
 .nav__inner {
@@ -2433,6 +2440,21 @@ select:focus {
     bottom: var(--space-lg);
     right: var(--space-lg);
   }
+
+  /* Footer section rows stack on mobile */
+  .footer__section-row-links {
+    flex-wrap: wrap;
+    gap: var(--space-sm) var(--space-lg);
+  }
+
+  /* Make all form inputs touch-friendly */
+  input, select, textarea {
+    font-size: 16px !important; /* prevents iOS zoom on focus */
+  }
+
+  /* Policy grids */
+  .policy-grid-2 { grid-template-columns: 1fr !important; }
+  .policy-grid-3 { grid-template-columns: 1fr !important; }
 }
 
 /* Small Mobile (480px) */
