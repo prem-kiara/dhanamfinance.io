@@ -29,6 +29,11 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/styles.css">
+  <style>
+    @media (max-width: 768px) {
+      #directors-grid { grid-template-columns: 1fr !important; }
+    }
+  </style>
 </head>
 <body>
     <!-- NAV -->
@@ -98,34 +103,33 @@
   <!-- Directors Grid -->
   <section class="section" style="background:white;">
     <div class="container" style="max-width:900px;">
-      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:var(--space-xl);">
+      <div id="directors-grid" style="display:grid;grid-template-columns:repeat(3,1fr);gap:var(--space-xl);">
 
+        <!-- Dr. CA Gokul Govindarajan -->
         <div style="text-align:center;padding:var(--space-xl);border-radius:var(--radius-lg);border:1px solid var(--gray-200);background:var(--cream);">
-          <div style="width:72px;height:72px;border-radius:50%;background:linear-gradient(135deg, var(--primary), var(--primary-light));display:flex;align-items:center;justify-content:center;color:white;font-family:var(--font-display);font-size:1.3rem;margin:0 auto var(--space-md);">MD</div>
-          <h3 style="font-size:1.1rem;margin-bottom:var(--space-xs);">[Director Name]</h3>
-          <p style="color:var(--primary);font-weight:600;font-size:0.9rem;margin-bottom:var(--space-sm);">Managing Director</p>
-          <p style="color:var(--gray-500);font-size:0.85rem;line-height:1.6;">Founding member and visionary leader who established Dhanam in 2016.</p>
+          <div style="width:72px;height:72px;border-radius:50%;background:linear-gradient(135deg, var(--primary), var(--primary-light));display:flex;align-items:center;justify-content:center;color:white;font-family:var(--font-display);font-size:1.3rem;margin:0 auto var(--space-md);">GG</div>
+          <h3 style="font-size:1.1rem;margin-bottom:2px;">Dr. CA Gokul Govindarajan</h3>
+          <p style="color:var(--primary);font-weight:600;font-size:0.9rem;margin-bottom:2px;">Director</p>
+          <p style="color:var(--gray-400);font-size:0.8rem;margin-bottom:var(--space-sm);">M.Com, FCA, CS, PhD</p>
+          <p style="color:var(--gray-500);font-size:0.85rem;line-height:1.6;">A distinguished academic and seasoned finance professional, Dr. Gokul oversees governance, compliance, and strategic decision-making. His leadership strengthens Dhanam's foundation of responsibility and financial discipline.</p>
         </div>
 
+        <!-- Mr. Avinash Gopalakrishnan -->
         <div style="text-align:center;padding:var(--space-xl);border-radius:var(--radius-lg);border:1px solid var(--gray-200);background:var(--cream);">
-          <div style="width:72px;height:72px;border-radius:50%;background:linear-gradient(135deg, var(--primary), var(--primary-light));display:flex;align-items:center;justify-content:center;color:white;font-family:var(--font-display);font-size:1.3rem;margin:0 auto var(--space-md);">WD</div>
-          <h3 style="font-size:1.1rem;margin-bottom:var(--space-xs);">[Director Name]</h3>
-          <p style="color:var(--primary);font-weight:600;font-size:0.9rem;margin-bottom:var(--space-sm);">Whole-Time Director</p>
-          <p style="color:var(--gray-500);font-size:0.85rem;line-height:1.6;">Oversees strategic initiatives and operational excellence across Tamil Nadu.</p>
+          <div style="width:72px;height:72px;border-radius:50%;background:linear-gradient(135deg, var(--primary), var(--primary-light));display:flex;align-items:center;justify-content:center;color:white;font-family:var(--font-display);font-size:1.3rem;margin:0 auto var(--space-md);">AG</div>
+          <h3 style="font-size:1.1rem;margin-bottom:2px;">Mr. Avinash Gopalakrishnan</h3>
+          <p style="color:var(--primary);font-weight:600;font-size:0.9rem;margin-bottom:2px;">Director</p>
+          <p style="color:var(--gray-400);font-size:0.8rem;margin-bottom:var(--space-sm);">M.B.A.</p>
+          <p style="color:var(--gray-500);font-size:0.85rem;line-height:1.6;">Mr. Avinash brings strong insight in business strategy, financial systems, and organizational development. His work ensures that Dhanam's products and processes are rooted in clarity and customer value.</p>
         </div>
 
+        <!-- Mr. Sankar Venkataraman -->
         <div style="text-align:center;padding:var(--space-xl);border-radius:var(--radius-lg);border:1px solid var(--gray-200);background:var(--cream);">
-          <div style="width:72px;height:72px;border-radius:50%;background:linear-gradient(135deg, var(--primary), var(--primary-light));display:flex;align-items:center;justify-content:center;color:white;font-family:var(--font-display);font-size:1.3rem;margin:0 auto var(--space-md);">ID</div>
-          <h3 style="font-size:1.1rem;margin-bottom:var(--space-xs);">[Director Name]</h3>
-          <p style="color:var(--primary);font-weight:600;font-size:0.9rem;margin-bottom:var(--space-sm);">Independent Director</p>
-          <p style="color:var(--gray-500);font-size:0.85rem;line-height:1.6;">Ensures regulatory standards and best practices in corporate governance.</p>
-        </div>
-
-        <div style="text-align:center;padding:var(--space-xl);border-radius:var(--radius-lg);border:1px solid var(--gray-200);background:var(--cream);">
-          <div style="width:72px;height:72px;border-radius:50%;background:linear-gradient(135deg, var(--primary), var(--primary-light));display:flex;align-items:center;justify-content:center;color:white;font-family:var(--font-display);font-size:1.3rem;margin:0 auto var(--space-md);">ID</div>
-          <h3 style="font-size:1.1rem;margin-bottom:var(--space-xs);">[Director Name]</h3>
-          <p style="color:var(--primary);font-weight:600;font-size:0.9rem;margin-bottom:var(--space-sm);">Independent Director</p>
-          <p style="color:var(--gray-500);font-size:0.85rem;line-height:1.6;">Key role in audit committee functions and regulatory adherence.</p>
+          <div style="width:72px;height:72px;border-radius:50%;background:linear-gradient(135deg, var(--primary), var(--primary-light));display:flex;align-items:center;justify-content:center;color:white;font-family:var(--font-display);font-size:1.3rem;margin:0 auto var(--space-md);">SV</div>
+          <h3 style="font-size:1.1rem;margin-bottom:2px;">Mr. Sankar Venkataraman</h3>
+          <p style="color:var(--primary);font-weight:600;font-size:0.9rem;margin-bottom:2px;">Director</p>
+          <p style="color:var(--gray-400);font-size:0.8rem;margin-bottom:var(--space-sm);">B.Sc., FCA</p>
+          <p style="color:var(--gray-500);font-size:0.85rem;line-height:1.6;">With extensive experience in audit, taxation, and financial oversight, Mr. Sankar guides Dhanam with discipline and risk-aware thinking. His governance approach strengthens institutional stability.</p>
         </div>
 
       </div>
