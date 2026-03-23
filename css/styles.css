@@ -820,6 +820,16 @@ button:disabled,
   transform: translateX(4px);
 }
 
+.service-card-link {
+  text-decoration: none;
+  color: inherit;
+  display: block;
+}
+
+.service-card:hover img {
+  transform: scale(1.06);
+}
+
 /* ============================================
    CARDS
    ============================================ */
