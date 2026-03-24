@@ -332,7 +332,15 @@
           <p style="color:var(--gray-500);font-size:0.9rem;">Toll-free for all branches: <a href="tel:18002025180" style="color:var(--primary);font-weight:600;">1800 2025 180</a> &nbsp;|&nbsp; Mon–Sat 9:30 AM – 6:00 PM</p>
         </div>
         <div style="min-width:280px;">
-          <div class="form-group" style="margin-bottom:0;"><input type="text" id="branch-search" placeholder="Search branch or district..."></div>
+          <div class="form-group" style="margin-bottom:0;position:relative;">
+            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--primary, #B8860B)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="position:absolute;left:14px;top:50%;transform:translateY(-50%);pointer-events:none;opacity:0.6;"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+            <input type="text" id="branch-search" placeholder="Search branch or district..." style="width:100%;padding:13px 16px 13px 42px;border:1.5px solid rgba(184,134,11,0.25);border-radius:var(--radius-lg, 12px);font-size:0.95rem;font-family:'Inter',sans-serif;background:rgba(255,255,255,0.85);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);color:var(--navy, #2D2926);transition:all 0.3s ease;box-shadow:0 2px 8px rgba(184,134,11,0.06);">
+          </div>
+          <style>
+            #branch-search:focus{outline:none;border-color:var(--primary, #B8860B);box-shadow:0 0 0 3px rgba(184,134,11,0.12),0 4px 12px rgba(184,134,11,0.1);background:white;}
+            #branch-search::placeholder{color:#A0937D;font-weight:400;}
+            #branch-search:hover{border-color:rgba(184,134,11,0.45);box-shadow:0 2px 12px rgba(184,134,11,0.1);}
+          </style>
         </div>
       </div>
 
