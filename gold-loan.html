@@ -29,6 +29,14 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/styles.css">
+  <style>
+    @media (max-width: 1024px) {
+      .glance-grid { grid-template-columns: repeat(2, 1fr) !important; }
+    }
+    @media (max-width: 480px) {
+      .glance-grid { grid-template-columns: 1fr !important; }
+    }
+  </style>
 </head>
 <body>
 
@@ -202,7 +210,7 @@
         <div class="gold-divider"></div>
         <h2 class="section-title">All the key information you need</h2>
       </div>
-      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:var(--space-lg);margin-bottom:var(--space-3xl);">
+      <div class="glance-grid" style="display:grid;grid-template-columns:repeat(4,1fr);gap:var(--space-lg);margin-bottom:var(--space-3xl);">
         <div style="background:var(--gray-50);padding:var(--space-lg);border-radius:var(--radius-lg);border-left:3px solid var(--primary);">
           <div style="font-size:0.8rem;text-transform:uppercase;letter-spacing:0.08em;color:var(--gray-500);margin-bottom:var(--space-xs);font-weight:600;">Loan Amount</div>
           <div style="font-size:1.25rem;font-weight:700;color:var(--navy);">Up to ₹1 Crore</div>
@@ -233,7 +241,7 @@
         </div>
         <div style="background:var(--gray-50);padding:var(--space-lg);border-radius:var(--radius-lg);border-left:3px solid var(--primary);">
           <div style="font-size:0.8rem;text-transform:uppercase;letter-spacing:0.08em;color:var(--gray-500);margin-bottom:var(--space-xs);font-weight:600;">Loan Tenure</div>
-          <div style="font-size:1.25rem;font-weight:700;color:var(--navy);">Flexible (12 months typical)</div>
+          <div style="font-size:1.25rem;font-weight:700;color:var(--navy);">Flexible (12 months)</div>
         </div>
       </div>
       <!-- LTV TIERS -->

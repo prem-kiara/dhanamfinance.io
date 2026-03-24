@@ -29,6 +29,11 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/styles.css">
+  <style>
+    @media (max-width: 768px) {
+      .steps-grid { grid-template-columns: 1fr !important; }
+    }
+  </style>
 </head>
 <body>
 
@@ -194,17 +199,19 @@
         <div class="card" style="background:var(--gray-50);">
           <h4 style="font-family:var(--font-body);font-weight:600;margin-bottom:var(--space-md);color:var(--primary);">Accepted Properties</h4>
           <ul style="list-style:none;padding:0;font-size:0.95rem;">
-            <li style="margin-bottom:var(--space-sm);">Freehold residential properties</li>
-            <li style="margin-bottom:var(--space-sm);">Clear-title vacant land (freehold)</li>
-            <li style="margin-bottom:var(--space-sm);">Self-occupied residential units</li>
+            <li style="margin-bottom:var(--space-sm);">Residential properties</li>
+            <li style="margin-bottom:var(--space-sm);">Commercial buildings</li>
+            <li style="margin-bottom:var(--space-sm);">Rental properties</li>
+            <li style="margin-bottom:var(--space-sm);">Vacant land with clear title</li>
           </ul>
         </div>
         <div class="card" style="background:var(--gray-50);">
           <h4 style="font-family:var(--font-body);font-weight:600;margin-bottom:var(--space-md);color:var(--navy);">NOT Accepted</h4>
           <ul style="list-style:none;padding:0;font-size:0.95rem;">
-            <li style="margin-bottom:var(--space-sm);">Commercial properties</li>
+            <li style="margin-bottom:var(--space-sm);">Agriculture land</li>
             <li style="margin-bottom:var(--space-sm);">Industrial properties</li>
             <li style="margin-bottom:var(--space-sm);">Leasehold properties</li>
+            <li style="margin-bottom:var(--space-sm);">Properties under litigation or dispute</li>
           </ul>
         </div>
       </div>
@@ -260,7 +267,7 @@
         <div class="gold-divider"></div>
         <h2 class="section-title">6 Simple Steps</h2>
       </div>
-      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:var(--space-xl);">
+      <div class="steps-grid" style="display:grid;grid-template-columns:repeat(3,1fr);gap:var(--space-xl);">
         <div style="position:relative;">
           <div style="display:flex;gap:var(--space-md);margin-bottom:var(--space-lg);">
             <div style="width:50px;height:50px;border-radius:50%;background:var(--primary);color:white;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:1.2rem;flex-shrink:0;">1</div>
