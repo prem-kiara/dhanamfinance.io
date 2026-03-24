@@ -60,11 +60,21 @@
   --space-5xl: 6rem;
 
   /* Shadows */
-  --shadow-sm: 0 2px 4px rgba(0, 0, 0, 0.08);
-  --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.12);
-  --shadow-lg: 0 8px 24px rgba(0, 0, 0, 0.15);
-  --shadow-xl: 0 12px 32px rgba(0, 0, 0, 0.18);
-  --shadow-gold: 0 4px 16px rgba(200, 150, 26, 0.2);
+  --shadow-sm: 0 2px 4px rgba(0, 0, 0, 0.06);
+  --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.08);
+  --shadow-lg: 0 8px 24px rgba(0, 0, 0, 0.1);
+  --shadow-xl: 0 12px 32px rgba(0, 0, 0, 0.12);
+  --shadow-gold: 0 4px 16px rgba(200, 150, 26, 0.15);
+
+  /* Glass UI */
+  --glass-bg: rgba(255, 255, 255, 0.55);
+  --glass-bg-heavy: rgba(255, 255, 255, 0.72);
+  --glass-bg-light: rgba(255, 255, 255, 0.35);
+  --glass-border: rgba(255, 255, 255, 0.45);
+  --glass-border-subtle: rgba(255, 255, 255, 0.25);
+  --glass-blur: blur(12px);
+  --glass-blur-heavy: blur(20px);
+  --glass-shadow: 0 4px 24px rgba(0, 0, 0, 0.06), 0 1px 2px rgba(0, 0, 0, 0.04);
 
   /* Transitions */
   --transition-fast: 150ms cubic-bezier(0.4, 0, 0.2, 1);
@@ -372,9 +382,12 @@ section:not(.hero):not(.trust-bar) {
   position: absolute;
   top: 100%;
   left: 0;
-  background: var(--white);
+  background: var(--glass-bg-heavy);
+  backdrop-filter: var(--glass-blur-heavy);
+  -webkit-backdrop-filter: var(--glass-blur-heavy);
   border-radius: var(--radius-lg);
-  box-shadow: var(--shadow-lg);
+  border: 1px solid var(--glass-border);
+  box-shadow: var(--glass-shadow), 0 8px 32px rgba(0, 0, 0, 0.08);
   min-width: 280px;
   opacity: 0;
   visibility: hidden;
@@ -454,13 +467,15 @@ section:not(.hero):not(.trust-bar) {
   top: 88px;
   left: 24px;
   right: 24px;
-  background-color: var(--white);
+  background: var(--glass-bg-heavy);
+  backdrop-filter: var(--glass-blur-heavy);
+  -webkit-backdrop-filter: var(--glass-blur-heavy);
   flex-direction: column;
   gap: var(--space-md);
   padding: var(--space-xl);
-  border-radius: 12px;
-  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.1);
-  border: 1px solid rgba(0, 0, 0, 0.06);
+  border-radius: 16px;
+  box-shadow: var(--glass-shadow), 0 8px 32px rgba(0, 0, 0, 0.08);
+  border: 1px solid var(--glass-border);
   max-width: calc(100% - 48px);
   max-height: calc(100vh - 110px);
   z-index: 999;
@@ -506,13 +521,15 @@ section:not(.hero):not(.trust-bar) {
 }
 
 .btn--outline {
-  background-color: transparent;
+  background: rgba(255, 255, 255, 0.4);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
   color: var(--primary);
   border-color: var(--primary);
 }
 
 .btn--outline:hover {
-  background-color: rgba(184, 134, 11, 0.05);
+  background: rgba(255, 255, 255, 0.65);
   color: var(--primary-dark);
 }
 
@@ -619,14 +636,16 @@ button:disabled,
   display: inline-flex;
   align-items: center;
   gap: var(--space-sm);
-  background-color: rgba(184, 134, 11, 0.08);
+  background: rgba(184, 134, 11, 0.06);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
   color: var(--primary);
   padding: var(--space-sm) var(--space-lg);
   border-radius: var(--radius-full);
   font-size: 0.875rem;
   font-weight: 600;
   margin-bottom: var(--space-lg);
-  border: 1px solid rgba(184, 134, 11, 0.15);
+  border: 1px solid rgba(184, 134, 11, 0.12);
 }
 
 .hero__title {
@@ -686,7 +705,9 @@ button:disabled,
    TRUST BAR
    ============================================ */
 .trust-bar {
-  background-color: var(--cream);
+  background: rgba(255, 249, 240, 0.7);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
   padding: var(--space-2xl) 0;
   position: relative;
 }
@@ -760,9 +781,11 @@ button:disabled,
    SERVICE CARDS (Landing Page)
    ============================================ */
 .service-card {
-  background-color: var(--white);
+  background: var(--glass-bg-heavy);
+  backdrop-filter: var(--glass-blur);
+  -webkit-backdrop-filter: var(--glass-blur);
   border-radius: var(--radius-2xl);
-  border: 1px solid rgba(0, 0, 0, 0.06);
+  border: 1px solid var(--glass-border);
   padding: var(--space-3xl) var(--space-2xl);
   transition: all var(--transition-base);
   height: 100%;
@@ -771,12 +794,14 @@ button:disabled,
   display: flex;
   flex-direction: column;
   align-items: center;
+  box-shadow: var(--glass-shadow);
 }
 
 .service-card:hover {
   border-color: var(--primary);
-  box-shadow: 0 12px 40px rgba(184, 134, 11, 0.12);
-  transform: translateY(-12px);
+  box-shadow: 0 12px 40px rgba(184, 134, 11, 0.1), 0 2px 8px rgba(0, 0, 0, 0.04);
+  transform: translateY(-8px);
+  background: rgba(255, 255, 255, 0.8);
 }
 
 .service-card__icon {
@@ -844,21 +869,25 @@ button:disabled,
    CARDS
    ============================================ */
 .card {
-  background-color: var(--white);
+  background: var(--glass-bg-heavy);
+  backdrop-filter: var(--glass-blur);
+  -webkit-backdrop-filter: var(--glass-blur);
   border-radius: var(--radius-2xl);
-  border: 1px solid var(--gray-200);
+  border: 1px solid var(--glass-border);
   padding: var(--space-2xl);
   transition: all var(--transition-base);
   height: 100%;
   position: relative;
   border-top: 3px solid transparent;
+  box-shadow: var(--glass-shadow);
 }
 
 .card:hover {
   border-color: var(--primary);
   border-top-color: var(--primary);
-  box-shadow: var(--shadow-lg);
-  transform: translateY(-8px);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.08);
+  transform: translateY(-6px);
+  background: rgba(255, 255, 255, 0.82);
 }
 
 .card__icon {
@@ -993,16 +1022,21 @@ button:disabled,
   gap: var(--space-2xl);
   padding: var(--space-2xl);
   border-left: 4px solid var(--gold);
-  background: linear-gradient(135deg, rgba(250, 246, 238, 0.5) 0%, rgba(250, 246, 238, 0.2) 100%);
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+  background: var(--glass-bg);
+  backdrop-filter: var(--glass-blur);
+  -webkit-backdrop-filter: var(--glass-blur);
+  border: 1px solid var(--glass-border-subtle);
+  border-left: 4px solid var(--gold);
+  box-shadow: var(--glass-shadow);
   border-radius: var(--radius-lg);
   position: relative;
   transition: all var(--transition-base);
 }
 
 .why-card:hover {
-  box-shadow: 0 8px 24px rgba(201, 150, 26, 0.15);
+  box-shadow: 0 8px 24px rgba(201, 150, 26, 0.1);
   transform: translateY(-4px);
+  background: rgba(255, 255, 255, 0.7);
 }
 
 .why-card__number {
@@ -1050,10 +1084,13 @@ button:disabled,
 }
 
 .calc-card {
-  background-color: var(--white);
+  background: var(--glass-bg-heavy);
+  backdrop-filter: var(--glass-blur);
+  -webkit-backdrop-filter: var(--glass-blur);
+  border: 1px solid var(--glass-border);
   border-radius: var(--radius-2xl);
   padding: var(--space-2xl);
-  box-shadow: var(--shadow-md);
+  box-shadow: var(--glass-shadow);
 }
 
 .form-group {
@@ -1227,16 +1264,20 @@ select:focus {
 }
 
 .testimonial-card {
-  background-color: var(--white);
+  background: var(--glass-bg-heavy);
+  backdrop-filter: var(--glass-blur);
+  -webkit-backdrop-filter: var(--glass-blur);
+  border: 1px solid var(--glass-border);
   border-radius: var(--radius-2xl);
   padding: var(--space-2xl);
-  box-shadow: var(--shadow-md);
+  box-shadow: var(--glass-shadow);
   transition: all var(--transition-base);
 }
 
 .testimonial-card:hover {
-  box-shadow: var(--shadow-lg);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.08);
   transform: translateY(-4px);
+  background: rgba(255, 255, 255, 0.82);
 }
 
 .testimonial-card__stars {
@@ -1299,8 +1340,10 @@ select:focus {
 }
 
 .faq-item {
-  background-color: var(--white);
-  border: 1px solid var(--gray-200);
+  background: var(--glass-bg-heavy);
+  backdrop-filter: var(--glass-blur);
+  -webkit-backdrop-filter: var(--glass-blur);
+  border: 1px solid var(--glass-border);
   border-radius: var(--radius-lg);
   overflow: hidden;
   transition: all var(--transition-base);
@@ -1308,7 +1351,8 @@ select:focus {
 
 .faq-item.active {
   border-color: var(--gold);
-  box-shadow: var(--shadow-md);
+  box-shadow: var(--glass-shadow);
+  background: rgba(255, 255, 255, 0.8);
 }
 
 .faq-question {
@@ -1363,13 +1407,15 @@ select:focus {
    CTA SECTION
    ============================================ */
 .cta-section {
-  background: linear-gradient(180deg, #FFF9F0 0%, #F5EDE0 100%);
+  background: linear-gradient(180deg, rgba(255,249,240,0.85) 0%, rgba(245,237,224,0.85) 100%);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
   color: var(--navy);
   padding: var(--space-4xl) var(--space-xl);
   position: relative;
   overflow: hidden;
-  border-top: 1px solid rgba(184,134,11,0.12);
-  border-bottom: 1px solid rgba(184,134,11,0.12);
+  border-top: 1px solid rgba(184,134,11,0.1);
+  border-bottom: 1px solid rgba(184,134,11,0.1);
 }
 
 .cta-section::before {
@@ -1755,10 +1801,13 @@ select:focus {
   width: 100%;
   border-collapse: collapse;
   margin: var(--space-2xl) 0;
-  background-color: var(--white);
+  background: var(--glass-bg-heavy);
+  backdrop-filter: var(--glass-blur);
+  -webkit-backdrop-filter: var(--glass-blur);
+  border: 1px solid var(--glass-border-subtle);
   border-radius: var(--radius-lg);
   overflow: hidden;
-  box-shadow: var(--shadow-md);
+  box-shadow: var(--glass-shadow);
 }
 
 .doc-table thead {
@@ -1831,17 +1880,21 @@ select:focus {
   flex-direction: column;
   align-items: center;
   text-align: center;
-  background-color: var(--white);
+  background: var(--glass-bg-heavy);
+  backdrop-filter: var(--glass-blur);
+  -webkit-backdrop-filter: var(--glass-blur);
   border-radius: var(--radius-2xl);
-  border: 1px solid var(--gray-200);
+  border: 1px solid var(--glass-border);
   padding: var(--space-2xl);
   transition: all var(--transition-base);
+  box-shadow: var(--glass-shadow);
 }
 
 .director-card:hover {
   border-color: var(--gold);
-  box-shadow: var(--shadow-lg);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.08);
   transform: translateY(-4px);
+  background: rgba(255, 255, 255, 0.82);
 }
 
 .director-card h3 {
@@ -1960,16 +2013,20 @@ select:focus {
 }
 
 .branch-card {
-  background-color: var(--white);
+  background: var(--glass-bg-heavy);
+  backdrop-filter: var(--glass-blur);
+  -webkit-backdrop-filter: var(--glass-blur);
   border-radius: var(--radius-2xl);
   padding: var(--space-2xl);
-  border: 1px solid var(--gray-200);
+  border: 1px solid var(--glass-border);
   transition: all var(--transition-base);
+  box-shadow: var(--glass-shadow);
 }
 
 .branch-card:hover {
   border-color: var(--gold);
-  box-shadow: var(--shadow-lg);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.08);
+  background: rgba(255, 255, 255, 0.82);
 }
 
 .branch-card__city {
@@ -2001,10 +2058,13 @@ select:focus {
    LEAD FORM
    ============================================ */
 .lead-form {
-  background-color: var(--white);
+  background: var(--glass-bg-heavy);
+  backdrop-filter: var(--glass-blur);
+  -webkit-backdrop-filter: var(--glass-blur);
+  border: 1px solid var(--glass-border);
   border-radius: var(--radius-2xl);
   padding: var(--space-2xl);
-  box-shadow: var(--shadow-lg);
+  box-shadow: var(--glass-shadow);
 }
 
 .lead-form__title {
@@ -2051,7 +2111,10 @@ select:focus {
   align-items: flex-start;
   gap: var(--space-lg);
   padding: var(--space-lg);
-  background-color: var(--gray-50);
+  background: var(--glass-bg);
+  backdrop-filter: var(--glass-blur);
+  -webkit-backdrop-filter: var(--glass-blur);
+  border: 1px solid var(--glass-border-subtle);
   border-radius: var(--radius-lg);
   margin-bottom: var(--space-lg);
 }
@@ -2600,14 +2663,16 @@ select:focus {
   display: inline-flex;
   align-items: center;
   gap: var(--space-sm);
-  background-color: rgba(201, 150, 26, 0.1);
+  background: rgba(201, 150, 26, 0.08);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
   color: var(--gold-light);
   padding: var(--space-sm) var(--space-lg);
   border-radius: var(--radius-full);
   font-size: 0.875rem;
   font-weight: 600;
   margin-bottom: var(--space-lg);
-  border: 1px solid rgba(201, 150, 26, 0.3);
+  border: 1px solid rgba(201, 150, 26, 0.2);
 }
 
 /* ============================================
@@ -2641,10 +2706,13 @@ section.hero--dark {
 
 /* Testimonial classes used in HTML (non-card variant) */
 .testimonial {
-  background-color: var(--white);
+  background: var(--glass-bg-heavy);
+  backdrop-filter: var(--glass-blur);
+  -webkit-backdrop-filter: var(--glass-blur);
+  border: 1px solid var(--glass-border);
   border-radius: var(--radius-2xl);
   padding: var(--space-2xl);
-  box-shadow: var(--shadow-md);
+  box-shadow: var(--glass-shadow);
   transition: all var(--transition-base);
   position: relative;
   border-left: 3px solid var(--gold);
@@ -2852,6 +2920,31 @@ section.hero--dark {
   table td:last-child {
     padding-bottom: var(--space-sm) !important;
   }
+}
+
+/* ============================================
+   GLASS UI UTILITIES
+   ============================================ */
+.glass {
+  background: var(--glass-bg);
+  backdrop-filter: var(--glass-blur);
+  -webkit-backdrop-filter: var(--glass-blur);
+  border: 1px solid var(--glass-border-subtle);
+  box-shadow: var(--glass-shadow);
+}
+
+.glass--heavy {
+  background: var(--glass-bg-heavy);
+  backdrop-filter: var(--glass-blur-heavy);
+  -webkit-backdrop-filter: var(--glass-blur-heavy);
+  border: 1px solid var(--glass-border);
+}
+
+.glass--light {
+  background: var(--glass-bg-light);
+  backdrop-filter: var(--glass-blur);
+  -webkit-backdrop-filter: var(--glass-blur);
+  border: 1px solid var(--glass-border-subtle);
 }
 
 /* Print Styles */
