@@ -248,6 +248,16 @@
           </div>
         </a>
 
+        <a href="javascript:void(0)" onclick="openPolicyModal('auction-policy')" id="auction-policy" class="fade-up" style="display:flex;align-items:flex-start;gap:var(--space-lg);padding:var(--space-xl) var(--space-2xl);background:white;border:1px solid var(--gray-200);border-radius:var(--radius-lg);text-decoration:none;transition:all 0.3s ease;border-left:3px solid var(--primary);cursor:pointer;">
+          <div style="flex-shrink:0;width:44px;height:44px;border-radius:50%;background:linear-gradient(135deg,var(--primary),var(--primary-light));display:flex;align-items:center;justify-content:center;">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2"><path d="M14.7 6.3a1 1 0 000 1.4l1.6 1.6a1 1 0 001.4 0l3.77-3.77a6 6 0 01-7.94 7.94l-6.91 6.91a2.12 2.12 0 01-3-3l6.91-6.91a6 6 0 017.94-7.94l-3.76 3.76z"/></svg>
+          </div>
+          <div>
+            <h3 style="margin:0 0 6px;font-size:1.05rem;color:var(--navy);">Auction Policy</h3>
+            <p style="margin:0;color:var(--gray-500);font-size:0.9rem;line-height:1.6;">Transparent gold collateral auction procedures as per RBI Lending Against Gold and Silver Collateral Directions, 2025.</p>
+          </div>
+        </a>
+
       </div>
     </div>
   </section>
@@ -1027,6 +1037,115 @@
             <li>Dedicated helpline number</li>
           </ul>
           <p>The Principal Nodal Officer oversees the entire grievance redressal function to ensure timely and fair resolution of all complaints.</p>
+        `
+      },
+      'auction-policy': {
+        title: 'Auction Policy',
+        content: `
+          <h3>1. Preamble</h3>
+          <p>The Reserve Bank of India, vide its Lending Against Gold and Silver Collateral Directions, 2025 (notified June 6, 2025), has prescribed a comprehensive framework governing the auction of gold collateral by all regulated entities including Non-Banking Financial Companies (NBFCs). Dhanam Investment and Finance Pvt. Ltd. ("Dhanam" / "the Company"), being an RBI-registered NBFC, has adopted this Auction Policy in compliance with the said Directions and all applicable RBI circulars and master directions.</p>
+          <p>This policy applies to all gold loan products offered by the Company across all branches and is effective from the date of board approval, with full compliance required by April 1, 2026.</p>
+
+          <h3>2. Objective</h3>
+          <p>The objective of this policy is to ensure a transparent, fair, and non-discriminatory process for the disposal of pledged gold collateral in the event of borrower default, while safeguarding the rights and interests of borrowers at all stages.</p>
+
+          <h3>3. Trigger for Auction</h3>
+          <p>Auction proceedings may be initiated when:</p>
+          <ul>
+            <li>The borrower has defaulted on repayment and the loan account has been classified as a Non-Performing Asset (NPA) as per RBI asset classification norms (overdue beyond 90 days)</li>
+            <li>Adequate and reasonable efforts have been made to contact the borrower through calls, SMS, letters, and personal visits to remind them of the overdue amount</li>
+            <li>The borrower has failed to respond or settle the dues despite multiple reminders and a final demand notice</li>
+          </ul>
+
+          <h3>4. Notice to Borrower</h3>
+          <p>Before initiating auction proceedings, the Company shall:</p>
+          <ul>
+            <li>Issue a written notice to the borrower at the registered address, providing adequate time to repay or settle the outstanding loan amount</li>
+            <li>The notice shall clearly state the total outstanding amount (principal + interest + applicable charges), the deadline for repayment, and the consequence of non-payment (i.e., auction of pledged gold)</li>
+            <li>If the borrower or their legal heirs remain untraceable despite best efforts, a public notice shall be issued, and auction may proceed only after one month from the date of such public notice</li>
+            <li>All communication shall be in the vernacular language or a language the borrower understands</li>
+          </ul>
+
+          <h3>5. Public Announcement</h3>
+          <p>Prior to conducting the auction, the Company shall publish a public announcement in at least two newspapers — one in the regional language (Tamil) and one in a national daily (English/Hindi). The announcement shall contain:</p>
+          <ul>
+            <li>Date, time, and venue of the auction</li>
+            <li>Description and approximate weight of the gold jewellery to be auctioned</li>
+            <li>Name and address of the lending branch</li>
+            <li>Reserve price details</li>
+            <li>Contact details for enquiries and participation</li>
+          </ul>
+
+          <h3>6. Reserve Price</h3>
+          <ul>
+            <li>The reserve price (minimum bid amount) for the auction shall not be less than <strong>90% of the current market value</strong> of the pledged gold, as determined on the date of the auction based on prevailing market rates</li>
+            <li>If the auction fails on two consecutive occasions at the 90% reserve price, the reserve price may be reduced to not less than <strong>85% of the current market value</strong> for subsequent auction attempts</li>
+            <li>The market value shall be determined based on the London Bullion Market Association (LBMA) price or domestic gold price as published by India Bullion and Jewellers Association (IBJA) on the date of auction</li>
+          </ul>
+
+          <h3>7. Auction Location</h3>
+          <ul>
+            <li>The first auction shall be conducted in the <strong>district where the lending branch is located</strong></li>
+            <li>If the first auction is unsuccessful, the second auction may be conducted in the <strong>adjoining district</strong></li>
+            <li>Auctions shall be conducted at a publicly accessible venue, and the location details shall be clearly mentioned in the public announcement</li>
+          </ul>
+
+          <h3>8. Conduct of Auction</h3>
+          <ul>
+            <li>Auctions shall be conducted by trained and experienced employees of the Company, or by empanelled auctioneers, subject to adequate safeguards including surprise inspections by the head office and internal audit oversight</li>
+            <li><strong>The Company, its directors, employees, and related parties are strictly prohibited from participating as bidders in any auction</strong> to ensure impartiality and avoid conflicts of interest</li>
+            <li>The borrower or their authorized representative may participate in the auction and bid for the pledged gold</li>
+            <li>Bidding shall be open, transparent, and competitive</li>
+            <li>The highest bid at or above the reserve price shall be accepted</li>
+          </ul>
+
+          <h3>9. Settlement of Dues and Surplus Refund</h3>
+          <ul>
+            <li>The auction proceeds shall first be applied towards settlement of the borrower's outstanding dues in the following order: principal amount, accrued interest, applicable charges and fees</li>
+            <li>Any <strong>surplus amount</strong> remaining after full settlement of dues shall be <strong>refunded to the borrower or their legal heirs within 7 working days</strong> of the auction</li>
+            <li>If there is a shortfall (auction proceeds are less than outstanding dues), the Company reserves the right to recover the deficit from the borrower through legally available means</li>
+            <li>No additional auction-related charges shall be deducted from the surplus amount beyond those disclosed at the time of loan origination</li>
+          </ul>
+
+          <h3>10. Collateral Release on Repayment</h3>
+          <ul>
+            <li>If the borrower repays the full outstanding amount at any time before the auction is completed, the pledged gold shall be released to the borrower</li>
+            <li>Upon full repayment or settlement, the Company shall return the pledged collateral on the same day, and in any case <strong>no later than 7 working days</strong></li>
+            <li>If the Company fails to release the pledged gold within 7 working days of full repayment, the Company shall pay the borrower a <strong>compensation of ₹5,000 per day</strong> for each day of delay until the collateral is released</li>
+          </ul>
+
+          <h3>11. Documentation and Record-Keeping</h3>
+          <p>The Company shall maintain complete and detailed records of the entire auction process, including:</p>
+          <ul>
+            <li>Copies of all notices sent to the borrower (written and public)</li>
+            <li>Newspaper advertisements with date and publication name</li>
+            <li>Auction register with date, time, venue, number of bidders, bid amounts, and final sale price</li>
+            <li>Identity details of the successful bidder</li>
+            <li>Statement of account showing application of auction proceeds and surplus refund</li>
+            <li>A copy of the auction report shall be provided to the borrower or their legal heirs upon request</li>
+          </ul>
+          <p>These records shall be preserved as per the Company's document retention policy and shall be available for inspection by RBI or any authorized regulatory body.</p>
+
+          <h3>12. Borrower Rights</h3>
+          <p>Throughout the auction process, the borrower retains the following rights:</p>
+          <ul>
+            <li>Right to be informed of the default and impending auction in a language they understand</li>
+            <li>Right to repay the outstanding amount and redeem the pledged gold at any time before the auction is concluded</li>
+            <li>Right to participate in the auction as a bidder</li>
+            <li>Right to receive the surplus amount from auction proceeds within 7 working days</li>
+            <li>Right to receive an auction report and detailed statement of account</li>
+            <li>Right to file a grievance regarding the auction process through the Company's grievance redressal mechanism</li>
+          </ul>
+
+          <h3>13. Regulatory Compliance</h3>
+          <p>This policy is framed in compliance with:</p>
+          <ul>
+            <li>RBI Lending Against Gold and Silver Collateral Directions, 2025</li>
+            <li>RBI Master Direction — Non-Banking Financial Company — Systemically Important Non-Deposit taking Company and Deposit taking Company (Reserve Bank) Directions, 2016 (as amended)</li>
+            <li>RBI Scale Based Regulation for NBFCs</li>
+            <li>All applicable RBI circulars on fair practices, asset classification, and income recognition norms</li>
+          </ul>
+          <p>The Board of Directors shall review this policy periodically (at least annually) and update it as required to ensure continued compliance with RBI directions and evolving regulatory requirements.</p>
         `
       }
     };
