@@ -273,15 +273,6 @@
           </div>
         </a>
 
-        <a href="javascript:void(0)" onclick="openPolicyModal('penal-charges')" id="penal-charges" class="fade-up" style="display:flex;align-items:flex-start;gap:var(--space-lg);padding:var(--space-xl) var(--space-2xl);background:white;border:1px solid var(--gray-200);border-radius:var(--radius-lg);text-decoration:none;transition:all 0.3s ease;border-left:3px solid var(--primary);cursor:pointer;">
-          <div style="flex-shrink:0;width:44px;height:44px;border-radius:50%;background:linear-gradient(135deg,var(--primary),var(--primary-light));display:flex;align-items:center;justify-content:center;">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2"><path d="M12 2v20M2 12h20"/><rect x="4" y="4" width="16" height="16" rx="2"/></svg>
-          </div>
-          <div>
-            <h3 style="margin:0 0 6px;font-size:1.05rem;color:var(--navy);">Penal Charges Policy</h3>
-            <p style="margin:0;color:var(--gray-500);font-size:0.9rem;line-height:1.6;">Fair penal charge framework per RBI circular RBI/2023-24/53 — late payments, bounces, and document defaults.</p>
-          </div>
-        </a>
 
       </div>
     </div>
@@ -743,12 +734,15 @@
           </ul>
 
           <h3>Penal Charges</h3>
+          <p>In accordance with RBI Circular RBI/2023-24/53 (Fair Lending Practice — Penal Charges, effective January 1, 2024), penal charges are levied as a flat charge and are not treated as penal interest. They shall not be capitalized or compounded on accumulated arrears.</p>
           <ul>
-            <li>Apply only after normal loan tenure</li>
-            <li>Capped at maximum 3% p.m. on overdue amount</li>
-            <li>Not compounded</li>
-            <li>Cheque bounce / NACH / ECS charges also applicable</li>
-            <li>Applied after 15 days' notice to borrower</li>
+            <li><strong>Gold Loan:</strong> Penal charges starting from 1% of the overdue amount per month or part thereof</li>
+            <li><strong>Loan Against Property (Mortgage Loan):</strong> Penal charges starting from 2% of the overdue amount per month or part thereof</li>
+            <li>Penal charges apply only after the due date of repayment has passed</li>
+            <li>Not compounded or capitalized</li>
+            <li>Applied uniformly across all borrowers in the same loan category without discrimination</li>
+            <li>Borrower is notified in writing before penal charges are levied</li>
+            <li>Cheque bounce / NACH / ECS return charges also applicable as per the schedule of charges</li>
           </ul>
 
           <h3>Other Charges & Notices</h3>
@@ -1300,154 +1294,6 @@
 
           <h3>12. Policy Review</h3>
           <p>This policy is reviewed and updated annually by the Board of Directors or as required to ensure compliance with amendments to PMLA, RBI directions, FATF recommendations, and emerging AML/CFT risks. Any changes are communicated to all employees and business partners.</p>
-        `
-      },
-      'penal-charges': {
-        title: 'Penal Charges Policy',
-        content: `
-          <h3>1. Objective</h3>
-          <p>This Penal Charges Policy is formulated in accordance with RBI Circular RBI/2023-24/53 (Fair Lending Practice - Penal Charges, dated August 18, 2023, effective January 1, 2024). The objective is to establish a transparent, fair, and non-discriminatory framework for levying penal charges on borrowers for non-compliance with loan terms, while protecting borrower interests and ensuring charges are reasonable and proportionate.</p>
-
-          <h3>2. Applicability</h3>
-          <p>This policy applies to all retail loan products offered by Dhanam Investment and Finance Pvt. Ltd., including but not limited to gold loans, mortgage loans, and personal/unsecured loans.</p>
-
-          <h3>3. Key Principles</h3>
-          <ul>
-            <li><strong>Distinction from Penal Interest:</strong> Penal charges are NOT interest income and shall NOT be capitalized, compounded, or charged on accumulated arrears</li>
-            <li><strong>Reasonableness:</strong> Penal charges are reasonable and commensurate with the actual and potential cost incurred by the Company for recovery of overdue amounts</li>
-            <li><strong>Transparency:</strong> All penal charges are clearly disclosed in loan documents, factsheets, and communications to borrowers in their language of understanding</li>
-            <li><strong>Non-Discriminatory Application:</strong> Penal charges are applied uniformly across all borrowers in the same category without discrimination on grounds of religion, caste, gender, location, or other protected characteristics</li>
-            <li><strong>Proportionality:</strong> Penal charges are proportionate to the nature and extent of the default or breach</li>
-          </ul>
-
-          <h3>4. Schedule of Penal Charges</h3>
-
-          <h4>A. Late/Overdue EMI or Loan Installment Payment</h4>
-          <ul>
-            <li>Penal charge: <strong>[X]% of the overdue amount per month or part thereof</strong> [TO BE UPDATED]</li>
-            <li>Applicable when monthly EMI/installment remains unpaid for more than 15 days from due date</li>
-            <li>Charged only once per month regardless of number of days in arrears during that calendar month</li>
-          </ul>
-
-          <h4>B. Cheque/ECS/NACH Bounce</h4>
-          <ul>
-            <li>Penal charge: <strong>₹[X] per instance</strong> [TO BE UPDATED]</li>
-            <li>Charged for each bounced cheque, failed ECS/NACH transaction, or returned payment instruction</li>
-            <li>Recoverable separately from the outstanding loan amount</li>
-          </ul>
-
-          <h4>C. Non-Maintenance of Security Margin (Gold Loan Products)</h4>
-          <ul>
-            <li>Penal charge: <strong>[X]% of the margin shortfall per month or part thereof</strong> [TO BE UPDATED]</li>
-            <li>Applicable when gold loan pledge falls below the required minimum security margin (LTV limits) due to gold price fluctuations or other factors</li>
-            <li>Charged monthly until the shortfall is rectified by additional payment or reduction of loan amount</li>
-          </ul>
-
-          <h4>D. Non-Submission of Documents or Compliance Failure</h4>
-          <ul>
-            <li>Penal charge: <strong>₹[X] per instance per month</strong> [TO BE UPDATED]</li>
-            <li>Applicable for non-submission of required documents (e.g., proof of address, income verification, business documents) beyond the specified grace period</li>
-            <li>Charged monthly until documents are submitted or compliance is achieved</li>
-          </ul>
-
-          <h4>E. Loan Recall/Prepayment Default</h4>
-          <ul>
-            <li>Penal charges as specified in the individual loan agreement</li>
-            <li>Applicable when the borrower fails to prepay/close the loan on demand following recall by the Company</li>
-          </ul>
-
-          <h3>5. Disclosure Requirements</h3>
-          <ul>
-            <li>Complete schedule of penal charges is disclosed in the loan application, sanction letter, and loan agreement</li>
-            <li>Charges are clearly highlighted in a standardized, simplified pricing factsheet provided to all borrowers</li>
-            <li>Borrowers receive written communication explaining penal charges in their language of understanding</li>
-            <li>Electronic communication (SMS, email) provides reminders of overdue amounts and potential penal charges</li>
-          </ul>
-
-          <h3>6. Non-Discriminatory Application</h3>
-          <ul>
-            <li>Penal charges are applied uniformly to all borrowers falling in the same default category, without differentiation based on:
-              <ul>
-                <li>Caste, religion, ethnicity, or national origin</li>
-                <li>Gender, marital status, or family status</li>
-                <li>Sexual orientation or gender identity</li>
-                <li>Location (urban, semi-urban, or rural)</li>
-                <li>Loan amount or loan type (except as explicitly stated in the policy)</li>
-                <li>Past defaults or credit bureau score</li>
-              </ul>
-            </li>
-            <li>Borrowers in equivalent situations receive equivalent treatment</li>
-          </ul>
-
-          <h3>7. Communication to Borrower Before Levying Charges</h3>
-          <ul>
-            <li><strong>Notice Period:</strong> The Company shall issue a written notice (SMS/email/physical letter) to the borrower <strong>at least 15 days before</strong> imposing penal charges</li>
-            <li><strong>Notice Content:</strong> The notice clearly states:
-              <ul>
-                <li>Nature of default or breach</li>
-                <li>Outstanding amount and due date</li>
-                <li>Penal charge amount and method of calculation</li>
-                <li>Date from which penal charge will be levied if the default is not rectified</li>
-                <li>Steps the borrower must take to avoid the charge</li>
-              </ul>
-            </li>
-            <li><strong>Language:</strong> Notice is provided in the borrower's language of understanding</li>
-            <li><strong>Opportunity to Cure:</strong> Borrower is given the opportunity to cure the default and avoid penal charges</li>
-          </ul>
-
-          <h3>8. Waiver or Reduction of Charges</h3>
-          <ul>
-            <li>The Company may, at its discretion, waive or reduce penal charges in cases of:
-              <ul>
-                <li>Natural calamities or unforeseen circumstances affecting the borrower</li>
-                <li>Genuine hardship causing temporary financial inability to meet obligations</li>
-                <li>Banking system failures or Company errors</li>
-                <li>Cases where borrower has consistently maintained a good repayment track record</li>
-              </ul>
-            </li>
-            <li>Such decisions are documented and approved by branch management or senior officers</li>
-            <li>Waiver does not constitute a precedent or create any expectation for future defaults</li>
-          </ul>
-
-          <h3>9. Grievance Mechanism</h3>
-          <ul>
-            <li>Borrowers who dispute penal charges may file a complaint through the Company's three-level Grievance Redressal Mechanism</li>
-            <li><strong>Level 1 (Branch):</strong> Contact the branch manager; resolution within 7 working days</li>
-            <li><strong>Level 2 (GRO):</strong> Escalate to Grievance Redressal Officer, Ms. Vijila (contact: vijila@dhanam.finance); resolution within 15 working days</li>
-            <li><strong>Level 3 (RBI Ombudsman):</strong> If unresolved after 30 days, approach the RBI Integrated Ombudsman (https://cms.rbi.org.in)</li>
-            <li>Complaints are documented, reviewed, and resolved transparently</li>
-          </ul>
-
-          <h3>10. Record Keeping and Disclosure</h3>
-          <ul>
-            <li>The Company maintains detailed records of:
-              <ul>
-                <li>Borrower notices sent regarding defaults and impending penal charges</li>
-                <li>Penal charges levied, amount, date, and justification</li>
-                <li>Waivers or reductions granted, with reasons</li>
-                <li>Grievances filed, investigation, and resolution</li>
-              </ul>
-            </li>
-            <li>Records are preserved for minimum 10 years and made available to regulatory authorities</li>
-            <li>Borrowers can request details of penal charges levied on their account</li>
-          </ul>
-
-          <h3>11. Review and Amendments</h3>
-          <ul>
-            <li>This policy is reviewed annually (or more frequently if required) by the Board of Directors</li>
-            <li>Amendments are made to:
-              <ul>
-                <li>Comply with updates to RBI circular RBI/2023-24/53 or other RBI directions</li>
-                <li>Reflect changes in cost of operations and recovery expenses</li>
-                <li>Address feedback from borrowers and grievance mechanisms</li>
-                <li>Align with evolving market practices and regulatory expectations</li>
-              </ul>
-            </li>
-            <li>Amendments are communicated to all borrowers in advance of implementation</li>
-          </ul>
-
-          <h3>12. Effective Date and Transition</h3>
-          <p>This policy is effective from January 1, 2024, as mandated by RBI Circular RBI/2023-24/53. All loans sanctioned or renewed on or after this date shall be governed by this policy. For existing loans, the policy is applied prospectively, with borrowers provided 30 days' notice before any penal charges are levied.</p>
         `
       }
     };
