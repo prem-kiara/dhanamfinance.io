@@ -36,12 +36,42 @@
   <link rel="stylesheet" href="css/styles.css">
   <style>
     @media (max-width: 768px) {
-      .home-hero-title { font-size: 2.25rem !important; }
+      /* Hero mobile fixes */
+      .hero.hero--dark {
+        background-position: center center !important;
+        min-height: 85vh;
+      }
+      .hero.hero--dark > div:first-child {
+        background: linear-gradient(
+          180deg,
+          rgba(255,249,240,0.93) 0%,
+          rgba(255,249,240,0.88) 55%,
+          rgba(255,249,240,0.6) 100%
+        ) !important;
+      }
+      .home-hero-title {
+        font-size: 2.25rem !important;
+        line-height: 1.2 !important;
+      }
+      .hero__content { max-width: 100% !important; }
+      .hero__actions {
+        flex-direction: row !important;
+        gap: 12px !important;
+      }
+      .hero__actions .btn--lg {
+        padding: 12px 24px !important;
+        font-size: 0.9rem !important;
+      }
       .home-why-grid { grid-template-columns: 1fr !important; }
       .home-trust-strip { flex-direction: column !important; gap: var(--space-xl) !important; }
     }
     @media (max-width: 480px) {
-      .home-hero-title { font-size: 1.75rem !important; }
+      .hero.hero--dark { min-height: 80vh; }
+      .home-hero-title { font-size: 1.85rem !important; }
+      .hero__actions .btn--lg {
+        padding: 11px 20px !important;
+        font-size: 0.85rem !important;
+      }
     }
   </style>
 </head>
