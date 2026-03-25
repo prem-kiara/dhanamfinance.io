@@ -1,0 +1,73 @@
+=============================================================================
+RBI REGULATORY COMPLIANCE STRIP - IMPLEMENTATION SUMMARY
+=============================================================================
+
+DATE: 2026-03-25
+TASK: Add RBI regulatory compliance strip to footer of all HTML pages
+
+FILES MODIFIED (13 total):
+========================
+1. index.html
+2. about.html
+3. contact.html
+4. gold-loan.html
+5. mortgage-loan.html
+6. sme-loan.html
+7. policies.html
+8. investors.html
+9. leadership.html
+10. directors.html
+11. advisory.html
+12. emerging-leaders.html
+13. vision-mission.html
+
+FILES NOT MODIFIED:
+===================
+- google184f9cba35c22cdf.html (Google site verification file - left unchanged as requested)
+
+CHANGES MADE:
+=============
+
+1. RBI COMPLIANCE STRIP (inserted above "Bottom Bar" section):
+   - Location: Between "Brand + Social Row" and "Bottom Bar" sections
+   - Background: Slightly darker footer with rgba(0,0,0,0.15) overlay
+   - Border: Subtle top and bottom borders (1px solid rgba(0,0,0,0.1))
+   - Text styling: Small, subtle (0.78rem), monospaced CoR number
+   - Layout: Center-aligned with shield/verified SVG icon
+   
+   Content included:
+   - RBI Registered label with shield icon (svg)
+   - CoR No: N-07.00831 (in monospace font)
+   - Category: Non-Deposit Taking NBFC
+   - Formerly: Kiara Microcredit Private Limited
+   - Nodal Officer: Ms. Vijila
+   - Contact: vijila@dhanam.finance
+   - Phone: 1800 2025 180
+   - Links (gold-colored): SACHET Portal, RBI CMS
+   
+2. BOTTOM BAR UPDATES:
+   - Added new list item: SACHET Portal link
+   - Location: Last item in footer__bottom-links list
+   - Link: https://sachet.rbi.org.in (opens in new tab)
+   - Styling: Same as other footer links
+
+STYLING DETAILS:
+================
+- All styling is inline (no CSS modifications required)
+- Responsive: Uses flexbox for centering on all screen sizes
+- Color variables used: var(--primary-light), var(--gray-200)
+- Typography: Font sizing at 0.78rem, monospaced for CoR number
+- Icon: SVG shield icon with gold color (var(--primary-light))
+- Links are styled with gold color and no underline by default
+
+VERIFICATION:
+==============
+All 13 HTML files have been verified to contain:
+✓ 1 instance of "RBI Regulatory Compliance Strip" comment
+✓ 2 instances of SACHET Portal link (strip + bottom bar)
+✓ 1 instance of RBI CoR Number: N-07.00831
+✓ 1 instance of RBI CMS link in compliance strip
+✓ Proper HTML structure and formatting
+✓ Correct positioning between Brand+Social and Bottom Bar
+
+=============================================================================
