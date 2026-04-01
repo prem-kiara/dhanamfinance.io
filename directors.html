@@ -40,18 +40,11 @@
   <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/styles.css">
   <style>
-    /* Tabs */
-    .team-tabs { display:flex; justify-content:center; gap:0; margin-bottom:var(--space-3xl); border-bottom:2px solid var(--gray-200); }
-    .team-tab { padding:16px 40px; font-size:0.95rem; font-weight:600; color:var(--gray-400); cursor:pointer; border:none; background:none; font-family:'Inter',sans-serif; position:relative; transition:color 0.3s; }
-    .team-tab:hover { color:var(--navy); }
-    .team-tab.active { color:var(--navy); }
-    .team-tab.active::after { content:''; position:absolute; bottom:-2px; left:0; right:0; height:3px; background:var(--primary); border-radius:2px 2px 0 0; }
+    /* Section label */
+    .team-section-label { font-size:0.8rem; font-weight:600; text-transform:uppercase; letter-spacing:0.12em; color:var(--primary); margin-bottom:var(--space-lg); padding-bottom:var(--space-sm); border-bottom:2px solid var(--primary); display:inline-block; }
 
     /* Grid */
     .team-grid { display:grid; grid-template-columns:repeat(3, 1fr); gap:var(--space-xl); max-width:900px; margin:0 auto; }
-    .team-grid--wide { grid-template-columns:repeat(3, 1fr); max-width:900px; }
-    .team-panel { display:none; }
-    .team-panel.active { display:block; }
 
     /* Card */
     .team-card { cursor:pointer; position:relative; border-radius:var(--radius-lg); overflow:hidden; aspect-ratio:3/4; background:var(--gray-100); transition:transform 0.35s ease, box-shadow 0.35s ease; }
@@ -92,12 +85,6 @@
     .team-detail-quals { font-size:0.82rem; color:var(--gray-400); margin-bottom:20px; letter-spacing:0.02em; }
     .team-detail-bio { font-size:0.92rem; line-height:1.75; color:var(--gray-600); text-align:justify; }
 
-    /* Committees */
-    .committee-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:var(--space-lg); }
-    .committee-card { background:white; padding:var(--space-xl); border-radius:var(--radius-lg); border-left:4px solid var(--primary); }
-    .committee-card h3 { font-size:1rem; margin-bottom:var(--space-sm); color:var(--navy); }
-    .committee-card p { color:var(--gray-500); margin:0; font-size:0.9rem; line-height:1.6; }
-
     /* Responsive */
     @media (max-width: 1024px) {
       .team-grid { grid-template-columns:repeat(3, 1fr); max-width:100%; }
@@ -107,9 +94,8 @@
       .team-detail-name { font-size:2rem; }
     }
     @media (max-width: 768px) {
+      .team-section-label { font-size:0.72rem; letter-spacing:0.1em; }
       .team-grid { grid-template-columns:repeat(2, 1fr); gap:var(--space-md); }
-      .team-tabs { gap:0; }
-      .team-tab { padding:12px 20px; font-size:0.85rem; }
       .team-detail { padding:12px; }
       .team-detail-inner { border-radius:var(--radius-lg); max-height:95vh; }
       .team-detail-right { padding:24px; }
@@ -121,14 +107,15 @@
       .team-detail-quals { font-size:0.75rem; margin-bottom:14px; }
       .team-detail-bio { font-size:0.85rem; line-height:1.6; }
       .team-detail-right { background:linear-gradient(135deg, #f5f0e8, #ece4d4); border-radius:var(--radius-lg) var(--radius-lg) 0 0; }
-      .committee-grid { grid-template-columns:1fr; }
       .team-card-static { padding:12px 14px; }
       .team-card-static .team-card-name { font-size:0.85rem; }
       .team-card-role { font-size:0.72rem; }
+      .page-header h1 { font-size:2.2rem !important; }
+      .page-header p { font-size:0.9rem !important; }
     }
     @media (max-width: 480px) {
+      .team-section-label { font-size:0.68rem; letter-spacing:0.08em; margin-bottom:var(--space-md); }
       .team-grid { grid-template-columns:repeat(2, 1fr); gap:10px; }
-      .team-tab { padding:10px 16px; font-size:0.8rem; }
       .team-card { aspect-ratio:3/4; }
       .team-card-avatar span { font-size:2.5rem; }
       .team-card-static { padding:10px 12px; }
@@ -137,10 +124,13 @@
       .team-detail-photo, .team-detail-avatar { width:120px; height:150px; }
       .team-detail-avatar span { font-size:2.2rem; }
       .team-detail-name { font-size:1.25rem; white-space:normal; }
+      .team-detail-title { font-size:0.8rem; }
+      .team-detail-quals { font-size:0.7rem; }
+      .team-detail-bio { font-size:0.82rem; line-height:1.55; }
       .team-detail-left { padding:20px; }
       .team-detail-right { padding:20px; }
-      .page-header h1 { font-size:2rem !important; }
-      .page-header p { font-size:0.9rem !important; }
+      .page-header h1 { font-size:1.8rem !important; }
+      .page-header p { font-size:0.85rem !important; }
     }
   </style>
 </head>
@@ -197,8 +187,9 @@
   </nav>
 
   <!-- PAGE HEADER -->
-  <section class="page-header" style="background:var(--navy);padding:80px 0 60px;">
-    <div class="container" style="text-align:center;">
+  <section class="page-header" style="background:var(--navy);padding:80px 0 60px;position:relative;overflow:hidden;">
+    <div style="position:absolute;inset:0;background:url('images/team-hero.jpg') center/cover no-repeat;opacity:0.18;"></div>
+    <div class="container" style="text-align:center;position:relative;z-index:1;">
       <div class="breadcrumb" style="justify-content:center;"><a href="index.html">Home</a><span>/</span><span>Corporate</span><span>/</span><span>Our Team</span></div>
       <h1 style="font-size:3rem;color:#fff;margin-top:var(--space-md);">Our Team</h1>
       <p style="color:rgba(255,255,255,0.65);max-width:500px;margin:var(--space-md) auto 0;">The people behind Dhanam's mission of financial inclusion and responsible growth.</p>
@@ -209,14 +200,9 @@
   <section class="section" style="background:#fff;">
     <div class="container" style="max-width:1100px;">
 
-      <!-- Tabs -->
-      <div class="team-tabs">
-        <button class="team-tab active" onclick="switchTab('board')">Board of Directors</button>
-        <button class="team-tab" onclick="switchTab('management')">Management</button>
-      </div>
-
-      <!-- BOARD OF DIRECTORS PANEL -->
-      <div id="panel-board" class="team-panel active">
+      <!-- Board of Directors -->
+      <div style="margin-bottom:var(--space-3xl);">
+        <span class="team-section-label">Board of Directors</span>
         <div class="team-grid">
 
           <!-- Dr. CA Gokul Govindarajan -->
@@ -252,8 +238,9 @@
         </div>
       </div>
 
-      <!-- MANAGEMENT PANEL -->
-      <div id="panel-management" class="team-panel">
+      <!-- Management -->
+      <div id="management">
+        <span class="team-section-label">Management</span>
         <div class="team-grid">
 
           <!-- Suren S - CEO -->
@@ -418,30 +405,6 @@
     </div>
   </div>
 
-  <!-- BOARD COMMITTEES -->
-  <section class="section section--cream">
-    <div class="container" style="max-width:1100px;">
-      <div style="text-align:center;margin-bottom:var(--space-2xl);">
-        <span class="section-label">Governance</span>
-        <div class="gold-divider" style="margin:0 auto var(--space-sm);"></div>
-        <h2 class="section-title">Board Committees</h2>
-      </div>
-      <div class="committee-grid">
-        <div class="committee-card">
-          <h3>Audit Committee</h3>
-          <p>Oversees financial reporting, internal controls, and regulatory compliance to ensure transparency and accountability.</p>
-        </div>
-        <div class="committee-card">
-          <h3>Nomination & Remuneration</h3>
-          <p>Guides board composition, leadership appointments, and compensation policies aligned with industry standards.</p>
-        </div>
-        <div class="committee-card">
-          <h3>Risk Management</h3>
-          <p>Identifies, assesses, and mitigates business and operational risks to safeguard institutional stability.</p>
-        </div>
-      </div>
-    </div>
-  </section>
 
   <!-- CTA -->
   <section class="cta-section">
@@ -646,14 +609,6 @@
     }
   };
 
-  // Tab switching
-  function switchTab(tab) {
-    document.querySelectorAll('.team-tab').forEach(t => t.classList.remove('active'));
-    document.querySelectorAll('.team-panel').forEach(p => p.classList.remove('active'));
-    event.target.classList.add('active');
-    document.getElementById('panel-' + tab).classList.add('active');
-  }
-
   // Detail modal
   function openDetail(key) {
     const d = teamData[key];
@@ -677,12 +632,10 @@
     if (e.key === 'Escape') closeDetail();
   });
 
-  // Auto-switch tab based on URL hash
+  // Scroll to management section if hash is present
   if (window.location.hash === '#management') {
-    document.querySelectorAll('.team-tab').forEach(t => t.classList.remove('active'));
-    document.querySelectorAll('.team-panel').forEach(p => p.classList.remove('active'));
-    document.querySelectorAll('.team-tab')[1].classList.add('active');
-    document.getElementById('panel-management').classList.add('active');
+    const mgmt = document.getElementById('management');
+    if (mgmt) mgmt.scrollIntoView({ behavior: 'smooth', block: 'start' });
   }
   </script>
   <script src="js/main.js"></script>
