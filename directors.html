@@ -48,43 +48,49 @@
     .team-tab.active::after { content:''; position:absolute; bottom:-2px; left:0; right:0; height:3px; background:var(--primary); border-radius:2px 2px 0 0; }
 
     /* Grid */
-    .team-grid { display:grid; grid-template-columns:repeat(4, 1fr); gap:var(--space-xl); }
+    .team-grid { display:grid; grid-template-columns:repeat(3, 1fr); gap:var(--space-xl); max-width:900px; margin:0 auto; }
+    .team-grid--wide { grid-template-columns:repeat(3, 1fr); max-width:900px; }
     .team-panel { display:none; }
     .team-panel.active { display:block; }
 
     /* Card */
-    .team-card { cursor:pointer; position:relative; border-radius:var(--radius-lg); overflow:hidden; aspect-ratio:3/4; background:var(--gray-100); }
+    .team-card { cursor:pointer; position:relative; border-radius:var(--radius-lg); overflow:hidden; aspect-ratio:3/4; background:var(--gray-100); transition:transform 0.35s ease, box-shadow 0.35s ease; }
+    .team-card:hover { transform:translateY(-6px); box-shadow:0 16px 40px rgba(0,0,0,0.12); }
     .team-card-img { width:100%; height:100%; object-fit:cover; filter:grayscale(100%); transition:filter 0.4s, transform 0.4s; }
     .team-card:hover .team-card-img { filter:grayscale(0%); transform:scale(1.03); }
     .team-card-overlay { position:absolute; bottom:0; left:0; right:0; padding:20px; background:linear-gradient(transparent, rgba(0,0,0,0.75)); opacity:0; transition:opacity 0.3s; }
     .team-card:hover .team-card-overlay { opacity:1; }
     .team-card-name { color:#fff; font-family:var(--font-display); font-size:1.1rem; margin-bottom:2px; }
     .team-card-role { color:rgba(255,255,255,0.8); font-size:0.8rem; }
-    .team-card-arrow { position:absolute; bottom:20px; right:20px; color:#fff; opacity:0; transition:opacity 0.3s; }
-    .team-card:hover .team-card-arrow { opacity:1; }
+    .team-card-arrow { position:absolute; bottom:20px; right:20px; color:#fff; opacity:0; transition:opacity 0.3s, transform 0.3s; }
+    .team-card:hover .team-card-arrow { opacity:1; transform:translateX(4px); }
 
     /* Avatar fallback for cards without images */
-    .team-card-avatar { width:100%; height:100%; display:flex; align-items:center; justify-content:center; background:linear-gradient(135deg, #f5f0e8 0%, #e8dcc8 100%); }
-    .team-card-avatar span { font-family:var(--font-display); font-size:3.5rem; color:var(--primary); opacity:0.6; }
+    .team-card-avatar { width:100%; height:100%; display:flex; align-items:center; justify-content:center; background:linear-gradient(135deg, #f5f0e8 0%, #e8dcc8 100%); transition:background 0.35s ease; }
+    .team-card:hover .team-card-avatar { background:linear-gradient(135deg, #efe8d8 0%, #ddd0b8 100%); }
+    .team-card-avatar span { font-family:var(--font-display); font-size:3.5rem; color:var(--primary); opacity:0.6; transition:opacity 0.3s, transform 0.3s; }
+    .team-card:hover .team-card-avatar span { opacity:0.8; transform:scale(1.05); }
 
     /* Static name bar for avatar cards */
-    .team-card-static { position:absolute; bottom:0; left:0; right:0; padding:16px 20px; background:rgba(45,41,38,0.9); }
+    .team-card-static { position:absolute; bottom:0; left:0; right:0; padding:16px 20px; background:rgba(45,41,38,0.9); transition:background 0.3s ease; }
+    .team-card:hover .team-card-static { background:rgba(184,134,11,0.92); }
     .team-card-static .team-card-name { font-size:1rem; }
 
     /* Detail Modal */
     .team-detail { display:none; position:fixed; top:0; left:0; right:0; bottom:0; z-index:9999; background:rgba(0,0,0,0.4); backdrop-filter:blur(6px); align-items:center; justify-content:center; padding:24px; }
     .team-detail.active { display:flex; }
-    .team-detail-inner { background:#f5f5f5; border-radius:var(--radius-xl); max-width:900px; width:100%; max-height:90vh; overflow-y:auto; display:flex; position:relative; }
+    .team-detail-inner { background:#f5f5f5; border-radius:var(--radius-xl); max-width:920px; width:100%; max-height:90vh; overflow-y:auto; display:flex; position:relative; }
     .team-detail-close { position:absolute; top:16px; right:16px; width:40px; height:40px; border-radius:50%; background:rgba(0,0,0,0.06); border:none; cursor:pointer; display:flex; align-items:center; justify-content:center; z-index:2; transition:background 0.2s; }
     .team-detail-close:hover { background:rgba(0,0,0,0.12); }
-    .team-detail-left { flex:1; padding:60px 48px; display:flex; flex-direction:column; justify-content:center; }
-    .team-detail-right { width:380px; flex-shrink:0; display:flex; align-items:center; justify-content:center; padding:48px; }
-    .team-detail-photo { width:280px; height:280px; border-radius:50%; object-fit:cover; border:6px solid #fff; box-shadow:0 8px 32px rgba(0,0,0,0.1); }
-    .team-detail-avatar { width:280px; height:280px; border-radius:50%; display:flex; align-items:center; justify-content:center; background:linear-gradient(135deg, #f5f0e8, #e8dcc8); border:6px solid #fff; box-shadow:0 8px 32px rgba(0,0,0,0.1); }
-    .team-detail-avatar span { font-family:var(--font-display); font-size:5rem; color:var(--primary); opacity:0.5; }
-    .team-detail-name { font-family:var(--font-display); font-size:2.8rem; color:var(--navy); line-height:1.15; margin-bottom:4px; }
-    .team-detail-role { font-size:0.9rem; font-weight:600; color:var(--gray-500); margin-bottom:24px; letter-spacing:0.02em; }
-    .team-detail-bio { font-size:0.95rem; line-height:1.75; color:var(--gray-600); }
+    .team-detail-left { flex:1; padding:48px 44px; display:flex; flex-direction:column; justify-content:center; }
+    .team-detail-right { width:320px; flex-shrink:0; display:flex; align-items:center; justify-content:center; padding:48px 32px; background:linear-gradient(135deg, #f5f0e8, #ece4d4); border-radius:0 var(--radius-xl) var(--radius-xl) 0; }
+    .team-detail-photo { width:240px; height:300px; border-radius:var(--radius-lg); object-fit:cover; box-shadow:0 8px 32px rgba(0,0,0,0.1); }
+    .team-detail-avatar { width:220px; height:280px; border-radius:var(--radius-lg); display:flex; align-items:center; justify-content:center; background:linear-gradient(135deg, #efe8d8, #e0d4be); box-shadow:0 8px 32px rgba(0,0,0,0.08); }
+    .team-detail-avatar span { font-family:var(--font-display); font-size:4.5rem; color:var(--primary); opacity:0.45; }
+    .team-detail-name { font-family:var(--font-display); font-size:2.2rem; color:var(--navy); line-height:1.2; margin-bottom:6px; white-space:nowrap; }
+    .team-detail-title { font-size:0.95rem; font-weight:600; color:var(--primary); margin-bottom:2px; }
+    .team-detail-quals { font-size:0.82rem; color:var(--gray-400); margin-bottom:20px; letter-spacing:0.02em; }
+    .team-detail-bio { font-size:0.92rem; line-height:1.75; color:var(--gray-600); text-align:justify; }
 
     /* Committees */
     .committee-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:var(--space-lg); }
@@ -94,7 +100,7 @@
 
     /* Responsive */
     @media (max-width: 1024px) {
-      .team-grid { grid-template-columns:repeat(3, 1fr); }
+      .team-grid { grid-template-columns:repeat(3, 1fr); max-width:100%; }
       .team-detail-inner { flex-direction:column-reverse; }
       .team-detail-right { width:100%; padding:32px; justify-content:center; }
       .team-detail-left { padding:32px; }
@@ -108,11 +114,13 @@
       .team-detail-inner { border-radius:var(--radius-lg); max-height:95vh; }
       .team-detail-right { padding:24px; }
       .team-detail-left { padding:24px; }
-      .team-detail-photo, .team-detail-avatar { width:160px; height:160px; }
-      .team-detail-avatar span { font-size:3.5rem; }
-      .team-detail-name { font-size:1.6rem; }
-      .team-detail-role { font-size:0.82rem; margin-bottom:16px; }
-      .team-detail-bio { font-size:0.88rem; line-height:1.65; }
+      .team-detail-photo, .team-detail-avatar { width:140px; height:180px; }
+      .team-detail-avatar span { font-size:3rem; }
+      .team-detail-name { font-size:1.5rem; white-space:normal; }
+      .team-detail-title { font-size:0.85rem; }
+      .team-detail-quals { font-size:0.75rem; margin-bottom:14px; }
+      .team-detail-bio { font-size:0.85rem; line-height:1.6; }
+      .team-detail-right { background:linear-gradient(135deg, #f5f0e8, #ece4d4); border-radius:var(--radius-lg) var(--radius-lg) 0 0; }
       .committee-grid { grid-template-columns:1fr; }
       .team-card-static { padding:12px 14px; }
       .team-card-static .team-card-name { font-size:0.85rem; }
@@ -126,9 +134,9 @@
       .team-card-static { padding:10px 12px; }
       .team-card-static .team-card-name { font-size:0.78rem; line-height:1.3; }
       .team-card-role { font-size:0.68rem; }
-      .team-detail-photo, .team-detail-avatar { width:120px; height:120px; }
-      .team-detail-avatar span { font-size:2.5rem; }
-      .team-detail-name { font-size:1.35rem; }
+      .team-detail-photo, .team-detail-avatar { width:120px; height:150px; }
+      .team-detail-avatar span { font-size:2.2rem; }
+      .team-detail-name { font-size:1.25rem; white-space:normal; }
       .team-detail-left { padding:20px; }
       .team-detail-right { padding:20px; }
       .page-header h1 { font-size:2rem !important; }
@@ -216,7 +224,7 @@
             <div class="team-card-avatar"><span>GG</span></div>
             <div class="team-card-static">
               <div class="team-card-name">Dr. CA Gokul Govindarajan</div>
-              <div class="team-card-role">Director</div>
+              <div class="team-card-role">Promoter Director</div>
             </div>
             <div class="team-card-arrow"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></div>
           </div>
@@ -308,6 +316,86 @@
             <div class="team-card-arrow"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></div>
           </div>
 
+          <!-- Sridhar MP -->
+          <div class="team-card" onclick="openDetail('sridhar')">
+            <div class="team-card-avatar"><span>SM</span></div>
+            <div class="team-card-static">
+              <div class="team-card-name">Sridhar MP</div>
+              <div class="team-card-role">VP — Gold Loans</div>
+            </div>
+            <div class="team-card-arrow"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></div>
+          </div>
+
+          <!-- Gowtham DS -->
+          <div class="team-card" onclick="openDetail('gowtham')">
+            <div class="team-card-avatar"><span>GD</span></div>
+            <div class="team-card-static">
+              <div class="team-card-name">Gowtham DS</div>
+              <div class="team-card-role">VP — Property Loans</div>
+            </div>
+            <div class="team-card-arrow"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></div>
+          </div>
+
+          <!-- Selvaraj Kumar -->
+          <div class="team-card" onclick="openDetail('selvarajkumar')">
+            <div class="team-card-avatar"><span>SK</span></div>
+            <div class="team-card-static">
+              <div class="team-card-name">Selvaraj Kumar</div>
+              <div class="team-card-role">VP — Operations South</div>
+            </div>
+            <div class="team-card-arrow"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></div>
+          </div>
+
+          <!-- Prem Karnan -->
+          <div class="team-card" onclick="openDetail('prem')">
+            <div class="team-card-avatar"><span>PK</span></div>
+            <div class="team-card-static">
+              <div class="team-card-name">Prem Karnan</div>
+              <div class="team-card-role">VP — Technology</div>
+            </div>
+            <div class="team-card-arrow"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></div>
+          </div>
+
+          <!-- Eashwar Ram K -->
+          <div class="team-card" onclick="openDetail('eashwar')">
+            <div class="team-card-avatar"><span>EK</span></div>
+            <div class="team-card-static">
+              <div class="team-card-name">Eashwar Ram K</div>
+              <div class="team-card-role">AVP — Technology</div>
+            </div>
+            <div class="team-card-arrow"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></div>
+          </div>
+
+          <!-- Sabarishni Krishnakumar -->
+          <div class="team-card" onclick="openDetail('sabarishni')">
+            <div class="team-card-avatar"><span>SK</span></div>
+            <div class="team-card-static">
+              <div class="team-card-name">Sabarishni Krishnakumar</div>
+              <div class="team-card-role">AVP — Property Loans</div>
+            </div>
+            <div class="team-card-arrow"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></div>
+          </div>
+
+          <!-- Sarun Sanjay -->
+          <div class="team-card" onclick="openDetail('sarun')">
+            <div class="team-card-avatar"><span>SS</span></div>
+            <div class="team-card-static">
+              <div class="team-card-name">Sarun Sanjay</div>
+              <div class="team-card-role">AVP — Operations</div>
+            </div>
+            <div class="team-card-arrow"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></div>
+          </div>
+
+          <!-- Harisudhan Dhanasekaran -->
+          <div class="team-card" onclick="openDetail('harisudhan')">
+            <div class="team-card-avatar"><span>HD</span></div>
+            <div class="team-card-static">
+              <div class="team-card-name">Harisudhan Dhanasekaran</div>
+              <div class="team-card-role">AVP — Business</div>
+            </div>
+            <div class="team-card-arrow"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></div>
+          </div>
+
         </div>
       </div>
 
@@ -320,8 +408,9 @@
       <button class="team-detail-close" onclick="closeDetail()"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#333" stroke-width="2"><path d="M18 6L6 18M6 6l12 12"/></svg></button>
       <div class="team-detail-left">
         <h2 class="team-detail-name" id="detail-name"></h2>
-        <p class="team-detail-role" id="detail-role"></p>
-        <p class="team-detail-bio" id="detail-bio"></p>
+        <p class="team-detail-title" id="detail-title"></p>
+        <p class="team-detail-quals" id="detail-quals"></p>
+        <div id="detail-bio" class="team-detail-bio"></div>
       </div>
       <div class="team-detail-right">
         <div class="team-detail-avatar" id="detail-avatar"><span id="detail-initials"></span></div>
@@ -438,57 +527,122 @@
   const teamData = {
     gokul: {
       name: 'Dr. CA Gokul Govindarajan',
-      role: 'Director | M.Com, FCA, CS, PhD',
+      title: 'Promoter Director',
+      quals: 'M.Com, FCA, CS, PhD',
       initials: 'GG',
-      bio: 'Dr. Gokul Govindarajan is a distinguished academic and seasoned finance professional with doctoral-level expertise in commerce and finance. A Fellow Member of the Institute of Chartered Accountants of India (ICAI) and a qualified Company Secretary, he brings a rare combination of academic rigour and practical financial acumen to Dhanam\'s board. His career spans extensive work in statutory audit, corporate governance, and regulatory compliance for financial institutions. At Dhanam, Dr. Gokul provides strategic oversight on governance frameworks, financial controls, and compliance architecture, ensuring the company operates with the highest standards of institutional discipline and regulatory adherence.'
+      bio: 'Dr. CA. Gokul Govindarajan is a distinguished Chartered Accountant and Company Secretary with over 15 years of extensive experience in accounting, compliance, and strategic financial management. With a strong academic foundation complemented by professional excellence, he brings a unique blend of theoretical insight and practical expertise to Dhanam\'s board.\n\nAs a Promoter Director since inception, Dr. Gokul has played a pivotal role in establishing and successfully leading Dhanam, demonstrating visionary leadership and deep sectoral knowledge. He has been instrumental in shaping the company\'s growth trajectory, driving key strategic initiatives, and building a strong, sustainable business model. His hands-on involvement from the very beginning has enabled the organisation to evolve into a robust, compliant, and growth-oriented financial institution.\n\nDr. Gokul is an expert in tax and corporate laws, with significant expertise in credit appraisal, risk management, regulatory compliance, and corporate governance. He also possesses in-depth knowledge of company law and corporate affairs, including structuring, compliance management, and advisory on complex corporate matters. Known for his pragmatic approach and strong ethical standards, he continues to drive sustainable growth, innovation, and long-term value creation for stakeholders.'
     },
     avinash: {
       name: 'Avinash Gopalakrishnan',
-      role: 'Director | M.B.A.',
+      title: 'Director',
+      quals: 'M.B.A.',
       initials: 'AG',
       bio: 'Mr. Avinash Gopalakrishnan is a management professional with deep expertise in business strategy, organisational development, and financial systems design. With an MBA and years of experience across business operations and corporate planning, he brings a structured, results-driven approach to Dhanam\'s board. His work focuses on ensuring that the company\'s products, processes, and growth strategies are built on a foundation of clarity, customer value, and operational efficiency. Mr. Avinash plays a key role in shaping Dhanam\'s long-term strategic direction and evaluating new business opportunities.'
     },
     sankar: {
       name: 'Sankar Venkataraman',
-      role: 'Director | B.Sc., FCA',
+      title: 'Director',
+      quals: 'B.Sc., FCA',
       initials: 'SV',
       bio: 'Mr. Sankar Venkataraman is a Fellow Chartered Accountant with extensive experience in audit, taxation, and financial oversight for regulated financial institutions. His career includes decades of work in statutory auditing, internal controls, and risk advisory for both public and private sector enterprises. At Dhanam, Mr. Sankar provides governance leadership with a strong emphasis on financial discipline, risk-aware decision-making, and regulatory compliance. His meticulous approach to financial stewardship has been instrumental in strengthening Dhanam\'s institutional credibility and audit readiness.'
     },
     suren: {
       name: 'Suren S',
-      role: 'Chief Executive Officer | B.E.',
+      title: 'Chief Executive Officer',
+      quals: 'B.E.',
       initials: 'SS',
       bio: 'Mr. Suren S is a technology-driven business leader who brings a unique blend of engineering expertise and executive leadership to Dhanam. A graduate in Engineering, he has previously served as CEO of two technology companies, where he built and scaled enterprise-grade systems, led cross-functional teams, and drove digital transformation at an organisational level. At Dhanam, Mr. Suren leverages his deep technology background to modernise operations, build scalable infrastructure, and drive data-informed decision-making across the company. His leadership philosophy centres on combining institutional governance with innovation, ensuring Dhanam stays at the forefront of responsible lending while embracing the tools of modern finance.'
     },
     gunasekaran: {
       name: 'S Gunasekaran',
-      role: 'Chief Operating Officer | MBA',
+      title: 'Chief Operating Officer',
+      quals: 'MBA',
       initials: 'SG',
       bio: 'Mr. S Gunasekaran is an operations specialist with an MBA and deep expertise in branch network management, process optimisation, and service delivery at scale. With years of experience in financial services operations, he brings a disciplined, systems-oriented approach to managing Dhanam\'s growing branch network across South India. As COO, Mr. Gunasekaran is responsible for ensuring consistent service quality, operational efficiency, and customer-first execution across every branch. His focus on standardising processes and building robust operational frameworks has been central to Dhanam\'s ability to scale rapidly without compromising on service standards.'
     },
     selvakumar: {
       name: 'Selvakumar D',
-      role: 'Chief Administrative Officer | M.A.',
+      title: 'Chief Administrative Officer',
+      quals: 'M.A.',
       initials: 'SD',
       bio: 'Mr. Selvakumar D brings over three decades of experience in financial services administration and institutional management. With a Master\'s degree in Arts and a career spanning the full breadth of NBFC operations, he is one of Dhanam\'s most experienced leaders. As Chief Administrative Officer, Mr. Selvakumar manages the company\'s administrative backbone \u2014 from human resources policy and branch-level coordination to infrastructure planning and vendor management. His deep industry knowledge and hands-on leadership style ensure that Dhanam\'s internal operations run smoothly, supporting the company\'s rapid expansion with a stable and well-coordinated organisational foundation.'
     },
     nambirajan: {
       name: 'Nambirajan R',
-      role: 'Chief Business Officer | B.Com, MBA',
+      title: 'Chief Business Officer',
+      quals: 'B.Com, MBA',
       initials: 'NR',
       bio: 'Mr. Nambirajan R is a business growth strategist with dual qualifications in Commerce and Business Administration. His career in financial services has been defined by a sharp focus on market development, customer acquisition, and product positioning. As Chief Business Officer, Mr. Nambirajan leads Dhanam\'s business expansion strategy, identifying new markets, building distribution channels, and ensuring that the company\'s product offerings remain relevant and competitive. His ability to balance aggressive growth targets with community-connected, responsible business practices has been key to Dhanam\'s market penetration across South India.'
     },
     pathmanathan: {
       name: 'D. Pathmanathan',
-      role: 'Business Head, Gold Loans | B.E., M.Eng.Sc.',
+      title: 'Business Head, Gold Loans',
+      quals: 'B.E., M.Eng.Sc.',
       initials: 'DP',
       bio: 'Mr. D. Pathmanathan brings an analytical, engineering-driven approach to financial product management. Holding a Bachelor\'s degree in Engineering and a Master of Engineering Science, he applies quantitative rigour and systematic thinking to Dhanam\'s gold loan vertical \u2014 the company\'s flagship product line. As Business Head for Gold Loans, Mr. Pathmanathan oversees end-to-end product design, risk assessment frameworks, pricing models, and portfolio performance. His precision-oriented leadership ensures that Dhanam\'s gold loan operations deliver consistent value to customers while maintaining robust risk controls and portfolio quality.'
     },
     somasundaram: {
       name: 'Somasundaram',
-      role: 'Chief Compliance Officer | B.Com, LLB, FCS',
+      title: 'Chief Compliance Officer',
+      quals: 'B.Com, LLB, FCS',
       initials: 'SM',
       bio: 'Mr. Somasundaram is a legal and compliance professional with qualifications in Commerce, Law, and Company Secretaryship (Fellow Member of ICSI). His expertise spans corporate law, regulatory compliance, and governance frameworks for financial institutions. As Chief Compliance Officer, Mr. Somasundaram is responsible for ensuring that all of Dhanam\'s operations align with RBI regulations, PMLA requirements, and corporate governance norms. He oversees the company\'s compliance architecture, manages regulatory reporting, and ensures that Dhanam maintains the highest standards of legal and institutional integrity across its growing operations.'
+    },
+    sridhar: {
+      name: 'Sridhar MP',
+      title: 'Vice President \u2014 Gold Loans',
+      quals: 'M.Tech',
+      initials: 'SM',
+      bio: 'Mr. Sridhar MP leads the gold loan vertical with a strong technical foundation and hands-on operational expertise. With a Master\'s degree in Technology, he brings an analytical, process-driven approach to managing Dhanam\'s core lending product. His focus areas include portfolio quality management, process efficiency across branches, and delivering a consistent customer experience. Mr. Sridhar plays a key role in scaling Dhanam\'s gold loan operations while maintaining the service standards and risk controls that the business demands.'
+    },
+    gowtham: {
+      name: 'Gowtham DS',
+      title: 'Vice President \u2014 Property Loans',
+      quals: 'B.B.A, L.L.B',
+      initials: 'GD',
+      bio: 'Mr. Gowtham DS brings a unique combination of business administration and legal expertise to Dhanam\'s mortgage and property loan segment. With dual qualifications in Business Administration and Law, he ensures that every property loan transaction is structured with both commercial viability and legal compliance in mind. As Vice President for Property Loans, Mr. Gowtham oversees end-to-end loan processing, legal due diligence, and customer relationship management for Dhanam\'s growing LAP portfolio.'
+    },
+    selvarajkumar: {
+      name: 'Selvaraj Kumar',
+      title: 'Vice President \u2014 Operations South',
+      quals: 'M.B.A',
+      initials: 'SK',
+      bio: 'Mr. Selvaraj Kumar oversees operations across Dhanam\'s southern branch network. With an MBA and deep field-level experience, he brings a hands-on approach to ensuring process standardisation, service quality, and operational discipline across multiple branches. His focus on execution and team coordination ensures that Dhanam\'s customer-facing operations in the southern region run efficiently and consistently.'
+    },
+    prem: {
+      name: 'Prem Karnan',
+      title: 'Vice President \u2014 Technology',
+      quals: 'B.E.',
+      initials: 'PK',
+      bio: 'Mr. Prem Karnan leads Dhanam\'s technology strategy and digital transformation initiatives. With an Engineering degree and a passion for building scalable systems, he is responsible for the platforms, tools, and digital infrastructure that power Dhanam\'s operations and customer experience. His work spans core banking systems, digital onboarding, branch technology, and data analytics \u2014 ensuring that Dhanam\'s technology stack is modern, reliable, and built for scale.'
+    },
+    eashwar: {
+      name: 'Eashwar Ram K',
+      title: 'AVP \u2014 Technology',
+      quals: 'B.Tech',
+      initials: 'EK',
+      bio: 'Mr. Eashwar Ram K supports Dhanam\'s technology infrastructure and digital initiatives. With a Bachelor\'s degree in Technology, he works on core systems development, third-party integrations, and internal tools that improve operational efficiency. His technical expertise ensures that Dhanam\'s digital backbone remains robust and scalable as the company expands its branch network and product offerings.'
+    },
+    sabarishni: {
+      name: 'Sabarishni Krishnakumar',
+      title: 'AVP \u2014 Property Loans',
+      quals: 'B.E.',
+      initials: 'SK',
+      bio: 'Ms. Sabarishni Krishnakumar plays a key role in managing property loan processing and customer relationships at Dhanam. With an Engineering background, she brings structure, analytical thinking, and process clarity to complex lending workflows. Her work ensures that Dhanam\'s property loan customers receive timely, transparent, and well-coordinated service from application through disbursement.'
+    },
+    sarun: {
+      name: 'Sarun Sanjay',
+      title: 'AVP \u2014 Operations',
+      quals: 'B.C.A',
+      initials: 'SS',
+      bio: 'Mr. Sarun Sanjay ensures smooth day-to-day operations across Dhanam\'s branch network. With a background in Computer Applications, he focuses on process improvements, team coordination, and maintaining service standards at scale. His operational expertise helps bridge the gap between head office strategy and field-level execution, ensuring consistency across Dhanam\'s growing footprint.'
+    },
+    harisudhan: {
+      name: 'Harisudhan Dhanasekaran',
+      title: 'AVP \u2014 Business',
+      quals: 'B.Tech',
+      initials: 'HD',
+      bio: 'Mr. Harisudhan Dhanasekaran drives business development initiatives and new market outreach for Dhanam. With a Bachelor\'s degree in Technology, he brings a data-driven, strategic approach to identifying growth opportunities and building customer acquisition channels. His ability to bridge technical thinking with business execution makes him a key contributor to Dhanam\'s expansion strategy.'
     }
   };
 
@@ -505,8 +659,9 @@
     const d = teamData[key];
     if (!d) return;
     document.getElementById('detail-name').textContent = d.name;
-    document.getElementById('detail-role').textContent = d.role;
-    document.getElementById('detail-bio').textContent = d.bio;
+    document.getElementById('detail-title').textContent = d.title;
+    document.getElementById('detail-quals').textContent = d.quals;
+    document.getElementById('detail-bio').innerHTML = d.bio.replace(/\n\n/g, '</p><p class="team-detail-bio" style="margin-top:14px;text-align:justify;">');
     document.getElementById('detail-initials').textContent = d.initials;
     document.getElementById('team-detail').classList.add('active');
     document.body.style.overflow = 'hidden';
