@@ -40,14 +40,32 @@
   <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/styles.css">
   <style>
-    /* Section label */
-    .team-section-label { font-size:0.8rem; font-weight:600; text-transform:uppercase; letter-spacing:0.12em; color:var(--primary); margin-bottom:var(--space-lg); padding-bottom:var(--space-sm); border-bottom:2px solid var(--primary); display:inline-block; }
+    /* Section header row */
+    .team-section-header { display:flex; align-items:center; justify-content:space-between; margin-bottom:var(--space-lg); }
+    .team-section-label { font-size:0.8rem; font-weight:600; text-transform:uppercase; letter-spacing:0.12em; color:var(--primary); padding-bottom:var(--space-sm); border-bottom:2px solid var(--primary); display:inline-block; margin:0; }
 
-    /* Grid */
-    .team-grid { display:grid; grid-template-columns:repeat(3, 1fr); gap:var(--space-xl); max-width:900px; margin:0 auto; }
+    /* Carousel nav arrows */
+    .carousel-nav { display:flex; gap:8px; }
+    .carousel-btn { width:40px; height:40px; border-radius:50%; border:1.5px solid var(--gray-200); background:#fff; cursor:pointer; display:flex; align-items:center; justify-content:center; transition:all 0.25s ease; color:var(--navy); }
+    .carousel-btn:hover { background:var(--primary); border-color:var(--primary); color:#fff; }
+    .carousel-btn:disabled { opacity:0.3; cursor:default; pointer-events:none; }
+    .carousel-btn svg { width:18px; height:18px; }
+
+    /* Carousel track */
+    .team-carousel-wrap { position:relative; }
+    .team-carousel { display:flex; gap:24px; overflow-x:auto; scroll-behavior:smooth; -webkit-overflow-scrolling:touch; scrollbar-width:none; padding:8px 0 16px; }
+    .team-carousel::-webkit-scrollbar { display:none; }
+
+    /* Edge fade hints */
+    .team-carousel-wrap::before,
+    .team-carousel-wrap::after { content:''; position:absolute; top:0; bottom:16px; width:48px; z-index:2; pointer-events:none; transition:opacity 0.3s; }
+    .team-carousel-wrap::before { left:0; background:linear-gradient(to right, #fff 0%, transparent 100%); opacity:0; }
+    .team-carousel-wrap::after { right:0; background:linear-gradient(to left, #fff 0%, transparent 100%); opacity:0; }
+    .team-carousel-wrap.fade-left::before { opacity:1; }
+    .team-carousel-wrap.fade-right::after { opacity:1; }
 
     /* Card */
-    .team-card { cursor:pointer; position:relative; border-radius:var(--radius-lg); overflow:hidden; aspect-ratio:3/4; background:var(--gray-100); transition:transform 0.35s ease, box-shadow 0.35s ease; }
+    .team-card { cursor:pointer; position:relative; border-radius:var(--radius-lg); overflow:hidden; aspect-ratio:3/4; background:var(--gray-100); transition:transform 0.35s ease, box-shadow 0.35s ease; flex:0 0 260px; min-width:0; }
     .team-card:hover { transform:translateY(-6px); box-shadow:0 16px 40px rgba(0,0,0,0.12); }
     .team-card-img { width:100%; height:100%; object-fit:cover; filter:grayscale(100%); transition:filter 0.4s, transform 0.4s; }
     .team-card:hover .team-card-img { filter:grayscale(0%); transform:scale(1.03); }
@@ -69,6 +87,10 @@
     .team-card:hover .team-card-static { background:rgba(184,134,11,0.92); }
     .team-card-static .team-card-name { font-size:1rem; }
 
+    /* Progress bar under carousel */
+    .carousel-progress { margin-top:12px; height:2px; background:var(--gray-100); border-radius:2px; overflow:hidden; }
+    .carousel-progress-bar { height:100%; background:var(--primary); border-radius:2px; transition:width 0.2s ease; width:0%; }
+
     /* Detail Modal */
     .team-detail { display:none; position:fixed; top:0; left:0; right:0; bottom:0; z-index:9999; background:rgba(0,0,0,0.4); backdrop-filter:blur(6px); align-items:center; justify-content:center; padding:24px; }
     .team-detail.active { display:flex; }
@@ -87,7 +109,7 @@
 
     /* Responsive */
     @media (max-width: 1024px) {
-      .team-grid { grid-template-columns:repeat(3, 1fr); max-width:100%; }
+      .team-card { flex:0 0 240px; }
       .team-detail-inner { flex-direction:column-reverse; }
       .team-detail-right { width:100%; padding:32px; justify-content:center; }
       .team-detail-left { padding:32px; }
@@ -95,7 +117,11 @@
     }
     @media (max-width: 768px) {
       .team-section-label { font-size:0.72rem; letter-spacing:0.1em; }
-      .team-grid { grid-template-columns:repeat(2, 1fr); gap:var(--space-md); }
+      .team-card { flex:0 0 200px; }
+      .team-carousel { gap:16px; }
+      .carousel-btn { width:36px; height:36px; }
+      .carousel-btn svg { width:16px; height:16px; }
+      .team-carousel-wrap::before, .team-carousel-wrap::after { width:32px; }
       .team-detail { padding:12px; }
       .team-detail-inner { border-radius:var(--radius-lg); max-height:95vh; }
       .team-detail-right { padding:24px; }
@@ -114,13 +140,16 @@
       .page-header p { font-size:0.9rem !important; }
     }
     @media (max-width: 480px) {
-      .team-section-label { font-size:0.68rem; letter-spacing:0.08em; margin-bottom:var(--space-md); }
-      .team-grid { grid-template-columns:repeat(2, 1fr); gap:10px; }
-      .team-card { aspect-ratio:3/4; }
+      .team-section-label { font-size:0.68rem; letter-spacing:0.08em; }
+      .team-card { flex:0 0 170px; }
+      .team-carousel { gap:12px; }
       .team-card-avatar span { font-size:2.5rem; }
       .team-card-static { padding:10px 12px; }
       .team-card-static .team-card-name { font-size:0.78rem; line-height:1.3; }
       .team-card-role { font-size:0.68rem; }
+      .carousel-nav { gap:6px; }
+      .carousel-btn { width:32px; height:32px; }
+      .carousel-btn svg { width:14px; height:14px; }
       .team-detail-photo, .team-detail-avatar { width:120px; height:150px; }
       .team-detail-avatar span { font-size:2.2rem; }
       .team-detail-name { font-size:1.25rem; white-space:normal; }
@@ -198,12 +227,19 @@
 
   <!-- TEAM SECTION -->
   <section class="section" style="background:#fff;">
-    <div class="container" style="max-width:1100px;">
+    <div class="container" style="max-width:1200px;">
 
       <!-- Board of Directors -->
       <div style="margin-bottom:var(--space-3xl);">
-        <span class="team-section-label">Board of Directors</span>
-        <div class="team-grid">
+        <div class="team-section-header">
+          <span class="team-section-label">Board of Directors</span>
+          <div class="carousel-nav">
+            <button class="carousel-btn" onclick="scrollCarousel('board',-1)" id="board-prev" aria-label="Previous"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M15 18l-6-6 6-6"/></svg></button>
+            <button class="carousel-btn" onclick="scrollCarousel('board',1)" id="board-next" aria-label="Next"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M9 18l6-6-6-6"/></svg></button>
+          </div>
+        </div>
+        <div class="team-carousel-wrap" id="board-wrap">
+          <div class="team-carousel" id="board-carousel">
 
           <!-- Dr. CA Gokul Govindarajan -->
           <div class="team-card" onclick="openDetail('gokul')">
@@ -235,13 +271,22 @@
             <div class="team-card-arrow"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></div>
           </div>
 
+          </div>
+          <div class="carousel-progress"><div class="carousel-progress-bar" id="board-progress"></div></div>
         </div>
       </div>
 
       <!-- Management -->
       <div id="management">
-        <span class="team-section-label">Management</span>
-        <div class="team-grid">
+        <div class="team-section-header">
+          <span class="team-section-label">Management</span>
+          <div class="carousel-nav">
+            <button class="carousel-btn" onclick="scrollCarousel('mgmt',-1)" id="mgmt-prev" aria-label="Previous"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M15 18l-6-6 6-6"/></svg></button>
+            <button class="carousel-btn" onclick="scrollCarousel('mgmt',1)" id="mgmt-next" aria-label="Next"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M9 18l6-6-6-6"/></svg></button>
+          </div>
+        </div>
+        <div class="team-carousel-wrap" id="mgmt-wrap">
+          <div class="team-carousel" id="mgmt-carousel">
 
           <!-- Suren S - CEO -->
           <div class="team-card" onclick="openDetail('suren')">
@@ -383,6 +428,8 @@
             <div class="team-card-arrow"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></div>
           </div>
 
+          </div>
+          <div class="carousel-progress"><div class="carousel-progress-bar" id="mgmt-progress"></div></div>
         </div>
       </div>
 
@@ -630,6 +677,52 @@
   // Close on Escape
   document.addEventListener('keydown', function(e) {
     if (e.key === 'Escape') closeDetail();
+  });
+
+  // ─── Carousel logic ───
+  const carousels = {
+    board: { el: document.getElementById('board-carousel'), wrap: document.getElementById('board-wrap'), prev: document.getElementById('board-prev'), next: document.getElementById('board-next'), progress: document.getElementById('board-progress') },
+    mgmt:  { el: document.getElementById('mgmt-carousel'),  wrap: document.getElementById('mgmt-wrap'),  prev: document.getElementById('mgmt-prev'),  next: document.getElementById('mgmt-next'),  progress: document.getElementById('mgmt-progress') }
+  };
+
+  function updateCarouselState(id) {
+    const c = carousels[id];
+    if (!c || !c.el) return;
+    const sl = c.el.scrollLeft, sw = c.el.scrollWidth, cw = c.el.clientWidth;
+    const atStart = sl <= 2;
+    const atEnd = sl + cw >= sw - 2;
+    c.prev.disabled = atStart;
+    c.next.disabled = atEnd;
+    // Fade hints
+    c.wrap.classList.toggle('fade-left', !atStart);
+    c.wrap.classList.toggle('fade-right', !atEnd);
+    // Progress bar
+    const maxScroll = sw - cw;
+    const pct = maxScroll > 0 ? (sl / maxScroll) * 100 : 100;
+    c.progress.style.width = Math.max(8, pct) + '%';
+  }
+
+  function scrollCarousel(id, dir) {
+    const c = carousels[id];
+    if (!c || !c.el) return;
+    // Scroll by roughly 2 card widths
+    const card = c.el.querySelector('.team-card');
+    const cardW = card ? card.offsetWidth + 24 : 280;
+    c.el.scrollBy({ left: dir * cardW * 2, behavior: 'smooth' });
+  }
+
+  // Listen for scroll events to update button states
+  Object.keys(carousels).forEach(function(id) {
+    const c = carousels[id];
+    if (!c.el) return;
+    c.el.addEventListener('scroll', function() { updateCarouselState(id); }, { passive: true });
+    // Init state on load
+    updateCarouselState(id);
+  });
+
+  // Re-check on resize
+  window.addEventListener('resize', function() {
+    Object.keys(carousels).forEach(function(id) { updateCarouselState(id); });
   });
 
   // Scroll to management section if hash is present
