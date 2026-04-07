@@ -549,3 +549,45 @@
 window.formatCurrency = function (value) {
   return '₹' + Math.round(value).toLocaleString('en-IN');
 };
+
+/* ============================================
+   CONTENT PROTECTION - Disable copy / context / shortcuts
+   ============================================ */
+(function () {
+  function isInFormField(el) {
+    if (!el) return false;
+    var tag = (el.tagName || '').toUpperCase();
+    return tag === 'INPUT' || tag === 'TEXTAREA' || tag === 'SELECT' || el.isContentEditable;
+  }
+
+  // Block right-click context menu (except inside form fields)
+  document.addEventListener('contextmenu', function (e) {
+    if (!isInFormField(e.target)) e.preventDefault();
+  });
+
+  // Block copy / cut / paste outside form fields
+  ['copy', 'cut'].forEach(function (evt) {
+    document.addEventListener(evt, function (e) {
+      if (!isInFormField(e.target)) e.preventDefault();
+    });
+  });
+
+  // Block selectstart and dragstart outside form fields
+  document.addEventListener('selectstart', function (e) {
+    if (!isInFormField(e.target)) e.preventDefault();
+  });
+  document.addEventListener('dragstart', function (e) {
+    if (!isInFormField(e.target)) e.preventDefault();
+  });
+
+  // Block common keyboard shortcuts
+  document.addEventListener('keydown', function (e) {
+    if (isInFormField(e.target)) return;
+    var key = (e.key || '').toLowerCase();
+    var ctrl = e.ctrlKey || e.metaKey;
+    if (ctrl && (key === 'c' || key === 'x' || key === 'a' || key === 's' || key === 'p' || key === 'u')) {
+      e.preventDefault();
+    }
+  });
+})();
+
