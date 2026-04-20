@@ -1,9 +1,9 @@
 /* ==============================================================
-   DHANAM FINANCE — DISCLAIMER POPUP
+   DHANAM — DISCLAIMER POPUP
    --------------------------------------------------------------
    Auto-opens on every page load. Contains CAUTION / DISCLAIMER /
-   GENERAL DISCLAIMER sections in English, Tamil, and Malayalam.
-   Self-contained: injects its own CSS + DOM, no dependencies.
+   GENERAL DISCLAIMER sections in English, Tamil, Malayalam, and
+   Hindi. Self-contained: injects its own CSS + DOM, no deps.
    ============================================================== */
 
 (function () {
@@ -20,15 +20,15 @@
       sections: [
         {
           heading: 'CAUTION',
-          body: 'Dhanam Investment and Finance Private Limited (<strong>"Dhanam Finance"</strong> or <strong>"the Company"</strong>) does not host, own, or operate any digital lending applications (DLAs) on any digital platform, including the Google Play Store, Apple App Store, or any website. Members of the public are cautioned to beware of fraudulent mobile applications, websites, or services that may misuse the name, logo, or identity of Dhanam Finance (or of its predecessor, Kiara Microcredit Private Limited) to solicit loans, collect personal information, or obtain payments.'
+          body: 'Dhanam Investment and Finance Private Limited (<strong>"Dhanam"</strong> or <strong>"the Company"</strong>) does not currently operate any digital lending application (DLA) on any digital platform. Dhanam\'s official mobile applications will soon be launched on the Google Play Store and the Apple App Store &mdash; until such official launch, any mobile application, website, or service claiming to be from Dhanam (or its predecessor, Kiara Microcredit Private Limited) is fraudulent. Members of the public are cautioned to beware of such impersonators that misuse our name, logo, or identity to solicit loans, collect personal information, or obtain payments.<br><br><strong>Dhanam does not charge any customer, in any form, in exchange for granting or approving a loan.</strong> Any person or application demanding an upfront payment, &ldquo;processing&rdquo; money, deposit, or similar amount as a condition for approving or releasing a loan is not acting on behalf of Dhanam and should be reported immediately.'
         },
         {
           heading: 'DISCLAIMER',
-          body: 'Dhanam Finance shall not be liable, in any manner whatsoever, for any loss, damage, consequence, or claim suffered by any person who acts upon, or falls victim to, any such fraudulent digital lending application or impersonator. Dhanam Finance shall also bear no responsibility for any loss, damage, or harm arising out of the products, services, advice, or communications of any third party, whether or not such third party is represented as being associated with the Company.'
+          body: 'Dhanam shall not be liable, in any manner whatsoever, for any loss, damage, consequence, or claim suffered by any person who acts upon, or falls victim to, any such fraudulent digital lending application or impersonator. Dhanam shall also bear no responsibility for any loss, damage, or harm arising out of the products, services, advice, or communications of any third party, whether or not such third party is represented as being associated with the Company.'
         },
         {
           heading: 'GENERAL DISCLAIMER',
-          body: 'The information, materials, advice, suggestions, illustrations, notifications, circulars, and other communications made available on this website (collectively, <strong>"the Content"</strong>) are published for general informational purposes only. Dhanam Finance disclaims any liability for errors or omissions in the Content and does not accept any legal liability on the basis of the Content. Dhanam Finance reserves the right, at its sole discretion, to modify, update, or remove any part of the Content without prior notice. No part of the Content may be reproduced, displayed, distributed, or printed, in whole or in part, in any form or medium, without the prior written consent of Dhanam Investment and Finance Private Limited.'
+          body: 'The information, materials, advice, suggestions, illustrations, notifications, circulars, and other communications made available on this website (collectively, <strong>"the Content"</strong>) are published for general informational purposes only. Dhanam disclaims any liability for errors or omissions in the Content and does not accept any legal liability on the basis of the Content. Dhanam reserves the right, at its sole discretion, to modify, update, or remove any part of the Content without prior notice. No part of the Content may be reproduced, displayed, distributed, or printed, in whole or in part, in any form or medium, without the prior written consent of Dhanam Investment and Finance Private Limited.'
         }
       ]
     },
@@ -39,15 +39,15 @@
       sections: [
         {
           heading: 'எச்சரிக்கை',
-          body: 'தனம் இன்வெஸ்ட்மெண்ட் அண்ட் ஃபைனான்ஸ் பிரைவேட் லிமிடெட் (<strong>"தனம் ஃபைனான்ஸ்"</strong> அல்லது <strong>"நிறுவனம்"</strong>) எந்த டிஜிட்டல் தளத்திலும் (Google Play Store, Apple App Store அல்லது எந்த இணையதளம் உட்பட) எந்த டிஜிட்டல் கடன் வழங்கும் பயன்பாடுகளையும் (DLAs) நடத்துவதில்லை, உரிமையாக்குவதில்லை அல்லது இயக்குவதில்லை. தனம் ஃபைனான்ஸ் (அல்லது அதன் முன்னாள் நிறுவனமான கியாரா மைக்ரோகிரெடிட் பிரைவேட் லிமிடெட்) பெயர், சின்னம் அல்லது அடையாளத்தைத் தவறாகப் பயன்படுத்தி கடன் பெற, தனிப்பட்ட தகவல்களைச் சேகரிக்க அல்லது பணம் பெற முயலும் மோசடியான மொபைல் பயன்பாடுகள், இணையதளங்கள் அல்லது சேவைகள் குறித்து பொதுமக்கள் எச்சரிக்கையாக இருக்க வேண்டும்.'
+          body: 'தனம் இன்வெஸ்ட்மெண்ட் அண்ட் ஃபைனான்ஸ் பிரைவேட் லிமிடெட் (<strong>"தனம்"</strong> அல்லது <strong>"நிறுவனம்"</strong>) தற்போது எந்த டிஜிட்டல் தளத்திலும் எந்த டிஜிட்டல் கடன் வழங்கும் பயன்பாட்டையும் (DLA) இயக்கவில்லை. தனம் ஃபைனான்ஸின் அதிகாரப்பூர்வ மொபைல் பயன்பாடுகள் விரைவில் Google Play Store மற்றும் Apple App Store-ல் வெளியிடப்படும் &mdash; அந்த அதிகாரப்பூர்வ வெளியீடு வரை, தனம் (அல்லது அதன் முன்னாள் நிறுவனமான கியாரா மைக்ரோகிரெடிட் பிரைவேட் லிமிடெட்) என்று கூறும் எந்தவொரு மொபைல் பயன்பாடு, இணையதளம் அல்லது சேவையும் மோசடியானது. எங்கள் பெயர், சின்னம் அல்லது அடையாளத்தைத் தவறாகப் பயன்படுத்தி கடன் பெற, தனிப்பட்ட தகவல்களைச் சேகரிக்க அல்லது பணம் பெற முயலும் இத்தகைய போலி நபர்கள் குறித்து பொதுமக்கள் எச்சரிக்கையாக இருக்க வேண்டும்.<br><br><strong>கடனை வழங்குவதற்கு அல்லது அனுமதிப்பதற்கு ஈடாக தனம் எந்தவொரு வாடிக்கையாளரிடமிருந்தும் எந்த வடிவத்திலும் பணம் வசூலிக்காது.</strong> கடனை அனுமதிப்பதற்கு அல்லது வழங்குவதற்கு நிபந்தனையாக முன்கூட்டிய பணம், &ldquo;செயலாக்கக்&rdquo; கட்டணம், வைப்புத்தொகை அல்லது அதுபோன்ற எந்தத் தொகையையும் கோரும் எந்த நபரும் பயன்பாடும் தனம் சார்பில் செயல்படவில்லை; அத்தகைய முயற்சிகளை உடனடியாகப் புகாரளிக்க வேண்டும்.'
         },
         {
           heading: 'மறுப்பு',
-          body: 'இத்தகைய மோசடியான டிஜிட்டல் கடன் வழங்கும் பயன்பாடு அல்லது போலி நபரை நம்பி செயல்பட்டு அல்லது அதற்கு பலியாகும் எந்த நபருக்கும் ஏற்படும் இழப்பு, சேதம், விளைவு அல்லது கோரிக்கைக்கு தனம் ஃபைனான்ஸ் எந்த வகையிலும் பொறுப்பாகாது. எந்தவொரு மூன்றாம் தரப்பினரின் பொருட்கள், சேவைகள், ஆலோசனைகள் அல்லது தகவல் தொடர்புகளால் ஏற்படும் எந்த இழப்பு, சேதம் அல்லது தீங்குக்கும், அந்த மூன்றாம் தரப்பினர் நிறுவனத்துடன் தொடர்புடையவர்களாக குறிப்பிடப்பட்டாலும் இல்லாவிட்டாலும், தனம் ஃபைனான்ஸ் எந்த பொறுப்பும் ஏற்காது.'
+          body: 'இத்தகைய மோசடியான டிஜிட்டல் கடன் வழங்கும் பயன்பாடு அல்லது போலி நபரை நம்பி செயல்பட்டு அல்லது அதற்கு பலியாகும் எந்த நபருக்கும் ஏற்படும் இழப்பு, சேதம், விளைவு அல்லது கோரிக்கைக்கு தனம் எந்த வகையிலும் பொறுப்பாகாது. எந்தவொரு மூன்றாம் தரப்பினரின் பொருட்கள், சேவைகள், ஆலோசனைகள் அல்லது தகவல் தொடர்புகளால் ஏற்படும் எந்த இழப்பு, சேதம் அல்லது தீங்குக்கும், அந்த மூன்றாம் தரப்பினர் நிறுவனத்துடன் தொடர்புடையவர்களாக குறிப்பிடப்பட்டாலும் இல்லாவிட்டாலும், தனம் எந்த பொறுப்பும் ஏற்காது.'
         },
         {
           heading: 'பொது மறுப்பு',
-          body: 'இந்த இணையதளத்தில் வழங்கப்படும் தகவல்கள், பொருட்கள், ஆலோசனைகள், பரிந்துரைகள், விளக்கப்படங்கள், அறிவிப்புகள், சுற்றறிக்கைகள் மற்றும் பிற தகவல் தொடர்புகள் (கூட்டாக <strong>"உள்ளடக்கம்"</strong> என அழைக்கப்படுபவை) பொது தகவல் நோக்கங்களுக்காக மட்டுமே வெளியிடப்படுகின்றன. உள்ளடக்கத்தில் உள்ள பிழைகள் அல்லது விடுபடல்களுக்கு தனம் ஃபைனான்ஸ் எந்தப் பொறுப்பும் ஏற்காது, மேலும் உள்ளடக்கத்தின் அடிப்படையில் எந்தச் சட்டப்பூர்வப் பொறுப்பையும் ஏற்றுக்கொள்ளாது. உள்ளடக்கத்தின் எந்தப் பகுதியையும் முன்னறிவிப்பின்றி திருத்தவும், புதுப்பிக்கவும் அல்லது அகற்றவும் தனம் ஃபைனான்ஸ் தனது சொந்த விருப்பத்தின் அடிப்படையில் உரிமையை வைத்துள்ளது. தனம் இன்வெஸ்ட்மெண்ட் அண்ட் ஃபைனான்ஸ் பிரைவேட் லிமிடெட்டின் முன் எழுத்துப்பூர்வ அனுமதி இல்லாமல், உள்ளடக்கத்தின் எந்தப் பகுதியையும் முழுவதுமாகவோ பகுதியாகவோ, எந்த வடிவிலும் அல்லது ஊடகத்திலும், மீண்டும் உருவாக்கவோ, காட்சிப்படுத்தவோ, விநியோகிக்கவோ அல்லது அச்சிடவோ கூடாது.'
+          body: 'இந்த இணையதளத்தில் வழங்கப்படும் தகவல்கள், பொருட்கள், ஆலோசனைகள், பரிந்துரைகள், விளக்கப்படங்கள், அறிவிப்புகள், சுற்றறிக்கைகள் மற்றும் பிற தகவல் தொடர்புகள் (கூட்டாக <strong>"உள்ளடக்கம்"</strong> என அழைக்கப்படுபவை) பொது தகவல் நோக்கங்களுக்காக மட்டுமே வெளியிடப்படுகின்றன. உள்ளடக்கத்தில் உள்ள பிழைகள் அல்லது விடுபடல்களுக்கு தனம் எந்தப் பொறுப்பும் ஏற்காது, மேலும் உள்ளடக்கத்தின் அடிப்படையில் எந்தச் சட்டப்பூர்வப் பொறுப்பையும் ஏற்றுக்கொள்ளாது. உள்ளடக்கத்தின் எந்தப் பகுதியையும் முன்னறிவிப்பின்றி திருத்தவும், புதுப்பிக்கவும் அல்லது அகற்றவும் தனம் தனது சொந்த விருப்பத்தின் அடிப்படையில் உரிமையை வைத்துள்ளது. தனம் இன்வெஸ்ட்மெண்ட் அண்ட் ஃபைனான்ஸ் பிரைவேட் லிமிடெட்டின் முன் எழுத்துப்பூர்வ அனுமதி இல்லாமல், உள்ளடக்கத்தின் எந்தப் பகுதியையும் முழுவதுமாகவோ பகுதியாகவோ, எந்த வடிவிலும் அல்லது ஊடகத்திலும், மீண்டும் உருவாக்கவோ, காட்சிப்படுத்தவோ, விநியோகிக்கவோ அல்லது அச்சிடவோ கூடாது.'
         }
       ]
     },
@@ -58,21 +58,40 @@
       sections: [
         {
           heading: 'മുന്നറിയിപ്പ്',
-          body: 'ധനം ഇൻവെസ്റ്റ്‌മെന്റ് ആൻഡ് ഫിനാൻസ് പ്രൈവറ്റ് ലിമിറ്റഡ് (<strong>"ധനം ഫിനാൻസ്"</strong> അല്ലെങ്കിൽ <strong>"കമ്പനി"</strong>) ഒരു ഡിജിറ്റൽ പ്ലാറ്റ്‌ഫോമിലും (Google Play Store, Apple App Store അല്ലെങ്കിൽ ഏതെങ്കിലും വെബ്‌സൈറ്റ് ഉൾപ്പെടെ) ഡിജിറ്റൽ ലെൻഡിംഗ് ആപ്ലിക്കേഷനുകൾ (DLAs) ഹോസ്റ്റ് ചെയ്യുന്നില്ല, സ്വന്തമാക്കുന്നില്ല, പ്രവർത്തിപ്പിക്കുന്നില്ല. ധനം ഫിനാൻസിന്റെയോ (അല്ലെങ്കിൽ അതിന്റെ മുൻഗാമിയായ കിയാര മൈക്രോക്രെഡിറ്റ് പ്രൈവറ്റ് ലിമിറ്റഡിന്റെയോ) പേര്, ലോഗോ അല്ലെങ്കിൽ ഐഡന്റിറ്റി ദുരുപയോഗം ചെയ്ത് വായ്പ അഭ്യർത്ഥിക്കാനും വ്യക്തിഗത വിവരങ്ങൾ ശേഖരിക്കാനും പണം നേടാനും ശ്രമിക്കുന്ന വ്യാജ മൊബൈൽ ആപ്ലിക്കേഷനുകൾ, വെബ്‌സൈറ്റുകൾ, സേവനങ്ങൾ എന്നിവയെക്കുറിച്ച് പൊതുജനങ്ങൾ ജാഗ്രത പുലർത്തണം.'
+          body: 'ധനം ഇൻവെസ്റ്റ്‌മെന്റ് ആൻഡ് ഫിനാൻസ് പ്രൈവറ്റ് ലിമിറ്റഡ് (<strong>"ധനം"</strong> അല്ലെങ്കിൽ <strong>"കമ്പനി"</strong>) നിലവിൽ ഒരു ഡിജിറ്റൽ പ്ലാറ്റ്‌ഫോമിലും ഡിജിറ്റൽ ലെൻഡിംഗ് ആപ്ലിക്കേഷനുകൾ (DLA) പ്രവർത്തിപ്പിക്കുന്നില്ല. ധനത്തിന്റെ ഔദ്യോഗിക മൊബൈൽ ആപ്ലിക്കേഷനുകൾ ഉടൻ Google Play Store-ലും Apple App Store-ലും പുറത്തിറങ്ങും &mdash; ആ ഔദ്യോഗിക ലോഞ്ച് വരെ, ധനം (അല്ലെങ്കിൽ അതിന്റെ മുൻഗാമിയായ കിയാര മൈക്രോക്രെഡിറ്റ് പ്രൈവറ്റ് ലിമിറ്റഡ്) എന്ന് അവകാശപ്പെടുന്ന ഏതൊരു മൊബൈൽ ആപ്ലിക്കേഷനും വെബ്‌സൈറ്റും സേവനവും വ്യാജമാണ്. ഞങ്ങളുടെ പേര്, ലോഗോ അല്ലെങ്കിൽ ഐഡന്റിറ്റി ദുരുപയോഗം ചെയ്ത് വായ്പ അഭ്യർത്ഥിക്കാനും വ്യക്തിഗത വിവരങ്ങൾ ശേഖരിക്കാനും പണം നേടാനും ശ്രമിക്കുന്ന അത്തരം ആൾമാറാട്ടക്കാരെ കുറിച്ച് പൊതുജനങ്ങൾ ജാഗ്രത പാലിക്കണം.<br><br><strong>വായ്പ അനുവദിക്കുന്നതിനോ അംഗീകരിക്കുന്നതിനോ പകരമായി ധനം ഏതൊരു ഉപഭോക്താവിൽ നിന്നും ഏതെങ്കിലും രൂപത്തിൽ പണം ഈടാക്കില്ല.</strong> വായ്പ അനുവദിക്കാനോ നൽകാനോ ഉള്ള വ്യവസ്ഥയായി മുൻകൂർ പണം, &ldquo;പ്രോസസ്സിംഗ്&rdquo; ഫീസ്, നിക്ഷേപം അല്ലെങ്കിൽ സമാനമായ തുക ആവശ്യപ്പെടുന്ന ഏതൊരു വ്യക്തിയും ആപ്ലിക്കേഷനും ധനത്തിനുവേണ്ടി പ്രവർത്തിക്കുന്നതല്ല; അത്തരം അഭ്യർത്ഥനകൾ ഉടൻ റിപ്പോർട്ട് ചെയ്യണം.'
         },
         {
           heading: 'നിരാകരണം',
-          body: 'അത്തരം വ്യാജ ഡിജിറ്റൽ ലെൻഡിംഗ് ആപ്ലിക്കേഷന്റെയോ ആൾമാറാട്ടക്കാരന്റെയോ അടിസ്ഥാനത്തിൽ പ്രവർത്തിക്കുന്നതോ അതിന് ഇരയാകുന്നതോ ആയ ഏതൊരു വ്യക്തിക്കുമുണ്ടാകുന്ന നഷ്ടം, നാശനഷ്ടം, പരിണതഫലം, ക്ലെയിം എന്നിവയ്ക്ക് ധനം ഫിനാൻസ് ഒരു വിധത്തിലും ഉത്തരവാദിയായിരിക്കില്ല. ഏതെങ്കിലും മൂന്നാം കക്ഷിയുടെ ഉത്പന്നങ്ങൾ, സേവനങ്ങൾ, ഉപദേശങ്ങൾ അല്ലെങ്കിൽ ആശയവിനിമയങ്ങൾ മൂലമുണ്ടാകുന്ന ഏതൊരു നഷ്ടം, നാശനഷ്ടം അല്ലെങ്കിൽ ദോഷത്തിനും, അത്തരം മൂന്നാം കക്ഷി കമ്പനിയുമായി ബന്ധപ്പെട്ടവരായി പ്രതിനിധീകരിക്കപ്പെട്ടാലും ഇല്ലെങ്കിലും, ധനം ഫിനാൻസ് ഉത്തരവാദിയായിരിക്കില്ല.'
+          body: 'അത്തരം വ്യാജ ഡിജിറ്റൽ ലെൻഡിംഗ് ആപ്ലിക്കേഷന്റെയോ ആൾമാറാട്ടക്കാരന്റെയോ അടിസ്ഥാനത്തിൽ പ്രവർത്തിക്കുന്നതോ അതിന് ഇരയാകുന്നതോ ആയ ഏതൊരു വ്യക്തിക്കുമുണ്ടാകുന്ന നഷ്ടം, നാശനഷ്ടം, പരിണതഫലം, ക്ലെയിം എന്നിവയ്ക്ക് ധനം ഒരു വിധത്തിലും ഉത്തരവാദിയായിരിക്കില്ല. ഏതെങ്കിലും മൂന്നാം കക്ഷിയുടെ ഉത്പന്നങ്ങൾ, സേവനങ്ങൾ, ഉപദേശങ്ങൾ അല്ലെങ്കിൽ ആശയവിനിമയങ്ങൾ മൂലമുണ്ടാകുന്ന ഏതൊരു നഷ്ടം, നാശനഷ്ടം അല്ലെങ്കിൽ ദോഷത്തിനും, അത്തരം മൂന്നാം കക്ഷി കമ്പനിയുമായി ബന്ധപ്പെട്ടവരായി പ്രതിനിധീകരിക്കപ്പെട്ടാലും ഇല്ലെങ്കിലും, ധനം ഉത്തരവാദിയായിരിക്കില്ല.'
         },
         {
           heading: 'പൊതു നിരാകരണം',
-          body: 'ഈ വെബ്‌സൈറ്റിൽ ലഭ്യമാക്കിയിട്ടുള്ള വിവരങ്ങൾ, ഉള്ളടക്കം, ഉപദേശങ്ങൾ, നിർദ്ദേശങ്ങൾ, ചിത്രീകരണങ്ങൾ, അറിയിപ്പുകൾ, സർക്കുലറുകൾ മറ്റ് ആശയവിനിമയങ്ങൾ (കൂട്ടായി <strong>"ഉള്ളടക്കം"</strong> എന്ന് വിളിക്കപ്പെടുന്നു) പൊതുവായ വിവരദാനത്തിനായി മാത്രമാണ് പ്രസിദ്ധീകരിച്ചിരിക്കുന്നത്. ഉള്ളടക്കത്തിലെ പിശകുകൾക്കോ വിട്ടുപോകലുകൾക്കോ ധനം ഫിനാൻസ് ഉത്തരവാദിയായിരിക്കില്ല, ഉള്ളടക്കത്തിന്റെ അടിസ്ഥാനത്തിൽ ഒരു നിയമപരമായ ബാധ്യതയും സ്വീകരിക്കുന്നില്ല. ഉള്ളടക്കത്തിന്റെ ഏതു ഭാഗവും മുൻകൂർ അറിയിപ്പില്ലാതെ പരിഷ്കരിക്കാനും അപ്ഡേറ്റ് ചെയ്യാനും നീക്കം ചെയ്യാനും ധനം ഫിനാൻസിന് അതിന്റെ പൂർണ്ണ വിവേചനാധികാരത്തിൽ അവകാശമുണ്ട്. ധനം ഇൻവെസ്റ്റ്മെന്റ് ആൻഡ് ഫിനാൻസ് പ്രൈവറ്റ് ലിമിറ്റഡിന്റെ മുൻകൂർ രേഖാമൂലമുള്ള സമ്മതമില്ലാതെ, ഉള്ളടക്കത്തിന്റെ ഒരു ഭാഗവും, മുഴുവനായി അല്ലെങ്കിൽ ഭാഗികമായി, ഏതെങ്കിലും രൂപത്തിലോ മാധ്യമത്തിലോ പുനർനിർമ്മിക്കുകയോ പ്രദർശിപ്പിക്കുകയോ വിതരണം ചെയ്യുകയോ പ്രിന്റ് ചെയ്യുകയോ ചെയ്യാൻ പാടില്ല.'
+          body: 'ഈ വെബ്‌സൈറ്റിൽ ലഭ്യമാക്കിയിട്ടുള്ള വിവരങ്ങൾ, ഉള്ളടക്കം, ഉപദേശങ്ങൾ, നിർദ്ദേശങ്ങൾ, ചിത്രീകരണങ്ങൾ, അറിയിപ്പുകൾ, സർക്കുലറുകൾ മറ്റ് ആശയവിനിമയങ്ങൾ (കൂട്ടായി <strong>"ഉള്ളടക്കം"</strong> എന്ന് വിളിക്കപ്പെടുന്നു) പൊതുവായ വിവരദാനത്തിനായി മാത്രമാണ് പ്രസിദ്ധീകരിച്ചിരിക്കുന്നത്. ഉള്ളടക്കത്തിലെ പിശകുകൾക്കോ വിട്ടുപോകലുകൾക്കോ ധനം ഉത്തരവാദിയായിരിക്കില്ല, ഉള്ളടക്കത്തിന്റെ അടിസ്ഥാനത്തിൽ ഒരു നിയമപരമായ ബാധ്യതയും സ്വീകരിക്കുന്നില്ല. ഉള്ളടക്കത്തിന്റെ ഏതു ഭാഗവും മുൻകൂർ അറിയിപ്പില്ലാതെ പരിഷ്കരിക്കാനും അപ്ഡേറ്റ് ചെയ്യാനും നീക്കം ചെയ്യാനും ധനത്തിന് അതിന്റെ പൂർണ്ണ വിവേചനാധികാരത്തിൽ അവകാശമുണ്ട്. ധനം ഇൻവെസ്റ്റ്മെന്റ് ആൻഡ് ഫിനാൻസ് പ്രൈവറ്റ് ലിമിറ്റഡിന്റെ മുൻകൂർ രേഖാമൂലമുള്ള സമ്മതമില്ലാതെ, ഉള്ളടക്കത്തിന്റെ ഒരു ഭാഗവും, മുഴുവനായി അല്ലെങ്കിൽ ഭാഗികമായി, ഏതെങ്കിലും രൂപത്തിലോ മാധ്യമത്തിലോ പുനർനിർമ്മിക്കുകയോ പ്രദർശിപ്പിക്കുകയോ വിതരണം ചെയ്യുകയോ പ്രിന്റ് ചെയ്യുകയോ ചെയ്യാൻ പാടില്ല.'
+        }
+      ]
+    },
+    hi: {
+      langLabel: 'हिन्दी',
+      closeLabel: 'बंद करें',
+      understood: 'मैं समझ गया',
+      sections: [
+        {
+          heading: 'सावधान',
+          body: 'धनम इन्वेस्टमेंट एंड फाइनेंस प्राइवेट लिमिटेड (<strong>"धनम"</strong> या <strong>"कंपनी"</strong>) वर्तमान में किसी भी डिजिटल प्लेटफ़ॉर्म पर कोई भी डिजिटल ऋण ऐप्लिकेशन (DLA) संचालित नहीं करती है। धनम के आधिकारिक मोबाइल ऐप्लिकेशन शीघ्र ही Google Play Store और Apple App Store पर लॉन्च किए जाएंगे &mdash; उस आधिकारिक लॉन्च तक, धनम (या इसकी पूर्ववर्ती कंपनी कियारा माइक्रोक्रेडिट प्राइवेट लिमिटेड) होने का दावा करने वाला कोई भी मोबाइल ऐप्लिकेशन, वेबसाइट या सेवा धोखाधड़ी है। हमारे नाम, लोगो या पहचान का दुरुपयोग करके ऋण मांगने, व्यक्तिगत जानकारी एकत्र करने या भुगतान प्राप्त करने का प्रयास करने वाले ऐसे धोखेबाज़ों से आम जनता को सावधान रहना चाहिए।<br><br><strong>ऋण स्वीकृत करने या देने के बदले में धनम किसी भी ग्राहक से, किसी भी रूप में, कोई शुल्क नहीं लेती है।</strong> ऋण स्वीकृति या वितरण की शर्त के रूप में अग्रिम भुगतान, &ldquo;प्रोसेसिंग&rdquo; शुल्क, जमा राशि या समान कोई भी राशि मांगने वाला कोई भी व्यक्ति या ऐप्लिकेशन धनम की ओर से कार्य नहीं कर रहा है; ऐसे अनुरोधों की तुरंत शिकायत की जानी चाहिए।'
+        },
+        {
+          heading: 'अस्वीकरण',
+          body: 'ऐसे किसी भी धोखाधड़ी वाले डिजिटल ऋण ऐप्लिकेशन या प्रतिरूपणकर्ता पर विश्वास करके कार्य करने वाले या उसका शिकार होने वाले किसी भी व्यक्ति को होने वाली किसी भी हानि, क्षति, परिणाम या दावे के लिए धनम किसी भी प्रकार से उत्तरदायी नहीं होगी। किसी भी तृतीय पक्ष के उत्पादों, सेवाओं, सलाह या संचार से उत्पन्न होने वाली किसी भी हानि, क्षति या नुकसान के लिए भी धनम कोई उत्तरदायित्व नहीं लेगी, चाहे ऐसे तृतीय पक्ष को कंपनी से जुड़ा हुआ दर्शाया गया हो या नहीं।'
+        },
+        {
+          heading: 'सामान्य अस्वीकरण',
+          body: 'इस वेबसाइट पर उपलब्ध कराई गई जानकारी, सामग्री, सलाह, सुझाव, चित्रण, सूचनाएँ, परिपत्र और अन्य संचार (सामूहिक रूप से, <strong>"सामग्री"</strong>) केवल सामान्य सूचनात्मक उद्देश्यों के लिए प्रकाशित की जाती है। धनम सामग्री में किसी भी त्रुटि या चूक के लिए किसी भी दायित्व से इनकार करती है और सामग्री के आधार पर किसी भी कानूनी दायित्व को स्वीकार नहीं करती है। धनम अपने एकमात्र विवेक पर, पूर्व सूचना के बिना सामग्री के किसी भी भाग को संशोधित, अद्यतन या हटाने का अधिकार सुरक्षित रखती है। धनम इन्वेस्टमेंट एंड फाइनेंस प्राइवेट लिमिटेड की पूर्व लिखित सहमति के बिना, सामग्री के किसी भी भाग को, पूर्ण या आंशिक रूप से, किसी भी रूप या माध्यम में, पुनरुत्पादित, प्रदर्शित, वितरित या मुद्रित नहीं किया जा सकता है।'
         }
       ]
     }
   };
 
-  var LANG_ORDER = ['en', 'ta', 'ml'];
+  var LANG_ORDER = ['en', 'ta', 'ml', 'hi'];
 
   // -----------------------------------------------------------
   // INJECT STYLES
@@ -181,6 +200,10 @@
     '  font-family: "Noto Sans Malayalam", "Inter", sans-serif;',
     '  font-size: 0.95rem;',
     '}',
+    '.dhanam-disclaimer[data-lang="hi"] .dhanam-disclaimer__body {',
+    '  font-family: "Noto Sans Devanagari", "Inter", sans-serif;',
+    '  font-size: 0.95rem;',
+    '}',
     '.dhanam-disclaimer__footer {',
     '  padding: 14px 24px 18px;',
     '  display: flex; justify-content: flex-end;',
@@ -232,7 +255,7 @@
 
   function buildDOM() {
     // Titles per language
-    var titles = { en: 'Important Information', ta: 'முக்கிய தகவல்', ml: 'പ്രധാന വിവരം' };
+    var titles = { en: 'Important Information', ta: 'முக்கிய தகவல்', ml: 'പ്രധാന വിവരം', hi: 'महत्वपूर्ण सूचना' };
 
     backdropEl = document.createElement('div');
     backdropEl.className = 'dhanam-disclaimer-backdrop';

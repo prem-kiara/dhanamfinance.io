@@ -1,5 +1,5 @@
 /* ============================================
-   DHANAM FINANCE - MAIN JAVASCRIPT
+   DHANAM - MAIN JAVASCRIPT
    Shared functionality and interactions
    ============================================ */
 
