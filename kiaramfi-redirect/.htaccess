@@ -1,0 +1,22 @@
+# =====================================================================
+# kiaramfi.com -> dhanamfinance.com  (301 Permanent Redirect)
+# =====================================================================
+# Deploy this file at the web root of the kiaramfi.com hosting account.
+# Works on Apache shared hosting (cPanel / most Indian hosts).
+# After deploying, delete all other old KMCL website files from the
+# hosting account so there is nothing left to serve.
+# =====================================================================
+
+RewriteEngine On
+
+# Force HTTPS + apex (optional but recommended)
+RewriteCond %{HTTPS} !=on [OR]
+RewriteCond %{HTTP_HOST} ^www\.kiaramfi\.com$ [NC]
+RewriteRule ^(.*)$ https://dhanamfinance.com/$1 [R=301,L]
+
+# Redirect every remaining request to the Dhanam homepage.
+# We do NOT try to map old .php URLs to new .html URLs one-to-one
+# because the site has been fully rebranded and content has moved.
+# If you later want per-page mapping, replace this block with explicit
+# RewriteRule lines (e.g. policies.php -> policies.html).
+RewriteRule ^.*$ https://dhanamfinance.com/ [R=301,L]
