@@ -105,7 +105,6 @@
             <li><a href="advisory.html"><div class="dd-icon" style="background:#F5F3EE;color:#8B6914;"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2l2.4 7.4H22l-6.2 4.5 2.4 7.4L12 16.8l-6.2 4.5 2.4-7.4L2 9.4h7.6z"/></svg></div><div><strong>Advisory Committee</strong><br><small style="color:var(--gray-400)">Expert advisors</small></div></a></li>
           </ul>
         </li>
-        <li><a href="investors.html" class="nav__link">Investments</a></li>
         <li><a href="policies.html" class="nav__link">Policies</a></li>
         <li><a href="contact.html" class="nav__link">Contact</a></li>
       </ul>
@@ -125,7 +124,6 @@
         <li><a href="directors.html">Our Team</a></li>
         <li><a href="advisory.html">Advisory Committee</a></li>
         <li class="nav__mobile-group-title">More</li>
-        <li><a href="investors.html">Investments</a></li>
         <li><a href="policies.html">Policies</a></li>
         <li><a href="contact.html">Contact</a></li>
       </ul>
@@ -251,10 +249,9 @@
         <div>
           <span style="display:inline-block;font-size:0.85rem;font-weight:600;text-transform:uppercase;letter-spacing:0.1em;color:var(--primary-light);margin-bottom:var(--space-sm);">Investment Opportunity</span>
           <h2 style="color:#fff;font-size:2.5rem;line-height:1.2;margin-bottom:var(--space-lg);">Earn up to <span style="color:var(--primary-light);">20% returns</span> with Dhanam NCDs</h2>
-          <p style="color:rgba(255,255,255,0.8);font-size:1.05rem;line-height:1.8;margin-bottom:var(--space-xl);">Invest in secured <a href="investors.html" style="color:var(--primary-light);text-decoration:underline;">Non-Convertible Debentures from a trusted RBI-licensed NBFC in Tamil Nadu</a>. Choose from monthly income, annual payouts, cumulative compounding, or our flagship Doubling Scheme. Senior citizens enjoy an additional 0.5% on selected schemes.</p>
+          <p style="color:rgba(255,255,255,0.8);font-size:1.05rem;line-height:1.8;margin-bottom:var(--space-xl);">Invest in secured Non-Convertible Debentures from a trusted RBI-licensed NBFC in Tamil Nadu. Choose from monthly income, annual payouts, cumulative compounding, or our flagship Doubling Scheme. Senior citizens enjoy an additional 0.5% on selected schemes.</p>
           <div class="home-ncd-ctas" style="display:flex;gap:var(--space-md);flex-wrap:wrap;">
-            <a href="investors.html" class="btn btn--gold btn--lg home-ncd-cta">Explore NCD Schemes</a>
-            <a href="investors.html#investor-faq" class="btn btn--lg home-ncd-cta" style="background:transparent;color:#fff;border:2px solid rgba(255,255,255,0.3);">NCD Investor FAQs</a>
+            <button type="button" class="btn btn--gold btn--lg home-ncd-cta" data-open-ncd-contact>Contact us for ongoing NCD details</button>
           </div>
         </div>
         <div style="display:grid;grid-template-columns:repeat(2,1fr);gap:var(--space-md);">
@@ -278,7 +275,7 @@
       </div>
     </div>
     <style>
-      /* Uniform size for the two homepage NCD CTAs only — scoped by .home-ncd-cta */
+      /* Uniform size for the homepage NCD CTA — scoped by .home-ncd-cta */
       .home-ncd-cta {
         min-width: 240px;
         min-height: 58px;
@@ -291,6 +288,93 @@
         .home-ncd-cta { width: 100%; min-width: 0; }
       }
     </style>
+    <!-- NCD CONTACT MODAL -->
+    <div id="ncd-contact-modal" class="ncd-modal" role="dialog" aria-modal="true" aria-labelledby="ncd-contact-title" aria-hidden="true">
+      <div class="ncd-modal__backdrop" data-close-ncd-contact></div>
+      <div class="ncd-modal__panel">
+        <button type="button" class="ncd-modal__close" aria-label="Close" data-close-ncd-contact>
+          <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6L6 18"/><path d="M6 6l12 12"/></svg>
+        </button>
+        <h3 id="ncd-contact-title" class="ncd-modal__title">Contact us for ongoing NCD details</h3>
+        <p class="ncd-modal__subtitle">Reach our investor desk via WhatsApp or our toll-free line.</p>
+        <div class="ncd-modal__actions">
+          <a href="https://wa.me/917305022272" target="_blank" rel="noopener" class="ncd-modal__cta ncd-modal__cta--whatsapp">
+            <svg viewBox="0 0 24 24" width="22" height="22" fill="currentColor" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.625.846 5.059 2.284 7.034L.789 23.49a.75.75 0 00.914.914l4.456-1.495A11.952 11.952 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22c-2.287 0-4.4-.763-6.097-2.05a.75.75 0 00-.653-.129l-3.032 1.017 1.017-3.032a.75.75 0 00-.129-.653A9.96 9.96 0 012 12C2 6.477 6.477 2 12 2s10 4.477 10 10-4.477 10-10 10z"/></svg>
+            <span>
+              <span class="ncd-modal__cta-label">WhatsApp us</span>
+              <span class="ncd-modal__cta-value">+91 73050 22272</span>
+            </span>
+          </a>
+          <a href="tel:18002025180" class="ncd-modal__cta ncd-modal__cta--call">
+            <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.86 19.86 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.86 19.86 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72c.13.96.37 1.9.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.91.33 1.85.57 2.81.7A2 2 0 0122 16.92z"/></svg>
+            <span>
+              <span class="ncd-modal__cta-label">Call us toll free</span>
+              <span class="ncd-modal__cta-value">1800 2025 180</span>
+            </span>
+          </a>
+        </div>
+      </div>
+    </div>
+    <style>
+      .ncd-modal { position: fixed; inset: 0; z-index: 10040; display: none; align-items: center; justify-content: center; padding: 24px; }
+      .ncd-modal.is-open { display: flex; }
+      .ncd-modal__backdrop { position: absolute; inset: 0; background: rgba(15, 26, 46, 0.55); backdrop-filter: blur(2px); }
+      .ncd-modal__panel {
+        position: relative; background: #fff; width: 100%; max-width: 460px;
+        border-radius: 14px; padding: 28px 28px 24px;
+        box-shadow: 0 24px 60px rgba(0,0,0,0.25);
+        font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+        animation: ncdModalIn 0.22s ease;
+      }
+      @keyframes ncdModalIn { from { transform: translateY(12px) scale(0.98); opacity: 0; } to { transform: none; opacity: 1; } }
+      .ncd-modal__close {
+        position: absolute; top: 12px; right: 12px;
+        background: transparent; border: none; cursor: pointer;
+        width: 34px; height: 34px; border-radius: 50%;
+        display: flex; align-items: center; justify-content: center;
+        color: var(--gray-600, #555);
+      }
+      .ncd-modal__close:hover { background: rgba(0,0,0,0.06); color: var(--navy, #0F1A2E); }
+      .ncd-modal__title { margin: 0 32px 6px 0; font-family: "DM Serif Display", Georgia, serif; font-size: 1.35rem; color: var(--navy, #0F1A2E); }
+      .ncd-modal__subtitle { margin: 0 0 18px; color: var(--gray-600, #555); font-size: 0.95rem; line-height: 1.55; }
+      .ncd-modal__actions { display: flex; flex-direction: column; gap: 12px; }
+      .ncd-modal__cta {
+        display: flex; align-items: center; gap: 14px;
+        padding: 14px 16px; border-radius: 10px;
+        text-decoration: none; color: #fff;
+        font-weight: 600;
+        transition: transform 0.15s ease, box-shadow 0.15s ease, filter 0.15s ease;
+      }
+      .ncd-modal__cta:hover { transform: translateY(-1px); box-shadow: 0 8px 20px rgba(0,0,0,0.12); filter: brightness(1.05); }
+      .ncd-modal__cta--whatsapp { background: #25D366; }
+      .ncd-modal__cta--call { background: var(--primary, #B8860B); }
+      .ncd-modal__cta-label { display: block; font-size: 0.78rem; opacity: 0.9; font-weight: 500; }
+      .ncd-modal__cta-value { display: block; font-size: 1.05rem; }
+      body.ncd-modal-open { overflow: hidden; }
+    </style>
+    <script>
+      (function () {
+        var modal = document.getElementById('ncd-contact-modal');
+        if (!modal) return;
+        var openers = document.querySelectorAll('[data-open-ncd-contact]');
+        var closers = modal.querySelectorAll('[data-close-ncd-contact]');
+        function open() {
+          modal.classList.add('is-open');
+          modal.setAttribute('aria-hidden', 'false');
+          document.body.classList.add('ncd-modal-open');
+        }
+        function close() {
+          modal.classList.remove('is-open');
+          modal.setAttribute('aria-hidden', 'true');
+          document.body.classList.remove('ncd-modal-open');
+        }
+        openers.forEach(function (b) { b.addEventListener('click', open); });
+        closers.forEach(function (b) { b.addEventListener('click', close); });
+        document.addEventListener('keydown', function (e) {
+          if (e.key === 'Escape' && modal.classList.contains('is-open')) close();
+        });
+      })();
+    </script>
   </section>
 
   <!-- FOOTER -->
