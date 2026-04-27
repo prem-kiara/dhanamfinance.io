@@ -134,7 +134,7 @@
       calcHomeEMI();
     }
 
-    // Mortgage page EMI calculator with number inputs
+    // Loan Against Property page EMI calculator with number inputs
     var mortgageLoanAmt = document.getElementById('emi-loan-amount');
     var mortgageRate = document.getElementById('emi-rate');
     var mortgageTenure = document.getElementById('emi-tenure');
