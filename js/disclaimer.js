@@ -1,9 +1,12 @@
 /* ==============================================================
    DHANAM — DISCLAIMER POPUP
    --------------------------------------------------------------
-   Auto-opens on every page load. Contains CAUTION / DISCLAIMER /
-   GENERAL DISCLAIMER sections in English, Tamil, Malayalam, and
-   Hindi. Self-contained: injects its own CSS + DOM, no deps.
+   Auto-opens once per browser session (tracked via sessionStorage).
+   Re-shows after the tab/window is closed and the site is launched
+   again. Internal navigation does NOT re-trigger it. Contains
+   CAUTION / DISCLAIMER / GENERAL DISCLAIMER sections in English,
+   Tamil, Malayalam, and Hindi. Self-contained: injects its own
+   CSS + DOM, no deps.
    ============================================================== */
 
 (function () {
@@ -411,8 +414,21 @@
     document.addEventListener('keydown', keydownHandler);
   }
 
+  // sessionStorage flag — persists for the life of the browser tab/window
+  // so the modal only fires on the first page launched, not on internal nav.
+  var STORAGE_KEY = 'dhanamDisclaimerAcknowledged';
+
+  function markAcknowledged() {
+    try { window.sessionStorage.setItem(STORAGE_KEY, '1'); } catch (_) { /* storage may be unavailable */ }
+  }
+
+  function hasAcknowledged() {
+    try { return window.sessionStorage.getItem(STORAGE_KEY) === '1'; } catch (_) { return false; }
+  }
+
   function close() {
     if (!backdropEl) return;
+    markAcknowledged();
     backdropEl.classList.remove('is-open');
     document.body.classList.remove('dhanam-disclaimer-open');
     if (keydownHandler) {
@@ -429,6 +445,10 @@
   // -----------------------------------------------------------
   function boot() {
     injectStyles();
+    // If the user already saw the disclaimer this browser session,
+    // don't auto-open on internal navigation. The modal can still be
+    // triggered manually via window.DhanamDisclaimer.open() if needed.
+    if (hasAcknowledged()) return;
     buildDOM();
     // Small delay so the page has a moment to paint before the modal
     setTimeout(open, 300);
