@@ -1251,12 +1251,11 @@ const SECTIONS = [
 ];
 
 // ============== CONFIG ==============
-// FormSubmit.co — free, supports PDF attachments. No API key needed.
-// First submission to this address triggers an activation email at mgmt@dhanam.finance —
-// click the link inside ONCE, and all future submissions arrive automatically.
-const SUBMISSION_RECIPIENT = "mgmt@dhanam.finance";
+// Web3Forms — free tier supports unlimited text fields (no attachments on free, so we
+// embed the full Q&A text directly in the email body). Sign up at https://web3forms.com,
+// enter mgmt@dhanam.finance as destination, paste the access key below.
+const WEB3FORMS_ACCESS_KEY = "79add80c-a585-4b02-beba-2c3e8dfd03b7";
 const SUBMISSION_RECIPIENT_LABEL = "mgmt@dhanam.finance";
-const FORMSUBMIT_ENDPOINT = "https://formsubmit.co/" + SUBMISSION_RECIPIENT;
 
 // ============== STATE ==============
 const TOTAL_TEST_SECONDS = 40 * 60;
@@ -1803,42 +1802,68 @@ function downloadResponses() {
   doc.save(filename);
 }
 
-// ----- Email flow: build PDF as blob, post to FormSubmit (free, supports attachments) -----
+// ----- Build full Q&A as readable text -----
+function buildFullAnswersText(p) {
+  let out = "";
+  out += "DHANAM ENGINEERING INTERNSHIP — TEST SUBMISSION\n";
+  out += "===============================================\n\n";
+  out += "Candidate:       " + p.candidate.name + "\n";
+  out += "College / Dept:  " + p.candidate.college + "\n";
+  out += "Email:           " + (p.candidate.email || "(not provided)") + "\n";
+  out += "Started:         " + new Date(p.startedAt).toLocaleString("en-IN") + "\n";
+  out += "Submitted:       " + new Date(p.submittedAt).toLocaleString("en-IN") + "\n";
+  out += "Duration:        " + p.durationFormatted + "\n";
+  out += "Tab switches:    " + p.tabSwitches + (p.tabSwitches > 0 ? "  <-- FLAG" : "") + "\n";
+  if (p.easterEggFound) out += "Curiosity Bonus: TRIGGERED (positive signal)\n";
+  out += "\n";
+
+  SECTIONS.forEach(sec => {
+    out += "\n";
+    out += "----------------------------------------------\n";
+    out += "  " + sec.eyebrow.toUpperCase() + " — " + sec.title.replace(/<\/?em>/g, "").replace(/\.$/, "").toUpperCase() + "\n";
+    out += "----------------------------------------------\n\n";
+    sec.questions.forEach(q => {
+      out += "[" + q.id + "]  (" + q.marks + " " + (q.marks === 1 ? "mark" : "marks") + ")\n";
+      out += "Q: " + q.q.replace(/\*\*(.+?)\*\*/g, "$1").replace(/_(.+?)_/g, "$1") + "\n";
+      if (q.code) out += "\n   [code]\n   " + q.code.split("\n").join("\n   ") + "\n";
+      if (q.quote) out += "\n   [quote]\n   " + q.quote.split("\n").join("\n   ") + "\n";
+      out += "\nANSWER:\n";
+      const ans = (p.responses[q.id] || "").trim();
+      out += (ans || "(blank)") + "\n\n";
+      out += "···\n\n";
+    });
+  });
+  return out;
+}
+
+// ----- Email flow: post to Web3Forms with everything in the body (no attachment needed) -----
 async function emailSubmissionToManagement() {
   if (!cachedSubmissionPayload) return { ok: false, reason: "no-payload" };
-  const doc = buildSubmissionPdf();
-  if (!doc) return { ok: false, reason: "no-doc" };
-
+  if (!WEB3FORMS_ACCESS_KEY || WEB3FORMS_ACCESS_KEY.startsWith("REPLACE_")) {
+    return { ok: false, reason: "no-key" };
+  }
   const p = cachedSubmissionPayload;
-  const submittedDate = new Date(p.submittedAt);
-  const filename = buildFilename(p.candidate.name, submittedDate);
-
-  // Get PDF as Blob (also as base64 fallback in the email body in case attachment is stripped)
-  const pdfBlob = doc.output("blob");
 
   const fd = new FormData();
-  // FormSubmit control fields (prefixed with underscore)
-  fd.append("_subject", `Dhanam Internship Test · ${p.candidate.name} · ${p.candidate.college}`);
-  fd.append("_template", "table");          // nicer email layout
-  fd.append("_captcha", "false");           // skip captcha for automated submits
-  fd.append("_autoresponse", "");           // no auto-reply to candidate
-  // Body fields — appear as a table in the email
+  fd.append("access_key", WEB3FORMS_ACCESS_KEY);
+  fd.append("subject", `Dhanam Internship Test · ${p.candidate.name} · ${p.candidate.college}`);
+  fd.append("from_name", "Dhanam Internship Test");
+  // Header table fields (Web3Forms renders these as a clean table at the top of the email)
   fd.append("Candidate Name", p.candidate.name);
   fd.append("College / Department", p.candidate.college);
   fd.append("Candidate Email", p.candidate.email || "(not provided)");
-  fd.append("Started At", new Date(p.startedAt).toLocaleString("en-IN", { dateStyle: "medium", timeStyle: "medium" }));
-  fd.append("Submitted At", submittedDate.toLocaleString("en-IN", { dateStyle: "medium", timeStyle: "medium" }));
+  fd.append("Submitted At", new Date(p.submittedAt).toLocaleString("en-IN", { dateStyle: "medium", timeStyle: "medium" }));
   fd.append("Duration", p.durationFormatted);
-  fd.append("Tab Switches", String(p.tabSwitches));
-  fd.append("Curiosity Bonus", p.easterEggFound ? "TRIGGERED (positive signal)" : "—");
-  // PDF attachment — FormSubmit expects a file input named "attachment"
-  fd.append("attachment", pdfBlob, filename);
+  fd.append("Tab Switches", String(p.tabSwitches) + (p.tabSwitches > 0 ? "  ← FLAG" : ""));
+  if (p.easterEggFound) fd.append("Curiosity Bonus", "TRIGGERED (positive signal)");
+  // Full Q&A as one long text field — appears as a code/preformatted block in the email body
+  fd.append("Full Submission", buildFullAnswersText(p));
 
   try {
-    // no-cors so we can POST cross-origin. We can't read the response, but the
-    // request reliably goes through (FormSubmit confirmed this pattern in their docs).
-    await fetch(FORMSUBMIT_ENDPOINT, { method: "POST", body: fd, mode: "no-cors" });
-    return { ok: true };
+    const res = await fetch("https://api.web3forms.com/submit", { method: "POST", body: fd });
+    const data = await res.json().catch(() => ({}));
+    if (data && data.success === true) return { ok: true };
+    return { ok: false, reason: (data && data.message) || "submission failed" };
   } catch (e) {
     return { ok: false, reason: e.message || "network error" };
   }
