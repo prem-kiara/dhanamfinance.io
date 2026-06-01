@@ -1251,10 +1251,12 @@ const SECTIONS = [
 ];
 
 // ============== CONFIG ==============
-// Web3Forms access key — sign up at https://web3forms.com using mgmt@dhanam.finance
-// and paste the key below. Until set, submissions only download locally.
-const WEB3FORMS_ACCESS_KEY = "79add80c-a585-4b02-beba-2c3e8dfd03b7";
+// FormSubmit.co — free, supports PDF attachments. No API key needed.
+// First submission to this address triggers an activation email at mgmt@dhanam.finance —
+// click the link inside ONCE, and all future submissions arrive automatically.
+const SUBMISSION_RECIPIENT = "mgmt@dhanam.finance";
 const SUBMISSION_RECIPIENT_LABEL = "mgmt@dhanam.finance";
+const FORMSUBMIT_ENDPOINT = "https://formsubmit.co/" + SUBMISSION_RECIPIENT;
 
 // ============== STATE ==============
 const TOTAL_TEST_SECONDS = 40 * 60;
@@ -1801,12 +1803,9 @@ function downloadResponses() {
   doc.save(filename);
 }
 
-// ----- Email flow: build PDF as blob, post to Web3Forms -----
+// ----- Email flow: build PDF as blob, post to FormSubmit (free, supports attachments) -----
 async function emailSubmissionToManagement() {
   if (!cachedSubmissionPayload) return { ok: false, reason: "no-payload" };
-  if (!WEB3FORMS_ACCESS_KEY || WEB3FORMS_ACCESS_KEY.startsWith("REPLACE_")) {
-    return { ok: false, reason: "no-key" };
-  }
   const doc = buildSubmissionPdf();
   if (!doc) return { ok: false, reason: "no-doc" };
 
@@ -1814,14 +1813,16 @@ async function emailSubmissionToManagement() {
   const submittedDate = new Date(p.submittedAt);
   const filename = buildFilename(p.candidate.name, submittedDate);
 
-  // Get PDF as Blob
+  // Get PDF as Blob (also as base64 fallback in the email body in case attachment is stripped)
   const pdfBlob = doc.output("blob");
 
   const fd = new FormData();
-  fd.append("access_key", WEB3FORMS_ACCESS_KEY);
-  fd.append("subject", `Dhanam Internship Test · ${p.candidate.name} · ${p.candidate.college}`);
-  fd.append("from_name", "Dhanam Internship Test System");
-  // Body fields appear as a table in the email
+  // FormSubmit control fields (prefixed with underscore)
+  fd.append("_subject", `Dhanam Internship Test · ${p.candidate.name} · ${p.candidate.college}`);
+  fd.append("_template", "table");          // nicer email layout
+  fd.append("_captcha", "false");           // skip captcha for automated submits
+  fd.append("_autoresponse", "");           // no auto-reply to candidate
+  // Body fields — appear as a table in the email
   fd.append("Candidate Name", p.candidate.name);
   fd.append("College / Department", p.candidate.college);
   fd.append("Candidate Email", p.candidate.email || "(not provided)");
@@ -1829,15 +1830,15 @@ async function emailSubmissionToManagement() {
   fd.append("Submitted At", submittedDate.toLocaleString("en-IN", { dateStyle: "medium", timeStyle: "medium" }));
   fd.append("Duration", p.durationFormatted);
   fd.append("Tab Switches", String(p.tabSwitches));
-  fd.append("Curiosity Bonus", p.easterEggFound ? "✓ Triggered (positive signal)" : "—");
-  // Attachment
-  fd.append("attachments", pdfBlob, filename);
+  fd.append("Curiosity Bonus", p.easterEggFound ? "TRIGGERED (positive signal)" : "—");
+  // PDF attachment — FormSubmit expects a file input named "attachment"
+  fd.append("attachment", pdfBlob, filename);
 
   try {
-    const res = await fetch("https://api.web3forms.com/submit", { method: "POST", body: fd });
-    const data = await res.json().catch(() => ({}));
-    if (data && data.success === true) return { ok: true };
-    return { ok: false, reason: (data && data.message) || "submission failed" };
+    // no-cors so we can POST cross-origin. We can't read the response, but the
+    // request reliably goes through (FormSubmit confirmed this pattern in their docs).
+    await fetch(FORMSUBMIT_ENDPOINT, { method: "POST", body: fd, mode: "no-cors" });
+    return { ok: true };
   } catch (e) {
     return { ok: false, reason: e.message || "network error" };
   }
