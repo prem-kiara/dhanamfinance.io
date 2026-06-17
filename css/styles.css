@@ -2989,3 +2989,14 @@ section.hero--dark {
     color: var(--navy);
   }
 }
+
+
+/* ── App download badges (footer) ── */
+.footer__app-strip { border-top:1px solid rgba(0,0,0,0.08); padding:var(--space-lg) 0; }
+.footer__app-inner { display:flex; align-items:center; justify-content:center; gap:var(--space-lg); flex-wrap:wrap; text-align:center; }
+.footer__app-label { color:var(--navy); font-weight:600; font-size:0.95rem; }
+.footer__app-badges { display:flex; align-items:center; gap:14px; flex-wrap:wrap; justify-content:center; }
+.footer__app-badges a { display:inline-flex; transition:transform .2s ease, opacity .2s ease; }
+.footer__app-badges a:hover { transform:translateY(-2px); opacity:.9; }
+.footer__app-badges img { height:48px; width:auto; display:block; }
+@media (max-width:600px){ .footer__app-inner{ flex-direction:column; gap:var(--space-md); } }
