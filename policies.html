@@ -250,6 +250,16 @@
           </div>
         </a>
 
+        <a href="javascript:void(0)" onclick="openPolicyModal('locker-policy')" id="locker-policy" class="fade-up" style="display:flex;align-items:flex-start;gap:var(--space-lg);padding:var(--space-xl) var(--space-2xl);background:white;border:1px solid var(--gray-200);border-radius:var(--radius-lg);text-decoration:none;transition:all 0.3s ease;border-left:3px solid var(--primary);cursor:pointer;">
+          <div style="flex-shrink:0;width:44px;height:44px;border-radius:50%;background:linear-gradient(135deg,var(--primary),var(--primary-light));display:flex;align-items:center;justify-content:center;">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="12" cy="12" r="3.5"/><line x1="12" y1="12" x2="14.5" y2="9.5"/><line x1="7" y1="3" x2="7" y2="6"/></svg>
+          </div>
+          <div>
+            <h3 style="margin:0 0 6px;font-size:1.05rem;color:var(--navy);">Locker Policy</h3>
+            <p style="margin:0;color:var(--gray-500);font-size:0.9rem;line-height:1.6;">Safe Deposit Locker facility — eligibility, allotment, operation, charges, nomination, and surrender of lockers.</p>
+          </div>
+        </a>
+
 
       </div>
     </div>
@@ -1285,6 +1295,93 @@
 
           <h3>12. Policy Review</h3>
           <p>This policy is reviewed and updated annually by the Board of Directors or as required to ensure compliance with amendments to PMLA, RBI directions, FATF recommendations, and emerging AML/CFT risks. Any changes are communicated to all employees and business partners.</p>
+        `
+      },
+      'locker-policy': {
+        title: 'Locker Policy',
+        content: `
+          <p>This policy governs Dhanam Investment and Finance Private Limited's Safe Deposit Locker facility, covering eligibility, allotment, operation, charges, nomination, access, and surrender of lockers.</p>
+
+          <h3>Target Group</h3>
+          <ul>
+            <li>Lockers may be allotted to Individuals (including Non-Residents), Firms, Companies, Trusts, Societies, and similar entities. Individuals may hire a locker in a single name or jointly, as Partnership Firms, Limited Companies, Associations and Clubs. Lockers will not be allotted to minors.</li>
+            <li>Know Your Customer (KYC) norms apply to all hirers — both existing and new.</li>
+            <li>While hiring to joint hirer(s) or to entities other than individuals, clear instructions on operation and closure will be obtained, and Dhanam will comply with such instructions without any exceptions.</li>
+          </ul>
+
+          <h3>Allotment of Locker</h3>
+          <p>Lockers will be allotted to hirers based on availability. Lockers can only be hired at branches having a locker cabinet facility, and the allotment will be made on a first-come, first-serve basis.</p>
+
+          <h3>Operation & Monitoring of Locker</h3>
+          <ul>
+            <li>All hirer(s) shall have access to the Safe Deposit Vault only on working days and only within our stipulated working hours.</li>
+            <li>Dhanam will not be responsible for any damage or loss to articles in safe custody as a result of any act of war or civil disorder, or out of any other cause whatsoever.</li>
+            <li>For reasons of grave urgency or necessity, Dhanam reserves the right to close the Safe Vault for indefinite periods, and to change the opening and closing hours of the Vault — in both cases without prior intimation.</li>
+            <li>The hirer(s) is/are requested to keep the locker key in a place of safety, not to divulge the locker number to anyone, and not to deliver the key to any person other than a duly authorized agent.</li>
+            <li>In case of loss of keys, Dhanam should be notified immediately. All charges for opening and replacing the lockers or keys shall be payable by the hirer(s).</li>
+            <li>Any change in the address of the hirer(s) should be intimated to Dhanam immediately. Any notice or communication sent by post to the registered address as per Dhanam's records shall be considered to have been duly served.</li>
+            <li>All repairs to the locker, lock or keys shall be done exclusively by workmen appointed by Dhanam.</li>
+            <li>The relationship between Dhanam and the hirer(s) in this connection is one of lessor and lessee.</li>
+            <li>All lockers operate under a dual locking system and can only be opened with a combination of two keys — the “Master Key” held by Dhanam and the “Hirer's Key” held by the hirer — each identified with an appropriate identification code/number.</li>
+            <li>If a locker is not operated for three years, Dhanam shall notify the hirer(s) to either operate or surrender it within a specified period and to provide written reasons for non-operation. Dhanam may allow the hirer(s) to continue if the reason is found genuine; Dhanam's decision on genuineness shall be final.</li>
+            <li>If the hirer(s) do not provide a reason (or the reason is found not genuine) and do not operate the locker within the specified period, Dhanam shall — after giving due notice to the last known address on record — proceed to break open the locker.</li>
+          </ul>
+
+          <h3>Charges & Fees</h3>
+          <ul>
+            <li>Dhanam collects rent for providing the locker facility.</li>
+            <li>At the time of hiring, the hirer(s) should deposit a specified amount as a security deposit. Rental arrears and other expenses may be deducted from this advance, if necessary.</li>
+            <li>All rentals are payable strictly in advance, and Dhanam reserves the right to refuse access to the locker in the event the rental is not paid when due.</li>
+            <li>The hirer(s) agree to abide by such rules and regulations as Dhanam may adopt from time to time. Dhanam may, at its discretion, increase the rent from time to time, and on receipt of notice the hirer(s) agree to the increased rent.</li>
+            <li>The hirer(s) agree that Dhanam is entitled, at its discretion, to increase the rental at any time without notice to or consent of the hirer(s).</li>
+          </ul>
+
+          <h3>Nomination / Survivorship Clause</h3>
+          <ul>
+            <li>Dhanam offers the facility of nomination in respect of the Safe Deposit Locker as well.</li>
+            <li>In the event of the death of one of the joint holders, the right to the contents of the locker or articles under safe custody does not automatically devolve on the surviving joint holder, unless there is a nomination / survivorship clause.</li>
+            <li>Hirers are therefore advised, in their own interest, to make a nomination or to open joint accounts under the survivorship clause.</li>
+          </ul>
+
+          <h3>Access — With Survivor / Nominee Clause</h3>
+          <ul>
+            <li>If the sole locker hirer nominates a person, Dhanam will provide the nominee access to the locker and the liberty to remove its contents in the event of the death of the sole hirer.</li>
+            <li>If the locker was hired jointly with an “either or survivor” (or other survivorship) mandate, Dhanam will follow that mandate in the event of the death of one or more of the hirer(s).</li>
+            <li>If the locker was hired jointly to be operated under joint signatures and the hirer(s) nominate person(s), then on the death of any hirer, Dhanam will give access and liberty to remove the contents jointly to the survivor(s) and the nominee(s).</li>
+            <li>Claimants must establish their identity and submit documentary proof of the death of the hirer(s). There should be no order from a competent court restraining Dhanam from giving access. Dhanam will not insist on any other document from the survivor(s) / nominee(s).</li>
+          </ul>
+          <p>For a locker with a nomination / survivorship clause, Dhanam will require only the following:</p>
+          <ul>
+            <li>Copy of the Death Certificate (duly certified from the original)</li>
+            <li>Duly filled-in claim application in the prescribed form</li>
+            <li>Stamped receipt for the discharged locker</li>
+          </ul>
+          <p>The access given to the survivor(s) / nominee(s), subject to applicable conditions, constitutes a full discharge of Dhanam's liability. Dhanam will not insist on a succession certificate, letter of administration, probate, etc., nor obtain any bond of indemnity or surety from the survivor(s) / nominee(s).</p>
+
+          <h3>Access — Without Survivor / Nominee Clause</h3>
+          <p>Where the deceased hirer(s) had not made any nomination or clear survivorship clause, access may be provided to the legal representative of the deceased on the basis of a Succession Certificate, Probate of a Will, or Letter of Administration. In such cases, Dhanam will give access to the legal heir(s) / legal representative(s) on the basis of the following documents:</p>
+          <ul>
+            <li>Copy of the Death Certificate (duly certified from the original)</li>
+            <li>Duly filled-in claim form together with a surety letter</li>
+            <li>Legal representation — Succession Certificate, Letter of Administration, or Probate of a Will</li>
+            <li>Stamped receipt for the discharged locker</li>
+          </ul>
+
+          <h3>Breaking Open of Lockers</h3>
+          <ul>
+            <li>In case of default of rent, Dhanam may — after issuing three months' notice to the registered address of the hirer(s) — break open the locker, list its contents, remove them to another safe and/or auction all or any part thereof, and appropriate the proceeds towards the arrears of rent as well as the cost of breaking the locker and repairs thereto. This is without prejudice to any other remedy open to Dhanam, and the hirer(s) have no right to take exception to this procedure.</li>
+            <li>Costs of breaking open the locker and safe-custody charges for the contents are payable by the hirer(s). The Security Deposit will be appropriated towards overdue rent / costs / safe-custody charges.</li>
+          </ul>
+
+          <h3>Surrender of Locker</h3>
+          <ul>
+            <li>A locker may be surrendered by the hirer(s) at any time during the contract period. Dhanam may also request the surrender of a locker with due notice.</li>
+            <li>Either party may terminate this agreement by giving the other one month's notice in writing, and the key shall in such case be delivered by the hirer(s) to Dhanam during working hours on the day of termination of the hiring.</li>
+            <li>If no such notice is received prior to the date of termination of the hiring period, the hiring of the locker shall be considered renewed — without prejudice to the rights of Dhanam accrued in the meantime.</li>
+            <li>When the locker is surrendered at the request of Dhanam, the rent for the unutilized period shall be refunded.</li>
+          </ul>
+
+          <p style="margin-top:18px;font-size:0.85rem;color:var(--gray-400);">This policy is subject to revision at the discretion of Dhanam Investment and Finance Private Limited. For clarifications, please contact your nearest branch.</p>
         `
       }
     };
