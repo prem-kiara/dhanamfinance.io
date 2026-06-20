@@ -208,7 +208,7 @@
       <!-- Board of Directors -->
       <div style="margin-bottom:var(--space-3xl);">
         <div class="team-section-header">
-          <span class="team-section-label">Promoters &amp; Directors</span>
+          <span class="team-section-label">Founders &amp; Directors</span>
           <div class="carousel-nav">
             <button class="carousel-btn" onclick="scrollCarousel('board',-1)" id="board-prev" aria-label="Previous"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M15 18l-6-6 6-6"/></svg></button>
             <button class="carousel-btn" onclick="scrollCarousel('board',1)" id="board-next" aria-label="Next"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M9 18l6-6-6-6"/></svg></button>
@@ -244,20 +244,37 @@
             <div class="team-card-arrow"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></div>
           </div>
 
-          <div class="team-card" onclick="openDetail('suren')">
-            <img class="team-card-img" src="images/team/suren.jpg" alt="Mr. Suren S" loading="lazy">
-            <div class="team-card-static">
-              <div class="team-card-name">Mr. Suren S</div>
-              <div class="team-card-role">Director · CEO · Technology & Strategy</div>
-            </div>
-            <div class="team-card-arrow"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></div>
-          </div>
-
           <div class="team-card" onclick="openDetail('gunasekaran')">
             <img class="team-card-img" src="images/team/gunasekaran.jpg" alt="Mr. Gunasekaran S" loading="lazy">
             <div class="team-card-static">
               <div class="team-card-name">Mr. Gunasekaran S</div>
               <div class="team-card-role">Director & COO</div>
+            </div>
+            <div class="team-card-arrow"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></div>
+          </div>
+
+          </div>
+          <div class="carousel-progress"><div class="carousel-progress-bar" id="board-progress"></div></div>
+        </div>
+      </div>
+
+      <!-- Directors -->
+      <div style="margin-bottom:var(--space-3xl);">
+        <div class="team-section-header">
+          <span class="team-section-label">Directors</span>
+          <div class="carousel-nav">
+            <button class="carousel-btn" onclick="scrollCarousel('directors',-1)" id="directors-prev" aria-label="Previous"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M15 18l-6-6 6-6"/></svg></button>
+            <button class="carousel-btn" onclick="scrollCarousel('directors',1)" id="directors-next" aria-label="Next"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M9 18l6-6-6-6"/></svg></button>
+          </div>
+        </div>
+        <div class="team-carousel-wrap" id="directors-wrap">
+          <div class="team-carousel" id="directors-carousel">
+
+          <div class="team-card" onclick="openDetail('suren')">
+            <img class="team-card-img" src="images/team/suren.jpg" alt="Mr. Suren S" loading="lazy">
+            <div class="team-card-static">
+              <div class="team-card-name">Mr. Suren S</div>
+              <div class="team-card-role">Director · CEO · Technology & Strategy</div>
             </div>
             <div class="team-card-arrow"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></div>
           </div>
@@ -308,7 +325,7 @@
           </div>
 
           </div>
-          <div class="carousel-progress"><div class="carousel-progress-bar" id="board-progress"></div></div>
+          <div class="carousel-progress"><div class="carousel-progress-bar" id="directors-progress"></div></div>
         </div>
       </div>
 
@@ -740,8 +757,9 @@
 
   // ─── Carousel logic ───
   const carousels = {
-    board: { el: document.getElementById('board-carousel'), wrap: document.getElementById('board-wrap'), prev: document.getElementById('board-prev'), next: document.getElementById('board-next'), progress: document.getElementById('board-progress') },
-    mgmt:  { el: document.getElementById('mgmt-carousel'),  wrap: document.getElementById('mgmt-wrap'),  prev: document.getElementById('mgmt-prev'),  next: document.getElementById('mgmt-next'),  progress: document.getElementById('mgmt-progress') }
+    board:     { el: document.getElementById('board-carousel'),     wrap: document.getElementById('board-wrap'),     prev: document.getElementById('board-prev'),     next: document.getElementById('board-next'),     progress: document.getElementById('board-progress') },
+    directors: { el: document.getElementById('directors-carousel'), wrap: document.getElementById('directors-wrap'), prev: document.getElementById('directors-prev'), next: document.getElementById('directors-next'), progress: document.getElementById('directors-progress') },
+    mgmt:      { el: document.getElementById('mgmt-carousel'),      wrap: document.getElementById('mgmt-wrap'),      prev: document.getElementById('mgmt-prev'),      next: document.getElementById('mgmt-next'),      progress: document.getElementById('mgmt-progress') }
   };
 
   function updateCarouselState(id) {
