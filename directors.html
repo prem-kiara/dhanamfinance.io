@@ -288,6 +288,15 @@
             <div class="team-card-arrow"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></div>
           </div>
 
+          <div class="team-card" onclick="openDetail('dhanasekaran')">
+            <img class="team-card-img" src="images/team/dhanasekaran.jpg" alt="Mr. Dhanasekaran A" loading="lazy">
+            <div class="team-card-static">
+              <div class="team-card-name">Mr. Dhanasekaran A</div>
+              <div class="team-card-role">Director</div>
+            </div>
+            <div class="team-card-arrow"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></div>
+          </div>
+
           <div class="team-card" onclick="openDetail('nambirajan')">
             <img class="team-card-img" src="images/team/nambirajan.jpg" alt="Mr. Nambirajan R" loading="lazy">
             <div class="team-card-static">
@@ -340,16 +349,15 @@
 
       <!-- Management -->
       <div id="management">
-        <!-- Vice Presidents -->
         <div class="team-section-header">
           <span class="team-section-label">Management team</span>
           <div class="carousel-nav">
-            <button class="carousel-btn" onclick="scrollCarousel('mgmtVp',-1)" id="mgmt-vp-prev" aria-label="Previous"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M15 18l-6-6 6-6"/></svg></button>
-            <button class="carousel-btn" onclick="scrollCarousel('mgmtVp',1)" id="mgmt-vp-next" aria-label="Next"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M9 18l6-6-6-6"/></svg></button>
+            <button class="carousel-btn" onclick="scrollCarousel('mgmt',-1)" id="mgmt-prev" aria-label="Previous"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M15 18l-6-6 6-6"/></svg></button>
+            <button class="carousel-btn" onclick="scrollCarousel('mgmt',1)" id="mgmt-next" aria-label="Next"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M9 18l6-6-6-6"/></svg></button>
           </div>
         </div>
-        <div class="team-carousel-wrap" id="mgmt-vp-wrap">
-          <div class="team-carousel" id="mgmt-vp-carousel">
+        <div class="team-carousel-wrap" id="mgmt-wrap">
+          <div class="team-carousel" id="mgmt-carousel">
 
           <div class="team-card" onclick="openDetail('sridhar')">
             <img class="team-card-img" src="images/team/sridhar.jpg" alt="Mr. Sridhar M P" loading="lazy">
@@ -387,25 +395,11 @@
             <div class="team-card-arrow"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></div>
           </div>
 
-          </div>
-          <div class="carousel-progress"><div class="carousel-progress-bar" id="mgmt-vp-progress"></div></div>
-        </div>
-
-        <!-- Associate Vice Presidents (same heading) -->
-        <div class="team-section-header" style="justify-content:flex-end;margin-top:var(--space-xl);">
-          <div class="carousel-nav">
-            <button class="carousel-btn" onclick="scrollCarousel('mgmtAvp',-1)" id="mgmt-avp-prev" aria-label="Previous"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M15 18l-6-6 6-6"/></svg></button>
-            <button class="carousel-btn" onclick="scrollCarousel('mgmtAvp',1)" id="mgmt-avp-next" aria-label="Next"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M9 18l6-6-6-6"/></svg></button>
-          </div>
-        </div>
-        <div class="team-carousel-wrap" id="mgmt-avp-wrap">
-          <div class="team-carousel" id="mgmt-avp-carousel">
-
           <div class="team-card" onclick="openDetail('eashwar')">
             <img class="team-card-img" src="images/team/eashwar.jpg" alt="Mr. Eashwar Ram K" loading="lazy">
             <div class="team-card-static">
               <div class="team-card-name">Mr. Eashwar Ram K</div>
-              <div class="team-card-role">Associate Vice President<br>Technology</div>
+              <div class="team-card-role">Vice President<br>Technology</div>
             </div>
             <div class="team-card-arrow"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></div>
           </div>
@@ -414,7 +408,7 @@
             <img class="team-card-img" src="images/team/harisudhan.jpg" alt="Mr. Harisudhan D" loading="lazy">
             <div class="team-card-static">
               <div class="team-card-name">Mr. Harisudhan D</div>
-              <div class="team-card-role">Associate Vice President<br>Business</div>
+              <div class="team-card-role">Vice President<br>Business</div>
             </div>
             <div class="team-card-arrow"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></div>
           </div>
@@ -423,7 +417,7 @@
             <img class="team-card-img" src="images/team/srinish.jpg" alt="Mr. Srinish D" loading="lazy">
             <div class="team-card-static">
               <div class="team-card-name">Mr. Srinish D</div>
-              <div class="team-card-role">Associate Vice President<br>Digital &amp; Social</div>
+              <div class="team-card-role">Vice President<br>Digital &amp; Social</div>
             </div>
             <div class="team-card-arrow"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></div>
           </div>
@@ -432,7 +426,7 @@
             <img class="team-card-img" src="images/team/thivya.jpg" alt="Mr. Thivya Darssan E" loading="lazy">
             <div class="team-card-static">
               <div class="team-card-name">Mr. Thivya Darssan E</div>
-              <div class="team-card-role">Associate Vice President<br>Accounts &amp; Finance</div>
+              <div class="team-card-role">Vice President<br>Accounts &amp; Finance</div>
             </div>
             <div class="team-card-arrow"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></div>
           </div>
@@ -441,13 +435,13 @@
             <div class="team-card-avatar"><span>SK</span></div>
             <div class="team-card-static">
               <div class="team-card-name">Ms. Sabarishni Krishnakumar</div>
-              <div class="team-card-role">Associate Vice President</div>
+              <div class="team-card-role">Vice President</div>
             </div>
             <div class="team-card-arrow"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></div>
           </div>
 
           </div>
-          <div class="carousel-progress"><div class="carousel-progress-bar" id="mgmt-avp-progress"></div></div>
+          <div class="carousel-progress"><div class="carousel-progress-bar" id="mgmt-progress"></div></div>
         </div>
       </div>
 
@@ -615,6 +609,14 @@
       photo: 'images/team/selvakumar.jpg',
       bio: 'Mr. Selvakumar D brings over three decades of experience in financial-services administration and institutional management. With a Master\'s degree in Arts and a career spanning the full breadth of NBFC operations, he is one of Dhanam\'s most experienced leaders.\n\nAs Chief Administrative Officer, Mr. Selvakumar manages the company\'s administrative backbone — from human resources policy and branch-level coordination to infrastructure planning and vendor management. His deep industry knowledge and hands-on leadership style ensure that Dhanam\'s internal operations run smoothly, supporting the company\'s rapid expansion with a stable and well-coordinated organisational foundation.'
     },
+    dhanasekaran: {
+      name: 'Mr. Dhanasekaran A',
+      title: 'Director',
+      quals: 'B.Sc. Mathematics',
+      initials: 'DA',
+      photo: 'images/team/dhanasekaran.jpg',
+      bio: 'Mr. Dhanasekaran A is a seasoned business leader whose career spans more than three decades of end-to-end operational and management experience. He began his professional journey in the textile industry, where over 35 years he built comprehensive, ground-up expertise — from production and supply-chain management to sales, distribution, and enterprise leadership. This long, hands-on grounding gave him a rare, practical understanding of how businesses are built, scaled, and sustained through changing market cycles. A Bachelor of Science in Mathematics, he brings analytical rigour and structured, data-informed thinking to every decision he makes.\n\nOver the past 15 years, Mr. Dhanasekaran has channelled this experience into financial services, developing deep specialisation across microfinance (MFI) and gold lending. He has an intimate understanding of grassroots credit, rural and semi-urban markets, and the day-to-day realities of serving customers who are often outside the formal banking system. His approach is defined by responsible lending, disciplined credit assessment, and a commitment to building trusted, long-term relationships with borrowers and the communities they serve.\n\nAt Dhanam, Mr. Dhanasekaran oversees the microfinance vertical, leading field operations, reinforcing process discipline, and mentoring on-ground teams to deliver consistent, customer-first service at scale. He plays a pivotal role in driving the company\'s business growth — identifying new markets, deepening Dhanam\'s reach across South India, and advancing its mission of financial inclusion. His blend of operational depth, sectoral insight, and people-first leadership makes him a key contributor to Dhanam\'s continued and responsible expansion.'
+    },
     nambirajan: {
       name: 'Mr. Nambirajan R',
       title: 'Director',
@@ -681,7 +683,7 @@
     },
     eashwar: {
       name: 'Mr. Eashwar Ram K',
-      title: 'Associate Vice President — Technology',
+      title: 'Vice President — Technology',
       quals: 'B.Tech.',
       initials: 'EK',
       photo: 'images/team/eashwar.jpg',
@@ -689,7 +691,7 @@
     },
     harisudhan: {
       name: 'Mr. Harisudhan D',
-      title: 'Associate Vice President — Business',
+      title: 'Vice President — Business',
       quals: 'B.Tech.',
       initials: 'HD',
       photo: 'images/team/harisudhan.jpg',
@@ -697,7 +699,7 @@
     },
     srinish: {
       name: 'Mr. Srinish D',
-      title: 'Associate Vice President — Digital & Social',
+      title: 'Vice President — Digital & Social',
       quals: 'M.B.A.',
       initials: 'SD',
       photo: 'images/team/srinish.jpg',
@@ -705,7 +707,7 @@
     },
     thivya: {
       name: 'Mr. Thivya Darssan E',
-      title: 'Associate Vice President — Accounts & Finance',
+      title: 'Vice President — Accounts & Finance',
       quals: 'B.M.S.',
       initials: 'TD',
       photo: 'images/team/thivya.jpg',
@@ -720,7 +722,7 @@
     },
     sabarishni: {
       name: 'Ms. Sabarishni Krishnakumar',
-      title: 'Associate Vice President',
+      title: 'Vice President',
       quals: 'B.E.',
       initials: 'SK',
       bio: 'Ms. Sabarishni Krishnakumar plays a key role in managing property loan processing and customer relationships at Dhanam. With an Engineering background, she brings structure, analytical thinking, and process clarity to complex lending workflows. Her work ensures that Dhanam\'s property loan customers receive timely, transparent, and well-coordinated service from application through disbursement.'
@@ -758,8 +760,7 @@
   const carousels = {
     board:     { el: document.getElementById('board-carousel'),     wrap: document.getElementById('board-wrap'),     prev: document.getElementById('board-prev'),     next: document.getElementById('board-next'),     progress: document.getElementById('board-progress') },
     directors: { el: document.getElementById('directors-carousel'), wrap: document.getElementById('directors-wrap'), prev: document.getElementById('directors-prev'), next: document.getElementById('directors-next'), progress: document.getElementById('directors-progress') },
-    mgmtVp:  { el: document.getElementById('mgmt-vp-carousel'),  wrap: document.getElementById('mgmt-vp-wrap'),  prev: document.getElementById('mgmt-vp-prev'),  next: document.getElementById('mgmt-vp-next'),  progress: document.getElementById('mgmt-vp-progress') },
-    mgmtAvp: { el: document.getElementById('mgmt-avp-carousel'), wrap: document.getElementById('mgmt-avp-wrap'), prev: document.getElementById('mgmt-avp-prev'), next: document.getElementById('mgmt-avp-next'), progress: document.getElementById('mgmt-avp-progress') }
+    mgmt:      { el: document.getElementById('mgmt-carousel'),      wrap: document.getElementById('mgmt-wrap'),      prev: document.getElementById('mgmt-prev'),      next: document.getElementById('mgmt-next'),      progress: document.getElementById('mgmt-progress') }
   };
 
   function updateCarouselState(id) {
