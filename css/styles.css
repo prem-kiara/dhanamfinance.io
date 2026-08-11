@@ -3462,6 +3462,17 @@ section.hero--dark {
   .loan-tab::after { transition: none; }
 }
 
+/* Galaxy Fold (280px) and other ultra-narrow screens: .loan-panel__emi is
+   nowrap, so side-by-side actions squeeze Apply Now past its text width.
+   Stack them instead. */
+@media (max-width: 360px) {
+  .loan-panel__actions {
+    flex-direction: column;
+    align-items: stretch;
+  }
+  .loan-panel__actions .btn { width: 100%; }
+}
+
 @media (max-width: 400px) {
   .loan-tabs-section { margin-top: -108px; }
   .hero--dark { padding-bottom: 136px; }
