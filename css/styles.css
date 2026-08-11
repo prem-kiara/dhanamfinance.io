@@ -133,7 +133,7 @@ html {
 body {
   font-family: var(--font-body);
   color: var(--gray-700);
-  background-color: var(--cream);
+  /* background-color: var(--cream); */
   line-height: 1.6;
   font-size: 16px;
 }
@@ -239,7 +239,7 @@ img {
 }
 
 section:not(.hero):not(.trust-bar) {
-  padding: var(--space-4xl) 0;
+  padding-top: 3rem;
 }
 
 .grid {
@@ -339,21 +339,47 @@ section:not(.hero):not(.trust-bar) {
   height: 64px;
   display: flex;
   align-items: center;
-  transition: all var(--transition-base);
+  /* Only the properties that actually change between states — never `all`,
+     which would re-render the backdrop blur on every frame of the transition. */
+  transition:
+    top 350ms cubic-bezier(0.4, 0, 0.2, 1),
+    width 350ms cubic-bezier(0.4, 0, 0.2, 1),
+    max-width 350ms cubic-bezier(0.4, 0, 0.2, 1),
+    border-radius 350ms cubic-bezier(0.4, 0, 0.2, 1),
+    border-color 350ms cubic-bezier(0.4, 0, 0.2, 1),
+    background-color 350ms cubic-bezier(0.4, 0, 0.2, 1),
+    box-shadow 350ms cubic-bezier(0.4, 0, 0.2, 1);
+  will-change: top, width;
 }
 
-.nav--scrolled {
+/* .nav.nav--scrolled (not .nav--scrolled) so it still wins over the
+   width/padding overrides in the mobile media queries further down. */
+.nav.nav--scrolled {
   top: 0;
-  left: 0;
-  transform: none;
   width: 100%;
   max-width: 100%;
   border-radius: 0;
-  border: none;
+  /* Keep the 1px border and only fade its colour — `border: none` would
+     shrink the box mid-transition and jolt the contents. */
+  border-color: transparent;
   background: rgba(255, 255, 255, 0.97);
   box-shadow: 0 2px 20px rgba(0, 0, 0, 0.1);
-  backdrop-filter: blur(24px);
-  -webkit-backdrop-filter: blur(24px);
+}
+
+/* The mobile dropdown hangs off the bar, so it follows it up. */
+.nav__mobile {
+  transition: top 350ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.nav.nav--scrolled .nav__mobile {
+  top: 76px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .nav,
+  .nav__mobile {
+    transition: none;
+  }
 }
 
 .nav__inner {
@@ -529,11 +555,13 @@ section:not(.hero):not(.trust-bar) {
   align-items: center;
   justify-content: center;
   gap: var(--space-sm);
-  padding: var(--space-md) var(--space-lg);
+  min-height: 48px;
+  padding: 0 var(--space-lg);
   font-size: 0.95rem;
+  line-height: 1.2;
   font-weight: 600;
   border-radius: var(--radius-lg);
-  border: 2px solid transparent;
+  border: 1px solid transparent;
   transition: all var(--transition-base);
   white-space: nowrap;
 }
@@ -587,21 +615,90 @@ section:not(.hero):not(.trust-bar) {
 .btn--gold {
   background: linear-gradient(135deg, var(--gold) 0%, var(--gold-light) 100%);
   color: var(--white);
+  border: 1px solid transparent;
 }
 
 .btn--gold:hover {
   transform: translateY(-2px);
   box-shadow: var(--shadow-gold);
+  /* color: var(--white); */
+  background: var(--white);
+  border: 1px solid var(--primary);
 }
 
 .btn--sm {
-  padding: var(--space-sm) var(--space-md);
+  min-height: 48px;
+  padding: 0 var(--space-md);
   font-size: 0.875rem;
 }
 
 .btn--lg {
-  padding: var(--space-lg) var(--space-2xl);
+  min-height: 48px;
+  padding: 0 var(--space-xl);
   font-size: 1rem;
+}
+
+/* Outlined companion to .btn--gold — pairs with it without the inline styles
+   that used to block hover states. */
+.btn--outline-gold {
+  background: rgba(255, 255, 255, 0.88);
+  color: var(--primary);
+  border-color: var(--primary);
+  font-weight: 600;
+}
+
+.btn--outline-gold:hover {
+  background: linear-gradient(135deg, var(--gold) 0%, var(--gold-light) 100%);
+  border-color: var(--gold);
+  color: var(--white);
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-gold);
+}
+
+/* ── Hero CTA pair ──
+   Trimmed down from the full --lg size, and matched to each other so the two
+   buttons read as one unit instead of two mismatched blocks. */
+.hero__actions .btn--lg {
+  min-height: 48px;
+  padding: 0 28px;
+  font-size: 0.95rem;
+  min-width: 184px;
+}
+
+.hero__actions .btn svg {
+  transition: transform var(--transition-base);
+}
+
+.hero__actions .btn:hover svg {
+  transform: translateX(4px);
+}
+
+.hero__actions .btn:active {
+  transform: translateY(0);
+  box-shadow: var(--shadow-sm);
+}
+
+.hero__actions .btn:focus-visible {
+  outline: 2px solid var(--primary-dark);
+  outline-offset: 3px;
+}
+
+/* Let the pair shrink and share the row on small screens. */
+@media (max-width: 768px) {
+  .hero__actions .btn--lg {
+    min-width: 0;
+    flex: 1 1 auto;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hero__actions .btn,
+  .hero__actions .btn svg {
+    transition: none;
+  }
+  .hero__actions .btn:hover {
+    transform: none;
+  }
 }
 
 button:disabled,
@@ -1669,6 +1766,7 @@ select:focus {
   gap: var(--space-md);
   font-size: 0.8rem;
   color: var(--gray-500);
+  background-color: var(--cream);
 }
 .footer__bottom-links {
   display: flex;
@@ -2465,16 +2563,6 @@ select:focus {
     justify-content: flex-start;
     gap: var(--space-md) var(--space-lg);
   }
-  .footer__brand-row,
-  .footer__brand-row > .container {
-    flex-direction: column;
-    align-items: flex-start;
-  }
-  .footer__bottom {
-    flex-direction: column;
-    align-items: flex-start;
-  }
-
   .calc-result__breakdown {
     grid-template-columns: 1fr;
   }
@@ -2516,11 +2604,6 @@ select:focus {
 
   .footer__top {
     grid-template-columns: 1fr;
-  }
-
-  .footer__bottom {
-    flex-direction: column;
-    align-items: flex-start;
   }
 
   .cta-section {
@@ -2637,7 +2720,7 @@ select:focus {
   }
 
   .btn {
-    padding: var(--space-md) var(--space-lg);
+    padding: 0 var(--space-lg);
     font-size: 0.875rem;
   }
 
@@ -2951,6 +3034,19 @@ section.hero--dark {
   }
 }
 
+/* Available to screen readers and search engines, invisible on screen. */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
 /* ============================================
    GLASS UI UTILITIES
    ============================================ */
@@ -3000,3 +3096,1457 @@ section.hero--dark {
 .footer__app-badges a:hover { transform:translateY(-2px); opacity:.9; }
 .footer__app-badges img { height:48px; width:auto; display:block; }
 @media (max-width:600px){ .footer__app-inner{ flex-direction:column; gap:var(--space-md); } }
+
+
+/* ============================================
+   LOAN PRODUCT TABS (homepage)
+   ============================================ */
+/* The card is pulled up over the bottom edge of the hero, so the section
+   itself carries no background — only the card is visible against the hero. */
+.loan-tabs-section {
+  position: relative;
+  z-index: 5;
+  background: transparent;
+  padding: 0 0 var(--space-4xl);
+  /* Tracks the 120px active tab — the strip's full height — so the whole tab
+     row sits on the hero and the panel starts below its bottom edge. */
+  margin-top: -120px;
+}
+
+/* Matching breathing room at the foot of the hero so the card overlaps the
+   image, never the headline or the CTAs. */
+.hero--dark {
+  padding-bottom: calc(var(--space-5xl) + 134px);
+}
+
+/* No background of its own: each tab paints itself and the panel paints the
+   body. That's what leaves the band above the shorter inactive tabs showing
+   the hero behind, so the active tab reads as standing proud of the row. */
+.loan-tabs-card {
+  background: transparent;
+}
+
+/* ── Tab strip ── */
+.loan-tabs {
+  display: flex;
+  align-items: flex-end;
+  min-height: 120px;
+  overflow-x: auto;
+  background: transparent;
+  border-radius: var(--radius-xl) var(--radius-xl) 0 0;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+  scroll-snap-type: x proximity;
+  scroll-behavior: smooth;
+  -webkit-overflow-scrolling: touch;
+  overscroll-behavior-x: contain;
+}
+.loan-tabs::-webkit-scrollbar { display: none; }
+
+.loan-tab {
+  flex: 1 0 140px;
+  min-width: 140px;
+  min-height: 110px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  padding: 14px 12px 18px;
+  background: var(--cream);
+  border: 0;
+  border-right: 1px solid rgba(0, 0, 0, 0.06);
+  color: var(--gray-700);
+  font-family: var(--font-body);
+  font-size: 0.84rem;
+  font-weight: 600;
+  line-height: 1.3;
+  text-align: center;
+  cursor: pointer;
+  position: relative;
+  /* Makes the tab its own stacking context. Without it the ::before cap's
+     z-index:-1 resolves against the section instead, and the cap paints under
+     every tab background — invisible. */
+  z-index: 0;
+  transition:
+    background-color var(--transition-base),
+    color var(--transition-base);
+}
+.loan-tab:last-child { border-right: 0; }
+
+.loan-tab > span {
+  display: block;
+  min-height: 2.6em;
+}
+
+.loan-tab__icon {
+  width: 30px;
+  height: 30px;
+  stroke: currentColor;
+  color: var(--primary);
+  transition: color var(--transition-base);
+}
+
+/* Underline. Always full width and scaled to nothing, so revealing it is a
+   transform — a compositor animation that can't reflow the strip. Animating
+   `width` here would relayout the tab on every frame. */
+.loan-tab::after {
+  content: '';
+  position: absolute;
+  left: 50%;
+  bottom: 10px;
+  width: 40px;
+  height: 3px;
+  border-radius: 2px;
+  background: var(--primary);
+  transform: translateX(-50%) scaleX(0);
+  transform-origin: center;
+  transition: transform var(--transition-base);
+}
+
+/* White cap across the top. Present on every tab but transparent until the tab
+   is hovered or active, so it fades in rather than popping into existence. */
+.loan-tab::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 1.25rem;
+  background: #fff;
+  border-radius: 0.5rem 0.5rem 0 0;
+  z-index: -1;
+  opacity: 0;
+  transition:
+    opacity var(--transition-base),
+    top var(--transition-base),
+    height var(--transition-base);
+}
+
+/* Hover previews the active look — same white fill, cap, underline and icon
+   colour. Deliberately excluded: min-height, padding-top and font-weight. Those
+   change the tab's geometry, and shifting it under the pointer is what makes a
+   tab strip feel unstable. */
+.loan-tab:hover {
+  background: var(--white);
+  color: var(--navy);
+  border-radius: 0.5rem 0.5rem 0 0;
+}
+
+/* An inactive tab is 10px shorter than the strip, so its white stops 10px below
+   the top edge and leaves the band above it showing. On hover the cap grows up
+   into that band, so the tab reaches the strip's top edge like the active one —
+   and because the cap is absolutely positioned, that growth is paint-only and
+   moves nothing else. Scoped to :hover (rather than applied at rest) so `top`
+   and `height` have two states to transition between and the fill rises in
+   instead of appearing at full size. */
+.loan-tab:not(.is-active):hover::before {
+  top: -10px;
+  height: calc(1.25rem + 10px);
+}
+
+.loan-tab:first-child::before { border-top-left-radius: var(--radius-xl); }
+.loan-tab:last-child::before { border-top-right-radius: var(--radius-xl); }
+
+.loan-tab:hover::before,
+.loan-tab.is-active::before {
+  opacity: 1;
+}
+
+.loan-tab:hover::after,
+.loan-tab.is-active::after {
+  transform: translateX(-50%) scaleX(1);
+}
+
+.loan-tab:hover .loan-tab__icon,
+.loan-tab.is-active .loan-tab__icon {
+  color: var(--primary-dark);
+}
+
+.loan-tab.is-active {
+  background: var(--white);
+  color: var(--navy);
+  font-weight: 700;
+  border-radius: 0.5rem 0.5rem 0 0;
+  min-height: 120px;
+  padding-top: 24px;
+}
+
+/* Outer corners of the row. On the tabs, not on .loan-tabs: the inactive tabs
+   sit 10px below the strip's top edge, so a radius on the container would
+   round empty space above them instead of the tab. Declared after .is-active
+   so a first/last active tab keeps 0.5rem on its inner corner. */
+.loan-tab:first-child { border-top-left-radius: var(--radius-xl); }
+.loan-tab:last-child { border-top-right-radius: var(--radius-xl); }
+
+.loan-tab:focus-visible {
+  outline: 2px solid var(--primary);
+  outline-offset: -2px;
+}
+
+.loan-panels {
+  display: grid;
+  padding: var(--space-2xl);
+  background: var(--white);
+  border-radius: 0 0 var(--radius-xl) var(--radius-xl);
+  box-shadow: 0 18px 48px rgba(45, 41, 38, 0.14), 0 2px 8px rgba(45, 41, 38, 0.06);
+}
+
+.loan-panel,
+.loan-panel[hidden] {
+  display: grid;
+  grid-area: 1 / 1;
+  grid-template-columns: auto minmax(0, 1fr) auto;
+  grid-template-areas:
+    "art  body actions";
+  column-gap: var(--space-2xl);
+  row-gap: var(--space-lg);
+  align-items: center;  opacity: 0;
+  visibility: hidden;
+  transform: translateY(6px);
+  pointer-events: none;
+}
+
+.loan-panel.is-active {
+  opacity: 1;
+  visibility: visible;
+  transform: none;
+  pointer-events: auto;
+  transition:
+    opacity 220ms ease,
+    transform 220ms ease;
+}
+
+/* First item in .loan-panel__actions, sitting inline before Apply Now. */
+.loan-panel__emi {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 0 var(--space-xs);
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--accent);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  white-space: nowrap;
+  transition: color var(--transition-base);
+}
+.loan-panel__emi:hover { color: var(--accent-dark); }
+
+.loan-panel__art {
+  grid-area: art;
+  width: 128px;
+  height: 128px;
+  flex-shrink: 0;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, var(--cream) 0%, #F2E1C0 100%);
+  border: 1px solid rgba(184, 134, 11, 0.18);
+  color: var(--primary-dark);
+}
+.loan-panel__art svg {
+  width: 58px;
+  height: 58px;
+  stroke: currentColor;
+}
+
+.loan-panel__body { grid-area: body; }
+
+.loan-panel__title {
+  font-size: 2rem;
+  line-height: 1.2;
+  color: var(--navy);
+  margin-bottom: var(--space-sm);
+}
+
+.loan-panel__desc {
+  color: var(--gray-600);
+  font-size: 1rem;
+  line-height: 1.7;
+  max-width: 54ch;
+  margin: 0;
+}
+
+.loan-panel__actions {
+  grid-area: actions;
+  display: flex;
+  align-items: center;
+  gap: var(--space-md);
+  flex-wrap: wrap;
+  justify-content: flex-end;
+}
+
+@media (max-width: 1024px) {
+  .loan-tabs-section { margin-top: -120px; }
+  .hero--dark { padding-bottom: calc(var(--space-5xl) + 134px); }
+  .loan-panel,
+  .loan-panel[hidden] {
+    grid-template-columns: auto minmax(0, 1fr);
+    grid-template-areas:
+      "art  body"
+      "actions actions";
+  }
+  .loan-panel__actions { justify-content: flex-start; }
+  .loan-panel__title { font-size: 1.75rem; }
+}
+
+@media (max-width: 640px) {
+  .loan-tabs-section {
+    padding: 0 0 var(--space-3xl);
+    margin-top: -114px;
+  }
+
+  .hero--dark {
+    justify-content: start;
+    padding-bottom: 142px;
+  }
+
+  .loan-tab {
+    min-width: 104px;
+    min-height: 104px;
+    flex: 0 0 104px;
+    font-size: 0.74rem;
+    gap: 8px;
+    padding: 12px 8px 16px;
+    scroll-snap-align: start;
+  }
+  .loan-tabs { min-height: 114px; }
+  .loan-tab.is-active {
+    min-height: 114px;
+    padding-top: 22px;
+  }
+  .loan-tab__icon { width: 26px; height: 26px; }
+  .loan-tab::after { bottom: 8px; width: 30px; }
+
+  .loan-panels { padding: var(--space-lg); }
+
+  .loan-panel,
+  .loan-panel[hidden] {
+    grid-template-columns: auto minmax(0, 1fr);
+    grid-template-areas:
+      "art  body"
+      "actions actions";
+    column-gap: var(--space-lg);
+    row-gap: var(--space-md);
+    text-align: left;
+  }
+
+  .loan-panel__art { width: 76px; height: 76px; }
+  .loan-panel__art svg { width: 36px; height: 36px; }
+  .loan-panel__emi { font-size: 0.82rem; }
+  .loan-panel__title { font-size: 1.3rem; }
+  .loan-panel__desc { font-size: 0.92rem; line-height: 1.65; }
+
+  .loan-panel__actions {
+    width: 100%;
+    justify-content: flex-start;
+    gap: var(--space-sm);
+  }
+  /* Equal halves rather than two differently-sized pills. */
+  .loan-panel__actions .btn {
+    flex: 1 1 0;
+    min-width: 0;
+    justify-content: center;
+    padding: 0 var(--space-md);
+    font-size: 0.88rem;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .loan-tabs { scroll-behavior: auto; }
+  .loan-panel { transform: none; transition: none; }
+  .loan-tab,
+  .loan-tab::before,
+  .loan-tab::after { transition: none; }
+}
+
+@media (max-width: 400px) {
+  .loan-tabs-section { margin-top: -108px; }
+  .hero--dark { padding-bottom: 136px; }
+  .loan-tab {
+    min-width: 94px;
+    min-height: 98px;
+    flex: 0 0 94px;
+    font-size: 0.7rem;
+  }
+  .loan-tabs { min-height: 108px; }
+  .loan-tab.is-active {
+    min-height: 108px;
+    padding-top: 22px;
+  }
+  .loan-tab__icon { width: 24px; height: 24px; }
+  .loan-panel { column-gap: var(--space-md); }
+  .loan-panel__art { width: 62px; height: 62px; }
+  .loan-panel__art svg { width: 30px; height: 30px; }
+  .loan-panel__title { font-size: 1.15rem; }
+}
+
+
+/* ============================================
+   FOOTER — main navigation, contact, regulatory
+   ============================================ */
+.footer__main {
+  padding: var(--space-3xl) 0 var(--space-2xl);
+  border-bottom: 1px solid var(--gray-300);
+  background-color: var(--cream);
+}
+
+.footer__cols {
+  display: grid;
+  grid-template-columns: minmax(260px, 1.2fr) 3fr;
+  gap: var(--space-3xl);
+  align-items: start;
+}
+
+/* ---- Brand + contact block ---- */
+.footer__about-logo {
+  height: 50px;
+  width: auto;
+  margin-bottom: var(--space-lg);
+}
+
+.footer__about-text {
+  font-size: 0.9rem;
+  line-height: 1.7;
+  color: var(--gray-600);
+  max-width: 42ch;
+  margin-bottom: var(--space-xl);
+}
+
+.footer__contact {
+  font-style: normal;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-md);
+}
+
+.footer__contact-item {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--space-sm);
+  font-size: 0.9rem;
+  line-height: 1.6;
+  color: var(--gray-700);
+  text-decoration: none;
+  /* 44px tap target without stretching the visual row */
+  padding: 4px 0;
+  transition: color var(--transition-fast);
+}
+
+.footer__contact-item svg {
+  width: 18px;
+  height: 18px;
+  flex-shrink: 0;
+  margin-top: 3px;
+  color: var(--primary-dark);
+}
+
+a.footer__contact-item:hover,
+a.footer__contact-item:focus-visible {
+  color: var(--primary-dark);
+}
+
+.footer__contact-item--static {
+  cursor: default;
+}
+
+.footer__contact-note {
+  display: block;
+  font-size: 0.78rem;
+  color: var(--gray-500);
+}
+
+/* Social row now lives under the contact details rather than in its own
+   full-width band. */
+.footer__about .footer__social {
+  margin-top: var(--space-xl);
+  flex-wrap: wrap;
+  gap: var(--space-sm);
+}
+
+.footer__about .footer__social-label {
+  width: 100%;
+  margin: 0 0 var(--space-xs);
+}
+
+/* ---- Link columns ---- */
+.footer__col-title {
+  font-family: var(--font-body);
+  font-size: 0.8rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--navy);
+  margin-bottom: var(--space-md);
+}
+
+.footer__linklist {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.footer__linklist a {
+  display: block;
+  /* Generous hit area: footer links are a common mis-tap on phones */
+  padding: 7px 0;
+  font-size: 0.9rem;
+  line-height: 1.5;
+  color: var(--gray-600);
+  text-decoration: none;
+  transition: color var(--transition-fast);
+}
+
+.footer__linklist a:hover {
+  color: var(--primary-dark);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+/* ---- Regulatory strip ---- */
+/* One flowing, left-aligned legal paragraph — the standard NBFC footer
+   treatment. Centred short lines read as content; this reads as fine print,
+   which is what it is. */
+.footer__regulatory {
+  background: var(--cream);
+  border-bottom: 0;
+  padding: var(--space-xl) 0;
+  text-align: left;
+}
+
+.footer__regulatory p {
+  /* Was --gray-200 on a light strip: near-invisible. */
+  font-size: 0.78rem;
+  line-height: 1.75;
+  color: var(--gray-600);
+  margin: 0;
+  max-width: 100%;
+}
+
+.footer__regulatory a {
+  color: var(--primary-dark);
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
+/* ---- Visible keyboard focus for everything in the footer ---- */
+.footer a:focus-visible,
+.footer button:focus-visible {
+  outline: 2px solid var(--primary-dark);
+  outline-offset: 3px;
+  border-radius: 4px;
+}
+
+/* ---- Social icons: the gold-on-cream tint fell below the 3:1
+        minimum for non-text contrast ---- */
+.footer__social a.footer__social-link {
+  background-color: rgba(45, 41, 38, 0.07);
+  color: var(--primary-dark);
+}
+
+.footer__social a.footer__social-link:hover {
+  background-color: var(--primary-dark);
+  color: var(--white);
+}
+
+/* ---- Responsive ---- */
+@media (max-width: 1024px) {
+  .footer__cols {
+    grid-template-columns: 1fr;
+    gap: var(--space-2xl);
+  }
+  .footer__about-text { max-width: none; }
+}
+
+@media (max-width: 640px) {
+  .footer__main { padding: var(--space-2xl) 0 var(--space-xl); }
+}
+
+
+
+/* ============================================
+   FOOTER — APP PROMO CARD
+   ============================================ */
+.footer__app-strip {
+  border-top: 0;
+  padding: var(--space-3xl) 0;
+}
+
+.app-promo {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1.4fr) minmax(0, 1fr);
+  align-items: center;
+  gap: var(--space-xl) var(--space-2xl);
+  padding: var(--space-2xl);
+  border-radius: var(--radius-2xl);
+  background: linear-gradient(135deg, var(--navy) 0%, var(--navy-light) 100%);
+  box-shadow: 0 18px 48px rgba(45, 41, 38, 0.18);
+}
+
+/* The logo is dark artwork, so it needs a light tile to sit on. */
+.app-promo__logo {
+  align-self: start;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 84px;
+  height: 84px;
+  padding: var(--space-sm);
+  border-radius: var(--radius-lg);
+  background: var(--white);
+}
+
+.app-promo__logo img {
+  width: 100%;
+  height: auto;
+}
+
+.app-promo__title {
+  font-size: 1.75rem;
+  line-height: 1.25;
+  color: var(--white);
+  margin-bottom: var(--space-sm);
+}
+
+.app-promo__text {
+  font-size: 0.95rem;
+  line-height: 1.7;
+  color: rgba(255, 255, 255, 0.78);
+  max-width: 52ch;
+  margin-bottom: var(--space-xl);
+}
+
+.app-promo__points {
+  list-style: none;
+  margin: 0;
+  padding: var(--space-lg);
+  border-radius: var(--radius-lg);
+  background: rgba(255, 255, 255, 0.07);
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-md);
+}
+
+.app-promo__points li {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--space-sm);
+  font-size: 0.88rem;
+  line-height: 1.5;
+  color: rgba(255, 255, 255, 0.85);
+}
+
+.app-promo__points svg {
+  width: 16px;
+  height: 16px;
+  flex-shrink: 0;
+  margin-top: 2px;
+  color: var(--primary-light);
+}
+
+/* Badges sit on a dark card now, so give them a focus ring that reads. */
+.footer__app-strip .footer__app-badges { justify-content: flex-start; }
+
+.footer__app-strip .footer__app-badges a:focus-visible {
+  outline: 2px solid var(--primary-light);
+  outline-offset: 3px;
+  border-radius: 6px;
+}
+
+@media (max-width: 1024px) {
+  .app-promo {
+    grid-template-columns: auto minmax(0, 1fr);
+  }
+  .app-promo__points { grid-column: 1 / -1; }
+  .app-promo__title { font-size: 1.5rem; }
+}
+
+@media (max-width: 640px) {
+  .footer__app-strip { padding: var(--space-2xl) 0; }
+  .app-promo {
+    grid-template-columns: 1fr;
+    gap: var(--space-lg);
+    padding: var(--space-xl);
+    text-align: left;
+  }
+  .app-promo__logo { width: 64px; height: 64px; }
+  .app-promo__title { font-size: 1.3rem; }
+  .app-promo__text { margin-bottom: var(--space-lg); }
+  .footer__app-strip .footer__app-badges img { height: 42px; }
+}
+
+
+/* ============================================
+   WHY DHANAM
+   ============================================ */
+.why-section {
+  background-color: var(--cream);
+  padding: var(--space-5xl) 0;
+}
+
+.why-section__head {
+  text-align: center;
+  max-width: 640px;
+  margin: 0 auto var(--space-3xl);
+}
+
+.why-section__label {
+  display: inline-block;
+  font-size: 0.85rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--accent);
+  margin-bottom: var(--space-sm);
+}
+
+.why-section__head .section-title { font-size: 2.25rem; }
+
+.why-section__lead {
+  margin-top: var(--space-md);
+  font-size: 1.02rem;
+  line-height: 1.75;
+  color: var(--gray-600);
+}
+
+.trust-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: var(--space-xl);
+}
+
+.trust-card {
+  position: relative;
+  padding: var(--space-2xl);
+  background: var(--white);
+  border: 1px solid var(--gray-200);
+  border-radius: var(--radius-xl);
+  box-shadow: 0 1px 2px rgba(45, 41, 38, 0.04);
+  overflow: hidden;
+  transition:
+    transform var(--transition-base),
+    box-shadow var(--transition-base),
+    border-color var(--transition-base);
+}
+
+/* Gold rule that wipes across the top on hover. */
+.trust-card::before {
+  content: '';
+  position: absolute;
+  inset: 0 0 auto;
+  height: 3px;
+  background: linear-gradient(90deg, var(--primary) 0%, var(--primary-light) 100%);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform var(--transition-base);
+}
+
+.trust-card:hover {
+  transform: translateY(-4px);
+  border-color: rgba(184, 134, 11, 0.35);
+  box-shadow: 0 12px 32px rgba(45, 41, 38, 0.1);
+}
+
+.trust-card:hover::before { transform: scaleX(1); }
+
+.trust-card__icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 52px;
+  height: 52px;
+  margin-bottom: var(--space-lg);
+  border-radius: var(--radius-lg);
+  background: linear-gradient(135deg, var(--cream) 0%, #F2E1C0 100%);
+  border: 1px solid rgba(184, 134, 11, 0.18);
+  color: var(--primary-dark);
+}
+
+.trust-card__icon svg { width: 24px; height: 24px; }
+
+.trust-card__title {
+  font-size: 1.2rem;
+  color: var(--navy);
+  margin-bottom: var(--space-sm);
+}
+
+.trust-card__text {
+  font-size: 0.95rem;
+  line-height: 1.75;
+  color: var(--gray-600);
+  margin: 0;
+}
+
+@media (max-width: 900px) {
+  .trust-grid { grid-template-columns: 1fr; gap: var(--space-lg); }
+  .trust-card { padding: var(--space-xl); }
+}
+
+/* ============================================
+   NCD / INVESTMENT HIGHLIGHT
+   ============================================ */
+.ncd-section {
+  position: relative;
+  overflow: hidden;
+  padding: var(--space-5xl) 0;
+  background: linear-gradient(135deg, var(--navy) 0%, var(--navy-light) 100%);
+}
+
+.ncd-section__glow {
+  position: absolute;
+  border-radius: 50%;
+  pointer-events: none;
+}
+
+.ncd-section__glow--tr {
+  top: -80px;
+  right: -80px;
+  width: 320px;
+  height: 320px;
+  background: radial-gradient(circle, rgba(184, 134, 11, 0.22), transparent 70%);
+}
+
+.ncd-section__glow--bl {
+  bottom: -60px;
+  left: -60px;
+  width: 240px;
+  height: 240px;
+  background: radial-gradient(circle, rgba(229, 184, 76, 0.15), transparent 70%);
+}
+
+.ncd-section__inner { position: relative; z-index: 1; }
+
+.ncd-grid {
+  display: grid;
+  grid-template-columns: 1.1fr 1fr;
+  gap: var(--space-3xl);
+  align-items: center;
+}
+
+.ncd-copy__label {
+  display: inline-block;
+  font-size: 0.85rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--primary-light);
+  margin-bottom: var(--space-sm);
+}
+
+.ncd-copy__title {
+  font-size: 2.5rem;
+  line-height: 1.2;
+  color: var(--white);
+  margin-bottom: var(--space-lg);
+}
+
+.ncd-copy__title span { color: var(--primary-light); }
+
+.ncd-copy__text {
+  font-size: 1.05rem;
+  line-height: 1.8;
+  color: rgba(255, 255, 255, 0.8);
+  margin-bottom: var(--space-xl);
+}
+
+.ncd-copy__ctas {
+  display: flex;
+  gap: var(--space-md);
+  flex-wrap: wrap;
+}
+
+.ncd-copy__note {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: var(--space-lg);
+  font-size: 0.82rem;
+  color: rgba(255, 255, 255, 0.6);
+}
+
+.ncd-copy__note svg {
+  width: 15px;
+  height: 15px;
+  flex-shrink: 0;
+  color: var(--primary-light);
+}
+
+/* ---- Stat cards ---- */
+.ncd-stats {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: var(--space-md);
+}
+
+.ncd-stat {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 6px;
+  min-height: 128px;
+  padding: var(--space-lg);
+  border-radius: var(--radius-lg);
+  background: rgba(255, 255, 255, 0.07);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  overflow: hidden;
+  transition:
+    background var(--transition-base),
+    border-color var(--transition-base),
+    transform var(--transition-base);
+}
+
+.ncd-stat::before {
+  content: '';
+  position: absolute;
+  inset: 0 auto 0 0;
+  width: 3px;
+  background: linear-gradient(180deg, var(--primary-light), var(--primary));
+  transform: scaleY(0);
+  transform-origin: top;
+  transition: transform var(--transition-base);
+}
+
+.ncd-stat:hover {
+  background: rgba(255, 255, 255, 0.11);
+  border-color: rgba(229, 184, 76, 0.4);
+  transform: translateY(-3px);
+}
+
+.ncd-stat:hover::before { transform: scaleY(1); }
+
+.ncd-stat__value {
+  font-family: var(--font-display);
+  font-size: 2rem;
+  font-weight: 700;
+  line-height: 1.1;
+  color: var(--primary-light);
+}
+
+.ncd-stat__label {
+  font-size: 0.85rem;
+  line-height: 1.5;
+  color: rgba(255, 255, 255, 0.75);
+}
+
+@media (max-width: 900px) {
+  .ncd-stat { min-height: 108px; }
+  .ncd-stat__value { font-size: 1.65rem; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .trust-card,
+  .trust-card::before,
+  .ncd-stat,
+  .ncd-stat::before { transition: none; }
+  .trust-card:hover,
+  .ncd-stat:hover { transform: none; }
+}
+
+
+/* ============================================
+   HOW IT WORKS — INVESTMENT JOURNEY
+   ============================================ */
+.journey-section {
+  background-color: var(--cream);
+  padding: var(--space-5xl) 0;
+}
+
+.journey-head {
+  text-align: center;
+  max-width: 640px;
+  margin: 0 auto var(--space-3xl);
+}
+
+.journey-label {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-sm);
+  font-size: 0.8rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  color: var(--accent);
+  margin-bottom: var(--space-sm);
+}
+
+.journey-label__rule {
+  width: 28px;
+  height: 2px;
+  background: var(--primary);
+  border-radius: 1px;
+}
+
+.journey-head .section-title { font-size: 2.25rem; }
+
+.journey-lead {
+  margin-top: var(--space-md);
+  font-size: 1.02rem;
+  line-height: 1.75;
+  color: var(--gray-600);
+}
+
+/* ---- Steps ---- */
+.journey-steps {
+  list-style: none;
+  margin: 0 0 var(--space-3xl);
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: var(--space-xl);
+}
+
+.journey-step {
+  position: relative;
+  padding: var(--space-xl);
+  background: var(--white);
+  border: 1px solid var(--gray-200);
+  border-radius: var(--radius-xl);
+  box-shadow: 0 1px 2px rgba(45, 41, 38, 0.04);
+  transition:
+    transform var(--transition-base),
+    box-shadow var(--transition-base),
+    border-color var(--transition-base);
+}
+
+.journey-step:hover {
+  transform: translateY(-4px);
+  border-color: rgba(184, 134, 11, 0.35);
+  box-shadow: 0 12px 32px rgba(45, 41, 38, 0.1);
+}
+
+/* Chevron in the gap between cards. Sits on the gap's centre line, and the
+   last one is suppressed so the row doesn't end with a dangling arrow. */
+.journey-step::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  right: calc(var(--space-xl) * -1);
+  width: var(--space-xl);
+  height: 12px;
+  transform: translateY(-50%);
+  background: no-repeat center / 8px 12px
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='8' height='12' viewBox='0 0 8 12' fill='none' stroke='%23BEB5A8' stroke-width='1.8' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M1.5 1.5 6 6l-4.5 4.5'/%3E%3C/svg%3E");
+}
+
+.journey-step:last-child::after { content: none; }
+
+.journey-step__head {
+  display: flex;
+  align-items: center;
+  gap: var(--space-sm);
+  margin-bottom: var(--space-lg);
+}
+
+.journey-step__num {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border-radius: var(--radius-lg);
+  background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%);
+  color: var(--white);
+  font-size: 0.9rem;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+}
+
+.journey-step__icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border-radius: var(--radius-lg);
+  background: var(--gray-100);
+  color: var(--gray-600);
+}
+
+.journey-step__icon svg { width: 20px; height: 20px; }
+
+.journey-step__title {
+  font-size: 1.1rem;
+  line-height: 1.3;
+  color: var(--navy);
+  margin-bottom: var(--space-sm);
+}
+
+.journey-step__text {
+  font-size: 0.9rem;
+  line-height: 1.7;
+  color: var(--gray-600);
+  margin: 0;
+}
+
+.journey-cta { text-align: center; }
+
+/* ---- Responsive ---- */
+@media (max-width: 1024px) {
+  .journey-steps { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  /* Chevrons only make sense across a continuous row. */
+  .journey-step:nth-child(2n)::after { content: none; }
+}
+
+@media (max-width: 640px) {
+  .journey-section { padding: var(--space-4xl) 0; }
+  .journey-steps {
+    grid-template-columns: 1fr;
+    gap: var(--space-md);
+    margin-bottom: var(--space-2xl);
+  }
+  .journey-step { padding: var(--space-lg); }
+  .journey-step::after { content: none; }
+  .journey-head .section-title { font-size: 1.75rem; }
+  .journey-cta .btn { width: 100%; justify-content: center; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .journey-step { transition: none; }
+  .journey-step:hover { transform: none; }
+}
+
+
+/* ============================================
+   FOOTER — regulatory + bottom bar refinements
+   ============================================ */
+.footer__regulatory {
+  /* border-top: 1px solid var(--gray-300); */
+  padding: var(--space-2xl) 0 var(--space-lg);
+}
+
+/* Fine print: smaller and lighter than body copy, with generous leading so a
+   dense pipe-separated run stays scannable across long lines. */
+.footer__regulatory p {
+  font-size: 0.75rem;
+  line-height: 1.9;
+  color: var(--gray-500);
+}
+
+.footer__regulatory a {
+  color: var(--gray-600);
+  text-decoration-color: var(--gray-400);
+}
+
+.footer__regulatory a:hover {
+  color: var(--primary-dark);
+  text-decoration-color: currentColor;
+}
+
+/* .footer__bottom now wraps a .container rather than sitting inside one, so
+   the row has to be laid out on the container — on the outer element flex had
+   a single child and did nothing, which left the links and copyright stacked. */
+.footer__bottom {
+  display: block;
+  padding: 0 0 var(--space-2xl);
+  font-size: 0.8rem;
+}
+
+.footer__bottom > .container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: var(--space-sm) var(--space-xl);
+  padding-top: var(--space-lg);
+  border-top: 1px solid var(--gray-300);
+}
+
+.footer__bottom-links {
+  gap: var(--space-sm) var(--space-lg);
+}
+
+.footer__bottom-links a,
+.footer__bottom p {
+  font-size: 0.8rem;
+  line-height: 1.6;
+  color: var(--gray-500);
+}
+
+.footer__bottom-links a:hover { color: var(--primary-dark); }
+
+@media (max-width: 768px) {
+  .footer__regulatory { padding: var(--space-xl) 0 var(--space-md); }
+  .footer__bottom > .container {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: var(--space-md);
+  }
+}
+
+
+/* ============================================
+   FOOTER — four-column simplification
+   ============================================ */
+/* Brand, two link columns, contact — all siblings in one grid now that the
+   nested .footer__nav wrapper is gone. */
+.footer__cols {
+  grid-template-columns: 1.6fr 1fr 1fr 1.4fr;
+  gap: var(--space-2xl);
+}
+
+.footer__about-text {
+  max-width: 34ch;
+  margin-bottom: var(--space-lg);
+}
+
+.footer__about .footer__social {
+  margin-top: 0;
+  gap: var(--space-sm);
+}
+
+.footer__about .footer__social-label {
+  width: 100%;
+  margin: 0 0 var(--space-xs);
+}
+
+/* Contact rows live in their own column, so they sit tight under the heading
+   rather than being spaced like a standalone block. */
+.footer__col .footer__contact {
+  gap: var(--space-sm);
+}
+
+.footer__col .footer__contact-item {
+  font-size: 0.88rem;
+  padding: 2px 0;
+}
+
+@media (max-width: 1024px) {
+  .footer__cols {
+    grid-template-columns: 1fr 1fr;
+    gap: var(--space-2xl) var(--space-xl);
+  }
+  .footer__about { grid-column: 1 / -1; }
+  .footer__about-text { max-width: 48ch; }
+}
+
+@media (max-width: 640px) {
+  .footer__cols { grid-template-columns: 1fr; gap: var(--space-xl); }
+  .footer__about-text { max-width: none; }
+}
+
+
+/* ============================================
+   BUTTONS — one size and one hover for every variant
+   ============================================ */
+/* Every variant is 48px tall: height comes from min-height with no vertical
+   padding, so --sm, --lg and the base size differ only in horizontal padding
+   and type size. */
+.home-ncd-cta {
+  min-height: 48px;
+  padding: 0 var(--space-xl);
+}
+
+/* ---- Hover: same lift everywhere, variant keeps its own colour change ---- */
+.btn:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-md);
+}
+
+.btn--gold:hover,
+.btn--primary:hover,
+.btn--outline-gold:hover {
+  box-shadow: var(--shadow-gold);
+}
+
+.btn:active {
+  transform: translateY(0);
+  box-shadow: var(--shadow-sm);
+}
+
+.btn:focus-visible {
+  outline: 2px solid var(--primary-dark);
+  outline-offset: 3px;
+}
+
+.btn:disabled:hover,
+.btn[aria-disabled="true"]:hover {
+  transform: none;
+  box-shadow: none;
+}
+
+@media (max-width: 768px) {
+  .btn,
+  .btn--sm,
+  .btn--lg,
+  .hero__actions .btn--lg,
+  .loan-panel__actions .btn {
+    min-height: 48px;
+    padding-top: 0;
+    padding-bottom: 0;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .btn:hover,
+  .btn:active { transform: none; }
+}
+
+
+/* Scroll-reveal: honour a reduced-motion preference. The .fade-up base state
+   is already fully visible, so cancelling the animation costs nothing. */
+@media (prefers-reduced-motion: reduce) {
+  .fade-up.visible,
+  .slide-in-left.visible,
+  .slide-in-right.visible {
+    animation: none;
+  }
+}
+
+
+/* ============================================
+   SCROLL REVEAL — jump-free
+   ============================================ */
+/* The keyframe reveal starts from translateY(15px) while the element is
+   already sitting at 0, so adding .visible snapped it down 15px before easing
+   back — the jump. Here the element starts at the offset instead and
+   transitions to its resting position, so there is nothing to snap from.
+
+   Scoped to html.js-reveal, a class main.js adds at load: without JavaScript
+   the offset state never applies and all content stays visible. */
+html.js-reveal .fade-up,
+html.js-reveal .slide-in-left,
+html.js-reveal .slide-in-right {
+  opacity: 0;
+  transition:
+    opacity 500ms ease-out,
+    transform 500ms cubic-bezier(0.22, 0.61, 0.36, 1);
+}
+
+html.js-reveal .fade-up { transform: translateY(16px); }
+html.js-reveal .slide-in-left { transform: translateX(-24px); }
+html.js-reveal .slide-in-right { transform: translateX(24px); }
+
+html.js-reveal .fade-up.visible,
+html.js-reveal .slide-in-left.visible,
+html.js-reveal .slide-in-right.visible {
+  opacity: 1;
+  transform: none;
+  animation: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html.js-reveal .fade-up,
+  html.js-reveal .slide-in-left,
+  html.js-reveal .slide-in-right {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+}
+
+
+/* ============================================
+   FOOTER — regulatory information
+   ============================================ */
+/* Grouped by what a visitor is actually looking for — who the company is,
+   where it is, and how to complain — rather than presented as a row of
+   compliance fields. Each group is a short readable block, not a data table. */
+.reg-panel {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: var(--space-2xl);
+  padding: var(--space-xl);
+  background: var(--white);
+  border: 1px solid var(--gray-200);
+  border-radius: var(--radius-xl);
+}
+
+.reg-block__title {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-family: var(--font-body);
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: var(--navy);
+  margin-bottom: var(--space-sm);
+}
+
+.reg-block__title svg {
+  width: 17px;
+  height: 17px;
+  flex-shrink: 0;
+  color: var(--primary-dark);
+}
+
+.reg-block__text {
+  font-size: 0.875rem;
+  line-height: 1.75;
+  color: var(--gray-700);
+  margin: 0 0 var(--space-sm);
+}
+
+.reg-block__text:last-child { margin-bottom: 0; }
+
+.reg-block__text strong {
+  color: var(--navy);
+  font-weight: 700;
+}
+
+.reg-block__text--sm {
+  font-size: 0.82rem;
+  color: var(--gray-600);
+}
+
+/* Small caption above each address so the two are told apart at a glance. */
+.reg-block__tag {
+  display: block;
+  font-size: 0.72rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--gray-600);
+  margin-bottom: 3px;
+}
+
+.reg-block__meta {
+  font-size: 0.82rem;
+  line-height: 1.7;
+  color: var(--gray-600);
+  margin: 0;
+}
+
+/* The two things someone with a problem needs — made obvious, not buried. */
+.reg-block__contact {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  margin: 0 0 var(--space-sm);
+}
+
+.reg-block__contact a {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--primary-dark);
+  text-decoration: none;
+}
+
+.reg-block__contact a:hover { text-decoration: underline; }
+
+.reg-block__text a {
+  color: var(--gray-700);
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
+.reg-block__text a:hover { color: var(--primary-dark); }
+
+@media (max-width: 900px) {
+  .reg-panel {
+    grid-template-columns: 1fr;
+    gap: var(--space-xl);
+    padding: var(--space-lg);
+  }
+}

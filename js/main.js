@@ -6,6 +6,15 @@
 (function () {
   'use strict';
 
+  // Set before anything else runs — main.js is a blocking script at the end of
+  // <body>, so this lands ahead of first paint. Deferring it to DOMContentLoaded
+  // would let the page paint at full opacity and then drop to the offset start
+  // state, which reads as a flash.
+  if ('IntersectionObserver' in window &&
+      !(window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches)) {
+    document.documentElement.classList.add('js-reveal');
+  }
+
   /* ============================================
      NAVBAR SCROLL EFFECT
      ============================================ */
@@ -13,13 +22,38 @@
     const nav = document.querySelector('.nav');
     if (!nav) return;
 
-    window.addEventListener('scroll', function () {
-      if (window.scrollY > 20) {
-        nav.classList.add('nav--scrolled');
-      } else {
-        nav.classList.remove('nav--scrolled');
-      }
-    });
+    // Separate thresholds so a scroll that hovers around the trigger point
+    // can't rapidly toggle the class and make the bar flicker.
+    const ENTER_AT = 28;
+    const EXIT_AT = 8;
+
+    let scrolled = false;
+    let ticking = false;
+
+    function update() {
+      ticking = false;
+
+      const y = window.scrollY || window.pageYOffset;
+      const next = scrolled ? y > EXIT_AT : y > ENTER_AT;
+
+      if (next === scrolled) return;
+
+      scrolled = next;
+      nav.classList.toggle('nav--scrolled', scrolled);
+    }
+
+    function onScroll() {
+      // Coalesce bursts of scroll events into one class change per frame.
+      if (ticking) return;
+      ticking = true;
+      window.requestAnimationFrame(update);
+    }
+
+    window.addEventListener('scroll', onScroll, { passive: true });
+
+    // Set the correct state up front — the page can load already scrolled
+    // (anchor link, refresh, or back navigation restoring position).
+    update();
   }
 
   /* ============================================
@@ -307,17 +341,16 @@
      SCROLL ANIMATIONS (Intersection Observer)
      Reliable: content always visible, animations are additive only
      ============================================ */
+  var REVEAL_CLASSES = ['fade-up', 'slide-in-left', 'slide-in-right'];
+
   function initScrollAnimations() {
     var elements = document.querySelectorAll('.fade-up, .slide-in-left, .slide-in-right');
 
     if (!elements.length) return;
 
-    // Content is always visible by default (opacity: 1 in CSS).
-    // We only add subtle entrance animations via the 'visible' class
-    // WITHOUT first hiding content. This prevents blank pages.
-
+    // The offset start state lives behind html.js-reveal, so if this script
+    // never runs the content simply stays visible — no blank page.
     if (!('IntersectionObserver' in window)) {
-      // No IntersectionObserver support - just add visible class to all
       elements.forEach(function (el) { el.classList.add('visible'); });
       return;
     }
@@ -327,17 +360,29 @@
       rootMargin: '0px 0px 50px 0px'
     };
 
+    // Once an element has finished arriving, strip the reveal classes. They
+    // set a 500ms transition on transform, which would otherwise keep
+    // overriding the element's own hover transitions for the rest of the page's
+    // life (the stat and step cards both animate transform on hover).
+    function settle(el) {
+      REVEAL_CLASSES.forEach(function (name) { el.classList.remove(name); });
+      el.classList.remove('visible');
+    }
+
     var visibleCount = 0;
     var observer = new IntersectionObserver(function (entries) {
       entries.forEach(function (entry) {
-        if (entry.isIntersecting) {
-          visibleCount++;
-          var delay = Math.min(visibleCount * 60, 300);
-          setTimeout(function () {
-            entry.target.classList.add('visible');
-          }, delay);
-          observer.unobserve(entry.target);
-        }
+        if (!entry.isIntersecting) return;
+
+        visibleCount++;
+        var delay = Math.min(visibleCount * 60, 300);
+
+        setTimeout(function () {
+          entry.target.classList.add('visible');
+          setTimeout(function () { settle(entry.target); }, 600);
+        }, delay);
+
+        observer.unobserve(entry.target);
       });
     }, observerOptions);
 
@@ -503,6 +548,78 @@
   }
 
   /* ============================================
+     LOAN PRODUCT TABS
+     ============================================ */
+  function initLoanTabs() {
+    const tabList = document.querySelector('.loan-tabs');
+    if (!tabList) return;
+
+    const tabs = Array.prototype.slice.call(tabList.querySelectorAll('.loan-tab'));
+    if (!tabs.length) return;
+
+    // On narrow screens the strip scrolls, so bring the chosen tab fully into
+    // view. Done by hand rather than scrollIntoView(), which would also drag
+    // the page vertically.
+    function revealTab(tab) {
+      // Nothing to reveal when every tab already fits — and writing scrollLeft
+      // on a non-scrolling container can still nudge the layout.
+      if (tabList.scrollWidth <= tabList.clientWidth) return;
+
+      const pad = 16;
+      const tabRect = tab.getBoundingClientRect();
+      const listRect = tabList.getBoundingClientRect();
+
+      if (tabRect.left < listRect.left + pad) {
+        tabList.scrollLeft -= listRect.left + pad - tabRect.left;
+      } else if (tabRect.right > listRect.right - pad) {
+        tabList.scrollLeft += tabRect.right - (listRect.right - pad);
+      }
+    }
+
+    function activate(tab, setFocus) {
+      tabs.forEach(function (t) {
+        const panel = document.getElementById(t.getAttribute('aria-controls'));
+        const selected = t === tab;
+
+        t.classList.toggle('is-active', selected);
+        t.setAttribute('aria-selected', selected ? 'true' : 'false');
+        t.tabIndex = selected ? 0 : -1;
+
+        if (panel) {
+          panel.classList.toggle('is-active', selected);
+          panel.hidden = !selected;
+        }
+      });
+
+      revealTab(tab);
+
+      // preventScroll stops the browser doing its own jump before revealTab.
+      if (setFocus) tab.focus({ preventScroll: true });
+    }
+
+    tabs.forEach(function (tab) {
+      tab.addEventListener('click', function () {
+        activate(tab, false);
+      });
+
+      tab.addEventListener('keydown', function (e) {
+        const index = tabs.indexOf(tab);
+        let next = null;
+
+        if (e.key === 'ArrowRight') next = tabs[(index + 1) % tabs.length];
+        else if (e.key === 'ArrowLeft') next = tabs[(index - 1 + tabs.length) % tabs.length];
+        else if (e.key === 'Home') next = tabs[0];
+        else if (e.key === 'End') next = tabs[tabs.length - 1];
+
+        if (next) {
+          e.preventDefault();
+          activate(next, true);
+        }
+      });
+    });
+  }
+
+  /* ============================================
      INITIALIZATION
      Run all initialization functions
      ============================================ */
@@ -521,6 +638,7 @@
         initCounterAnimation();
         initActiveNavLink();
         initBranchSearch();
+        initLoanTabs();
         initSmoothScroll();
       });
     } else {
@@ -535,6 +653,7 @@
       initCounterAnimation();
       initActiveNavLink();
       initBranchSearch();
+      initLoanTabs();
       initSmoothScroll();
     }
   }
