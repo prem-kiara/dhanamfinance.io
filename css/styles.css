@@ -3335,16 +3335,23 @@ section.hero--dark {
 
 .loan-panel__art {
   grid-area: art;
-  width: 128px;
-  height: 128px;
+  width: 208px;
+  height: 146px;
   flex-shrink: 0;
-  border-radius: 50%;
+  border-radius: var(--radius-lg);
+  overflow: hidden;
   display: flex;
   align-items: center;
   justify-content: center;
   background: linear-gradient(135deg, var(--cream) 0%, #F2E1C0 100%);
   border: 1px solid rgba(184, 134, 11, 0.18);
   color: var(--primary-dark);
+}
+.loan-panel__art img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
 }
 .loan-panel__art svg {
   width: 58px;
@@ -3433,7 +3440,7 @@ section.hero--dark {
     text-align: left;
   }
 
-  .loan-panel__art { width: 76px; height: 76px; }
+  .loan-panel__art { width: 116px; height: 84px; }
   .loan-panel__art svg { width: 36px; height: 36px; }
   .loan-panel__emi { font-size: 0.82rem; }
   .loan-panel__title { font-size: 1.3rem; }
@@ -3489,7 +3496,7 @@ section.hero--dark {
   }
   .loan-tab__icon { width: 24px; height: 24px; }
   .loan-panel { column-gap: var(--space-md); }
-  .loan-panel__art { width: 62px; height: 62px; }
+  .loan-panel__art { width: 92px; height: 68px; }
   .loan-panel__art svg { width: 30px; height: 30px; }
   .loan-panel__title { font-size: 1.15rem; }
 }
