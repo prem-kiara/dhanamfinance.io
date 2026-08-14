@@ -453,13 +453,27 @@ section:not(.hero):not(.trust-bar) {
   margin-top: var(--space-md);
 }
 
-.nav__dropdown:hover .nav__dropdown-menu {
+.nav__dropdown:hover .nav__dropdown-menu,
+.nav__dropdown:focus-within .nav__dropdown-menu {
   opacity: 1;
   visibility: visible;
   transform: translateY(0);
 }
 
+/* Bridges the gap between the trigger and the panel so the menu does not
+   close while the pointer travels down to it. */
+.nav__dropdown-menu::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: calc(var(--space-md) * -1);
+  height: var(--space-md);
+}
+
 .nav__dropdown-item {
+  display: block;
+  white-space: nowrap;
   padding: var(--space-md) var(--space-lg);
   color: var(--gray-700);
   transition: all var(--transition-fast);
