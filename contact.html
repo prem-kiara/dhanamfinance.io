@@ -43,7 +43,7 @@
     /* Tablet */
     @media (max-width: 1024px) {
       #contact-cards { grid-template-columns: repeat(2, 1fr) !important; }
-      #apply-row1, #apply-row2 { grid-template-columns: 1fr 1fr !important; }
+      #apply-row1, #apply-row2, #apply-row3 { grid-template-columns: 1fr 1fr !important; }
       #branch-grid { grid-template-columns: repeat(2, 1fr) !important; }
       #enquiry-grid { grid-template-columns: 1fr !important; }
       #apply-header-contacts { display: none !important; }
@@ -51,7 +51,7 @@
     /* Mobile */
     @media (max-width: 768px) {
       #contact-cards { grid-template-columns: 1fr 1fr !important; }
-      #apply-row1, #apply-row2 { grid-template-columns: 1fr !important; gap: var(--space-md) !important; }
+      #apply-row1, #apply-row2, #apply-row3 { grid-template-columns: 1fr !important; gap: var(--space-md) !important; }
       #apply-form-card { padding: var(--space-xl) var(--space-lg) !important; }
       #apply-submit-row { flex-direction: column !important; align-items: stretch !important; }
       #apply-submit-row .btn { width: 100%; justify-content: center; }
@@ -62,7 +62,7 @@
     /* Small mobile */
     @media (max-width: 480px) {
       #contact-cards { grid-template-columns: 1fr !important; }
-      #apply-row1, #apply-row2 { grid-template-columns: 1fr !important; }
+      #apply-row1, #apply-row2, #apply-row3 { grid-template-columns: 1fr !important; }
       #apply-form-card { padding: var(--space-lg) var(--space-md) !important; }
       #branch-grid { grid-template-columns: 1fr !important; }
       #zone-tabs { gap: var(--space-xs) !important; }
@@ -241,6 +241,7 @@
                   <option value="mortgage-loan">Loan Against Property (LAP)</option>
                   <option value="sme-loan">SME / Business Loan</option>
                   <option value="ncd">NCD Investment Enquiry</option>
+                  <option value="private-lockers">Private Lockers</option>
                   <option value="other">Other</option>
                 </select>
               </div>
@@ -253,6 +254,21 @@
                 <input type="text" id="apply-city" name="city" placeholder="e.g. Coimbatore, Salem" required style="width:100%;padding:12px 16px;border:1px solid var(--gray-200);border-radius:var(--radius-md);font-size:0.95rem;">
               </div>
             </div>
+            <!-- Row 3: locker size (optional — only relevant to Private Lockers enquiries) -->
+            <div id="apply-row3" style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:var(--space-lg) var(--space-2xl);margin-bottom:var(--space-xl);">
+              <div class="form-group" style="margin-bottom:0;">
+                <label for="apply-locker-size" style="font-size:0.85rem;font-weight:600;color:var(--navy);margin-bottom:var(--space-xs);display:block;">Locker Size</label>
+                <select id="apply-locker-size" name="locker_size" style="width:100%;padding:12px 16px;border:1px solid var(--gray-200);border-radius:var(--radius-md);font-size:0.95rem;background:white;">
+                  <option value="">Select locker size (optional)</option>
+                  <option value="small">Small</option>
+                  <option value="medium">Medium</option>
+                  <option value="large">Large</option>
+                  <option value="extra-large">Extra Large</option>
+                  <option value="not-sure">Not sure &mdash; please advise</option>
+                </select>
+              </div>
+            </div>
+
             <!-- Row 3: full-width message + submit -->
             <div style="margin-bottom:var(--space-lg);">
               <label for="apply-message" style="font-size:0.85rem;font-weight:600;color:var(--navy);margin-bottom:var(--space-xs);display:block;">Additional Details</label>
