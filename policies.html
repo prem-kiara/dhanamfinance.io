@@ -1742,6 +1742,21 @@
         closePolicyModal();
       }
     });
+
+    /* Footers across the site link to policies.html#terms, #privacy and #grievance.
+       Without this the link only lands on the policy grid and the reader has to hunt
+       for the card, so open the matching policy straight away. */
+    const POLICY_HASH_ALIASES = { grievance: 'grievance-policy' };
+
+    function openPolicyFromHash() {
+      const raw = decodeURIComponent(location.hash.replace('#', '')).trim();
+      if (!raw) return;
+      const id = POLICY_HASH_ALIASES[raw] || raw;
+      if (policyContent[id]) openPolicyModal(id);
+    }
+
+    window.addEventListener('hashchange', openPolicyFromHash);
+    openPolicyFromHash();
   </script>
 </body>
 </html>
