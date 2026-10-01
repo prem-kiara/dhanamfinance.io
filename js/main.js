@@ -449,13 +449,28 @@
   /* ============================================
      ACTIVE NAV LINK DETECTION
      ============================================ */
+  // Pages reachable only from a dropdown or a product card have no nav entry of
+  // their own, so without this they would clear every highlight and leave the
+  // bar looking as though no section is open.
+  const NAV_SECTION = {
+    'advisory.html': 'directors.html',
+    'vision-mission.html': 'about.html',
+    'schedule-of-charges.html': 'policies.html',
+    'privacy-policy.html': 'policies.html',
+    'gold-loan.html': 'index.html#services',
+    'mortgage-loan.html': 'index.html#services',
+    'sme-loan.html': 'index.html#services',
+    'ncd.html': 'index.html#services'
+  };
+
   function initActiveNavLink() {
     const currentPage = window.location.pathname.split('/').pop() || 'index.html';
+    const target = NAV_SECTION[currentPage] || currentPage;
     const navLinks = document.querySelectorAll('.nav__link');
 
     navLinks.forEach(function (link) {
       const href = link.getAttribute('href');
-      if (href === currentPage || href === '/' && currentPage === '') {
+      if (href === target || href === '/' && currentPage === '') {
         link.classList.add('nav__link--active');
       } else {
         link.classList.remove('nav__link--active');
