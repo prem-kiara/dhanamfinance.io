@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://www.dhanamfinance.com/sitemap.xml
+Sitemap: https://dhanamfinance.com/sitemap.xml
