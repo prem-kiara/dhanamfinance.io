@@ -1,4 +1,8 @@
 User-agent: *
 Allow: /
 
+# Layout fragment, not a page: it has no <head>, so a noindex meta
+# cannot be added to it. Keep it out of the index here instead.
+Disallow: /rbi_strip.html
+
 Sitemap: https://dhanamfinance.com/sitemap.xml
