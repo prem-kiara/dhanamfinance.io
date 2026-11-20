@@ -457,6 +457,14 @@
     'vision-mission.html': 'about.html',
     'schedule-of-charges.html': 'policies.html',
     'privacy-policy.html': 'policies.html',
+    // These are served extensionless (/privacy, /terms, /account-deletion), so
+    // pathname.pop() yields no ".html" -- both spellings have to be mapped.
+    'privacy': 'policies.html',
+    'privacy.html': 'policies.html',
+    'terms': 'policies.html',
+    'terms.html': 'policies.html',
+    'account-deletion': 'policies.html',
+    'account-deletion.html': 'policies.html',
     'gold-loan.html': 'index.html#services',
     'mortgage-loan.html': 'index.html#services',
     'sme-loan.html': 'index.html#services',
