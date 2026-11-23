@@ -1,0 +1,141 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Get the Dhanam One app</title>
+<meta name="description" content="Download Dhanam One — gold loan enquiries, repayments, NCDs, Gold Savings and lockers from Dhanam Investment and Finance, an RBI-registered NBFC.">
+<meta name="robots" content="noindex">
+<link rel="canonical" href="https://dhanamfinance.com/app">
+<style>
+  :root{
+    --cream:#EDE3DD; --ink:#0A0A0A; --muted:#666; --gold:#C9962A; --line:rgba(10,10,10,.12);
+  }
+  *{box-sizing:border-box}
+  html,body{margin:0;padding:0}
+  body{
+    background:var(--cream); color:var(--ink);
+    font:16px/1.55 -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+    min-height:100dvh; display:flex; align-items:center; justify-content:center; padding:24px;
+  }
+  .card{width:100%; max-width:420px; text-align:center}
+  h1{font-family:Georgia,"Times New Roman",serif; font-weight:700; font-size:26px; letter-spacing:-.2px; margin:0 0 6px}
+  .sub{color:var(--muted); font-size:15px; margin:0 0 26px}
+  .rule{height:2px; width:44px; background:var(--gold); border-radius:2px; margin:0 auto 22px}
+  a.btn{
+    display:block; padding:15px 18px; margin:0 0 10px; border-radius:12px;
+    background:var(--ink); color:#fff; text-decoration:none; font-weight:600; font-size:16px;
+  }
+  a.btn.alt{background:transparent; color:var(--ink); border:1px solid var(--line); font-weight:500}
+  .pending{
+    padding:14px 16px; margin:0 0 10px; border-radius:12px;
+    border:1px dashed var(--line); color:var(--muted); font-size:15px;
+  }
+  .foot{margin:22px 0 0; font-size:13px; color:var(--muted)}
+  .foot a{color:var(--muted)}
+  /* Before JS decides, show only the holding line — a phone redirects in a blink,
+     so the chooser below must not flash up first. */
+  .resolving .chooser{display:none}
+  .ready .holding{display:none}
+  .holding{color:var(--muted); font-size:15px}
+  @media (prefers-color-scheme:dark){
+    :root{--cream:#17120F; --ink:#F4EFEA; --muted:#A49C94; --line:rgba(244,239,234,.16)}
+    a.btn{background:var(--gold); color:#17120F}
+  }
+</style>
+</head>
+<body class="resolving">
+<main class="card">
+  <h1>Dhanam One</h1>
+  <p class="sub">Dhanam Investment and Finance &middot; RBI-registered NBFC</p>
+  <div class="rule"></div>
+
+  <p class="holding">Opening your app store&hellip;</p>
+
+  <div class="chooser">
+    <a class="btn" id="play" href="https://play.google.com/store/apps/details?id=com.dhanam.one">Get it on Google Play</a>
+    <a class="btn alt" id="apple" href="#" hidden>Download on the App Store</a>
+    <div class="pending" id="applePending">The iPhone app is coming soon to the App Store.</div>
+    <p class="foot">
+      Scan this page on your phone to install.<br>
+      <a href="https://dhanamfinance.com">dhanamfinance.com</a> &middot;
+      <a href="tel:18002025180">1800 202 5180</a>
+    </p>
+  </div>
+
+  <noscript>
+    <a class="btn" href="https://play.google.com/store/apps/details?id=com.dhanam.one">Get it on Google Play</a>
+    <p class="foot">On an iPhone? The App Store listing is coming soon.</p>
+  </noscript>
+</main>
+
+<script>
+(function () {
+  // ── The one line to edit when Apple approves the app ──────────────
+  // App Store Connect -> your app -> App Information -> General Information
+  // -> "Apple ID" (a 9-10 digit number). Put it here, e.g. "6745123456".
+  // Until it is set, an iPhone falls back to asking Apple for it (below), so
+  // this page starts working on its own the day the app goes live.
+  var APPLE_APP_ID = "";
+
+  var BUNDLE_ID = "com.dhanam.one";
+  var PLAY_URL  = "https://play.google.com/store/apps/details?id=" + BUNDLE_ID;
+  var APPLE_URL = APPLE_APP_ID ? "https://apps.apple.com/app/id" + APPLE_APP_ID : "";
+
+  var ua = navigator.userAgent || "";
+  // iPadOS 13+ reports itself as a Mac, so a touch count is the only way to
+  // tell an iPad from a desktop Safari.
+  var isIOS = /iPhone|iPad|iPod/i.test(ua) ||
+              (/Macintosh/.test(ua) && (navigator.maxTouchPoints || 0) > 1);
+  var isAndroid = /Android/i.test(ua);
+
+  // replace(), not assign(): the back button should leave the store, not bounce
+  // the person through this redirect again.
+  function go(url) { location.replace(url); }
+
+  function showChooser() {
+    if (APPLE_URL) {
+      var a = document.getElementById("apple");
+      a.href = APPLE_URL; a.hidden = false;
+      document.getElementById("applePending").hidden = true;
+    }
+    document.body.className = "ready";
+  }
+
+  if (isAndroid) { go(PLAY_URL); return; }
+
+  if (isIOS) {
+    if (APPLE_URL) { go(APPLE_URL); return; }
+    // No id set yet: ask Apple. An app still in review is not in the public
+    // catalogue, so this answers nothing until the day it is published — and
+    // then it answers correctly with no edit to this file.
+    var done = false;
+    var finish = function (url) {
+      if (done) return; done = true;
+      if (url) { go(url); } else { showChooser(); }
+    };
+    setTimeout(function () { finish(null); }, 2500);
+    try {
+      var x = new XMLHttpRequest();
+      x.open("GET", "https://itunes.apple.com/lookup?bundleId=" + BUNDLE_ID, true);
+      x.onload = function () {
+        var url = null;
+        try {
+          var r = JSON.parse(x.responseText);
+          if (r && r.resultCount > 0 && r.results[0].trackViewUrl) url = r.results[0].trackViewUrl;
+        } catch (e) { /* fall through to the chooser */ }
+        finish(url);
+      };
+      x.onerror = function () { finish(null); };
+      x.send();
+    } catch (e) { finish(null); }
+    return;
+  }
+
+  // Anything else — a laptop, a desktop, an unknown device: never force a
+  // store, just offer the choice.
+  showChooser();
+})();
+</script>
+</body>
+</html>
