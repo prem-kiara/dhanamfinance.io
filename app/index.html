@@ -27,6 +27,10 @@
     background:var(--ink); color:#fff; text-decoration:none; font-weight:600; font-size:16px;
   }
   a.btn.alt{background:transparent; color:var(--ink); border:1px solid var(--line); font-weight:500}
+  /* a.btn sets display:block, which outranks the UA stylesheet's
+     [hidden]{display:none} -- so without this the App Store button renders
+     even while hidden, as a dead link to "#". */
+  a.btn[hidden]{display:none}
   .pending{
     padding:14px 16px; margin:0 0 10px; border-radius:12px;
     border:1px dashed var(--line); color:var(--muted); font-size:15px;
